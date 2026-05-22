@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { MotionShell } from "@/components/motion-shell";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+import "./site-overrides.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
