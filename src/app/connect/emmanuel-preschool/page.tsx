@@ -4,6 +4,7 @@ import { ArrowRightIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import preschoolCrafts from "../../../../Emmanuel Preschool/04eeb886-3cfe-4ddc-9898-06c1d298d88d.png";
 import preschoolClassroom from "../../../../Emmanuel Preschool/93cd6249-c99d-4f38-979c-a8eb4951ac15.jpg";
 import preschoolLogo from "../../../../Emmanuel Preschool/c3b52863-0605-4eab-bad9-07d9bf181c66.png";
@@ -100,7 +101,7 @@ export default function EmmanuelPreschoolPage() {
           <div className="page-hero__countdown page-hero__countdown--contact">
             <div className="page-hero__countdown-photo">
               <Image
-                src="/staff/Rachel-Bishop-Kid-s-Pastor-Preschool-Director.png"
+                src={withBasePath("/staff/Rachel-Bishop-Kid-s-Pastor-Preschool-Director.png")}
                 alt="Rachel Bishop"
                 fill
                 sizes="56px"

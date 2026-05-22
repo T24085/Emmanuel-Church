@@ -4,6 +4,7 @@ import { ArrowRightIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import extremeEncountersCabin from "../../../../Momentum Youth/extreme-encounters-cabin.jpg";
 import extremeEncountersGroup from "../../../../Momentum Youth/extreme-encounters-group.jpeg";
 import extremeEncountersReading from "../../../../Momentum Youth/extreme-encounters-reading.jpeg";
@@ -111,7 +112,7 @@ export default function MomentumYouthPage() {
           <div className="page-hero__countdown page-hero__countdown--contact">
             <div className="page-hero__countdown-photo">
               <Image
-                src="/staff/Shawn-Ammons-Youth-Pastor.png"
+                src={withBasePath("/staff/Shawn-Ammons-Youth-Pastor.png")}
                 alt="Pastor Shawn Ammons"
                 fill
                 sizes="56px"
@@ -204,7 +205,7 @@ export default function MomentumYouthPage() {
             <article key={image.alt} className={`surface-card momentum-gallery__item ${image.className}`}>
               <div className="momentum-gallery__media">
                 <Image
-                  src={image.src}
+                  src={withBasePath(image.src)}
                   alt={image.alt}
                   fill
                   sizes="(max-width: 1080px) 100vw, 50vw"

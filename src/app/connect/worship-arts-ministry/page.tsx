@@ -12,6 +12,7 @@ import {
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 
 const marcName = "Pastor Marc Riegel";
 const marcPhone = "(785) 263-3342";
@@ -159,7 +160,7 @@ export default function WorshipArtsMinistryPage() {
                 }}
               >
                 <Image
-                  src="/staff/Laura-Ediger-Worship-Arts-Pastor.png"
+                  src={withBasePath("/staff/Laura-Ediger-Worship-Arts-Pastor.png")}
                   alt="Laura Ediger, Worship Arts Pastor"
                   fill
                   sizes="(max-width: 1080px) 100vw, 40vw"

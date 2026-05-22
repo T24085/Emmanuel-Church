@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "@/lib/site-path";
 
-const heroVideos = ["/videos/hero-1-1.mp4?v=3", "/videos/hero-2-2.mp4?v=3"];
+const heroVideos = [withBasePath("/videos/hero-1-1.mp4?v=3"), withBasePath("/videos/hero-2-2.mp4?v=3")];
 const crossfadeMs = 850;
 
 export function HeroVideo() {

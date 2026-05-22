@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { staff } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import { MailIcon, ArrowRightIcon } from "./icons";
 
 export function StaffGrid({ limit }: { limit?: number }) {
@@ -12,7 +13,7 @@ export function StaffGrid({ limit }: { limit?: number }) {
         <article key={person.name} className="staff-card">
           <div className="staff-card__media">
             <Image
-              src={person.image}
+              src={withBasePath(person.image)}
               alt={person.name}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 300px"

@@ -2,6 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
+import { withBasePath } from "@/lib/site-path";
 
 type ValueFlipCardProps = {
   title: string;
@@ -38,7 +39,7 @@ export function ValueFlipCard({
             {frontImage ? (
               <span className="value-card__visual">
                 <Image
-                  src={frontImage}
+                  src={typeof frontImage === "string" ? withBasePath(frontImage) : frontImage}
                   alt={frontImageAlt ?? title}
                   fill
                   sizes="(max-width: 1080px) 100vw, 25vw"

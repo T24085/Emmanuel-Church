@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ArrowRightIcon } from "@/components/icons";
+import { withBasePath } from "@/lib/site-path";
 
 const avenueCards = [
   {
@@ -123,7 +124,7 @@ export default function AdultDiscipleshipGroupsPage() {
 
           <figure className="adult-discipleship-intro__media">
             <Image
-              src="/images/adult-discipleship/intro-hero.jpg"
+              src={withBasePath("/images/adult-discipleship/intro-hero.jpg")}
               alt="Adult discipleship groups at Emmanuel Church"
               fill
               sizes="(max-width: 900px) 100vw, 38vw"
@@ -145,7 +146,7 @@ export default function AdultDiscipleshipGroupsPage() {
             <article key={card.title} className="adult-discipleship-avenue">
               <div className="adult-discipleship-avenue__media">
                 <Image
-                  src={card.image}
+                  src={withBasePath(card.image)}
                   alt={card.imageAlt}
                   fill
                   sizes="(max-width: 900px) 100vw, 33vw"
@@ -220,7 +221,7 @@ export default function AdultDiscipleshipGroupsPage() {
             <article key={group.title} className="adult-discipleship-card">
               <div className="adult-discipleship-card__media">
                 <Image
-                  src={group.image}
+                  src={withBasePath(group.image)}
                   alt={group.title}
                   fill
                   sizes="(max-width: 900px) 100vw, 25vw"

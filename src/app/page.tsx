@@ -12,6 +12,7 @@ import { HeroVideo } from "@/components/hero-video";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { StaffGrid } from "@/components/staff-grid";
 import { ValueFlipCard } from "@/components/value-flip-card";
+import { withBasePath } from "@/lib/site-path";
 import {
   featureCards,
   ministryLinks,
@@ -126,7 +127,7 @@ export default function HomePage() {
         <div className="split-grid">
           <article className="split-panel split-panel--image">
             <Image
-              src="/images/bottom-banner.png"
+              src={withBasePath("/images/bottom-banner.png")}
               alt="Emmanuel Church exterior"
               fill
               sizes="(max-width: 1080px) 100vw, 60vw"
@@ -209,7 +210,7 @@ export default function HomePage() {
             </div>
             <div className="inline-banner__media">
               <Image
-                src="/images/hero-cross-logo.png"
+                src={withBasePath("/images/hero-cross-logo.png")}
                 alt=""
                 fill
                 sizes="(max-width: 1080px) 100vw, 40vw"

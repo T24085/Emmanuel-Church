@@ -4,6 +4,7 @@ import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 
 export default function OnlineGivingPage() {
   return (
@@ -35,7 +36,7 @@ export default function OnlineGivingPage() {
         <div className="giving-showcase">
           <figure className="giving-showcase__media">
             <Image
-              src="/images/giving/giving-jesus.png"
+              src={withBasePath("/images/giving/giving-jesus.png")}
               alt="Jesus giving bread to a child"
               fill
               sizes="(max-width: 1080px) 100vw, 58vw"

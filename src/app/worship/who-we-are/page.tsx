@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ValueFlipCard } from "@/components/value-flip-card";
+import { withBasePath } from "@/lib/site-path";
 
 import kidsReading from "../../../../Who we are - ABOUT/4d08689b-f470-40e1-87e6-796b5977e046.jpg";
 import familyFromSide from "../../../../Who we are - ABOUT/96f1f8f7-05f7-497e-9979-d244d6a342b3.jpg";
@@ -70,7 +71,7 @@ export default async function WhoWeArePage() {
           <figure className="who-we-are-mission__graphic surface-card">
             <div className="who-we-are-mission__media">
               <Image
-                src="/who-we-are/mission-graphic.jpg"
+                src={withBasePath("/who-we-are/mission-graphic.jpg")}
                 alt="Love, grace, worship, and truth graphic for Emmanuel Church"
                 fill
                 sizes="(max-width: 1080px) 100vw, 34vw"
@@ -91,7 +92,7 @@ export default async function WhoWeArePage() {
           <figure className="who-we-are-showcase__feature surface-card">
             <div className="who-we-are-showcase__media who-we-are-showcase__media--feature">
               <Image
-                src="/who-we-are/truth.png"
+                src={withBasePath("/who-we-are/truth.png")}
                 alt="Truth logo for Emmanuel Church"
                 fill
                 sizes="(max-width: 1080px) 100vw, 42vw"
