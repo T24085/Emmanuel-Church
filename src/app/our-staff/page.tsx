@@ -14,8 +14,8 @@ export default function OurStaffPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Directory"
-          title="Every staff portrait, preserved and named."
-          description="The directory keeps the people already serving Emmanuel Church front and center."
+          title="Meet the people serving Emmanuel Church."
+          description="Browse the staff directory by portrait, name, and role to find the right person quickly."
         />
         <StaffGrid />
       </SectionShell>
