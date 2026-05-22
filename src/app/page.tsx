@@ -94,28 +94,30 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-
-          <div className="hero__card-row" aria-label="Core priorities">
-            {featureCards.map((card, index) => {
-              const Icon = iconMap[index] ?? ArrowRightIcon;
-              return (
-                <article key={card.title} className="feature-card">
-                  <div className="feature-card__icon" aria-hidden="true">
-                    <Icon className="icon" />
-                  </div>
-                  <div>
-                    <h3>{card.title}</h3>
-                    <p>{card.text}</p>
-                  </div>
-                  <Link href={card.href} className="feature-card__link">
-                    Learn more <ArrowRightIcon className="icon icon--xs" />
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
         </div>
       </section>
+
+      <SectionShell className="section-shell--feature-rail">
+        <div className="hero__card-row" aria-label="Core priorities">
+          {featureCards.map((card, index) => {
+            const Icon = iconMap[index] ?? ArrowRightIcon;
+            return (
+              <article key={card.title} className="feature-card">
+                <div className="feature-card__icon" aria-hidden="true">
+                  <Icon className="icon" />
+                </div>
+                <div>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </div>
+                <Link href={card.href} className="feature-card__link">
+                  Learn more <ArrowRightIcon className="icon icon--xs" />
+                </Link>
+              </article>
+            );
+          })}
+        </div>
+      </SectionShell>
 
       <SectionShell>
         <SectionHeading
@@ -240,14 +242,14 @@ export default function HomePage() {
         />
         <div className="resource-grid">
           {ministryLinks.slice(0, 3).map((item) => (
-            <article key={item.href} className="resource-card">
+            <Link key={item.href} href={item.href} className="resource-card resource-card--linked">
               <p className="eyebrow eyebrow--small">Connect</p>
               <h3>{item.label}</h3>
               <p>{item.description}</p>
-              <Link href={item.href} className="resource-card__action">
+              <span className="resource-card__action resource-card__action--button">
                 Open page <ArrowRightIcon className="icon icon--xs" />
-              </Link>
-            </article>
+              </span>
+            </Link>
           ))}
         </div>
       </SectionShell>
