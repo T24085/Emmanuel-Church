@@ -2041,6 +2041,85 @@ html.motion-ready .our-staff-page .staff-card {
   align-content: start;
 }
 
+.page-hero--contact {
+  padding-bottom: 2.4rem;
+}
+
+.page-hero--contact .page-hero__inner {
+  gap: 0;
+}
+
+.page-hero__inner--contact {
+  align-content: stretch;
+}
+
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--radius-xl) + 6px);
+  min-height: clamp(30rem, 58vw, 41rem);
+  box-shadow: var(--shadow);
+  background: #1b2834;
+}
+
+.contact-hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.contact-hero__image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.contact-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 18, 25, 0.8) 0%, rgba(12, 18, 25, 0.52) 36%, rgba(12, 18, 25, 0.22) 66%, rgba(12, 18, 25, 0.24) 100%),
+    linear-gradient(180deg, rgba(255, 250, 243, 0.08), rgba(12, 18, 25, 0.16));
+}
+
+.contact-hero__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+  min-height: inherit;
+  max-width: 42rem;
+  padding: clamp(1.5rem, 4vw, 3.2rem);
+  color: #fff;
+}
+
+.contact-hero__content .eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact-hero__content h1 {
+  margin-bottom: 0;
+  max-width: 10ch;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.contact-hero__content p {
+  max-width: 34rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.page-hero__actions--contact {
+  margin-top: 0.55rem;
+}
+
+.page-hero__actions--contact .page-hero__action {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.32);
+}
+
+.page-hero__actions--contact .page-hero__action:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.62);
+}
+
 .preschool-overview__copy {
   display: grid;
   gap: 1rem;
@@ -3099,6 +3178,15 @@ html.motion-ready .our-staff-page .staff-card {
 
   .contact-map__media {
     min-height: 320px;
+  }
+
+  .contact-hero {
+    min-height: 28rem;
+  }
+
+  .contact-hero__content {
+    max-width: 34rem;
+    padding: 1.5rem;
   }
 
   .preschool-gallery__item--lead {

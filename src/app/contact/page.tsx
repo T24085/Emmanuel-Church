@@ -1,18 +1,49 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, MailIcon, LocationIcon, PhoneIcon } from "@/components/icons";
-import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { contactEmails, externalLinks, site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Contact"
-        title="Start here if you're new."
-        description="Use this page for the address, phone number, map, emails, and the public links the church currently shares."
-        action={{ label: "Locate us", href: site.mapHref, external: true }}
-      />
+      <section className="page-hero page-hero--contact">
+        <div className="site-shell page-hero__inner page-hero__inner--contact">
+          <div className="contact-hero" aria-label="Emmanuel Church building banner photo">
+            <div className="contact-hero__media">
+              <Image
+                src={withBasePath("/images/building-banner.jpg")}
+                alt="Emmanuel Church building banner across the front lawn"
+                fill
+                priority
+                sizes="100vw"
+                className="contact-hero__image cover-image"
+              />
+              <div className="contact-hero__overlay" />
+            </div>
+            <div className="contact-hero__content">
+              <p className="eyebrow">Contact</p>
+              <h1>Start here if you're new.</h1>
+              <p>
+                Use this page for the address, phone number, map, emails, and the public links the
+                church currently shares.
+              </p>
+              <div className="page-hero__actions page-hero__actions--contact">
+                <a
+                  className="section-heading__action page-hero__action"
+                  href={site.mapHref}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>Locate us</span>
+                  <ArrowRightIcon className="icon icon--sm" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <SectionShell>
         <SectionHeading
