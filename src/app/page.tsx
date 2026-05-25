@@ -129,7 +129,7 @@ export default function HomePage() {
         <div className="split-grid">
           <article className="split-panel split-panel--image">
             <Image
-              src={withBasePath("/images/bottom-banner.png")}
+              src={withBasePath("/images/building-banner.jpg")}
               alt="Emmanuel Church exterior"
               fill
               sizes="(max-width: 1080px) 100vw, 60vw"
