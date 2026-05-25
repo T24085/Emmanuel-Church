@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
 import { MediaArchiveBrowser } from "@/components/media-archive-browser";
@@ -10,6 +11,7 @@ import {
   mediaArchiveRevalidateSeconds,
   type MediaArchivePage,
 } from "@/lib/media-archive";
+import { withBasePath } from "@/lib/site-path";
 import { sermonArchive, site } from "@/data/site";
 
 export const revalidate = 21600;
@@ -131,8 +133,21 @@ export default async function SermonsPage() {
         eyebrow="Resources"
         title="Sermons"
         description="Watch Emmanuel Church's current video archive inline, with the older teaching series kept below."
+        mediaLayout="full"
         action={{ label: "Watch the latest message", href: site.onlineChurch, external: true }}
         actionDetail={<NextSermonCountdown />}
+        media={
+          <div className="page-hero__media-frame">
+            <Image
+              src={withBasePath("/images/sermon-on-the-mount-banner.png")}
+              alt="The Sermon on the Mount illustration"
+              fill
+              priority
+              sizes="(max-width: 1080px) 100vw, 100vw"
+              className="page-hero__media-image"
+            />
+          </div>
+        }
       />
 
       <div className="sermons-static">

@@ -109,6 +109,7 @@ function formatCountdown(now: Date, target: Date) {
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
   if (days > 0) {
     return `${days}d ${hours}h ${minutes}m`;
@@ -122,21 +123,32 @@ function formatCountdown(now: Date, target: Date) {
     return `${minutes}m`;
   }
 
-  return "under a minute";
+  return `${seconds}s`;
+}
+
+function getCountdownProgress(now: Date, target: Date) {
+  const current = now.getTime();
+  const due = target.getTime();
+  const total = Math.max(1, due - current);
+  const remaining = Math.max(0, due - current);
+
+  return Math.min(100, Math.max(0, ((total - remaining) / total) * 100));
 }
 
 export function NextSermonCountdown() {
   const [countdown, setCountdown] = useState("checking service time");
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const update = () => {
       const now = new Date();
       const nextService = getNextServiceStart(now);
       setCountdown(formatCountdown(now, nextService));
+      setProgress(getCountdownProgress(now, nextService));
     };
 
     update();
-    const timer = window.setInterval(update, 60_000);
+    const timer = window.setInterval(update, 1_000);
 
     return () => {
       window.clearInterval(timer);
@@ -148,6 +160,9 @@ export function NextSermonCountdown() {
       <span className="page-hero__countdown-label">Next live sermon</span>
       <strong>Starts in {countdown}</strong>
       <span>Sundays at 11:00 AM Central</span>
+      <div className="page-hero__countdown-bar" aria-hidden="true">
+        <span className="page-hero__countdown-fill" style={{ width: `${progress}%` }} />
+      </div>
     </div>
   );
 }
