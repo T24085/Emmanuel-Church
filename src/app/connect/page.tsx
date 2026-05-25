@@ -23,7 +23,7 @@ export default function ConnectPage() {
               fill
               priority
               sizes="(max-width: 1080px) 100vw, 42vw"
-              className="page-hero__media-image"
+              className="page-hero__media-image page-hero__media-image--connect"
             />
           </div>
         }

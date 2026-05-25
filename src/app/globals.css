@@ -1994,6 +1994,10 @@ html.motion-ready .our-staff-page .staff-card {
   object-position: center center;
 }
 
+.page-hero__media-image--connect {
+  object-position: right center;
+}
+
 .page-hero h1 {
   font-size: clamp(2.7rem, 6vw, 5rem);
 }
