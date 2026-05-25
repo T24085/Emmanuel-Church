@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { primaryNav, site } from "@/data/site";
@@ -15,6 +16,19 @@ function isActive(pathname: string, href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.open = false;
+    }
+  }, [pathname]);
+
+  const closeMobileMenu = () => {
+    if (mobileMenuRef.current) {
+      mobileMenuRef.current.open = false;
+    }
+  };
 
   return (
     <header className="site-header">
@@ -55,17 +69,22 @@ export function SiteHeader() {
           </Link>
         </div>
 
-        <details className="mobile-menu">
+        <details ref={mobileMenuRef} className="mobile-menu">
           <summary className="mobile-menu__summary" aria-label="Open menu">
             <MenuIcon className="icon icon--sm" />
             <CloseIcon className="icon icon--sm mobile-menu__close" />
           </summary>
           <div className="mobile-menu__panel">
             <div className="mobile-menu__top">
-              <Link href="/" className="mobile-menu__brand" aria-label={site.name}>
+              <Link
+                href="/"
+                className="mobile-menu__brand"
+                aria-label={site.name}
+                onClick={closeMobileMenu}
+              >
                 Emmanuel Church
               </Link>
-              <Link href="/contact" className="button button--gold button--small">
+              <Link href="/contact" className="button button--gold button--small" onClick={closeMobileMenu}>
                 Plan Visit
               </Link>
             </div>
@@ -78,6 +97,7 @@ export function SiteHeader() {
                     href={item.href}
                     className={`mobile-menu__link${active ? " mobile-menu__link--active" : ""}`}
                     aria-current={active ? "page" : undefined}
+                    onClick={closeMobileMenu}
                   >
                     {item.label}
                     <ArrowRightIcon className="icon icon--xs" />
