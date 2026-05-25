@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "scrape:media-archive": "node scripts/scrape-media-archive.mjs",
+    "sync:export": "node scripts/sync-export.mjs",
+    "refresh:archive": "npm run scrape:media-archive && npm run build && npm run sync:export",
     "start": "next start"
   },
   "keywords": [],
