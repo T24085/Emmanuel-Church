@@ -13,6 +13,7 @@ export default function ConnectPage() {
         eyebrow="Connect"
         title="The places where church life happens."
         description="From preschool through adult discipleship, Emmanuel's ministries give people a place to belong and a path to grow."
+        mediaLayout="full"
         action={{ label: "Plan Your Visit", href: "/contact" }}
         media={
           <div className="page-hero__media-frame">

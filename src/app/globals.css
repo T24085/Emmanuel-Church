@@ -1905,12 +1905,46 @@ html.motion-ready .our-staff-page .staff-card {
   gap: 1.4rem;
 }
 
+.page-hero--media-full {
+  overflow: clip;
+}
+
+.page-hero__layout--media-full {
+  position: relative;
+  min-height: clamp(26rem, 52vw, 36rem);
+  overflow: clip;
+  border-radius: calc(var(--radius-xl) + 10px);
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.page-hero__content--media-full {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  max-width: min(40rem, 100%);
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background:
+    linear-gradient(90deg, rgba(245, 239, 230, 0.9), rgba(245, 239, 230, 0.42) 70%, transparent),
+    linear-gradient(180deg, rgba(24, 33, 43, 0.03), rgba(24, 33, 43, 0.05));
+  backdrop-filter: blur(6px);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28) inset;
+}
+
 .page-hero__content {
   max-width: 60rem;
 }
 
 .page-hero__media {
   width: 100%;
+}
+
+.page-hero__media--full {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .page-hero__media-frame {
@@ -1940,6 +1974,26 @@ html.motion-ready .our-staff-page .staff-card {
   object-position: center top;
 }
 
+.page-hero__media--full .page-hero__media-frame {
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.page-hero__media--full .page-hero__media-frame::after {
+  background:
+    linear-gradient(100deg, rgba(245, 239, 230, 0.32) 0%, rgba(245, 239, 230, 0.12) 26%, transparent 62%),
+    linear-gradient(180deg, rgba(24, 33, 43, 0.02), rgba(24, 33, 43, 0.18));
+}
+
+.page-hero__media--full .page-hero__media-image {
+  object-position: center center;
+}
+
 .page-hero h1 {
   font-size: clamp(2.7rem, 6vw, 5rem);
 }
@@ -1953,6 +2007,12 @@ html.motion-ready .our-staff-page .staff-card {
   gap: 0.7rem;
   width: fit-content;
   max-width: 100%;
+}
+
+.page-hero__actions--full {
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
 }
 
 .page-hero__action-detail {
@@ -3142,6 +3202,15 @@ html.motion-ready .our-staff-page .staff-card {
 
   .page-hero__media-frame {
     min-height: 18rem;
+  }
+
+  .page-hero__layout--media-full {
+    min-height: 30rem;
+  }
+
+  .page-hero__content--media-full {
+    max-width: 100%;
+    padding: 1.35rem;
   }
 
   .card-grid__item,

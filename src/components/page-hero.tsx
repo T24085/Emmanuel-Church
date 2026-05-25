@@ -6,6 +6,7 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
+  mediaLayout?: "split" | "full";
   action?: {
     label: string;
     href: string;
@@ -15,20 +16,51 @@ type PageHeroProps = {
   media?: ReactNode;
 };
 
-export function PageHero({ eyebrow, title, description, action, actionDetail, media }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  mediaLayout = "split",
+  action,
+  actionDetail,
+  media,
+}: PageHeroProps) {
+  const hasMedia = Boolean(media);
+  const isFullBleedMedia = hasMedia && mediaLayout === "full";
+
   return (
-    <section className="page-hero">
-      <div className={`site-shell page-hero__inner${media ? " page-hero__inner--media" : ""}`}>
-        <div className="page-hero__layout">
-          <div className="page-hero__content">
+    <section className={`page-hero${isFullBleedMedia ? " page-hero--media-full" : ""}`}>
+      <div
+        className={`site-shell page-hero__inner${
+          hasMedia ? " page-hero__inner--media" : ""
+        }${isFullBleedMedia ? " page-hero__inner--media-full" : ""}`}
+      >
+        <div
+          className={`page-hero__layout${
+            isFullBleedMedia ? " page-hero__layout--media-full" : ""
+          }`}
+        >
+          <div
+            className={`page-hero__content${
+              isFullBleedMedia ? " page-hero__content--media-full" : ""
+            }`}
+          >
             <p className="eyebrow">{eyebrow}</p>
             <h1>{title}</h1>
             <p>{description}</p>
           </div>
-          {media ? <div className="page-hero__media">{media}</div> : null}
+          {media ? (
+            <div
+              className={`page-hero__media${
+                isFullBleedMedia ? " page-hero__media--full" : ""
+              }`}
+            >
+              {media}
+            </div>
+          ) : null}
         </div>
         {action ? (
-          <div className="page-hero__actions">
+          <div className={`page-hero__actions${isFullBleedMedia ? " page-hero__actions--full" : ""}`}>
             <Link
               href={action.href}
               target={action.external ? "_blank" : undefined}
