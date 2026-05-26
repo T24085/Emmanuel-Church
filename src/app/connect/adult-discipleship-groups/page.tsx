@@ -170,7 +170,7 @@ export default function AdultDiscipleshipGroupsPage() {
         </div>
       </SectionShell>
 
-      <SectionShell id="adult-groups">
+      <SectionShell id="adult-groups" className="adult-discipleship-section">
         <SectionHeading
           eyebrow="Sunday mornings"
           title="Adult Discipleship Groups"

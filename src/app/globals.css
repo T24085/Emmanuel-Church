@@ -1602,6 +1602,13 @@ select {
   font-size: clamp(1.6rem, 4vw, 2.6rem);
 }
 
+@media (max-width: 768px) {
+  .motion-ready .adult-discipleship-section {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .staff-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
