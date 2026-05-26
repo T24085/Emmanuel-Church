@@ -111,6 +111,18 @@ function formatCountdown(now: Date, target: Date, includeSeconds = false) {
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
+  if (includeSeconds) {
+    if (days > 0) {
+      return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    if (hours > 0) {
+      return `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    return `${minutes}m ${seconds}s`;
+  }
+
   if (days > 0) {
     return `${days}d ${hours}h ${minutes}m`;
   }
