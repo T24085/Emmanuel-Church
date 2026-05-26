@@ -2034,6 +2034,25 @@ html.motion-ready .our-staff-page .staff-card {
   gap: 0.25rem;
 }
 
+.page-hero__countdown--compact {
+  gap: 0.1rem;
+}
+
+.page-hero__countdown--overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: min(15rem, calc(100% - 2rem));
+  padding: 0.85rem 0.95rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 16px 36px rgba(40, 30, 18, 0.12);
+  pointer-events: none;
+}
+
 .page-hero__countdown--contact {
   grid-template-columns: 3.25rem minmax(0, 1fr);
   align-items: center;
@@ -3216,6 +3235,13 @@ html.motion-ready .our-staff-page .staff-card {
 
   .page-hero__countdown--contact {
     grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .page-hero__countdown--overlay {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: min(13.5rem, calc(100% - 1.5rem));
+    padding: 0.75rem 0.85rem;
   }
 
   .page-hero__layout {

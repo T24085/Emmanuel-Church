@@ -104,7 +104,7 @@ function getNextServiceStart(now: Date) {
   });
 }
 
-function formatCountdown(now: Date, target: Date) {
+function formatCountdown(now: Date, target: Date, includeSeconds = false) {
   const totalSeconds = Math.max(0, Math.floor((target.getTime() - now.getTime()) / 1000));
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -120,7 +120,7 @@ function formatCountdown(now: Date, target: Date) {
   }
 
   if (minutes > 0) {
-    return `${minutes}m`;
+    return includeSeconds ? `${minutes}m ${seconds}s` : `${minutes}m`;
   }
 
   return `${seconds}s`;
@@ -135,7 +135,12 @@ function getCountdownProgress(now: Date, target: Date) {
   return Math.min(100, Math.max(0, ((total - remaining) / total) * 100));
 }
 
-export function NextSermonCountdown() {
+type NextSermonCountdownProps = {
+  compact?: boolean;
+  className?: string;
+};
+
+export function NextSermonCountdown({ compact = false, className }: NextSermonCountdownProps) {
   const [countdown, setCountdown] = useState("checking service time");
   const [progress, setProgress] = useState(0);
 
@@ -143,7 +148,7 @@ export function NextSermonCountdown() {
     const update = () => {
       const now = new Date();
       const nextService = getNextServiceStart(now);
-      setCountdown(formatCountdown(now, nextService));
+      setCountdown(formatCountdown(now, nextService, compact));
       setProgress(getCountdownProgress(now, nextService));
     };
 
@@ -156,13 +161,22 @@ export function NextSermonCountdown() {
   }, []);
 
   return (
-    <div className="page-hero__countdown" aria-live="polite">
+    <div
+      className={`page-hero__countdown${compact ? " page-hero__countdown--compact" : ""}${className ? ` ${className}` : ""}`}
+      aria-live="polite"
+    >
       <span className="page-hero__countdown-label">Next live sermon</span>
-      <strong>Starts in {countdown}</strong>
-      <span>Sundays at 11:00 AM Central</span>
-      <div className="page-hero__countdown-bar" aria-hidden="true">
-        <span className="page-hero__countdown-fill" style={{ width: `${progress}%` }} />
-      </div>
+      {compact ? (
+        <strong>Starts in {countdown}</strong>
+      ) : (
+        <>
+          <strong>Starts in {countdown}</strong>
+          <span>Sundays at 11:00 AM Central</span>
+          <div className="page-hero__countdown-bar" aria-hidden="true">
+            <span className="page-hero__countdown-fill" style={{ width: `${progress}%` }} />
+          </div>
+        </>
+      )}
     </div>
   );
 }

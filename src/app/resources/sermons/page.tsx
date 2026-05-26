@@ -138,6 +138,7 @@ export default async function SermonsPage() {
         actionDetail={<NextSermonCountdown />}
         media={
           <div className="page-hero__media-frame">
+            <NextSermonCountdown compact className="page-hero__countdown--overlay" />
             <Image
               src={withBasePath("/images/sermon-on-the-mount-banner.png")}
               alt="The Sermon on the Mount illustration"
