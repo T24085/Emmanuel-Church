@@ -7,6 +7,7 @@ type PageHeroProps = {
   title: string;
   description: string;
   mediaLayout?: "split" | "full";
+  layoutClassName?: string;
   action?: {
     label: string;
     href: string;
@@ -21,6 +22,7 @@ export function PageHero({
   title,
   description,
   mediaLayout = "split",
+  layoutClassName,
   action,
   actionDetail,
   media,
@@ -38,7 +40,7 @@ export function PageHero({
         <div
           className={`page-hero__layout${
             isFullBleedMedia ? " page-hero__layout--media-full" : ""
-          }`}
+          }${layoutClassName ? ` ${layoutClassName}` : ""}`}
         >
           <div
             className={`page-hero__content${

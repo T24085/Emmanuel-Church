@@ -2005,6 +2005,14 @@ html.motion-ready .our-staff-page .staff-card {
   object-position: right center;
 }
 
+.page-hero__layout--worship {
+  --worship-hero-mobile-height: clamp(18rem, 68vw, 24rem);
+}
+
+.page-hero__layout--worship .page-hero__media-image {
+  object-position: 72% center;
+}
+
 .page-hero h1 {
   font-size: clamp(2.7rem, 6vw, 5rem);
 }
@@ -3262,6 +3270,14 @@ html.motion-ready .our-staff-page .staff-card {
 
   .page-hero__layout--media-full {
     min-height: 30rem;
+  }
+
+  .page-hero__layout--worship {
+    min-height: var(--worship-hero-mobile-height);
+  }
+
+  .page-hero__layout--worship .page-hero__media-image {
+    object-position: 76% center;
   }
 
   .page-hero__content--media-full {

@@ -53,6 +53,7 @@ export default async function WhoWeArePage() {
         title="Who We Are."
         description="At Emmanuel Church, we aim to extend God's grace, teach His Word, and live under the illumination of His truth."
         mediaLayout="full"
+        layoutClassName="page-hero__layout--worship"
         action={{ label: "Meet the staff", href: "/our-staff" }}
         media={
           <div className="page-hero__media-frame">
@@ -62,7 +63,7 @@ export default async function WhoWeArePage() {
               fill
               priority
               sizes="(max-width: 1080px) 100vw, 100vw"
-              className="page-hero__media-image"
+              className="page-hero__media-image page-hero__media-image--worship"
             />
           </div>
         }
