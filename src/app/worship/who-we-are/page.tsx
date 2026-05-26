@@ -52,7 +52,20 @@ export default async function WhoWeArePage() {
         eyebrow="Worship"
         title="Who We Are."
         description="At Emmanuel Church, we aim to extend God's grace, teach His Word, and live under the illumination of His truth."
+        mediaLayout="full"
         action={{ label: "Meet the staff", href: "/our-staff" }}
+        media={
+          <div className="page-hero__media-frame">
+            <Image
+              src={withBasePath("/images/hero-cross-logo.png")}
+              alt="A sunrise cross artwork for Emmanuel Church"
+              fill
+              priority
+              sizes="(max-width: 1080px) 100vw, 100vw"
+              className="page-hero__media-image"
+            />
+          </div>
+        }
       />
 
       <SectionShell className="section-shell--tight who-we-are-mission">
