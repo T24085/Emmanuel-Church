@@ -28,7 +28,7 @@ export const site = {
   onlineChurch: "https://emmanuelchurchabilene.online.church/",
   givingHref: "https://www.fellowshiponegiving.com/App/Giving/ecabilene",
   calendarHref:
-    "https://emmanuel.fellowshiponego.com/calendar/calendar_public/embeded/46119443e370a5fd3210ee1b654d6207#month",
+    "https://emmanuel.fellowshiponego.com/calendar/calendar_public/embeded/45cbaa3ef777e9a92378912fec818fa8#month",
   bibleApp: "http://www.bible.com",
 };
 

@@ -8,15 +8,15 @@ export default function ChurchCalendarPage() {
       <PageHero
         eyebrow="Resources"
         title="Church Calendar"
-        description="View Emmanuel Church events and gatherings in the public Fellowship One Go calendar."
-        action={{ label: "Open the live site", href: site.calendarHref, external: true }}
+        description="View Emmanuel Church events and gatherings in the public church calendar."
+        action={{ label: "Open the calendar", href: site.calendarHref, external: true }}
       />
 
       <SectionShell>
         <SectionHeading
           eyebrow="Public calendar"
           title="Events and Happenings of the Church."
-          description="This is the public calendar destination used by the church."
+          description="This is the church's current public calendar destination."
         />
         <div className="calendar-embed">
           <iframe
