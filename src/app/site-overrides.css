@@ -61,6 +61,448 @@
   transform: translateY(-1px);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.church-chat {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 14px;
+  width: min(100vw - 40px, 420px);
+  pointer-events: none;
+}
+
+.church-chat__launcher,
+.church-chat__panel {
+  pointer-events: auto;
+}
+
+.church-chat__launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 999px;
+  text-align: left;
+  color: #fff;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 28%),
+    linear-gradient(135deg, rgba(24, 33, 43, 0.98), rgba(91, 123, 114, 0.92));
+  box-shadow:
+    0 22px 56px rgba(24, 33, 43, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.church-chat__launcher:hover,
+.church-chat__launcher:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    0 26px 60px rgba(24, 33, 43, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  filter: saturate(1.05);
+}
+
+.church-chat__launcher:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.28);
+  outline-offset: 4px;
+}
+
+.church-chat__launcherDot {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.church-chat__launcherIcon,
+.church-chat__sendIcon,
+.church-chat__closeIcon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.church-chat__launcherCopy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.church-chat__launcherCopy strong {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.church-chat__launcherCopy span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.church-chat__panel {
+  width: min(100%, 420px);
+  max-height: min(72vh, 720px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(24, 33, 43, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 236, 0.98));
+  box-shadow:
+    0 28px 72px rgba(24, 33, 43, 0.18),
+    0 2px 0 rgba(255, 255, 255, 0.65) inset;
+  animation: church-chat-rise 180ms ease-out;
+}
+
+.church-chat__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid rgba(24, 33, 43, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(199, 144, 68, 0.16), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 247, 240, 0.9));
+}
+
+.church-chat__eyebrow {
+  margin: 0 0 6px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+}
+
+.church-chat__header h2 {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.9rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.church-chat__lede {
+  margin: 10px 0 0;
+  max-width: 28ch;
+  color: var(--text-muted);
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.church-chat__close {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(24, 33, 43, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.church-chat__close:hover,
+.church-chat__close:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(199, 144, 68, 0.3);
+  background: rgba(255, 255, 255, 1);
+}
+
+.church-chat__close:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.24);
+  outline-offset: 3px;
+}
+
+.church-chat__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 18px 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.church-chat__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(91, 123, 114, 0.08);
+  border: 1px solid rgba(91, 123, 114, 0.14);
+}
+
+.church-chat__messages {
+  flex: 1 1 auto;
+  min-height: 240px;
+  overflow: auto;
+  display: grid;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.church-chat__message {
+  display: flex;
+}
+
+.church-chat__message--assistant {
+  justify-content: flex-start;
+}
+
+.church-chat__message--user {
+  justify-content: flex-end;
+}
+
+.church-chat__bubble {
+  max-width: 88%;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(24, 33, 43, 0.06);
+  color: var(--text);
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.church-chat__message--assistant .church-chat__bubble {
+  border-top-left-radius: 8px;
+  background:
+    radial-gradient(circle at top left, rgba(91, 123, 114, 0.12), transparent 35%),
+    rgba(255, 255, 255, 0.96);
+}
+
+.church-chat__message--user .church-chat__bubble {
+  border-top-right-radius: 8px;
+  color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 35%),
+    linear-gradient(135deg, rgba(24, 33, 43, 0.98), rgba(91, 123, 114, 0.95));
+}
+
+.church-chat__bubbleMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 7px;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.church-chat__bubbleMeta span:last-child {
+  text-align: right;
+}
+
+.church-chat__bubble--thinking {
+  min-width: 120px;
+}
+
+.church-chat__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 4px;
+}
+
+.church-chat__typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  animation: church-chat-pulse 900ms infinite ease-in-out;
+}
+
+.church-chat__typing span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.church-chat__typing span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.church-chat__suggestions {
+  padding: 0 18px 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.church-chat__suggestionsToggle {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid rgba(24, 33, 43, 0.1);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.church-chat__suggestionsToggle:hover,
+.church-chat__suggestionsToggle:focus-visible {
+  border-color: rgba(199, 144, 68, 0.22);
+}
+
+.church-chat__suggestionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.church-chat__chip {
+  border: 1px solid rgba(24, 33, 43, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.church-chat__chip:hover,
+.church-chat__chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(91, 123, 114, 0.24);
+  background: rgba(91, 123, 114, 0.08);
+}
+
+.church-chat__composer {
+  padding: 0 18px 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.church-chat__input {
+  width: 100%;
+  min-height: 90px;
+  resize: vertical;
+  border-radius: 18px;
+  border: 1px solid rgba(24, 33, 43, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text);
+  padding: 14px 14px 12px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.church-chat__input:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.2);
+  outline-offset: 2px;
+  border-color: rgba(199, 144, 68, 0.3);
+}
+
+.church-chat__footer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.church-chat__footerNote {
+  min-width: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.church-chat__footerNote p {
+  margin: 0;
+}
+
+.church-chat__footerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.church-chat__send,
+.church-chat__reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.church-chat__sendIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.church-chat__reset {
+  white-space: nowrap;
+}
+
+@keyframes church-chat-rise {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes church-chat-pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
 @media (min-width: 1440px) {
   .hero {
     --hero-frame-height: clamp(40rem, calc(88svh - 92px), 46rem);
@@ -72,5 +514,32 @@
   .hero {
     --hero-frame-height: clamp(40rem, calc(84svh - 92px), 44rem);
     --hero-video-focus: center 44%;
+  }
+}
+
+@media (max-width: 720px) {
+  .church-chat {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+  }
+
+  .church-chat__launcher {
+    width: 100%;
+  }
+
+  .church-chat__panel {
+    width: 100%;
+    max-height: min(74vh, 680px);
+  }
+
+  .church-chat__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .church-chat__footerActions {
+    justify-content: flex-end;
   }
 }
