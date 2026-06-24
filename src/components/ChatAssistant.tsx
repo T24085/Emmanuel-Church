@@ -149,7 +149,7 @@ function getInitialMessages(): ChatMessage[] {
 }
 
 export function ChatAssistant() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [draft, setDraft] = useState("");
