@@ -21,6 +21,8 @@ type ChatMessage = {
   role: ChatRole;
   content: string;
   createdAt: number;
+  source?: "ollama" | "fallback" | "seed";
+  model?: string;
 };
 
 const urlPattern = /(https?:\/\/[^\s<>()]+|www\.[^\s<>()]+)/g;
@@ -138,9 +140,9 @@ function renderMessageContent(content: string): ReactNode {
 
 function getChatEndpointCandidates() {
   const urls = [
+    assistantChatUrl,
     assistantLocalRouteUrl,
     assistantChatFallbackUrl,
-    assistantChatUrl,
     "http://localhost:8787/api/assistant-chat",
   ];
 
@@ -260,7 +262,9 @@ export function ChatAssistant() {
         messages: nextMessages,
       };
 
-      let response: Response | null = null;
+      let replyText = "";
+      let usedFallback = true;
+      let replyModel = "fallback";
       let responseError: unknown = null;
       for (const endpoint of getChatEndpointCandidates()) {
         try {
@@ -268,29 +272,48 @@ export function ChatAssistant() {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-            },
+              },
             body: JSON.stringify(payload),
           });
 
-          if (candidateResponse.ok) {
-            response = candidateResponse;
-            break;
+          if (!candidateResponse.ok) {
+            responseError = new Error(`Chat request failed with status ${candidateResponse.status} for ${endpoint}`);
+            continue;
           }
 
-          responseError = new Error(`Chat request failed with status ${candidateResponse.status} for ${endpoint}`);
+          const data = (await candidateResponse.json()) as {
+            content?: string;
+            reply?: string;
+            message?: string;
+            usedFallback?: boolean;
+            model?: string;
+          };
+          const candidateText = data.content || data.reply || data.message || "";
+
+          if (!candidateText.trim()) {
+            responseError = new Error(`Chat request returned an empty response for ${endpoint}`);
+            continue;
+          }
+
+          if (data.usedFallback) {
+            responseError = new Error(`Chat request returned a fallback response for ${endpoint}`);
+            continue;
+          }
+
+          replyText = candidateText;
+          usedFallback = false;
+          replyModel = data.model?.trim() || endpoint;
+          break;
         } catch (error) {
           responseError = error;
         }
       }
 
-      if (!response) {
+      if (!replyText) {
         throw responseError instanceof Error
           ? responseError
           : new Error("Chat request failed.");
       }
-
-      const data = (await response.json()) as { content?: string; reply?: string; message?: string };
-      const replyText = data.content || data.reply || data.message || buildLocalFallbackReply(trimmed);
 
       setMessages((current) => [
         ...current,
@@ -299,6 +322,8 @@ export function ChatAssistant() {
           role: "assistant",
           content: replyText,
           createdAt: Date.now(),
+          source: usedFallback ? "fallback" : "ollama",
+          model: replyModel,
         },
       ]);
     } catch {
