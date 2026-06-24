@@ -263,7 +263,7 @@ export function ChatAssistant() {
       };
 
       let replyText = "";
-      let usedFallback = true;
+      let usedFallback = false;
       let replyModel = "fallback";
       let responseError: unknown = null;
       for (const endpoint of getChatEndpointCandidates()) {
@@ -295,13 +295,8 @@ export function ChatAssistant() {
             continue;
           }
 
-          if (data.usedFallback) {
-            responseError = new Error(`Chat request returned a fallback response for ${endpoint}`);
-            continue;
-          }
-
           replyText = candidateText;
-          usedFallback = false;
+          usedFallback = Boolean(data.usedFallback);
           replyModel = data.model?.trim() || endpoint;
           break;
         } catch (error) {
