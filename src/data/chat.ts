@@ -3,9 +3,13 @@ import { site, serviceRhythm, ministryLinks } from "@/data/site";
 export const churchSiteKey = "emmanuel-church";
 export const assistantName = "Emmanuel Guide";
 export const assistantStorageKey = "emmanuel-church-chat-state";
+const isProduction = process.env.NODE_ENV === "production";
+const defaultAssistantChatUrl = isProduction
+  ? "https://chat.novatec.casa/api/assistant-chat"
+  : "/api/church-chat";
+
 export const assistantChatUrl =
-  process.env.NEXT_PUBLIC_ASSISTANT_CHAT_URL ??
-  "https://chat.novatec.casa/api/assistant-chat";
+  process.env.NEXT_PUBLIC_ASSISTANT_CHAT_URL?.trim() || defaultAssistantChatUrl;
 export const assistantChatFallbackUrl = "http://127.0.0.1:8787/api/assistant-chat";
 export const assistantLocalRouteUrl = "/api/church-chat";
 
