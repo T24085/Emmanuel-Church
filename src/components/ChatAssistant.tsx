@@ -1,8 +1,10 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   assistantChatUrl,
+  assistantChatFallbackUrl,
+  assistantLocalRouteUrl,
   assistantName,
   assistantStorageKey,
   assistantSystemPrompt,
@@ -20,6 +22,8 @@ type ChatMessage = {
   content: string;
   createdAt: number;
 };
+
+const urlPattern = /(https?:\/\/[^\s<>()]+|www\.[^\s<>()]+)/g;
 
 function nowLabel(value: number) {
   return new Intl.DateTimeFormat("en-US", {
@@ -60,6 +64,89 @@ function createId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 }
 
+function normalizeUrl(url: string) {
+  return url.startsWith("www.") ? `https://${url}` : url;
+}
+
+function splitTrailingPunctuation(value: string) {
+  const match = value.match(/^(.*?)([.,;:!?]+)?$/);
+
+  if (!match) {
+    return { url: value, suffix: "" };
+  }
+
+  return {
+    url: match[1],
+    suffix: match[2] ?? "",
+  };
+}
+
+function renderMessageContent(content: string): ReactNode {
+  const lines = content.split(/\r?\n/);
+
+  return lines.map((line, lineIndex) => {
+    const pieces: ReactNode[] = [];
+    let lastIndex = 0;
+    const matches = [...line.matchAll(new RegExp(urlPattern))];
+
+    for (const match of matches) {
+      const rawUrl = match[0];
+      const startIndex = match.index ?? 0;
+      const endIndex = startIndex + rawUrl.length;
+
+      if (startIndex > lastIndex) {
+        pieces.push(line.slice(lastIndex, startIndex));
+      }
+
+      const { url, suffix } = splitTrailingPunctuation(rawUrl);
+      const href = normalizeUrl(url);
+      pieces.push(
+        <a
+          key={`${lineIndex}-${startIndex}-${rawUrl}`}
+          className="church-chat__link"
+          href={href}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {url}
+        </a>,
+      );
+
+      if (suffix) {
+        pieces.push(suffix);
+      }
+
+      lastIndex = endIndex;
+    }
+
+    if (lastIndex < line.length) {
+      pieces.push(line.slice(lastIndex));
+    }
+
+    if (!pieces.length) {
+      return <br key={`line-${lineIndex}`} />;
+    }
+
+    return (
+      <span key={`line-${lineIndex}`}>
+        {pieces}
+        {lineIndex < lines.length - 1 ? <br /> : null}
+      </span>
+    );
+  });
+}
+
+function getChatEndpointCandidates() {
+  const urls = [
+    assistantLocalRouteUrl,
+    assistantChatFallbackUrl,
+    assistantChatUrl,
+    "http://localhost:8787/api/assistant-chat",
+  ];
+
+  return [...new Set(urls.filter(Boolean))];
+}
+
 function getInitialMessages(): ChatMessage[] {
   return [
     {
@@ -74,7 +161,7 @@ function getInitialMessages(): ChatMessage[] {
 
 export function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [draft, setDraft] = useState("");
   const [sessionId, setSessionId] = useState("");
@@ -158,29 +245,48 @@ export function ChatAssistant() {
     setIsSending(true);
 
     try {
-      const response = await fetch(assistantChatUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const payload = {
+        assistant: assistantName,
+        sessionId: sessionId || createId("session"),
+        pageUrl: window.location.href,
+        siteKey: churchSiteKey,
+        siteName: site.name,
+        clientProfile: {
+          name: "Visitor",
+          email: "Unknown",
+          phone: "Unknown",
         },
-        body: JSON.stringify({
-          assistant: assistantName,
-          sessionId: sessionId || createId("session"),
-          pageUrl: window.location.href,
-          siteKey: churchSiteKey,
-          siteName: site.name,
-          clientProfile: {
-            name: "Visitor",
-            email: "Unknown",
-            phone: "Unknown",
-          },
-          systemPrompt: assistantSystemPrompt,
-          messages: nextMessages,
-        }),
-      });
+        systemPrompt: assistantSystemPrompt,
+        messages: nextMessages,
+      };
 
-      if (!response.ok) {
-        throw new Error(`Chat request failed with status ${response.status}`);
+      let response: Response | null = null;
+      let responseError: unknown = null;
+      for (const endpoint of getChatEndpointCandidates()) {
+        try {
+          const candidateResponse = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (candidateResponse.ok) {
+            response = candidateResponse;
+            break;
+          }
+
+          responseError = new Error(`Chat request failed with status ${candidateResponse.status} for ${endpoint}`);
+        } catch (error) {
+          responseError = error;
+        }
+      }
+
+      if (!response) {
+        throw responseError instanceof Error
+          ? responseError
+          : new Error("Chat request failed.");
       }
 
       const data = (await response.json()) as { content?: string; reply?: string; message?: string };
@@ -211,6 +317,15 @@ export function ChatAssistant() {
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    void sendMessage(draft);
+  }
+
+  function handleComposerKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) {
+      return;
+    }
+
     event.preventDefault();
     void sendMessage(draft);
   }
@@ -248,7 +363,7 @@ export function ChatAssistant() {
           </span>
           <span className="church-chat__launcherCopy">
             <strong>Chat with Emmanuel Guide</strong>
-            <span>Ask about services, events, ministries, or giving.</span>
+            <span>Services, events, ministries, giving.</span>
           </span>
         </button>
       ) : (
@@ -284,7 +399,7 @@ export function ChatAssistant() {
                     <span>{message.role === "assistant" ? assistantName : "You"}</span>
                     <span>{nowLabel(message.createdAt)}</span>
                   </div>
-                  <div style={{ whiteSpace: "pre-wrap" }}>{message.content}</div>
+                  <div className="church-chat__content">{renderMessageContent(message.content)}</div>
                 </div>
               </article>
             ))}
@@ -340,6 +455,7 @@ export function ChatAssistant() {
               className="church-chat__input"
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
+              onKeyDown={handleComposerKeyDown}
               placeholder="Ask a question about Emmanuel Church..."
               rows={3}
             />

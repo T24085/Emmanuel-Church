@@ -75,12 +75,13 @@
 
 .church-chat {
   position: fixed;
-  right: 20px;
+  left: 20px;
+  right: auto;
   bottom: 20px;
   z-index: 50;
   display: flex;
   flex-direction: column-reverse;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 14px;
   width: min(100vw - 40px, 420px);
   pointer-events: none;
@@ -94,9 +95,10 @@
 .church-chat__launcher {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  width: 100%;
-  padding: 14px 16px;
+  gap: 12px;
+  width: fit-content;
+  max-width: min(100%, 300px);
+  padding: 11px 13px;
   border: 0;
   border-radius: 999px;
   text-align: left;
@@ -130,8 +132,8 @@
 
 .church-chat__launcherDot {
   flex: 0 0 auto;
-  width: 46px;
-  height: 46px;
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -157,24 +159,25 @@
   display: grid;
   gap: 3px;
   min-width: 0;
+  max-width: 210px;
 }
 
 .church-chat__launcherCopy strong {
   font-family: var(--font-display), Georgia, serif;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
 
 .church-chat__launcherCopy span {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   line-height: 1.35;
 }
 
 .church-chat__panel {
   width: min(100%, 420px);
-  max-height: min(72vh, 720px);
+  max-height: min(80vh, 820px);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -274,7 +277,7 @@
 
 .church-chat__messages {
   flex: 1 1 auto;
-  min-height: 240px;
+  min-height: 260px;
   overflow: auto;
   display: grid;
   gap: 12px;
@@ -303,6 +306,25 @@
   color: var(--text);
   line-height: 1.55;
   word-break: break-word;
+}
+
+.church-chat__content {
+  white-space: normal;
+}
+
+.church-chat__link {
+  color: var(--gold-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(143, 101, 44, 0.38);
+  text-underline-offset: 0.14em;
+}
+
+.church-chat__link:hover,
+.church-chat__link:focus-visible {
+  color: var(--gold-strong);
+  text-decoration-color: currentColor;
+  outline: none;
 }
 
 .church-chat__message--assistant .church-chat__bubble {
@@ -526,12 +548,12 @@
   }
 
   .church-chat__launcher {
-    width: 100%;
+    max-width: min(100%, 240px);
   }
 
   .church-chat__panel {
     width: 100%;
-    max-height: min(74vh, 680px);
+    max-height: min(80vh, 740px);
   }
 
   .church-chat__footer {

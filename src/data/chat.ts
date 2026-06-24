@@ -6,6 +6,8 @@ export const assistantStorageKey = "emmanuel-church-chat-state";
 export const assistantChatUrl =
   process.env.NEXT_PUBLIC_ASSISTANT_CHAT_URL ??
   "https://chat.novatec.casa/api/assistant-chat";
+export const assistantChatFallbackUrl = "http://127.0.0.1:8787/api/assistant-chat";
+export const assistantLocalRouteUrl = "/api/church-chat";
 
 export const assistantSystemPrompt = [
   "You are Emmanuel Guide, the website assistant for Emmanuel Church in Abilene, Kansas.",
