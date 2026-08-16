@@ -3,10 +3,19 @@
     "page": 1,
     "items": [
       {
+        "id": 1218699210,
+        "title": "2026-08-16 10-59-53",
+        "date": "August 16, 2026",
+        "thumbnail": "https://i.vimeocdn.com/video/2190724703-af6ffd19b01a54a525a2db180064a2d088b4402a427b3732602b709067caf393-d_295x166?region=us",
+        "embedSrc": "https://player.vimeo.com/video/1218699210",
+        "href": "https://vimeo.com/1218699210",
+        "kind": "video"
+      },
+      {
         "id": 1216811665,
-        "title": "2026-08-09 10-59-59",
+        "title": "Dead, Buried, Risen",
         "date": "August 9, 2026",
-        "thumbnail": "https://i.vimeocdn.com/video/2188344382-d7c006a4df50e941ac6d2a177df988d933430364e2e1bd2c51e1693ba7d8c449-d_295x166?region=us",
+        "thumbnail": "https://i.vimeocdn.com/video/2188598978-fd6cfb8c8c50ec839fb883fd110b1c5d16c49542508f00dcc0aff1cf38f7b3c6-d_295x166?region=us",
         "embedSrc": "https://player.vimeo.com/video/1216811665",
         "href": "https://vimeo.com/1216811665",
         "kind": "video"
@@ -46,7 +55,12 @@
         "embedSrc": "https://player.vimeo.com/video/1198454528",
         "href": "https://vimeo.com/1198454528",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "items": [
       {
         "id": 1190951709,
         "title": "Talk Like Jesus",
@@ -55,12 +69,7 @@
         "embedSrc": "https://player.vimeo.com/video/1190951709",
         "href": "https://vimeo.com/1190951709",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 2,
-    "items": [
+      },
       {
         "id": 1186993128,
         "title": "2026-04-26 11-00-02",
@@ -105,7 +114,12 @@
         "embedSrc": "https://player.vimeo.com/video/1176243960",
         "href": "https://vimeo.com/1176243960",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 3,
+    "items": [
       {
         "id": 1171539559,
         "title": "Struggle, the Law and Life in the Spirit",
@@ -114,12 +128,7 @@
         "embedSrc": "https://player.vimeo.com/video/1171539559",
         "href": "https://vimeo.com/1171539559",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 3,
-    "items": [
+      },
       {
         "id": 1167480126,
         "title": "Pastor Murunga Conference",
@@ -164,7 +173,12 @@
         "embedSrc": "https://player.vimeo.com/video/1153380136",
         "href": "https://vimeo.com/1153380136",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 4,
+    "items": [
       {
         "id": 1149896723,
         "title": "The Entire Bible in One Sermon",
@@ -173,12 +187,7 @@
         "embedSrc": "https://player.vimeo.com/video/1149896723",
         "href": "https://vimeo.com/1149896723",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 4,
-    "items": [
+      },
       {
         "id": 1146372899,
         "title": "Shepherds: Joy in Opposition",
@@ -223,7 +232,12 @@
         "embedSrc": "https://player.vimeo.com/video/1133133831",
         "href": "https://vimeo.com/1133133831",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 5,
+    "items": [
       {
         "id": 1130230780,
         "title": "Unhurried",
@@ -232,12 +246,7 @@
         "embedSrc": "https://player.vimeo.com/video/1130230780",
         "href": "https://vimeo.com/1130230780",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 5,
-    "items": [
+      },
       {
         "id": 1124913034,
         "title": "FEAST",
@@ -282,7 +291,12 @@
         "embedSrc": "https://player.vimeo.com/video/1111107883",
         "href": "https://vimeo.com/1111107883",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 6,
+    "items": [
       {
         "id": 1111016184,
         "title": "Financial Debt",
@@ -291,12 +305,7 @@
         "embedSrc": "https://player.vimeo.com/video/1111016184",
         "href": "https://vimeo.com/1111016184",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 6,
-    "items": [
+      },
       {
         "id": 1109071646,
         "title": "2025-08-10 10-55-41 Message",
@@ -332,7 +341,12 @@
         "embedSrc": "https://player.vimeo.com/video/1098563801",
         "href": "https://vimeo.com/1098563801",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 7,
+    "items": [
       {
         "id": 1097328997,
         "title": "2025-06-29 10-59-40",
@@ -341,12 +355,7 @@
         "embedSrc": "https://player.vimeo.com/video/1097328997",
         "href": "https://vimeo.com/1097328997",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 7,
-    "items": [
+      },
       {
         "id": 1093739683,
         "title": "Roland Kuntz Celebration of Life - June 14, 2025",
@@ -391,7 +400,12 @@
         "embedSrc": "https://player.vimeo.com/video/1081294415",
         "href": "https://vimeo.com/1081294415",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "items": [
       {
         "id": 1077300879,
         "title": "2025-04-20 10-59-50",
@@ -400,12 +414,7 @@
         "embedSrc": "https://player.vimeo.com/video/1077300879",
         "href": "https://vimeo.com/1077300879",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 8,
-    "items": [
+      },
       {
         "id": 1073308886,
         "title": "2025-04-06 10-59-53",
@@ -450,7 +459,12 @@
         "embedSrc": "https://player.vimeo.com/video/1057545824",
         "href": "https://vimeo.com/1057545824",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 9,
+    "items": [
       {
         "id": 1053078809,
         "title": "2025-02-02 10-59-59",
@@ -459,12 +473,7 @@
         "embedSrc": "https://player.vimeo.com/video/1053078809",
         "href": "https://vimeo.com/1053078809",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 9,
-    "items": [
+      },
       {
         "id": 1048604350,
         "title": "2025-01-19 10-41-22",
@@ -509,7 +518,12 @@
         "embedSrc": "https://player.vimeo.com/video/1035219799",
         "href": "https://vimeo.com/1035219799",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 10,
+    "items": [
       {
         "id": 1030796264,
         "title": "2024-11-17 10-50-35",
@@ -518,12 +532,7 @@
         "embedSrc": "https://player.vimeo.com/video/1030796264",
         "href": "https://vimeo.com/1030796264",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 10,
-    "items": [
+      },
       {
         "id": 1025907463,
         "title": "2024-11-03 10-52-11",
@@ -568,7 +577,12 @@
         "embedSrc": "https://player.vimeo.com/video/1007682485",
         "href": "https://vimeo.com/1007682485",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 11,
+    "items": [
       {
         "id": 1002455492,
         "title": "2024-08-25 10-45-52",
@@ -577,12 +591,7 @@
         "embedSrc": "https://player.vimeo.com/video/1002455492",
         "href": "https://vimeo.com/1002455492",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 11,
-    "items": [
+      },
       {
         "id": 998864150,
         "title": "2024-08-11 10-53-42",
@@ -627,7 +636,12 @@
         "embedSrc": "https://player.vimeo.com/video/966042147",
         "href": "https://vimeo.com/966042147",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 12,
+    "items": [
       {
         "id": 953227228,
         "title": "2024-06-02 10-48-34",
@@ -636,12 +650,7 @@
         "embedSrc": "https://player.vimeo.com/video/953227228",
         "href": "https://vimeo.com/953227228",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 12,
-    "items": [
+      },
       {
         "id": 948353681,
         "title": "2024-05-19 10-53-13",
@@ -686,7 +695,12 @@
         "embedSrc": "https://player.vimeo.com/video/929540516",
         "href": "https://vimeo.com/929540516",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 13,
+    "items": [
       {
         "id": 925945416,
         "title": "2024-03-21 09-22-18",
@@ -695,12 +709,7 @@
         "embedSrc": "https://player.vimeo.com/video/925945416",
         "href": "https://vimeo.com/925945416",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 13,
-    "items": [
+      },
       {
         "id": 922519459,
         "title": "2024-03-12 08-28-12",
@@ -736,7 +745,12 @@
         "embedSrc": "https://player.vimeo.com/video/910199325",
         "href": "https://vimeo.com/910199325",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 14,
+    "items": [
       {
         "id": 904133726,
         "title": "Roger Beckley Service",
@@ -745,12 +759,7 @@
         "embedSrc": "https://player.vimeo.com/video/904133726",
         "href": "https://vimeo.com/904133726",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 14,
-    "items": [
+      },
       {
         "id": 902749370,
         "title": "New event",
@@ -795,7 +804,12 @@
         "embedSrc": "https://player.vimeo.com/video/891140540",
         "href": "https://vimeo.com/891140540",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 15,
+    "items": [
       {
         "id": 888464968,
         "title": "New event",
@@ -804,12 +818,7 @@
         "embedSrc": "https://player.vimeo.com/video/888464968",
         "href": "https://vimeo.com/888464968",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 15,
-    "items": [
+      },
       {
         "id": 883759014,
         "title": "New event",
@@ -854,7 +863,12 @@
         "embedSrc": "https://player.vimeo.com/video/875199620",
         "href": "https://vimeo.com/875199620",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 16,
+    "items": [
       {
         "id": 872332313,
         "title": "New event",
@@ -863,12 +877,7 @@
         "embedSrc": "https://player.vimeo.com/video/872332313",
         "href": "https://vimeo.com/872332313",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 16,
-    "items": [
+      },
       {
         "id": 867694838,
         "title": "New event",
@@ -913,7 +922,12 @@
         "embedSrc": "https://player.vimeo.com/video/856203699",
         "href": "https://vimeo.com/856203699",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 17,
+    "items": [
       {
         "id": 852130433,
         "title": "New event",
@@ -922,12 +936,7 @@
         "embedSrc": "https://player.vimeo.com/video/852130433",
         "href": "https://vimeo.com/852130433",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 17,
-    "items": [
+      },
       {
         "id": 847771595,
         "title": "Summer Review Sunday - 7-30-2023",
@@ -972,7 +981,12 @@
         "embedSrc": "https://player.vimeo.com/video/831012334",
         "href": "https://vimeo.com/831012334",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 18,
+    "items": [
       {
         "id": 826675494,
         "title": "Time After Time- Wk. 3 - \"Time To Be Unafraid\" - 5/21/23",
@@ -981,12 +995,7 @@
         "embedSrc": "https://player.vimeo.com/video/826675494",
         "href": "https://vimeo.com/826675494",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 18,
-    "items": [
+      },
       {
         "id": 823896858,
         "title": "Time After Time- Wk. 1 - \"Time for Solitude\"",
@@ -1022,7 +1031,12 @@
         "embedSrc": "https://player.vimeo.com/video/809862423",
         "href": "https://vimeo.com/809862423",
         "kind": "video"
-      },
+      }
+    ]
+  },
+  {
+    "page": 19,
+    "items": [
       {
         "id": 805256848,
         "title": "3/5/23 \"23rd\" - week 1, \"The Lord as Shepherd\"",
@@ -1031,12 +1045,7 @@
         "embedSrc": "https://player.vimeo.com/video/805256848",
         "href": "https://vimeo.com/805256848",
         "kind": "video"
-      }
-    ]
-  },
-  {
-    "page": 19,
-    "items": [
+      },
       {
         "id": 800578185,
         "title": "2.19.23 RUWACH week 3",
