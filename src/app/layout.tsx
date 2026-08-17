@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
-import { ChatAssistant } from "@/components/ChatAssistant";
 import { SiteFooter } from "@/components/site-footer";
 import { MotionShell } from "@/components/motion-shell";
 import { SiteHeader } from "@/components/site-header";
@@ -45,7 +44,6 @@ export default function RootLayout({
           <MotionShell>{children}</MotionShell>
         </main>
         <SiteFooter />
-        <ChatAssistant />
       </body>
     </html>
   );
