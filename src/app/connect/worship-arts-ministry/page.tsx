@@ -23,25 +23,25 @@ const lauraEmail = "lediger@ecabilene.org";
 const worshipValues = [
   {
     eyebrow: "Reverence",
-    title: "Lead with awe, not performance.",
+    title: "Lead with Awe, Not Performance.",
     body: "The team exists to help the church respond to God with humility, gratitude, and clarity.",
     icon: HeartIcon,
   },
   {
     eyebrow: "Excellence",
-    title: "Prepare well and serve with care.",
+    title: "Prepare Well and Serve with Care.",
     body: "Musical and technical leaders give their best so gathered worship stays focused and distraction-free.",
     icon: BookIcon,
   },
   {
     eyebrow: "Teamwork",
-    title: "Voices, instruments, and tech serve as one body.",
+    title: "Voices, Instruments, and Tech Serve as One Body.",
     body: "Every role matters because worship arts is built around collaboration and shared responsibility.",
     icon: UsersIcon,
   },
   {
     eyebrow: "Formation",
-    title: "Every service shapes discipleship.",
+    title: "Every Service Shapes Discipleship.",
     body: "Rehearsals, planning, and service all form people as worshipers before they ever step on stage.",
     icon: CalendarIcon,
   },
@@ -50,17 +50,17 @@ const worshipValues = [
 const worshipModes = [
   {
     eyebrow: "Praise teams",
-    title: "Lead the church in Sunday worship.",
+    title: "Lead the Church in Sunday Worship.",
     body: "Singers and musicians help guide the congregation through adult and youth worship services.",
   },
   {
     eyebrow: "Tech teams",
-    title: "Support sound, screens, lighting, and streaming.",
+    title: "Support Sound, Screens, Lighting, and Streaming.",
     body: "Behind-the-scenes volunteers shape the environment so worship stays clear and attentive.",
   },
   {
     eyebrow: "Seasonal choirs",
-    title: "Lift the room during key church moments.",
+    title: "Lift the Room During Key Church Moments.",
     body: "Choirs gather around the calendar for special Sundays and seasonal worship emphasis.",
   },
 ];
@@ -68,22 +68,22 @@ const worshipModes = [
 const worshipSteps = [
   {
     eyebrow: "Step 1",
-    title: "Reach out to the ministry team.",
+    title: "Reach Out to the Ministry Team.",
     body: "Start with Pastor Marc or the church office so someone can help you find the right place to serve.",
   },
   {
     eyebrow: "Step 2",
-    title: "Talk through your gifts and schedule.",
+    title: "Talk Through Your Gifts and Schedule.",
     body: "The team will help you understand the expectations for singers, musicians, or production volunteers.",
   },
   {
     eyebrow: "Step 3",
-    title: "Join rehearsal or training.",
+    title: "Join Rehearsal or Training.",
     body: "Worship teams stay sharp through preparation, prayer, and a willingness to learn together.",
   },
   {
     eyebrow: "Step 4",
-    title: "Serve consistently and keep growing.",
+    title: "Serve Consistently and Keep Growing.",
     body: "The goal is not just filling a slot. The goal is forming leaders who help the church worship well.",
   },
 ];
@@ -93,7 +93,7 @@ export default function WorshipArtsMinistryPage() {
     <>
       <PageHero
         eyebrow="Connect"
-        title="Worship that is visually, vocally, and spiritually disciplined."
+        title="Worship That is Visually, Vocally, and Spiritually Disciplined."
         description="Worship Arts Ministry helps Emmanuel gather with reverence through music, production, and choir moments that keep the room centered on Jesus."
         action={{ label: "Email Worship Arts", href: `mailto:${lauraEmail}` }}
         actionDetail={
@@ -110,7 +110,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="Worship is central to Emmanuel's identity."
+          title="Worship is Central to Emmanuel's Identity."
           description="This ministry is not only about singing. It is about leading the church to respond to God with humility, skill, and confidence."
         />
 
@@ -187,7 +187,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Core commitments"
-          title="Four priorities shape the way the team leads worship."
+          title="Four Priorities Shape the Way the Team Leads Worship."
           description="These are the values that keep the ministry centered, disciplined, and useful to the gathered church."
         />
 
@@ -211,7 +211,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Serving lanes"
-          title="The live page keeps the ministry structure simple."
+          title="The Live Page Keeps the Ministry Structure Simple."
           description="There are three main ways to get involved: praise teams, tech teams, and seasonal choirs."
         />
 
@@ -229,7 +229,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="How to join"
-          title="Take the next step if you want to sing, play, or serve behind the scenes."
+          title="Take the Next Step If You Want to Sing, Play, or Serve Behind the Scenes."
           description="The path is straightforward: reach out, talk through your gifts, train well, and serve consistently."
         />
 
@@ -247,7 +247,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Leadership"
-          title="Who to contact if you want to get involved."
+          title="Who to Contact If You Want to Get Involved."
           description="The ministry stays close to the church office so people can find the right person quickly."
         />
 

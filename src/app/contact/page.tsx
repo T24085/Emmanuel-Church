@@ -24,7 +24,7 @@ export default function ContactPage() {
             </div>
             <div className="contact-hero__content">
               <p className="eyebrow">Contact</p>
-              <h1>Start here if you're new.</h1>
+              <h1>Start Here If You're New.</h1>
               <p>
                 Use this page for the address, phone number, map, emails, and the public links the
                 church currently shares.
@@ -64,7 +64,7 @@ export default function ContactPage() {
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Map</p>
-            <h3>Locate us</h3>
+            <h3>Locate Us</h3>
             <p>Open the official Google Maps listing for Emmanuel Church.</p>
             <a className="resource-card__action" href={site.mapHref} target="_blank" rel="noreferrer">
               <LocationIcon className="icon icon--xs" />
@@ -73,7 +73,7 @@ export default function ContactPage() {
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Email</p>
-            <h3>Staff inboxes</h3>
+            <h3>Staff Inboxes</h3>
             <p>Direct contact addresses from the public staff and preschool pages.</p>
             <Link className="resource-card__action" href={`mailto:${contactEmails[0]}`}>
               <MailIcon className="icon icon--xs" />
@@ -85,7 +85,7 @@ export default function ContactPage() {
         <div className="contact-map surface-card">
           <div className="surface-card__body contact-map__copy">
             <p className="eyebrow eyebrow--small">Map view</p>
-            <h3>Find the church on the map.</h3>
+            <h3>Find the Church on the Map.</h3>
             <p>Use the embedded map to preview the location, plan a route, or open the full listing.</p>
             <a className="surface-card__link" href={site.mapHref} target="_blank" rel="noreferrer">
               <span>Open map in Google Maps</span>
@@ -95,7 +95,7 @@ export default function ContactPage() {
           <div className="contact-map__media sermon-player__media">
             <iframe
               src={site.mapEmbedHref}
-              title="Emmanuel Church map view"
+              title="Emmanuel Church Map View"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               allowFullScreen

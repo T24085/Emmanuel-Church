@@ -99,7 +99,7 @@ export default async function WhoWeArePage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Identity"
-          title="Truth, Worship, and Family in one picture"
+          title="Truth, Worship, and Family in One Picture"
           description="These images hold the page together visually: doctrine in the logo, discipleship in the classroom, and worship in the gathered church."
         />
         <div className="who-we-are-showcase">

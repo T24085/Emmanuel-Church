@@ -17,22 +17,22 @@ const shawnCellHref = `tel:${shawnCell.replace(/[^0-9+]/g, "")}`;
 const momentumValues = [
   {
     eyebrow: "Scripture",
-    title: "Students are grounded in biblical truth.",
+    title: "Students are Grounded in Biblical Truth.",
     body: "Momentum keeps the Bible at the center so teens hear more than advice and more than hype.",
   },
   {
     eyebrow: "Community",
-    title: "Meaningful relationships are part of the ministry.",
+    title: "Meaningful Relationships are Part of the Ministry.",
     body: "The page frames Momentum as a place where students belong, grow, and are known by leaders.",
   },
   {
     eyebrow: "Discipleship",
-    title: "The goal is invitation into real growth.",
+    title: "The Goal is Invitation Into Real Growth.",
     body: "Momentum is presented as a ministry that points students toward commitment, not just attendance.",
   },
   {
     eyebrow: "Mission",
-    title: "Students are invited to make a difference.",
+    title: "Students are Invited to Make a Difference.",
     body: "The live page calls for volunteers and training around the vision and values of Momentum.",
   },
 ];
@@ -40,7 +40,7 @@ const momentumValues = [
 const momentumCards = [
   {
     eyebrow: "More information",
-    title: "Momentum Youth is a core part of Connect.",
+    title: "Momentum Youth is a Core Part of Connect.",
     body: "The public site places Momentum Youth directly in the main navigation, not in a hidden submenu.",
     action: {
       label: "Contact the office",
@@ -49,7 +49,7 @@ const momentumCards = [
   },
   {
     eyebrow: "Extreme Kansas Camp",
-    title: "Middle school students attend camp at Milford Lake.",
+    title: "Middle School Students Attend Camp at Milford Lake.",
     body: "The live page points students to Extreme Kansas Camp as a key part of the Momentum rhythm.",
     action: {
       label: "Open Extreme Encounters",
@@ -59,7 +59,7 @@ const momentumCards = [
   },
   {
     eyebrow: "Stay up-to-date",
-    title: "Use the church calendar for current events and rhythms.",
+    title: "Use the Church Calendar for Current Events and Rhythms.",
     body: "If a family needs the broader schedule, the calendar is the best public source for church-wide dates.",
     action: {
       label: "View the calendar",
@@ -68,7 +68,7 @@ const momentumCards = [
   },
   {
     eyebrow: "Volunteer team",
-    title: "Training is available for people who want to serve.",
+    title: "Training is Available for People Who Want to Serve.",
     body: "The live page asks interested people to contact the office about upcoming training to learn the vision and values of Momentum.",
     action: {
       label: "Ask about training",
@@ -105,7 +105,7 @@ export default function MomentumYouthPage() {
     <>
       <PageHero
         eyebrow="Connect"
-        title="A student ministry with room for faith to move."
+        title="A Student Ministry with Room for Faith to Move."
         description="Momentum Youth serves middle and high school students through teaching, community, and discipleship."
         action={{ label: "Email Pastor Shawn", href: `mailto:${shawnEmail}`, external: true }}
         actionDetail={
@@ -131,7 +131,7 @@ export default function MomentumYouthPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="Students shaped by the gospel, not just entertained by church."
+          title="Students Shaped by the Gospel, Not Just Entertained by Church."
           description="Momentum Youth is the church's primary student ministry, built to give teenagers biblical truth, meaningful relationships, and a clear invitation into discipleship."
         />
 
@@ -220,7 +220,7 @@ export default function MomentumYouthPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Leadership"
-          title="For more information, contact Pastor Shawn Ammons."
+          title="For More Information, Contact Pastor Shawn Ammons."
           description="The live page lists Shawn's cell number and email, and points interested volunteers toward upcoming training."
         />
 
@@ -258,7 +258,7 @@ export default function MomentumYouthPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="More information"
-          title="The live site points students and volunteers to a few key destinations."
+          title="The Live Site Points Students and Volunteers to a Few Key Destinations."
           description="These are the main public touchpoints from the Momentum Youth page."
         />
 

@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="site-shell site-footer__inner">
         <div className="site-footer__brand">
           <p className="eyebrow">Emmanuel Church</p>
-          <h2>Rooted in the gospel. Present in Abilene.</h2>
+          <h2>Rooted in the Gospel. Present in Abilene.</h2>
           <p>
             {site.address}
             <br />
