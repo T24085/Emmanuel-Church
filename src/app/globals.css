@@ -1608,6 +1608,7 @@ select {
 
 .giving-foundation__body {
   grid-column: 2;
+  grid-row: 1;
   max-width: 54ch;
   padding-top: 0.3rem;
 }
@@ -1639,6 +1640,7 @@ select {
 .giving-foundation__scriptures {
   position: relative;
   grid-column: 3;
+  grid-row: 1;
   overflow: hidden;
   display: grid;
   align-content: start;
