@@ -2,13 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRightIcon,
-  BookIcon,
   CalendarIcon,
-  HeartIcon,
   PlayIcon,
-  UsersIcon,
 } from "@/components/icons";
 import { HeroVideo } from "@/components/hero-video";
+import { loadMediaArchivePages } from "@/lib/media-archive";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { StaffGrid } from "@/components/staff-grid";
 import { ValueFlipCard } from "@/components/value-flip-card";
@@ -27,13 +25,18 @@ import preschoolCardImage from "../../images/emmanuel-preschool-card.png";
 import kidsCardImage from "../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
 import momentumYouthCardImage from "../../images/momentum-youth-card.png";
 
-const iconMap = [BookIcon, UsersIcon, HeartIcon, CalendarIcon];
-
 const homepageMinistryImages = {
   "/connect/emmanuel-preschool": { src: preschoolCardImage, fit: "contain" },
   "/connect/emmanuel-kids": { src: kidsCardImage, fit: "contain" },
   "/connect/momentum-youth": { src: momentumYouthCardImage, fit: "contain" },
 } as const;
+
+const homepageFeatureSymbols = [
+  "/images/home-symbol-scripture.png",
+  "/images/home-symbol-communion.png",
+  "/images/home-symbol-giving.png",
+  "/images/home-symbol-events.png",
+] as const;
 
 const homepageValues = [
   {
@@ -78,11 +81,24 @@ const homepageValues = [
   },
 ];
 
-export default function HomePage() {
+export const revalidate = 21600;
+
+export default async function HomePage() {
+  const mediaPages = await loadMediaArchivePages();
+  const latestSermon = mediaPages
+    .flatMap((page) => page.items)
+    .find((item) => item.kind === "video" && item.embedSrc);
+
   return (
     <>
       <section className="hero">
-        <HeroVideo />
+        <HeroVideo
+          latestSermon={
+            latestSermon
+              ? { title: latestSermon.title, embedSrc: latestSermon.embedSrc || "" }
+              : null
+          }
+        />
         <div className="hero__overlay" />
         <div className="site-shell hero__inner">
           <div className="hero__copy">
@@ -97,7 +113,7 @@ export default function HomePage() {
               <Link href="/contact" className="button button--gold">
                 Plan Your Visit
               </Link>
-              <Link href="/resources/live-stream" className="button button--light">
+              <Link href="/resources/sermons" className="button button--light button--sermon">
                 <PlayIcon className="icon icon--sm" />
                 <span>Watch Latest Sermon</span>
               </Link>
@@ -109,11 +125,13 @@ export default function HomePage() {
       <SectionShell className="section-shell--feature-rail">
         <div className="hero__card-row" aria-label="Core priorities">
           {featureCards.map((card, index) => {
-            const Icon = iconMap[index] ?? ArrowRightIcon;
             return (
               <article key={card.title} className="feature-card">
-                <div className="feature-card__icon" aria-hidden="true">
-                  <Icon className="icon" />
+                <div
+                  className="feature-card__icon feature-card__icon--symbol"
+                  aria-hidden="true"
+                >
+                  <img src={withBasePath(homepageFeatureSymbols[index] || homepageFeatureSymbols[0])} alt="" />
                 </div>
                 <div>
                   <h3>{card.title}</h3>

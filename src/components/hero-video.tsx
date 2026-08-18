@@ -6,7 +6,50 @@ import { withBasePath } from "@/lib/site-path";
 const heroVideos = [withBasePath("/videos/hero-1-1.mp4?v=3"), withBasePath("/videos/hero-2-2.mp4?v=3")];
 const crossfadeMs = 850;
 
-export function HeroVideo() {
+type LatestSermonPreview = {
+  title: string;
+  embedSrc: string;
+};
+
+function buildAutoplaySrc(embedSrc: string) {
+  try {
+    const url = new URL(embedSrc);
+    url.searchParams.set("autoplay", "1");
+    url.searchParams.set("muted", "1");
+    url.searchParams.set("loop", "1");
+    url.searchParams.set("background", "1");
+    url.searchParams.set("autopause", "0");
+    url.searchParams.set("title", "0");
+    url.searchParams.set("byline", "0");
+    url.searchParams.set("portrait", "0");
+    url.searchParams.set("dnt", "1");
+    return url.toString();
+  } catch {
+    return embedSrc;
+  }
+}
+
+export function HeroVideo({ latestSermon }: { latestSermon?: LatestSermonPreview | null }) {
+  if (latestSermon?.embedSrc) {
+    return (
+      <div className="hero__media hero__media--sermon">
+        <iframe
+          className="hero__sermon-frame"
+          src={buildAutoplaySrc(latestSermon.embedSrc)}
+          title={`Latest sermon: ${latestSermon.title}`}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          loading="eager"
+          aria-hidden="true"
+        />
+      </div>
+    );
+  }
+
+  return <RotatingHeroVideo />;
+}
+
+function RotatingHeroVideo() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
