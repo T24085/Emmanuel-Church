@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { primaryNav, site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import { ArrowRightIcon, CloseIcon, MenuIcon } from "./icons";
 
 function isActive(pathname: string, href: string) {
@@ -34,14 +36,14 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-shell site-header__inner">
         <Link href="/" className="brand" aria-label={site.name}>
-          <span className="brand__icon" aria-hidden="true">
-            <span className="brand__cross brand__cross--vertical" />
-            <span className="brand__cross brand__cross--horizontal" />
-          </span>
-          <span className="brand__wordmark">
-            <span>Emmanuel</span>
-            <span>Church</span>
-          </span>
+          <Image
+            src={withBasePath("/images/emmanuel-church-logo.png")}
+            alt="Emmanuel Church"
+            width={220}
+            height={85}
+            className="brand__logo"
+            priority
+          />
         </Link>
 
         <nav className="site-nav" aria-label="Primary">
@@ -82,7 +84,13 @@ export function SiteHeader() {
                 aria-label={site.name}
                 onClick={closeMobileMenu}
               >
-                Emmanuel Church
+                <Image
+                  src={withBasePath("/images/emmanuel-church-logo.png")}
+                  alt="Emmanuel Church"
+                  width={220}
+                  height={85}
+                  className="brand__logo"
+                />
               </Link>
               <Link href="/contact" className="button button--gold button--small" onClick={closeMobileMenu}>
                 Plan Visit
