@@ -67,54 +67,33 @@ export default function OnlineGivingPage() {
             </p>
           </div>
 
-          <div className="giving-foundation__list">
-            {givingPrinciples.map((principle) => (
-              <details className="giving-foundation__item" key={principle.id}>
-                <summary>
-                  <span className="giving-foundation__summary-copy">
-                    <span className="giving-foundation__principle">{principle.lens}</span>
-                    <span className="giving-foundation__title">{principle.title}</span>
-                  </span>
-                  <span className="giving-foundation__summary-hint">Read the foundation</span>
-                </summary>
-                <div className="giving-foundation__content">
-                  <div className="giving-foundation__body">
-                    <p>{principle.summary}</p>
-                  </div>
-                  <div className="giving-foundation__scriptures" aria-label={`${principle.title} scripture`}>
-                    <p className="eyebrow eyebrow--small">Scripture · KJV</p>
-                    {principle.scriptures.map((scripture) => (
-                      <blockquote key={scripture.reference}>
-                        <p>“{scripture.text}”</p>
-                        <cite>{scripture.reference}</cite>
-                      </blockquote>
-                    ))}
-                  </div>
+          <ol className="giving-foundation__list">
+            {givingPrinciples.map((principle, index) => (
+              <li className="giving-foundation__item" key={principle.id}>
+                <span className="giving-foundation__marker" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="giving-foundation__body">
+                  <p className="giving-foundation__principle">{principle.lens}</p>
+                  <h3>{principle.title}</h3>
+                  <p>{principle.summary}</p>
                 </div>
-              </details>
+                <div className="giving-foundation__scriptures" aria-label={`${principle.title} scripture`}>
+                  <p className="eyebrow eyebrow--small">Scripture · KJV</p>
+                  {principle.scriptures.map((scripture) => (
+                    <blockquote key={scripture.reference}>
+                      <p>“{scripture.text}”</p>
+                      <cite>{scripture.reference}</cite>
+                    </blockquote>
+                  ))}
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
+          <p className="giving-foundation__transition">
+            Generosity begins with what God has already given.
+          </p>
         </section>
-        <div className="resource-grid">
-          <article className="resource-card">
-            <p className="eyebrow eyebrow--small">Donation portal</p>
-            <h3>Fellowship One Giving</h3>
-            <p>The church's current online giving portal.</p>
-            <a className="resource-card__action" href={site.givingHref} target="_blank" rel="noreferrer">
-              <ArrowRightIcon className="icon icon--xs" />
-              <span>Make a donation</span>
-            </a>
-          </article>
-          <article className="resource-card">
-            <p className="eyebrow eyebrow--small">Support</p>
-            <h3>Need Help?</h3>
-            <p>Reach the office for login help, receipts, or support from the right staff member.</p>
-            <Link className="resource-card__action" href="/contact">
-              <ArrowRightIcon className="icon icon--xs" />
-              <span>Contact us</span>
-            </Link>
-          </article>
-        </div>
       </SectionShell>
     </>
   );

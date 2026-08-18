@@ -18,6 +18,10 @@ const revealSelectors = [
   ".quote-strip",
   ".inline-banner",
   ".link-list__item",
+  ".giving-foundation__heading",
+  ".giving-foundation__list",
+  ".giving-foundation__item",
+  ".giving-foundation__transition",
 ].join(", ");
 
 export function MotionShell({ children }: { children: ReactNode }) {
@@ -30,6 +34,54 @@ export function MotionShell({ children }: { children: ReactNode }) {
 
     root.classList.add("motion-ready");
     root.classList.toggle("motion-reduce", reducedMotion);
+
+    const givingList = document.querySelector<HTMLElement>(".giving-foundation__list");
+    const givingItems = Array.from(
+      document.querySelectorAll<HTMLElement>(".giving-foundation__item")
+    );
+
+    const updateGivingJourney = () => {
+      if (!givingList || givingItems.length === 0) {
+        return;
+      }
+
+      const listRect = givingList.getBoundingClientRect();
+      const focusLine = window.innerHeight * 0.44;
+      let activeItem: HTMLElement | null = null;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      for (const item of givingItems) {
+        const rect = item.getBoundingClientRect();
+        const isInFocusRange = rect.bottom > window.innerHeight * 0.18 && rect.top < window.innerHeight * 0.86;
+        const distance = Math.abs(rect.top + rect.height / 2 - focusLine);
+
+        if (isInFocusRange && distance < closestDistance) {
+          activeItem = item;
+          closestDistance = distance;
+        }
+      }
+
+      for (const item of givingItems) {
+        item.classList.toggle("is-active", item === activeItem);
+      }
+
+      givingList.classList.toggle("has-active", Boolean(activeItem));
+
+      if (activeItem) {
+        const marker = activeItem.querySelector<HTMLElement>(".giving-foundation__marker");
+        if (marker) {
+          const markerRect = marker.getBoundingClientRect();
+          const glowTop = markerRect.top - listRect.top + markerRect.height / 2;
+          givingList.style.setProperty("--giving-path-glow-top", `${glowTop}px`);
+        }
+      }
+
+      const quoteShift = Math.max(
+        -12,
+        Math.min(12, (window.innerHeight * 0.48 - listRect.top) * 0.018)
+      );
+      givingList.style.setProperty("--giving-quote-shift", `${quoteShift}px`);
+    };
 
     if (reducedMotion) {
       root.style.removeProperty("--hero-parallax");
@@ -77,6 +129,7 @@ export function MotionShell({ children }: { children: ReactNode }) {
       rafId = 0;
       if (!hero) {
         root.style.removeProperty("--hero-parallax");
+        updateGivingJourney();
         return;
       }
 
@@ -89,6 +142,7 @@ export function MotionShell({ children }: { children: ReactNode }) {
       const shift = Math.round(progress * maxShift);
 
       root.style.setProperty("--hero-parallax", `${shift}px`);
+      updateGivingJourney();
     };
 
     const onScroll = () => {
