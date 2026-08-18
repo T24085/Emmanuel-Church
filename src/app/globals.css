@@ -1269,6 +1269,73 @@ select {
   padding: 1.25rem;
 }
 
+.doctrines-panel__search {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.1rem 0.85rem;
+  border: 1px solid rgba(199, 144, 68, 0.22);
+  border-radius: var(--radius-md);
+  background: rgba(247, 241, 232, 0.72);
+}
+
+.doctrines-panel__search label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--text-dark);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.doctrines-panel__search-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.doctrines-panel__search input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(24, 33, 43, 0.16);
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.doctrines-panel__search input:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.24);
+  outline-offset: 2px;
+  border-color: rgba(199, 144, 68, 0.72);
+}
+
+.doctrines-panel__clear {
+  border: 1px solid rgba(24, 33, 43, 0.14);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.doctrines-panel__clear:hover,
+.doctrines-panel__clear:focus-visible {
+  border-color: rgba(199, 144, 68, 0.52);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.doctrines-panel__search-status {
+  min-height: 1.4em;
+  margin: 0.6rem 0 0;
+  color: rgba(24, 33, 43, 0.62);
+  font-size: 0.88rem;
+}
+
+.doctrines-panel__copy article {
+  min-width: 0;
+}
+
 .doctrines-panel__content article {
   border-radius: var(--radius-lg);
   background: rgba(255, 253, 249, 0.98);
@@ -1504,6 +1571,29 @@ select {
 
 .giving-showcase__copy .hero__actions {
   margin-top: 0.6rem;
+}
+
+.giving-showcase__actions .button {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+  box-shadow: 0 8px 18px rgba(199, 144, 68, 0.12), 0 0 14px rgba(219, 171, 94, 0.12);
+}
+
+.giving-showcase__actions .button--gold {
+  box-shadow:
+    0 10px 22px rgba(199, 144, 68, 0.22),
+    0 0 18px rgba(219, 171, 94, 0.2);
+}
+
+.giving-showcase__actions .button:hover,
+.giving-showcase__actions .button:focus-visible {
+  box-shadow:
+    0 12px 24px rgba(199, 144, 68, 0.24),
+    0 0 24px rgba(219, 171, 94, 0.28);
 }
 
 .giving-foundation {
@@ -3605,12 +3695,14 @@ html.motion-ready .our-staff-page .staff-card {
 
 @media (max-width: 1080px) {
   .site-header {
-    background: rgba(248, 243, 236, 0.97);
+    background: #f8f3ec;
+    backdrop-filter: none;
     border-bottom-color: rgba(24, 33, 43, 0.1);
+    box-shadow: 0 8px 24px rgba(40, 30, 18, 0.08);
   }
 
   .site-scrolled .site-header {
-    background: rgba(248, 243, 236, 0.99);
+    background: #f8f3ec;
   }
 
   .mobile-menu__summary {
@@ -3985,8 +4077,9 @@ html.motion-ready .our-staff-page .staff-card {
   }
 
   .giving-showcase__media {
-    min-height: 0;
-    aspect-ratio: 4 / 3;
+    height: clamp(16rem, 78vw, 22rem);
+    min-height: 16rem;
+    aspect-ratio: auto;
   }
 
   .ministry-map-grid {
@@ -4062,6 +4155,15 @@ html.motion-ready .our-staff-page .staff-card {
   .doctrines-panel summary {
     align-items: start;
     flex-direction: column;
+  }
+
+  .doctrines-panel__search-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .doctrines-panel__clear {
+    align-self: flex-start;
   }
 
   .media-archive-browser__pager {

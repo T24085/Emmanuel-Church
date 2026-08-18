@@ -29,7 +29,7 @@ export default function OnlineGivingPage() {
         <div className="giving-showcase">
           <figure className="giving-showcase__media">
             <Image
-              src={withBasePath("/images/giving/giving-jesus.png?v=2")}
+              src={withBasePath("/images/giving/giving-jesus.png")}
               alt="Jesus giving bread to a child"
               fill
               sizes="(max-width: 1080px) 100vw, 58vw"
@@ -45,7 +45,7 @@ export default function OnlineGivingPage() {
               Use Fellowship One Giving for one-time gifts, recurring support, and account
               access in one place.
             </p>
-            <div className="hero__actions">
+            <div className="hero__actions giving-showcase__actions">
               <a className="button button--gold" href={site.givingHref} target="_blank" rel="noreferrer">
                 Give now
               </a>

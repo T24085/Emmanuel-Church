@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ValueFlipCard } from "@/components/value-flip-card";
+import { DoctrineSearch } from "@/components/doctrine-search";
 import { withBasePath } from "@/lib/site-path";
 
 import kidsReading from "../../../../Who we are - ABOUT/4d08689b-f470-40e1-87e6-796b5977e046.jpg";
@@ -243,13 +244,7 @@ export default async function WhoWeArePage() {
             <span className="doctrines-panel__summary-hint">Long-form doctrinal appendix</span>
           </summary>
           <div className="doctrines-panel__content">
-            {doctrineHtml ? (
-              <div dangerouslySetInnerHTML={{ __html: doctrineHtml }} />
-            ) : (
-              <p>
-                The full doctrinal statement could not be loaded at the moment.
-              </p>
-            )}
+            <DoctrineSearch html={doctrineHtml} />
           </div>
         </details>
       </SectionShell>
