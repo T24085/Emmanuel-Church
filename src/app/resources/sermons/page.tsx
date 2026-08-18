@@ -134,8 +134,6 @@ export default async function SermonsPage() {
         title="Sermons"
         description="Watch Emmanuel Church's current video archive inline, with the older teaching series kept below."
         mediaLayout="full"
-        action={{ label: "Watch the latest message", href: site.onlineChurch, external: true }}
-        actionDetail={<NextSermonCountdown />}
         media={
           <div className="page-hero__media-frame">
             <NextSermonCountdown compact className="page-hero__countdown--overlay" />

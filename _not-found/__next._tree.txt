@@ -1,2 +1,2 @@
-:HL["/Emmanuel-Church/_next/static/chunks/0dizjqnmq~7~i.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"MC9wNPa43CsduW1k6dAzA"}
+:HL["/Emmanuel-Church/_next/static/chunks/0tx7.bha.e8p~.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"Rp9m7-jlH1-suQkbId6zx"}
