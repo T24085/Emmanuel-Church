@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 
 const revealSelectors = [
   ".page-hero",
-  ".section-shell",
   ".section-heading",
   ".hero__copy",
   ".hero__card-row",

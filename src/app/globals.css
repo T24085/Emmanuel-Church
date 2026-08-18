@@ -2059,7 +2059,6 @@ select {
 }
 
 .motion-ready .page-hero,
-.motion-ready .section-shell,
 .motion-ready .section-heading,
 .motion-ready .hero__copy,
 .motion-ready .hero__card-row,
@@ -2082,7 +2081,6 @@ select {
 }
 
 .motion-ready .page-hero.is-visible,
-.motion-ready .section-shell.is-visible,
 .motion-ready .section-heading.is-visible,
 .motion-ready .hero__copy.is-visible,
 .motion-ready .hero__card-row.is-visible,
@@ -2288,7 +2286,6 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 .motion-reduce .page-hero,
-.motion-reduce .section-shell,
 .motion-reduce .section-heading,
 .motion-reduce .hero__copy,
 .motion-reduce .hero__card-row,
