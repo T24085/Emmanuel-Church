@@ -26,6 +26,40 @@
     background-color 180ms ease;
 }
 
+.resource-card--image {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #dfe4e5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.resource-card--image::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background: rgba(255, 253, 249, 0.42);
+}
+
+.resource-card--image::after {
+  position: absolute;
+  inset: 0.65rem;
+  z-index: 0;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: calc(var(--radius-lg) - 0.4rem);
+  background: rgba(255, 253, 249, 0.52);
+  box-shadow: 0 8px 24px rgba(24, 33, 43, 0.06);
+}
+
+.resource-card--image > * {
+  position: relative;
+  z-index: 1;
+}
+
 .resource-card--linked:hover,
 .resource-card--linked:focus-visible {
   transform: translateY(-2px);

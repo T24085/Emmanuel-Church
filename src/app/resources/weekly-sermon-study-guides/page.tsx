@@ -16,13 +16,13 @@ export default function WeeklySermonStudyGuidesPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Study"
-          title="A place to deepen the week's message."
+          title="A Place to Deepen the Week's Message."
           description="The route stays available so message notes and study material can be added without changing the structure."
         />
         <div className="resource-grid">
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Next step</p>
-            <h3>Message notes</h3>
+            <h3>Message Notes</h3>
             <p>Use this route for outlines, group questions, or downloads later on.</p>
             <Link className="resource-card__action" href="/resources/sermons">
               <ArrowRightIcon className="icon icon--xs" />

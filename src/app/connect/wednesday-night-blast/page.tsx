@@ -10,17 +10,17 @@ const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;
 const blastRhythm = [
   {
     eyebrow: "Season",
-    title: "September through November, then January through April.",
+    title: "September Through November, Then January Through April.",
     body: "B.L.A.S.T. follows the school-year rhythm so Wednesday nights stay connected to the church calendar and the family schedule.",
   },
   {
     eyebrow: "Time",
-    title: "Classes begin at 6:30 pm and end at 7:30 pm.",
+    title: "Classes Begin at 6:30 PM and End at 7:30 PM.",
     body: "All ages gather during the same window so families can arrive once, settle in, and move through the night together.",
   },
   {
     eyebrow: "Location",
-    title: "Children finish in the Emmanuel Kids Wing.",
+    title: "Children Finish in the Emmanuel Kids Wing.",
     body: "Pickup is handled where kids already know the space and leaders can send them home in an orderly way.",
   },
   {
@@ -33,22 +33,22 @@ const blastRhythm = [
 const blastActivities = [
   {
     eyebrow: "Music",
-    title: "Worship time opens the night.",
+    title: "Worship Time Opens the Night.",
     body: "Children experience God through singing and a shared time of praise before the lesson and activities begin.",
   },
   {
     eyebrow: "Lesson",
-    title: "Interactive teaching keeps the night engaging.",
+    title: "Interactive Teaching Keeps the Night Engaging.",
     body: "The ministry uses age-appropriate lessons so children can hear truth in a way that is simple and memorable.",
   },
   {
     eyebrow: "Play",
-    title: "Games and crafts are built into the evening.",
+    title: "Games and Crafts are Built Into the Evening.",
     body: "B.L.A.S.T. gives kids room to move, make, and enjoy the night while staying inside a gospel-shaped rhythm.",
   },
   {
     eyebrow: "Groups",
-    title: "Small-group time closes the night.",
+    title: "Small-Group Time Closes the Night.",
     body: "The last part of the evening helps kids connect with leaders and process what they learned together.",
   },
 ];
@@ -66,7 +66,7 @@ const ageGroups = [
   },
   {
     eyebrow: "Elementary",
-    title: "Worship Center, then kids hall",
+    title: "Worship Center, Then Kids Hall",
     body: "Kids begin together, then split into age groups with small-group time at the end.",
   },
 ];
@@ -74,7 +74,7 @@ const ageGroups = [
 const familyCare = [
   {
     eyebrow: "Children's Church",
-    title: "Both Sunday services",
+    title: "Both Sunday Services",
     body: "Children participate in praise and worship and hear a lesson tailored for them during both services every week.",
   },
   {
@@ -104,7 +104,7 @@ const nextSteps = [
   },
   {
     eyebrow: "Calendar",
-    title: "Stay up to date",
+    title: "Stay up to Date",
     body: "Use the church calendar for current Wednesday nights, seasonal breaks, and church-wide events.",
     href: "/resources/church-calendar",
   },
@@ -130,7 +130,7 @@ export default function WednesdayNightBlastPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="A family night with a clear midweek anchor."
+          title="A Family Night with a Clear Midweek Anchor."
           description="B.L.A.S.T. is built to give children a place to learn, sing, play, and grow while parents have a simple Wednesday rhythm to follow."
         />
 
@@ -180,7 +180,7 @@ export default function WednesdayNightBlastPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Schedule"
-          title="The Wednesday rhythm is easy to follow."
+          title="The Wednesday Rhythm is Easy to Follow."
           description="These are the essentials families need when they arrive on Wednesday night."
         />
 
@@ -198,7 +198,7 @@ export default function WednesdayNightBlastPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Age groups"
-          title="Each room is set up for a specific age range."
+          title="Each Room is Set up for a Specific Age Range."
           description="Families can drop children in the correct room quickly and know where pickup will happen at the end of the night."
         />
 
@@ -216,7 +216,7 @@ export default function WednesdayNightBlastPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Family care"
-          title="The whole evening is designed with families in mind."
+          title="The Whole Evening is Designed with Families in Mind."
           description="Children's Church, a nursing moms room, and a clear contact person keep the night accessible for parents and caregivers."
         />
 
@@ -234,7 +234,7 @@ export default function WednesdayNightBlastPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Next steps"
-          title="Use B.L.A.S.T. alongside the rest of the church rhythm."
+          title="Use B.L.A.S.T. Alongside the Rest of the Church Rhythm."
           description="Families moving through Wednesday nights usually need one of these additional pages too."
         />
 

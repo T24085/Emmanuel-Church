@@ -155,7 +155,7 @@ export default async function SermonsPage() {
         <SectionShell>
           <SectionHeading
             eyebrow="Media Archive"
-            title="The current video archive from Emmanuel Church LIVE."
+            title="The Current Video Archive from Emmanuel Church LIVE."
             description="These are the live archive videos, presented here with the original pagination intact."
           />
 
@@ -200,7 +200,7 @@ export default async function SermonsPage() {
         <SectionShell className="section-shell--tight">
           <SectionHeading
             eyebrow="Teaching tools"
-            title="Additional resources around the sermon archive."
+            title="Additional Resources Around the Sermon Archive."
             description="These are the public destinations Emmanuel uses alongside the sermon library."
           />
 
@@ -221,7 +221,7 @@ export default async function SermonsPage() {
             </article>
             <article className="resource-card">
               <p className="eyebrow eyebrow--small">Notes</p>
-              <h3>YouVersion events</h3>
+              <h3>YouVersion Events</h3>
               <p>The church points people to Bible.com for sermon notes and follow-along events.</p>
               <a className="resource-card__action" href={site.bibleApp} target="_blank" rel="noreferrer">
                 <ArrowRightIcon className="icon icon--xs" />
@@ -230,7 +230,7 @@ export default async function SermonsPage() {
             </article>
             <article className="resource-card">
               <p className="eyebrow eyebrow--small">Study</p>
-              <h3>Weekly sermon study guides</h3>
+              <h3>Weekly Sermon Study Guides</h3>
               <p>Use this route for future message notes, study questions, or downloadable guides.</p>
               <Link className="resource-card__action" href="/resources/weekly-sermon-study-guides">
                 <ArrowRightIcon className="icon icon--xs" />

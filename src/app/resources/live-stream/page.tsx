@@ -17,7 +17,7 @@ export default function LiveStreamPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Watch"
-          title="The live platform and the sermon archive."
+          title="The Live Platform and the Sermon Archive."
           description="This page keeps the live destination front and center while leaving room for future embedding or a custom video pipeline."
         />
 
@@ -47,7 +47,7 @@ export default function LiveStreamPage() {
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Bible app</p>
-            <h3>YouVersion events</h3>
+            <h3>YouVersion Events</h3>
             <p>The church also points worshipers to the Bible app for sermon notes.</p>
             <a className="resource-card__action" href={site.bibleApp} target="_blank" rel="noreferrer">
               <ArrowRightIcon className="icon icon--xs" />

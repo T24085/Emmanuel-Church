@@ -13,7 +13,7 @@ const kidsVisitorFormUrl =
 
 const sundaySchedule = [
   {
-    title: "8:45am Service",
+    title: "8:45 AM Service",
     rooms: [
       "Nursery: 6 weeks-2 years old, Room 102",
       "Pre-K Children's Church: 3-5 years, Room 103",
@@ -21,7 +21,7 @@ const sundaySchedule = [
     ],
   },
   {
-    title: "10:00am Discipleship Class",
+    title: "10:00 AM Discipleship Class",
     rooms: [
       "Nursery: 6 weeks-1 year, Room 102",
       "Toddlers and Pre-K: 2-4 years, Room 101",
@@ -29,7 +29,7 @@ const sundaySchedule = [
     ],
   },
   {
-    title: "11:00am Service",
+    title: "11:00 AM Service",
     rooms: [
       "Nursery: 6 weeks-2 years old, Room 102",
       "Pre-K Children's Church: 3-5 years, Room 103",
@@ -48,37 +48,37 @@ const blastSchedule = [
 const highlights = [
   {
     eyebrow: "Love",
-    title: "Kids experience the love of Christ in a warm, welcoming setting.",
+    title: "Kids Experience the Love of Christ in a Warm, Welcoming Setting.",
     body: "Children are known, helped, and encouraged by leaders who care about their growth and joy.",
   },
   {
     eyebrow: "Grace",
-    title: "Grace shows up in how children are welcomed and taught.",
+    title: "Grace Shows up in How Children are Welcomed and Taught.",
     body: "The ministry is designed to help kids learn in age-appropriate ways while feeling safe and seen.",
   },
   {
     eyebrow: "Worship",
-    title: "Worship is part of the rhythm, not a side activity.",
+    title: "Worship is Part of the Rhythm, Not a Side Activity.",
     body: "Singing, Bible teaching, and shared prayer all shape the kids ministry experience.",
   },
   {
     eyebrow: "Truth",
-    title: "Children hear clear biblical truth in a form they can understand.",
+    title: "Children Hear Clear Biblical Truth in a Form They Can Understand.",
     body: "The ministry aims to help kids experience God with teaching that is simple, faithful, and memorable.",
   },
 ];
 
 const firstTimeSteps = [
   {
-    title: "Fill out the visitor form",
+    title: "Fill Out the Visitor Form",
     body: "If this is your first time visiting, complete the Emmanuel Kids Visitor Form so check-in is quick and smooth.",
   },
   {
-    title: "Check in at the wing",
+    title: "Check in at the Wing",
     body: "All children may be picked up in the Emmanuel Kids Wing after their scheduled programming ends.",
   },
   {
-    title: "Ask questions anytime",
+    title: "Ask Questions Anytime",
     body: "Rachel Bishop can help with Sunday rhythms, Wednesday nights, or any questions about your child’s age group.",
   },
 ];
@@ -88,7 +88,7 @@ export default function EmmanuelKidsPage() {
     <>
       <PageHero
         eyebrow="Connect"
-        title="Where kids experience the love, grace, worship, and truth of Jesus Christ."
+        title="Where Kids Experience the Love, Grace, Worship, and Truth of Jesus Christ."
         description="Emmanuel Kids is the church's children's ministry for nursery through elementary age, built to keep families connected and children rooted in the gospel."
         action={{ label: "Plan a family visit", href: "/contact" }}
         actionDetail={
@@ -103,7 +103,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="A children's ministry built around worship, learning, and belonging."
+          title="A Children's Ministry Built Around Worship, Learning, and Belonging."
           description="Emmanuel Kids helps children know Jesus, grow in community, and feel seen by the church family around them."
         />
 
@@ -164,7 +164,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="New here?"
-          title="The visitor form helps the check-in process move quickly."
+          title="The Visitor Form Helps the Check-In Process Move Quickly."
           description="If you are visiting for the first time, the church asks families to fill out a short form before arrival."
         />
 
@@ -196,7 +196,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Sunday Morning"
-          title="Kids ministry during each part of the Sunday rhythm."
+          title="Kids Ministry During Each Part of the Sunday Rhythm."
           description="These are the current service and discipleship-hour groupings from the public Emmanuel Kids page."
         />
 
@@ -204,7 +204,7 @@ export default function EmmanuelKidsPage() {
           {sundaySchedule.map((block) => (
             <article key={block.title} className="resource-card kids-schedule-card">
               <p className="eyebrow eyebrow--small">{block.title}</p>
-              <h3>Room assignments by age group</h3>
+              <h3>Room Assignments by Age Group</h3>
               <div className="kids-schedule-card__list">
                 {block.rooms.map((room) => (
                   <p key={room}>{room}</p>
@@ -218,7 +218,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Wednesday Night"
-          title='B.L.A.S.T. gives kids a strong midweek anchor.'
+          title='B.L.A.S.T. Gives Kids a Strong Midweek Anchor.'
           description="The ministry runs on a seasonal schedule and brings children together for teaching, music, games, and small groups."
         />
 
@@ -244,7 +244,7 @@ export default function EmmanuelKidsPage() {
             </article>
             <article className="resource-card">
               <p className="eyebrow eyebrow--small">Elementary</p>
-              <h3>Worship Center, then kids hall</h3>
+              <h3>Worship Center, Then Kids Hall</h3>
               <p>Kids begin together, then split into K-2nd and 3rd-5th with small-group time at the end.</p>
             </article>
           </div>
@@ -254,7 +254,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Family care"
-          title="There is a nursing moms room for families with little ones."
+          title="There is a Nursing Moms Room for Families with Little Ones."
           description="Room 210 is available as a private room where parents can watch the live stream during service."
         />
 
@@ -271,7 +271,7 @@ export default function EmmanuelKidsPage() {
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Next step</p>
-            <h3>See the preschool page</h3>
+            <h3>See the Preschool Page</h3>
             <p>Families with younger children can also review Emmanuel Preschool for ages 3-5.</p>
             <Link className="resource-card__action" href="/connect/emmanuel-preschool">
               <ArrowRightIcon className="icon icon--xs" />

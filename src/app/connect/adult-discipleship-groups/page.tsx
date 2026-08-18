@@ -7,7 +7,7 @@ import { withBasePath } from "@/lib/site-path";
 
 const avenueCards = [
   {
-    title: "LIFE GROUPS",
+    title: "Life Groups",
     eyebrow: "Relationships, discipleship, leadership",
     description:
       "Life Groups are 6-12 people who are doing the Christian life together in three areas: Relationships, Discipleship, and Leadership. The goal is to build relationships, encourage one another, serve, and grow in obedience and maturity through Bible study and prayer. Simply put, they live LIFE together.",
@@ -16,7 +16,7 @@ const avenueCards = [
     points: ["Gathering", "Regularly", "Offering", "Understanding and Prayer"],
   },
   {
-    title: "TRIADS",
+    title: "Triads",
     eyebrow: "Accountability and growth",
     description:
       "Triads are three people (all men or all women) who meet together weekly, monthly, or as scheduled to hold each other accountable for spiritual growth and transformation. The goal is to develop transparent trust in each other around the truth of God's Word.",
@@ -25,7 +25,7 @@ const avenueCards = [
     points: ["Transparent trust", "Spiritual growth", "Shared accountability"],
   },
   {
-    title: "COUPLES CONNECT",
+    title: "Couples Connect",
     eyebrow: "Marriage journey",
     description:
       "Couples Connect is a discipleship connection between a young or newly-married couple and an older, more experienced married couple, for the purpose of encouragement and spiritual growth in the marriage journey.",
@@ -101,7 +101,7 @@ export default function AdultDiscipleshipGroupsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="All who attend Emmanuel are encouraged to join one or more of these avenues."
+          title="All Who Attend Emmanuel are Encouraged to Join One or More of These Avenues."
           description="These discipleship paths help people continue to experience God's Sanctifying Grace in a proactive way."
         />
 
@@ -137,7 +137,7 @@ export default function AdultDiscipleshipGroupsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Three avenues"
-          title="The church gives people three main places to grow."
+          title="The Church Gives People Three Main Places to Grow."
           description="Life Groups, Triads, and Couples Connect give believers a clearer path toward spiritual maturity."
         />
 
@@ -240,7 +240,7 @@ export default function AdultDiscipleshipGroupsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Process"
-          title="How do I get connected to one or more of these groups?"
+          title="How do I Get Connected to One or More of These Groups?"
           description="Here's the process:"
           action={{
             label: "Email Joyce",
@@ -265,7 +265,7 @@ export default function AdultDiscipleshipGroupsPage() {
         <div className="adult-discipleship-footer-callout">
           <div>
             <p className="eyebrow eyebrow--small">Need a next step?</p>
-            <h2>Emmanuel Church is ready to help you find a good place to connect.</h2>
+            <h2>Emmanuel Church is Ready to Help You Find a Good Place to Connect.</h2>
           </div>
           <Link href="#adult-groups" className="button button--light">
             <span>Review the classes</span>

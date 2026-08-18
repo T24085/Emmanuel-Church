@@ -36,17 +36,17 @@ const classOptions = [
 const missionCards = [
   {
     eyebrow: "Christ-centered",
-    title: "Bible themes woven into the classroom.",
+    title: "Bible Themes Woven Into the Classroom.",
     body: "The preschool includes topics from the Old and New Testament, with emphasis on one God, Jesus as His son, and Jesus sent as our rescuer.",
   },
   {
     eyebrow: "Whole-child growth",
-    title: "Academic and social/emotional skills matter together.",
+    title: "Academic and Social/Emotional Skills Matter Together.",
     body: "The program gives children the foundation they need for kindergarten while helping them grow in confidence, communication, and relationships.",
   },
   {
     eyebrow: "Licensed care",
-    title: "KDHE licensed and standards-minded.",
+    title: "KDHE Licensed and Standards-Minded.",
     body: "Emmanuel Preschool adheres to the standards set by Kansas licensing and keeps safety, structure, and development at the center of the day.",
   },
 ];
@@ -54,27 +54,27 @@ const missionCards = [
 const policyCards = [
   {
     eyebrow: "Open to all",
-    title: "Families from every background are welcome.",
+    title: "Families from Every Background are Welcome.",
     body: "The preschool is open to all children regardless of race, color, creed, religion, national origin, ancestry, physical handicap, or sex.",
   },
   {
     eyebrow: "Readiness",
-    title: "Children must be 3 and potty-trained.",
+    title: "Children Must be 3 and Potty-Trained.",
     body: "Every child must be at least 3 years old prior to attendance and must be potty-trained before starting.",
   },
   {
     eyebrow: "Health records",
-    title: "Forms, exam, and immunizations are required.",
+    title: "Forms, Exam, and Immunizations are Required.",
     body: "Each child must have a medical examination within 6 months of school starting and updated immunization records signed and on file.",
   },
   {
     eyebrow: "Enrollment fee",
-    title: "$25 nonrefundable fee holds the spot.",
+    title: "$25 Nonrefundable Fee Holds the Spot.",
     body: "Applications are accepted once the required forms are received. Class size is limited to 10 children per class, and other applications are placed on a waiting list.",
   },
   {
     eyebrow: "Program rules",
-    title: "Dismissal policy follows the live site copy.",
+    title: "Dismissal Policy Follows the Live Site Copy.",
     body: "The preschool reserves the right to dismiss a child if they are consistently incompatible with other children or if monthly tuition is not paid on time.",
   },
 ];
@@ -94,7 +94,7 @@ export default function EmmanuelPreschoolPage() {
 
       <PageHero
         eyebrow="Connect"
-        title="Christ-centered preschool with a firm academic foundation."
+        title="Christ-Centered Preschool with a Firm Academic Foundation."
         description="Emmanuel Preschool serves children ages 3-5 with early learning, spiritual formation, and the daily rhythms that prepare them for kindergarten."
         action={{ label: "Email the preschool", href: `mailto:${preschoolEmail}` }}
         actionDetail={
@@ -120,7 +120,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="A Christ-centered start for young learners."
+          title="A Christ-Centered Start for Young Learners."
           description="Emmanuel's Preschool is a ministry of Emmanuel Church whose goal is to provide a Christ-centered and academic setting for children ages 3-5 and give them a firm foundation for kindergarten."
         />
 
@@ -174,22 +174,22 @@ export default function EmmanuelPreschoolPage() {
         <div className="resource-grid preschool-facts">
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Ages</p>
-            <h3>3-5 years old</h3>
+            <h3>3-5 Years Old</h3>
             <p>The preschool is built for children who are ready for an early-learning classroom experience.</p>
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">License</p>
-            <h3>KDHE licensed</h3>
+            <h3>KDHE Licensed</h3>
             <p>The school follows the standards set by Kansas licensing.</p>
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Class size</p>
-            <h3>10 children maximum</h3>
+            <h3>10 Children Maximum</h3>
             <p>Applications beyond the limit are placed on a waiting list.</p>
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Daily rhythm</p>
-            <h3>Structured and playful</h3>
+            <h3>Structured and Playful</h3>
             <p>Circle time, small groups, snack, music and movement, and recreation shape the day.</p>
           </article>
         </div>
@@ -198,7 +198,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Gallery"
-          title="A glimpse into the preschool classroom."
+          title="A Glimpse Into the Preschool Classroom."
           description="The shared photos capture the activity, color, and attention to detail that define the preschool environment."
         />
 
@@ -239,7 +239,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Mission & services"
-          title="The preschool day is built around learning, formation, and safety."
+          title="The Preschool Day is Built Around Learning, Formation, and Safety."
           description="All classes are taught in a way that encourages individual and group activities, structured learning, free play, creativity, imagination, social development, and safety."
         />
 
@@ -257,7 +257,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Classes"
-          title="Three morning class options are currently listed."
+          title="Three Morning Class Options are Currently Listed."
           description="These options reflect the current preschool page, including the nonrefundable enrollment fee and monthly tuition."
         />
 
@@ -272,7 +272,7 @@ export default function EmmanuelPreschoolPage() {
           ))}
           <article className="resource-card preschool-class-card">
             <p className="eyebrow eyebrow--small">Enrollment fee</p>
-            <h3>$25 nonrefundable</h3>
+            <h3>$25 Nonrefundable</h3>
             <p>The fee holds your child's spot once the required paperwork has been received.</p>
             <strong className="preschool-class-card__price">Waiting list applies after 10 students</strong>
           </article>
@@ -282,7 +282,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Admissions"
-          title="Policies are simple, direct, and already in use."
+          title="Policies are Simple, Direct, and Already in Use."
           description="These are the current enrollment policies and contact points listed for Emmanuel Preschool."
         />
 
@@ -300,7 +300,7 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Contact"
-          title="For more information, contact the preschool office."
+          title="For More Information, Contact the Preschool Office."
           description="Rachel Bishop directs the preschool, and Marie Malo serves as the preschool teacher."
         />
 
