@@ -56,7 +56,11 @@ export default function ConnectPage() {
             const image = ministryCardImages[item.href as keyof typeof ministryCardImages];
 
             return (
-              <article className="resource-card ministry-card" key={item.href}>
+              <Link
+                className="resource-card resource-card--linked ministry-card"
+                href={item.href}
+                key={item.href}
+              >
                 <div className={`ministry-card__media ministry-card__media--${image.fit}`}>
                   <Image
                     src={image.src}
@@ -70,12 +74,12 @@ export default function ConnectPage() {
                   <p className="eyebrow eyebrow--small">Ministry</p>
                   <h3>{item.label}</h3>
                   <p>{item.description}</p>
-                  <Link href={item.href} className="resource-card__action">
+                  <span className="resource-card__action">
                     <span>Open page</span>
                     <ArrowRightIcon className="icon icon--xs" />
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>
