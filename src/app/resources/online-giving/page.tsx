@@ -29,7 +29,7 @@ export default function OnlineGivingPage() {
         <div className="giving-showcase">
           <figure className="giving-showcase__media">
             <Image
-              src={withBasePath("/images/giving/giving-jesus.png")}
+              src={withBasePath("/images/giving/giving-jesus.png?v=2")}
               alt="Jesus giving bread to a child"
               fill
               sizes="(max-width: 1080px) 100vw, 58vw"

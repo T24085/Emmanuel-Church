@@ -1469,9 +1469,11 @@ select {
   position: relative;
   min-height: 420px;
   background: rgba(255, 253, 249, 0.96);
+  isolation: isolate;
 }
 
 .giving-showcase__media .cover-image {
+  display: block;
   object-fit: cover;
   object-position: center center;
 }
@@ -3603,6 +3605,23 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 @media (max-width: 1080px) {
+  .site-header {
+    background: rgba(248, 243, 236, 0.97);
+    border-bottom-color: rgba(24, 33, 43, 0.1);
+  }
+
+  .site-scrolled .site-header {
+    background: rgba(248, 243, 236, 0.99);
+  }
+
+  .mobile-menu__summary {
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .mobile-menu__panel {
+    background: rgba(251, 247, 241, 0.99);
+  }
+
   .site-nav,
   .site-header__actions {
     display: none;
@@ -3967,7 +3986,8 @@ html.motion-ready .our-staff-page .staff-card {
   }
 
   .giving-showcase__media {
-    min-height: 320px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 
   .ministry-map-grid {
