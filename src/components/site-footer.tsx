@@ -20,12 +20,15 @@ export function SiteFooter() {
           <div>
             <h3>Explore</h3>
             <div className="site-footer__links">
-              {resourceLinks.slice(0, 5).map((item) => (
+              {resourceLinks
+                .filter((item) => item.href !== "/resources/live-stream")
+                .slice(0, 5)
+                .map((item) => (
                 <Link key={item.href} href={item.href} className="site-footer__link">
                   {item.label}
                   <ArrowRightIcon className="icon icon--xs" />
                 </Link>
-              ))}
+                ))}
             </div>
           </div>
 

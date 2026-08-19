@@ -13,6 +13,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+import worshipArtsCardImage from "../../../../images/worship-arts-card.png";
 
 const marcName = "Pastor Marc Riegel";
 const marcPhone = "(785) 263-3342";
@@ -115,7 +116,7 @@ export default function WorshipArtsMinistryPage() {
         />
 
         <div className="split-grid">
-          <article className="surface-card">
+          <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy">
               <p>
                 Worship Arts Ministry keeps the gathered church focused on Jesus through praise teams,
@@ -145,6 +146,15 @@ export default function WorshipArtsMinistryPage() {
                 </Link>
               </div>
             </div>
+            <figure className="ministry-overview-card__media ministry-overview-card__media--contain">
+              <Image
+                src={worshipArtsCardImage}
+                alt="Worship Arts Ministry artwork"
+                fill
+                sizes="(max-width: 1080px) 100vw, 50vw"
+                className="ministry-overview-card__image"
+              />
+            </figure>
           </article>
 
           <article className="surface-card surface-card--light">

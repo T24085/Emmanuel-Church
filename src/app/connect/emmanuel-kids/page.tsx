@@ -108,7 +108,7 @@ export default function EmmanuelKidsPage() {
         />
 
         <div className="split-grid">
-          <article className="surface-card">
+          <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy kids-overview__copy">
               <p>
                 Emmanuel Kids is intentionally woven into the Sunday schedule and the broader family rhythms of
@@ -134,6 +134,15 @@ export default function EmmanuelKidsPage() {
                 </a>
               </div>
             </div>
+            <figure className="ministry-overview-card__media ministry-overview-card__media--contain">
+              <Image
+                src={kidsLogo}
+                alt="Emmanuel Kids ministry artwork"
+                fill
+                sizes="(max-width: 1080px) 100vw, 50vw"
+                className="ministry-overview-card__image"
+              />
+            </figure>
           </article>
 
           <article className="surface-card kids-logo-card">

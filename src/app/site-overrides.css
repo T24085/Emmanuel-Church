@@ -88,6 +88,31 @@
     transform 160ms ease;
 }
 
+.ministry-overview-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.ministry-overview-card__media {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 15rem;
+  margin: 0 1.25rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: var(--radius-lg);
+  background: #f1ece4;
+}
+
+.ministry-overview-card__media--contain {
+  padding: 0.85rem;
+}
+
+.ministry-overview-card__image {
+  object-fit: contain;
+}
+
 .resource-card--linked:hover .resource-card__action--button,
 .resource-card--linked:focus-visible .resource-card__action--button {
   background: rgba(27, 70, 80, 0.12);

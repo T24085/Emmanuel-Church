@@ -1,7 +1,9 @@
-import Link from "next/link";
-import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading, SectionShell } from "@/components/section";
+import { ResourceTabs } from "@/components/resource-tabs";
+import { SectionShell } from "@/components/section";
+import { StudyGuideArchive } from "@/components/study-guide-archive";
+import { studyGuides } from "@/data/study-guides";
+import { site } from "@/data/site";
 
 export default function WeeklySermonStudyGuidesPage() {
   return (
@@ -9,26 +11,24 @@ export default function WeeklySermonStudyGuidesPage() {
       <PageHero
         eyebrow="Resources"
         title="Weekly Sermon Study Guides"
-        description="A space for message notes, discussion prompts, and future downloadable guides."
-        action={{ label: "View sermons", href: "/resources/sermons" }}
+        description="Continue the week's message with notes, discussion prompts, and downloadable study guides arranged as a living archive."
+        action={{ label: "Open shared archive", href: site.studyGuideFolder, external: true }}
       />
 
-      <SectionShell>
-        <SectionHeading
-          eyebrow="Study"
-          title="A Place to Deepen the Week's Message."
-          description="The route stays available so message notes and study material can be added without changing the structure."
-        />
-        <div className="resource-grid">
-          <article className="resource-card">
-            <p className="eyebrow eyebrow--small">Next step</p>
-            <h3>Message Notes</h3>
-            <p>Use this route for outlines, group questions, or downloads later on.</p>
-            <Link className="resource-card__action" href="/resources/sermons">
-              <ArrowRightIcon className="icon icon--xs" />
-              <span>View sermons</span>
-            </Link>
-          </article>
+      <ResourceTabs active="study-guides" />
+
+      <StudyGuideArchive guides={studyGuides} />
+
+      <SectionShell className="section-shell--tight">
+        <div className="inline-banner">
+          <div className="inline-banner__copy">
+            <p className="eyebrow">Keep exploring</p>
+            <h2>Pair the Guide with the Message.</h2>
+            <p>Listen to the original sermon, then use the guide to carry the conversation into the week.</p>
+          </div>
+          <a className="button button--gold" href="/resources/sermons">
+            View sermons
+          </a>
         </div>
       </SectionShell>
     </>

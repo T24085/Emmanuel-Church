@@ -5,6 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+import momentumYouthCardImage from "../../../../images/momentum-youth-card.png";
 import extremeEncountersCabin from "../../../../Momentum Youth/extreme-encounters-cabin.jpg";
 import extremeEncountersGroup from "../../../../Momentum Youth/extreme-encounters-group.jpeg";
 import extremeEncountersReading from "../../../../Momentum Youth/extreme-encounters-reading.jpeg";
@@ -136,7 +137,7 @@ export default function MomentumYouthPage() {
         />
 
         <div className="split-grid">
-          <article className="surface-card">
+          <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy momentum-overview__copy">
               <p>
                 Momentum Youth serves middle and high school students and is positioned as a core part of church
@@ -161,6 +162,15 @@ export default function MomentumYouthPage() {
                 </a>
               </div>
             </div>
+            <figure className="ministry-overview-card__media ministry-overview-card__media--contain">
+              <Image
+                src={momentumYouthCardImage}
+                alt="Momentum Youth ministry artwork"
+                fill
+                sizes="(max-width: 1080px) 100vw, 50vw"
+                className="ministry-overview-card__image"
+              />
+            </figure>
           </article>
 
           <article className="surface-card momentum-feature-card">
