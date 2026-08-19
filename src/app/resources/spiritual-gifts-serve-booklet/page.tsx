@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { spiritualGiftResources, spiritualGiftTeaching } from "@/data/spiritual-gifts";
+import { withBasePath } from "@/lib/site-path";
 
 export default function SpiritualGiftsServeBookletPage() {
   return (
@@ -34,7 +35,7 @@ export default function SpiritualGiftsServeBookletPage() {
             >
               <div className="spiritual-gift-card__media">
                 <Image
-                  src={resource.image}
+                  src={withBasePath(resource.image)}
                   alt={`${resource.title} cover`}
                   width={800}
                   height={800}
