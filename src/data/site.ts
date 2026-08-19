@@ -30,6 +30,10 @@ export const site = {
   calendarHref:
     "https://emmanuel.fellowshiponego.com/calendar/calendar_public/embeded/ecad0e599ea17a591dcc436a003013ac#month",
   bibleApp: "http://www.bible.com",
+  bulletinFolder:
+    "https://drive.google.com/drive/folders/1znpOR_apstkTE7GuzBNXDkIMVgEs0Ot9?usp=sharing",
+  studyGuideFolder:
+    "https://drive.google.com/drive/folders/1s3jWx5H5LHPDlPY2YjWqUbKL2s5DxnNS?usp=sharing",
 };
 
 export const primaryNav: LinkItem[] = [
@@ -37,6 +41,7 @@ export const primaryNav: LinkItem[] = [
   { label: "Ministries", href: "/connect" },
   { label: "Sermons", href: "/resources/sermons" },
   { label: "Events", href: "/resources/church-calendar" },
+  { label: "Resources", href: "/resources/weekly-sermon-study-guides" },
   { label: "Give", href: "/resources/online-giving" },
   { label: "Contact", href: "/contact" },
 ];

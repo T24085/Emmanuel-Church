@@ -5,6 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+import preschoolCardImage from "../../../../images/emmanuel-preschool-card.png";
 import preschoolCrafts from "../../../../Emmanuel Preschool/04eeb886-3cfe-4ddc-9898-06c1d298d88d.png";
 import preschoolClassroom from "../../../../Emmanuel Preschool/93cd6249-c99d-4f38-979c-a8eb4951ac15.jpg";
 import preschoolLogo from "../../../../Emmanuel Preschool/c3b52863-0605-4eab-bad9-07d9bf181c66.png";
@@ -125,7 +126,7 @@ export default function EmmanuelPreschoolPage() {
         />
 
         <div className="split-grid">
-          <article className="surface-card">
+          <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy preschool-overview__copy">
               <p>
                 Emmanuel's Preschool includes topics from the Old and New Testament, with an emphasis on the
@@ -151,6 +152,15 @@ export default function EmmanuelPreschoolPage() {
                 </Link>
               </div>
             </div>
+            <figure className="ministry-overview-card__media ministry-overview-card__media--contain">
+              <Image
+                src={preschoolCardImage}
+                alt="Emmanuel Preschool ministry artwork"
+                fill
+                sizes="(max-width: 1080px) 100vw, 50vw"
+                className="ministry-overview-card__image"
+              />
+            </figure>
           </article>
 
           <article className="surface-card preschool-hero-card">

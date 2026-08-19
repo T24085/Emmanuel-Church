@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, CalendarIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import blastCardImage from "../../../../images/blast-card.png";
 
 const rachelEmail = "rbishop@ecabilene.org";
 const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;
@@ -135,7 +137,7 @@ export default function WednesdayNightBlastPage() {
         />
 
         <div className="split-grid">
-          <article className="surface-card">
+          <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy blast-overview__copy">
               <p>
                 The B.L.A.S.T. begins with classes for all ages from 6:30-7:30 pm. The goal is not
@@ -158,6 +160,15 @@ export default function WednesdayNightBlastPage() {
                 </a>
               </div>
             </div>
+            <figure className="ministry-overview-card__media ministry-overview-card__media--contain">
+              <Image
+                src={blastCardImage}
+                alt="Wednesday Night B.L.A.S.T. ministry artwork"
+                fill
+                sizes="(max-width: 1080px) 100vw, 50vw"
+                className="ministry-overview-card__image"
+              />
+            </figure>
           </article>
 
           <article className="surface-card blast-feature-card">

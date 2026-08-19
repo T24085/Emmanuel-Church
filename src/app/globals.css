@@ -136,9 +136,10 @@ select {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.15rem;
   margin-left: auto;
   margin-right: 1rem;
+  min-width: 0;
   padding: 0.38rem 0.55rem;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.36);
@@ -150,7 +151,7 @@ select {
   font-size: 0.94rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  padding: 0.62rem 0.84rem;
+  padding: 0.6rem 0.72rem;
   border-radius: 999px;
   transition:
     color 160ms ease,
@@ -174,6 +175,13 @@ select {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
+  flex: 0 0 auto;
+}
+
+.site-header__actions .button {
+  flex: 0 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
 }
 
 .icon-button {
@@ -293,6 +301,38 @@ select {
 
 .motion-reduce .button--sermon {
   animation: none;
+}
+
+@media (max-width: 1180px) and (min-width: 1081px) {
+  .site-header__inner {
+    gap: 0.7rem;
+  }
+
+  .brand {
+    width: 10.5rem;
+  }
+
+  .site-nav {
+    gap: 0.75rem;
+    margin-right: 0.35rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .site-nav__link {
+    padding: 0.55rem 0.62rem;
+    font-size: 0.88rem;
+  }
+
+  .site-header__actions {
+    flex: 0 0 auto;
+    gap: 0.45rem;
+  }
+
+  .site-header__actions .button {
+    flex: 0 0 auto;
+    padding: 0.85rem 1rem;
+    white-space: nowrap;
+  }
 }
 
 .button--small {
@@ -1360,6 +1400,67 @@ select {
   gap: 1rem;
 }
 
+.resource-tabs-shell {
+  padding: 1rem 0 0;
+}
+
+.resource-tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.35rem;
+  border: 1px solid rgba(24, 33, 43, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.72);
+  box-shadow: 0 12px 30px rgba(40, 30, 18, 0.05);
+  scrollbar-width: none;
+}
+
+.resource-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.resource-tabs__link {
+  flex: 1 0 auto;
+  border-radius: 999px;
+  padding: 0.78rem 1rem;
+  color: rgba(24, 33, 43, 0.7);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.resource-tabs__link:hover,
+.resource-tabs__link:focus-visible {
+  color: var(--text-dark);
+  background: rgba(216, 171, 94, 0.16);
+}
+
+.resource-tabs__link:focus-visible {
+  outline: 2px solid rgba(199, 144, 68, 0.72);
+  outline-offset: 2px;
+}
+
+.resource-tabs__link--active {
+  color: #fffdf9;
+  background: #1b4650;
+  box-shadow: 0 8px 18px rgba(27, 70, 80, 0.18);
+}
+
+.resource-tabs__link--active:hover,
+.resource-tabs__link--active:focus-visible {
+  color: #fffdf9;
+  background: #143a43;
+  transform: translateY(-1px);
+}
+
 @keyframes mission-graphic-drift {
   0% {
     transform: scale(1.03) translate3d(0, 0, 0);
@@ -1401,6 +1502,713 @@ select {
   margin-top: auto;
   color: #1b4650;
   font-weight: 800;
+}
+
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-card {
+  display: grid;
+  align-content: start;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 249, 0.98);
+  color: var(--text-dark);
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(40, 30, 18, 0.04);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.form-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 38px rgba(40, 30, 18, 0.1);
+}
+
+.form-card:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.62);
+  outline-offset: 4px;
+}
+
+.form-card__media {
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: #0b0b0c;
+}
+
+.form-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.form-card:hover .form-card__media img {
+  transform: scale(1.025);
+}
+
+.form-card__body {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  min-height: 260px;
+  padding: 1.35rem;
+}
+
+.form-card h3,
+.form-card p {
+  margin: 0;
+}
+
+.form-card h3 {
+  font-size: 1.25rem;
+}
+
+.form-card p:not(.eyebrow) {
+  color: rgba(24, 33, 43, 0.72);
+  line-height: 1.75;
+}
+
+.form-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+  color: #1b4650;
+  font-weight: 800;
+}
+
+.spiritual-gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.spiritual-gift-card {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 253, 249, 0.98);
+  color: var(--text-dark);
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(40, 30, 18, 0.05);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.spiritual-gift-card:hover,
+.spiritual-gift-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 38px rgba(40, 30, 18, 0.11);
+}
+
+.spiritual-gift-card:focus-visible {
+  outline: 3px solid rgba(199, 144, 68, 0.62);
+  outline-offset: 4px;
+}
+
+.spiritual-gift-card__media {
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: #0b0b0c;
+}
+
+.spiritual-gift-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.spiritual-gift-card:hover .spiritual-gift-card__media img {
+  transform: scale(1.025);
+}
+
+.spiritual-gift-card__body {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  min-height: 245px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.spiritual-gift-card__body h2,
+.spiritual-gift-card__body p {
+  margin: 0;
+}
+
+.spiritual-gift-card__body h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.98;
+}
+
+.spiritual-gift-card__body p:not(.eyebrow) {
+  color: rgba(24, 33, 43, 0.72);
+  line-height: 1.75;
+}
+
+.spiritual-gift-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  color: #1b4650;
+  font-weight: 800;
+}
+
+.spiritual-gifts-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-xl);
+  background: #e7efe7;
+}
+
+.spiritual-gifts-story__heading h2 {
+  max-width: 10ch;
+  margin: 0.35rem 0 0;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.95;
+}
+
+.spiritual-gifts-story__copy {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+
+.spiritual-gifts-story__copy p {
+  margin: 0;
+  color: rgba(24, 33, 43, 0.76);
+  line-height: 1.85;
+}
+
+.study-guide-feature-shell {
+  padding: 1rem 0 0;
+}
+
+.bulletin-feature-shell {
+  padding: 1rem 0 0;
+}
+
+.bulletin-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 1rem;
+}
+
+.bulletin-feature__lead,
+.bulletin-feature__aside {
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.bulletin-feature__lead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem 1.5rem;
+  align-content: start;
+  min-height: 390px;
+  background: #123f48;
+  color: #fffdf9;
+  box-shadow: 0 18px 50px rgba(18, 63, 72, 0.18);
+}
+
+.bulletin-feature__lead > .eyebrow {
+  grid-column: 1 / -1;
+  color: #c5d6c9;
+}
+
+.bulletin-feature__number {
+  align-self: start;
+  color: #d6b36a;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  line-height: 0.8;
+}
+
+.bulletin-feature__date {
+  margin: 0 0 0.55rem;
+  color: #c5d6c9;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.bulletin-feature h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: #fffdf9;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.bulletin-feature__lead > div:nth-of-type(2) > p:last-child {
+  max-width: 43ch;
+  margin: 1.2rem 0 0;
+  color: rgba(255, 253, 249, 0.72);
+  line-height: 1.8;
+}
+
+.bulletin-feature__lead .button {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 1rem;
+}
+
+.bulletin-feature__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 390px;
+  background: #e7efe7;
+  color: var(--text-dark);
+}
+
+.bulletin-feature__aside .eyebrow {
+  color: #1b4650;
+}
+
+.bulletin-feature__stats {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.bulletin-feature__stats div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(27, 70, 80, 0.17);
+}
+
+.bulletin-feature__stats strong {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.bulletin-feature__stats span,
+.bulletin-feature__aside-note {
+  color: rgba(24, 33, 43, 0.68);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bulletin-feature__aside-note {
+  max-width: 24ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.bulletin-archive-shell {
+  padding-top: clamp(4.5rem, 9vw, 8rem);
+}
+
+.bulletin-archive__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.75rem;
+}
+
+.bulletin-archive__intro h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 5.2rem);
+  line-height: 0.95;
+}
+
+.bulletin-archive__intro > p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.bulletin-month-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bulletin-month {
+  align-self: start;
+  border-top: 1px solid rgba(24, 33, 43, 0.2);
+}
+
+.bulletin-month summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.bulletin-month summary::-webkit-details-marker {
+  display: none;
+}
+
+.bulletin-month summary::after {
+  content: "+";
+  color: #1b4650;
+  font-size: 1.4rem;
+  font-weight: 300;
+  transition: transform 180ms ease;
+}
+
+.bulletin-month[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.bulletin-month__index,
+.bulletin-month__count {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bulletin-month__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.bulletin-month__body {
+  padding: 0.2rem 0 1rem;
+}
+
+.bulletin-item {
+  display: grid;
+  grid-template-columns: minmax(115px, 0.5fr) minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(24, 33, 43, 0.09);
+  color: var(--text-dark);
+  transition: color 180ms ease, padding 180ms ease;
+}
+
+.bulletin-item-preview {
+  border-top: 1px solid rgba(24, 33, 43, 0.09);
+}
+
+.bulletin-item-preview > .bulletin-item {
+  border-top: 0;
+}
+
+.bulletin-item-preview > summary::-webkit-details-marker {
+  display: none;
+}
+
+.bulletin-item__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  color: #1b4650;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bulletin-item__action .icon {
+  transition: transform 180ms ease;
+}
+
+.bulletin-item-preview[open] .bulletin-item__action .icon {
+  transform: rotate(90deg);
+}
+
+.bulletin-item__preview {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0 0 1rem;
+}
+
+.bulletin-item__preview iframe {
+  display: block;
+  width: 100%;
+  height: 34rem;
+  border: 1px solid rgba(24, 33, 43, 0.1);
+  border-radius: var(--radius-lg);
+  background: #e7efe7;
+}
+
+.bulletin-item__preview > a {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.45rem;
+  color: #1b4650;
+  font-weight: 800;
+}
+
+.bulletin-item:hover,
+.bulletin-item:focus-visible {
+  padding-left: 0.35rem;
+  color: #1b4650;
+}
+
+.bulletin-item__date {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.bulletin-item__title {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.study-guide-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 1rem;
+}
+
+.study-guide-feature__lead,
+.study-guide-feature__aside {
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.study-guide-feature__lead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem 1.5rem;
+  align-content: start;
+  min-height: 390px;
+  background: #123f48;
+  color: #fffdf9;
+  box-shadow: 0 18px 50px rgba(18, 63, 72, 0.18);
+}
+
+.study-guide-feature__lead > .eyebrow {
+  grid-column: 1 / -1;
+  color: #c5d6c9;
+}
+
+.study-guide-feature__number {
+  align-self: start;
+  color: #d6b36a;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  line-height: 0.8;
+}
+
+.study-guide-feature__date {
+  margin: 0 0 0.55rem;
+  color: #c5d6c9;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.study-guide-feature h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: #fffdf9;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 0.95;
+}
+
+.study-guide-feature__lead > div:nth-of-type(2) > p:last-child {
+  max-width: 43ch;
+  margin: 1.2rem 0 0;
+  color: rgba(255, 253, 249, 0.72);
+  line-height: 1.8;
+}
+
+.study-guide-feature__lead .button {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 1rem;
+}
+
+.study-guide-feature__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 390px;
+  background: #e7efe7;
+  color: var(--text-dark);
+}
+
+.study-guide-feature__aside .eyebrow {
+  color: #1b4650;
+}
+
+.study-guide-feature__stats {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.study-guide-feature__stats div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(27, 70, 80, 0.17);
+}
+
+.study-guide-feature__stats strong {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.study-guide-feature__stats span,
+.study-guide-feature__aside-note {
+  color: rgba(24, 33, 43, 0.68);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.study-guide-feature__aside-note {
+  max-width: 24ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.study-guide-archive-shell {
+  padding-top: clamp(4.5rem, 9vw, 8rem);
+}
+
+.study-guide-archive__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.72fr);
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.75rem;
+}
+
+.study-guide-archive__intro h2 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 5.2rem);
+  line-height: 0.95;
+}
+
+.study-guide-archive__intro > p {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.study-guide-series-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.study-guide-series {
+  align-self: start;
+  border-top: 1px solid rgba(24, 33, 43, 0.2);
+}
+
+.study-guide-series summary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.study-guide-series summary::-webkit-details-marker {
+  display: none;
+}
+
+.study-guide-series summary::after {
+  content: "+";
+  color: #1b4650;
+  font-size: 1.4rem;
+  font-weight: 300;
+  transition: transform 180ms ease;
+}
+
+.study-guide-series[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.study-guide-series__index,
+.study-guide-series__count {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.study-guide-series__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.study-guide-series__body {
+  padding: 0.2rem 0 1rem;
+}
+
+.study-guide-item {
+  display: grid;
+  grid-template-columns: minmax(115px, 0.5fr) minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.95rem 0;
+  border-top: 1px solid rgba(24, 33, 43, 0.09);
+  color: var(--text-dark);
+  transition: color 180ms ease, padding 180ms ease;
+}
+
+.study-guide-item:hover,
+.study-guide-item:focus-visible {
+  padding-left: 0.35rem;
+  color: #1b4650;
+}
+
+.study-guide-item__date {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.study-guide-item__title {
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .ministry-map-grid {
@@ -2108,6 +2916,10 @@ select {
   background: rgba(255, 253, 249, 0.98);
   color: var(--text-dark);
   box-shadow: var(--shadow);
+}
+
+.inline-banner > .button {
+  margin: 0 2rem 2rem;
 }
 
 .inline-banner__inner {
@@ -3728,6 +4540,14 @@ html.motion-ready .our-staff-page .staff-card {
     .site-footer__inner,
     .site-footer__columns,
     .resource-grid,
+    .bulletin-feature,
+    .bulletin-archive__intro,
+    .bulletin-month-grid,
+    .study-guide-feature,
+    .study-guide-archive__intro,
+    .study-guide-series-grid,
+    .spiritual-gifts-grid,
+    .spiritual-gifts-story,
     .contact-map,
     .momentum-gallery,
     .preschool-gallery,
@@ -3735,6 +4555,10 @@ html.motion-ready .our-staff-page .staff-card {
     .sermon-player {
       grid-template-columns: 1fr;
     }
+
+  .forms-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
   .momentum-gallery__item--wide {
     grid-column: span 1;
@@ -3780,6 +4604,14 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 @media (max-width: 768px) {
+  .forms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bulletin-item__preview iframe {
+    height: 28rem;
+  }
+
   .site-footer {
     padding: 2.5rem 0 1.5rem;
   }
@@ -3847,6 +4679,10 @@ html.motion-ready .our-staff-page .staff-card {
   .surface-card__body,
   .staff-card__body {
     padding: 1rem;
+  }
+
+  .inline-banner > .button {
+    margin: 0 1rem 1rem;
   }
 
   .section-shell {
