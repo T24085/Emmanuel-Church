@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { onlineForms } from "@/data/online-forms";
+import { withBasePath } from "@/lib/site-path";
 
 export default function OnlineFormsPage() {
   return (
@@ -27,7 +28,7 @@ export default function OnlineFormsPage() {
             <a className="form-card" href={form.href} target="_blank" rel="noreferrer" key={form.href}>
               <div className="form-card__media">
                 <Image
-                  src={form.image}
+                  src={withBasePath(form.image)}
                   alt={`${form.title} graphic`}
                   width={625}
                   height={625}
