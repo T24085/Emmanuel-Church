@@ -65,7 +65,7 @@ export function StudyGuideArchive({ guides }: StudyGuideArchiveProps) {
               <h2>A Thoughtful Way Back into the Message.</h2>
             </div>
             <p>
-              Browse by series instead of scrolling through a file dump. Open a guide whenever you want to prepare, reflect, or continue the conversation with your group.
+              Explore study guides by sermon series, then open a guide to prepare for the week ahead or continue the conversation with your group.
             </p>
           </div>
 
