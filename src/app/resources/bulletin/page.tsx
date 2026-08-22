@@ -1,5 +1,4 @@
 import { BulletinArchive } from "@/components/bulletin-archive";
-import { PageHero } from "@/components/page-hero";
 import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { bulletins } from "@/data/bulletins";
@@ -8,13 +7,6 @@ import { site } from "@/data/site";
 export default function BulletinPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Resources"
-        title="Sunday Bulletins"
-        description="Read the latest bulletin and browse the church's bulletin archive from the shared folder."
-        action={{ label: "Open bulletin archive", href: site.bulletinFolder, external: true }}
-      />
-
       <ResourceTabs active="bulletin" />
 
       <BulletinArchive bulletins={bulletins} />
