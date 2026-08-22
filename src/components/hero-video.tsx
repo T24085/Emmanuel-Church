@@ -8,6 +8,10 @@ const heroVideos = [withBasePath("/videos/hero-1-1.mp4?v=3"), withBasePath("/vid
 const crossfadeMs = 850;
 const heroPositionPrefix = "emmanuel-hero-position:";
 
+function notifyHeroReady() {
+  window.dispatchEvent(new Event("emmanuel:hero-ready"));
+}
+
 type LatestSermonPreview = {
   title: string;
   embedSrc: string;
@@ -106,7 +110,10 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
       void savePosition();
     }, 2000);
 
-    void player.ready().then(() => restorePosition()).catch(() => {
+    void player.ready().then(() => {
+      notifyHeroReady();
+      return restorePosition();
+    }).catch(() => {
       // Autoplay or player initialization can be blocked without affecting the page.
     });
     window.addEventListener("pagehide", savePosition);
@@ -134,6 +141,7 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
         allowFullScreen
         loading="eager"
         aria-hidden="true"
+        onLoad={notifyHeroReady}
       />
     </div>
   );
@@ -166,6 +174,7 @@ function RotatingHeroVideo() {
         // Muted autoplay should normally succeed, but playback can still be blocked.
       });
     };
+    const markReady = () => notifyHeroReady();
     const savePosition = () => writeStoredPosition(positionKey, video.currentTime);
     const saveInterval = window.setInterval(savePosition, 2000);
 
@@ -174,11 +183,17 @@ function RotatingHeroVideo() {
     } else {
       video.addEventListener("loadedmetadata", startPlayback, { once: true });
     }
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      markReady();
+    } else {
+      video.addEventListener("canplay", markReady, { once: true });
+    }
 
     window.addEventListener("pagehide", savePosition);
     return () => {
       window.clearInterval(saveInterval);
       video.removeEventListener("loadedmetadata", startPlayback);
+      video.removeEventListener("canplay", markReady);
       window.removeEventListener("pagehide", savePosition);
       savePosition();
     };

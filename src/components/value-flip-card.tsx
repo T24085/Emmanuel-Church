@@ -59,7 +59,7 @@ export function ValueFlipCard({
             <span className="value-card__content">
               <span className="eyebrow eyebrow--small">{backTitle}</span>
               <h3>{backTitle}</h3>
-              <p>{backBody}</p>
+              <p className="value-card__back-body">{backBody}</p>
               <p className="value-card__references">{references}</p>
             </span>
             <span className="value-card__hint">Tap to return</span>

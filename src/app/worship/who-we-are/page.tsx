@@ -54,6 +54,7 @@ export default async function WhoWeArePage() {
         title="Who We Are."
         description="At Emmanuel Church, we aim to extend God's grace, teach His Word, and live under the illumination of His truth."
         mediaLayout="full"
+        fullBleed
         layoutClassName="page-hero__layout--worship"
         action={{ label: "Meet the staff", href: "/our-staff" }}
         media={

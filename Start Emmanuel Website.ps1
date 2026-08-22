@@ -57,6 +57,41 @@ function Test-EmmanuelResponse {
     }
 }
 
+function Ensure-EmmanuelDependencies {
+    $requiredPaths = @(
+        (Join-Path $scriptRoot 'node_modules\next'),
+        (Join-Path $scriptRoot 'node_modules\@vimeo\player')
+    )
+
+    if ($requiredPaths | Where-Object { -not (Test-Path -LiteralPath $_) }) {
+        Write-Host 'Installing missing website dependencies...'
+        & npm.cmd install
+        if ($LASTEXITCODE -ne 0) {
+            throw 'npm install failed. Check the terminal output and try again.'
+        }
+    }
+}
+
+function Wait-ForEmmanuelResponse {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$Port,
+        [int]$Attempts = 60
+    )
+
+    for ($i = 0; $i -lt $Attempts; $i++) {
+        if ((Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue) -and (Test-EmmanuelResponse -Port $Port)) {
+            return $true
+        }
+
+        Start-Sleep -Seconds 1
+    }
+
+    return $false
+}
+
+Ensure-EmmanuelDependencies
+
 if (Get-EmmanuelDevProcessId -Port 3000) {
     if (Test-EmmanuelResponse -Port 3000) {
         Start-Process "http://127.0.0.1:3000/"
@@ -70,12 +105,9 @@ if (Get-EmmanuelDevProcessId -Port 3000) {
     }
 
     Start-Process -FilePath 'npm.cmd' -ArgumentList @('run', 'dev', '--', '--port', '3000', '--hostname', '127.0.0.1') -WorkingDirectory $scriptRoot -WindowStyle Hidden
-    for ($i = 0; $i -lt 30; $i++) {
-        Start-Sleep -Seconds 1
-        if (Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue) {
-            Start-Process "http://127.0.0.1:3000/"
-            return
-        }
+    if (Wait-ForEmmanuelResponse -Port 3000) {
+        Start-Process "http://127.0.0.1:3000/"
+        return
     }
 
     Write-Host "Restarted the dev server on port 3000, but it is still starting."
@@ -90,12 +122,9 @@ if (Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyCont
 
 Start-Process -FilePath 'npm.cmd' -ArgumentList @('run', 'dev', '--', '--port', $port, '--hostname', '127.0.0.1') -WorkingDirectory $scriptRoot -WindowStyle Hidden
 
-for ($i = 0; $i -lt 30; $i++) {
-    Start-Sleep -Seconds 1
-    if (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue) {
-        Start-Process "http://127.0.0.1:$port/"
-        return
-    }
+if (Wait-ForEmmanuelResponse -Port $port) {
+    Start-Process "http://127.0.0.1:$port/"
+    return
 }
 
 Write-Host "Started the dev server on port $port, but it is still starting."

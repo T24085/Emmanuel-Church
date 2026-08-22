@@ -48,6 +48,44 @@ const worshipValues = [
   },
 ];
 
+const worshipGallery = [
+  {
+    src: "/images/worship-arts/worship-team.jpg",
+    alt: "Worship team leading the congregation from the stage",
+    label: "One body",
+  },
+  {
+    src: "/images/worship-arts/worship-stage.jpg",
+    alt: "Worship team serving together across the stage",
+    label: "Serve together",
+  },
+  {
+    src: "/images/worship-arts/piano-from-the-room.jpg",
+    alt: "Pianist playing during gathered worship",
+    label: "Make room",
+  },
+  {
+    src: "/images/worship-arts/guitarist.jpg",
+    alt: "Guitarist preparing to lead worship",
+    label: "Prepare well",
+  },
+  {
+    src: "/images/worship-arts/vocalist.jpg",
+    alt: "Vocalist leading worship with a tablet nearby",
+    label: "Lead with awe",
+  },
+  {
+    src: "/images/worship-arts/worship-duet.jpg",
+    alt: "Two worship leaders sharing a moment during rehearsal",
+    label: "Listen closely",
+  },
+  {
+    src: "/images/worship-arts/piano-detail.jpg",
+    alt: "Close view of a musician playing piano",
+    label: "Every detail",
+  },
+];
+
 const worshipModes = [
   {
     eyebrow: "Praise teams",
@@ -215,6 +253,32 @@ export default function WorshipArtsMinistryPage() {
               </article>
             );
           })}
+        </div>
+
+        <div className="worship-arts-gallery" aria-label="Worship Arts Ministry gallery">
+          <div className="worship-arts-gallery__intro">
+            <p className="eyebrow eyebrow--small">Worship in practice</p>
+            <h3>Prepared with care. Shared with joy.</h3>
+            <p>
+              Every voice, instrument, and technical detail helps make space for the gathered church
+              to respond to God together.
+            </p>
+          </div>
+          {worshipGallery.map((item, index) => (
+            <figure
+              key={item.src}
+              className={`worship-arts-gallery__item worship-arts-gallery__item--${index + 1}`}
+            >
+              <Image
+                src={withBasePath(item.src)}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                className="worship-arts-gallery__image"
+              />
+              <figcaption>{item.label}</figcaption>
+            </figure>
+          ))}
         </div>
       </SectionShell>
 

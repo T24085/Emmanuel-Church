@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
+import { LandingLoader } from "@/components/landing-loader";
 import { MotionShell } from "@/components/motion-shell";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <LandingLoader />
         <div className="page-backdrop" />
         <SiteHeader />
         <main>
