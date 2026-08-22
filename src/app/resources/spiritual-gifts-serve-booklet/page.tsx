@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons";
-import { PageHero } from "@/components/page-hero";
 import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { spiritualGiftResources, spiritualGiftTeaching } from "@/data/spiritual-gifts";
@@ -9,12 +8,6 @@ import { withBasePath } from "@/lib/site-path";
 export default function SpiritualGiftsServeBookletPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Resources"
-        title="Discover Your Place to Serve."
-        description="Learn how God has gifted you, then find a meaningful next step in the life and ministries of Emmanuel Church."
-      />
-
       <ResourceTabs active="spiritual-gifts" />
 
       <SectionShell>

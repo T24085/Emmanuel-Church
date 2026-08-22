@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons";
-import { PageHero } from "@/components/page-hero";
 import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { onlineForms } from "@/data/online-forms";
@@ -9,12 +8,6 @@ import { withBasePath } from "@/lib/site-path";
 export default function OnlineFormsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Resources"
-        title="Online Forms"
-        description="Use these forms to connect with the church, plan an event, request support, or submit a scholarship application."
-      />
-
       <ResourceTabs active="online-forms" />
 
       <SectionShell>
