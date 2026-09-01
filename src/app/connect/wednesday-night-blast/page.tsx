@@ -4,7 +4,9 @@ import { ArrowRightIcon, CalendarIcon, MailIcon, PhoneIcon } from "@/components/
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
-import blastCardImage from "../../../../images/blast-card.png";
+import { withBasePath } from "@/lib/site-path";
+
+const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
 
 const rachelEmail = "rbishop@ecabilene.org";
 const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;

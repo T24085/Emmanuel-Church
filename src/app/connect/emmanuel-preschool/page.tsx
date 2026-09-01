@@ -5,11 +5,12 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import preschoolCardImage from "../../../../images/emmanuel-preschool-card.png";
 import preschoolCrafts from "../../../../Emmanuel Preschool/04eeb886-3cfe-4ddc-9898-06c1d298d88d.png";
 import preschoolClassroom from "../../../../Emmanuel Preschool/93cd6249-c99d-4f38-979c-a8eb4951ac15.jpg";
 import preschoolLogo from "../../../../Emmanuel Preschool/c3b52863-0605-4eab-bad9-07d9bf181c66.png";
 import preschoolCalendar from "../../../../Emmanuel Preschool/f2dc041b-e023-42fa-a285-41b3575f7b31.png";
+
+const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
 
 const preschoolEmail = "preschool@ecabilene.org";
 

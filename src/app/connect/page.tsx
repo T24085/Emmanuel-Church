@@ -4,13 +4,15 @@ import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ministryLinks } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import churchMinistriesImage from "../../../Who we are - ABOUT/Church Ministries.png";
-import adultDiscipleshipCardImage from "../../../images/adult-discipleship-card.png";
-import blastCardImage from "../../../images/blast-card.png";
-import preschoolCardImage from "../../../images/emmanuel-preschool-card.png";
-import kidsCardImage from "../../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
-import momentumYouthCardImage from "../../../images/momentum-youth-card.png";
-import worshipArtsCardImage from "../../../images/worship-arts-card.png";
+
+const adultDiscipleshipCardImage = withBasePath("/images/ministry-cards/adult-discipleship-card.png");
+const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
+const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
+const kidsCardImage = withBasePath("/images/ministry-cards/emmanuel-kids-card.png");
+const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
+const worshipArtsCardImage = withBasePath("/images/ministry-cards/worship-arts-card.png");
 
 const ministryCardImages = {
   "/connect/emmanuel-preschool": { src: preschoolCardImage, fit: "contain" },

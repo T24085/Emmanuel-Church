@@ -13,7 +13,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import worshipArtsCardImage from "../../../../images/worship-arts-card.png";
+const worshipArtsCardImage = withBasePath("/images/ministry-cards/worship-arts-card.png");
 
 const marcName = "Pastor Marc Riegel";
 const marcPhone = "(785) 263-3342";

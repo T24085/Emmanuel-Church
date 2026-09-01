@@ -17,9 +17,9 @@ import {
   serviceRhythm,
   site,
 } from "@/data/site";
-import preschoolCardImage from "../../images/emmanuel-preschool-card.png";
-import kidsCardImage from "../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
-import momentumYouthCardImage from "../../images/momentum-youth-card.png";
+const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
+const kidsCardImage = withBasePath("/images/ministry-cards/emmanuel-kids-card.png");
+const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
 
 const homepageMinistryImages = {
   "/connect/emmanuel-preschool": { src: preschoolCardImage, fit: "contain" },
