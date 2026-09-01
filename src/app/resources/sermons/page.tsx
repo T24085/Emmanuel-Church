@@ -126,6 +126,9 @@ export default async function SermonsPage() {
   const teachingSeries = await loadTeachingSeries();
   const audioSermons = teachingSeries.filter((sermon) => sermon.kind !== "video" || !sermon.embedSrc);
   const mediaPages = (await loadMediaArchivePages()) as MediaArchivePage[];
+  const sermonHeroThumbnail = mediaPages
+    .flatMap((page) => page.items)
+    .find((item) => item.kind === "video" && item.thumbnail)?.thumbnail;
 
   return (
     <>
@@ -139,8 +142,8 @@ export default async function SermonsPage() {
           <div className="page-hero__media-frame">
             <NextSermonCountdown compact className="page-hero__countdown--overlay" />
             <Image
-              src={withBasePath("/images/sermon-on-the-mount-banner.png")}
-              alt="The Sermon on the Mount illustration"
+              src={sermonHeroThumbnail || withBasePath("/images/sermon-on-the-mount-banner.png")}
+              alt={sermonHeroThumbnail ? "Thumbnail from the latest Emmanuel Church sermon video" : "The Sermon on the Mount illustration"}
               fill
               priority
               sizes="(max-width: 1080px) 100vw, 100vw"
