@@ -45,6 +45,14 @@ function buildEmbedSrc(thirdPartyId: string | number | null | undefined) {
   return `https://www.youtube.com/embed/${id}`;
 }
 
+function getLargeVimeoThumbnail(thumbnail: string | null | undefined) {
+  if (!thumbnail || !thumbnail.includes("i.vimeocdn.com/video/")) {
+    return thumbnail || null;
+  }
+
+  return thumbnail.replace(/-d_[^?]+(?=\?|$)/, "-d_original");
+}
+
 async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
   return Promise.all(
     sermonArchive.map(async (sermon) => {
@@ -126,9 +134,9 @@ export default async function SermonsPage() {
   const teachingSeries = await loadTeachingSeries();
   const audioSermons = teachingSeries.filter((sermon) => sermon.kind !== "video" || !sermon.embedSrc);
   const mediaPages = (await loadMediaArchivePages()) as MediaArchivePage[];
-  const sermonHeroThumbnail = mediaPages
-    .flatMap((page) => page.items)
-    .find((item) => item.kind === "video" && item.thumbnail)?.thumbnail;
+  const sermonHeroThumbnail = getLargeVimeoThumbnail(
+    mediaPages.flatMap((page) => page.items).find((item) => item.kind === "video" && item.thumbnail)?.thumbnail
+  );
 
   return (
     <>
