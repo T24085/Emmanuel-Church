@@ -134,6 +134,12 @@ export default function WorshipArtsMinistryPage() {
         eyebrow="Connect"
         title="Worship That is Visually, Vocally, and Spiritually Disciplined."
         description="Worship Arts Ministry helps Emmanuel gather with reverence through music, production, and choir moments that keep the room centered on Jesus."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/worship-arts/worship-stage.jpg",
+          alt: "The Emmanuel Church worship stage prepared for gathered worship",
+          position: "center 46%",
+        }}
         action={{ label: "Email Worship Arts", href: `mailto:${lauraEmail}` }}
         actionDetail={
           <div className="page-hero__countdown">

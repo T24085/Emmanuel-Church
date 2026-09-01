@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { ArrowRightIcon } from "./icons";
+import { withBasePath } from "@/lib/site-path";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -16,6 +18,11 @@ type PageHeroProps = {
   };
   actionDetail?: ReactNode;
   media?: ReactNode;
+  heroImage?: {
+    src: string;
+    alt: string;
+    position?: string;
+  };
 };
 
 export function PageHero({
@@ -28,8 +35,23 @@ export function PageHero({
   action,
   actionDetail,
   media,
+  heroImage,
 }: PageHeroProps) {
-  const hasMedia = Boolean(media);
+  const imageMedia = heroImage ? (
+    <div className="page-hero__media-frame">
+      <Image
+        src={withBasePath(heroImage.src)}
+        alt={heroImage.alt}
+        fill
+        priority
+        sizes="(max-width: 760px) 100vw, (max-width: 1080px) 92vw, 74vw"
+        className="page-hero__media-image"
+        style={{ objectPosition: heroImage.position ?? "center center" }}
+      />
+    </div>
+  ) : null;
+  const resolvedMedia = media ?? imageMedia;
+  const hasMedia = Boolean(resolvedMedia);
   const isFullBleedMedia = hasMedia && mediaLayout === "full";
   const isEdgeToEdge = isFullBleedMedia && fullBleed;
 
@@ -60,13 +82,13 @@ export function PageHero({
             <h1>{title}</h1>
             <p>{description}</p>
           </div>
-          {media ? (
+          {resolvedMedia ? (
             <div
               className={`page-hero__media${
                 isFullBleedMedia ? " page-hero__media--full" : ""
               }`}
             >
-              {media}
+              {resolvedMedia}
             </div>
           ) : null}
         </div>

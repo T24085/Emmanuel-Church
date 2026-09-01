@@ -92,6 +92,12 @@ export default function AdultDiscipleshipGroupsPage() {
         eyebrow="Connect"
         title="Discipleship at Emmanuel Church: A Great Place to Get Connected"
         description="Part of the Emmanuel Church Vision Statement is to Disciple Believers. In order to do this, we have three main avenues of connection so discipleship can be fostered in the life of a believer."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/adult-discipleship-study.jpg",
+          alt: "Adults studying Scripture together at Emmanuel Church",
+          position: "center 55%",
+        }}
         action={{ label: "See the process", href: "#process" }}
         actionDetail={
           <span>10am Sunday mornings and off-site groups during the week.</span>

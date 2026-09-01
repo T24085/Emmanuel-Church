@@ -109,6 +109,12 @@ export default function MomentumYouthPage() {
         eyebrow="Connect"
         title="A Student Ministry with Room for Faith to Move."
         description="Momentum Youth serves middle and high school students through teaching, community, and discipleship."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/momentum-youth-gathering.jpg",
+          alt: "Students gathered for teaching and community at Emmanuel Church",
+          position: "center 46%",
+        }}
         action={{ label: "Email Pastor Shawn", href: `mailto:${shawnEmail}`, external: true }}
         actionDetail={
           <div className="page-hero__countdown page-hero__countdown--contact">

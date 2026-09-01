@@ -5,7 +5,6 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ministryLinks } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import churchMinistriesImage from "../../../Who we are - ABOUT/Church Ministries.png";
 
 const adultDiscipleshipCardImage = withBasePath("/images/ministry-cards/adult-discipleship-card.png");
 const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
@@ -31,20 +30,12 @@ export default function ConnectPage() {
         title="The Places Where Church Life Happens."
         description="From preschool through adult discipleship, Emmanuel's ministries give people a place to belong and a path to grow."
         mediaLayout="full"
-        fullBleed
         action={{ label: "Plan Your Visit", href: "/contact" }}
-        media={
-          <div className="page-hero__media-frame">
-            <Image
-              src={churchMinistriesImage}
-              alt="Jesus with a gathered ministry group"
-              fill
-              priority
-              sizes="(max-width: 1080px) 100vw, 42vw"
-              className="page-hero__media-image page-hero__media-image--connect"
-            />
-          </div>
-        }
+        heroImage={{
+          src: "/images/heroes/connect-arrival.jpg",
+          alt: "A family arriving at Emmanuel Church",
+          position: "center 62%",
+        }}
       />
 
       <SectionShell>

@@ -98,6 +98,12 @@ export default function EmmanuelPreschoolPage() {
         eyebrow="Connect"
         title="Christ-Centered Preschool with a Firm Academic Foundation."
         description="Emmanuel Preschool serves children ages 3-5 with early learning, spiritual formation, and the daily rhythms that prepare them for kindergarten."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/preschool-creative-learning.jpg",
+          alt: "Preschool children creating together with Emmanuel Church leaders",
+          position: "center 52%",
+        }}
         action={{ label: "Email the preschool", href: `mailto:${preschoolEmail}` }}
         actionDetail={
           <div className="page-hero__countdown page-hero__countdown--contact">

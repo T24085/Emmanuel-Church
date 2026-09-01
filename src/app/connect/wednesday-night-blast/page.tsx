@@ -121,6 +121,12 @@ export default function WednesdayNightBlastPage() {
         eyebrow="Connect"
         title='Wednesday Night "B.L.A.S.T."'
         description="A weekly midweek gathering for kids and families that keeps the church's Wednesday rhythm clear, joyful, and easy to follow."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/blast-outdoor-game.jpg",
+          alt: "Children playing together outside during Emmanuel Church Vacation Bible School",
+          position: "center 58%",
+        }}
         action={{ label: "View calendar", href: site.calendarHref, external: true }}
         actionDetail={
           <div className="page-hero__countdown">
