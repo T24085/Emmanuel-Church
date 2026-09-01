@@ -45,6 +45,14 @@ function buildEmbedSrc(thirdPartyId: string | number | null | undefined) {
   return `https://www.youtube.com/embed/${id}`;
 }
 
+function getLargeVimeoThumbnail(thumbnail: string | null | undefined) {
+  if (!thumbnail || !thumbnail.includes("i.vimeocdn.com/video/")) {
+    return thumbnail || null;
+  }
+
+  return thumbnail.replace(/-d_[^?]+(?=\?|$)/, "-d_original");
+}
+
 async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
   return Promise.all(
     sermonArchive.map(async (sermon) => {
@@ -126,6 +134,9 @@ export default async function SermonsPage() {
   const teachingSeries = await loadTeachingSeries();
   const audioSermons = teachingSeries.filter((sermon) => sermon.kind !== "video" || !sermon.embedSrc);
   const mediaPages = (await loadMediaArchivePages()) as MediaArchivePage[];
+  const sermonHeroThumbnail = getLargeVimeoThumbnail(
+    mediaPages.flatMap((page) => page.items).find((item) => item.kind === "video" && item.thumbnail)?.thumbnail
+  );
 
   return (
     <>
@@ -134,12 +145,13 @@ export default async function SermonsPage() {
         title="Sermons"
         description="Watch Emmanuel Church's current video archive inline, with the older teaching series kept below."
         mediaLayout="full"
+        fullBleed
         media={
           <div className="page-hero__media-frame">
             <NextSermonCountdown compact className="page-hero__countdown--overlay" />
             <Image
-              src={withBasePath("/images/sermon-on-the-mount-banner.png")}
-              alt="The Sermon on the Mount illustration"
+              src={sermonHeroThumbnail || withBasePath("/images/sermon-on-the-mount-banner.png")}
+              alt={sermonHeroThumbnail ? "Thumbnail from the latest Emmanuel Church sermon video" : "The Sermon on the Mount illustration"}
               fill
               priority
               sizes="(max-width: 1080px) 100vw, 100vw"

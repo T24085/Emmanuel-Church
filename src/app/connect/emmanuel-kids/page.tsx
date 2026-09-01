@@ -90,6 +90,12 @@ export default function EmmanuelKidsPage() {
         eyebrow="Connect"
         title="Where Kids Experience the Love, Grace, Worship, and Truth of Jesus Christ."
         description="Emmanuel Kids is the church's children's ministry for nursery through elementary age, built to keep families connected and children rooted in the gospel."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/emmanuel-kids-welcome.jpg",
+          alt: "A child smiling during Emmanuel Church Vacation Bible School",
+          position: "center 45%",
+        }}
         action={{ label: "Plan a family visit", href: "/contact" }}
         actionDetail={
           <div className="page-hero__countdown">

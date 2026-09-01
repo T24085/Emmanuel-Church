@@ -4,7 +4,9 @@ import { ArrowRightIcon, CalendarIcon, MailIcon, PhoneIcon } from "@/components/
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
-import blastCardImage from "../../../../images/blast-card.png";
+import { withBasePath } from "@/lib/site-path";
+
+const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
 
 const rachelEmail = "rbishop@ecabilene.org";
 const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;
@@ -119,6 +121,12 @@ export default function WednesdayNightBlastPage() {
         eyebrow="Connect"
         title='Wednesday Night "B.L.A.S.T."'
         description="A weekly midweek gathering for kids and families that keeps the church's Wednesday rhythm clear, joyful, and easy to follow."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/blast-outdoor-game.jpg",
+          alt: "Children playing together outside during Emmanuel Church Vacation Bible School",
+          position: "center 58%",
+        }}
         action={{ label: "View calendar", href: site.calendarHref, external: true }}
         actionDetail={
           <div className="page-hero__countdown">

@@ -5,11 +5,12 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import momentumYouthCardImage from "../../../../images/momentum-youth-card.png";
 import extremeEncountersCabin from "../../../../Momentum Youth/extreme-encounters-cabin.jpg";
 import extremeEncountersGroup from "../../../../Momentum Youth/extreme-encounters-group.jpeg";
 import extremeEncountersReading from "../../../../Momentum Youth/extreme-encounters-reading.jpeg";
 import extremeEncountersSunset from "../../../../Momentum Youth/extreme-encounters-sunset.png";
+
+const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
 
 const shawnEmail = "shawn.ammons@sonlife.com";
 const shawnCell = "316-650-0446";
@@ -108,6 +109,12 @@ export default function MomentumYouthPage() {
         eyebrow="Connect"
         title="A Student Ministry with Room for Faith to Move."
         description="Momentum Youth serves middle and high school students through teaching, community, and discipleship."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/heroes/momentum-youth-gathering.jpg",
+          alt: "Students gathered for teaching and community at Emmanuel Church",
+          position: "center 46%",
+        }}
         action={{ label: "Email Pastor Shawn", href: `mailto:${shawnEmail}`, external: true }}
         actionDetail={
           <div className="page-hero__countdown page-hero__countdown--contact">

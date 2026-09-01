@@ -4,13 +4,14 @@ import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ministryLinks } from "@/data/site";
-import churchMinistriesImage from "../../../Who we are - ABOUT/Church Ministries.png";
-import adultDiscipleshipCardImage from "../../../images/adult-discipleship-card.png";
-import blastCardImage from "../../../images/blast-card.png";
-import preschoolCardImage from "../../../images/emmanuel-preschool-card.png";
-import kidsCardImage from "../../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
-import momentumYouthCardImage from "../../../images/momentum-youth-card.png";
-import worshipArtsCardImage from "../../../images/worship-arts-card.png";
+import { withBasePath } from "@/lib/site-path";
+
+const adultDiscipleshipCardImage = withBasePath("/images/ministry-cards/adult-discipleship-card.png");
+const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
+const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
+const kidsCardImage = withBasePath("/images/ministry-cards/emmanuel-kids-card.png");
+const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
+const worshipArtsCardImage = withBasePath("/images/ministry-cards/worship-arts-card.png");
 
 const ministryCardImages = {
   "/connect/emmanuel-preschool": { src: preschoolCardImage, fit: "contain" },
@@ -30,18 +31,11 @@ export default function ConnectPage() {
         description="From preschool through adult discipleship, Emmanuel's ministries give people a place to belong and a path to grow."
         mediaLayout="full"
         action={{ label: "Plan Your Visit", href: "/contact" }}
-        media={
-          <div className="page-hero__media-frame">
-            <Image
-              src={churchMinistriesImage}
-              alt="Jesus with a gathered ministry group"
-              fill
-              priority
-              sizes="(max-width: 1080px) 100vw, 42vw"
-              className="page-hero__media-image page-hero__media-image--connect"
-            />
-          </div>
-        }
+        heroImage={{
+          src: "/images/heroes/connect-arrival.jpg",
+          alt: "A family arriving at Emmanuel Church",
+          position: "center 62%",
+        }}
       />
 
       <SectionShell>

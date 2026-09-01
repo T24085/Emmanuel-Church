@@ -13,7 +13,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import worshipArtsCardImage from "../../../../images/worship-arts-card.png";
+const worshipArtsCardImage = withBasePath("/images/ministry-cards/worship-arts-card.png");
 
 const marcName = "Pastor Marc Riegel";
 const marcPhone = "(785) 263-3342";
@@ -45,6 +45,44 @@ const worshipValues = [
     title: "Every Service Shapes Discipleship.",
     body: "Rehearsals, planning, and service all form people as worshipers before they ever step on stage.",
     icon: CalendarIcon,
+  },
+];
+
+const worshipGallery = [
+  {
+    src: "/images/worship-arts/worship-team.jpg",
+    alt: "Worship team leading the congregation from the stage",
+    label: "One body",
+  },
+  {
+    src: "/images/worship-arts/worship-stage.jpg",
+    alt: "Worship team serving together across the stage",
+    label: "Serve together",
+  },
+  {
+    src: "/images/worship-arts/piano-from-the-room.jpg",
+    alt: "Pianist playing during gathered worship",
+    label: "Make room",
+  },
+  {
+    src: "/images/worship-arts/guitarist.jpg",
+    alt: "Guitarist preparing to lead worship",
+    label: "Prepare well",
+  },
+  {
+    src: "/images/worship-arts/vocalist.jpg",
+    alt: "Vocalist leading worship with a tablet nearby",
+    label: "Lead with awe",
+  },
+  {
+    src: "/images/worship-arts/worship-duet.jpg",
+    alt: "Two worship leaders sharing a moment during rehearsal",
+    label: "Listen closely",
+  },
+  {
+    src: "/images/worship-arts/piano-detail.jpg",
+    alt: "Close view of a musician playing piano",
+    label: "Every detail",
   },
 ];
 
@@ -96,6 +134,12 @@ export default function WorshipArtsMinistryPage() {
         eyebrow="Connect"
         title="Worship That is Visually, Vocally, and Spiritually Disciplined."
         description="Worship Arts Ministry helps Emmanuel gather with reverence through music, production, and choir moments that keep the room centered on Jesus."
+        mediaLayout="full"
+        heroImage={{
+          src: "/images/worship-arts/worship-stage.jpg",
+          alt: "The Emmanuel Church worship stage prepared for gathered worship",
+          position: "center 46%",
+        }}
         action={{ label: "Email Worship Arts", href: `mailto:${lauraEmail}` }}
         actionDetail={
           <div className="page-hero__countdown">
@@ -215,6 +259,32 @@ export default function WorshipArtsMinistryPage() {
               </article>
             );
           })}
+        </div>
+
+        <div className="worship-arts-gallery" aria-label="Worship Arts Ministry gallery">
+          <div className="worship-arts-gallery__intro">
+            <p className="eyebrow eyebrow--small">Worship in practice</p>
+            <h3>Prepared with care. Shared with joy.</h3>
+            <p>
+              Every voice, instrument, and technical detail helps make space for the gathered church
+              to respond to God together.
+            </p>
+          </div>
+          {worshipGallery.map((item, index) => (
+            <figure
+              key={item.src}
+              className={`worship-arts-gallery__item worship-arts-gallery__item--${index + 1}`}
+            >
+              <Image
+                src={withBasePath(item.src)}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                className="worship-arts-gallery__image"
+              />
+              <figcaption>{item.label}</figcaption>
+            </figure>
+          ))}
         </div>
       </SectionShell>
 
