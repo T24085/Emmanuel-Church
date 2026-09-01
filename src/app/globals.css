@@ -1918,6 +1918,12 @@ select {
   padding: 1rem 0 0;
 }
 
+@media (min-width: 1081px) {
+  .resource-tabs-shell {
+    padding-top: calc(84px + 1rem);
+  }
+}
+
 .resource-tabs {
   display: flex;
   gap: 0.35rem;
