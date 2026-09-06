@@ -5,4 +5,4 @@
 :HL["/Emmanuel-Church/images/home-symbol-communion.png","image"]
 :HL["/Emmanuel-Church/images/home-symbol-giving.png","image"]
 :HL["/Emmanuel-Church/images/home-symbol-events.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"loUNBkFGRkfxk7u8TI5v9"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"N1-M-msscI8h00G9BhH7F"}
