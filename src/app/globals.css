@@ -1001,21 +1001,35 @@ select {
   border-radius: var(--radius-lg);
   justify-self: end;
   width: min(100%, 520px);
+  background: #172f36;
+  border: 1px solid rgba(15, 125, 134, 0.18);
+  box-shadow: 0 1.5rem 3rem rgba(24, 33, 43, 0.14);
 }
 
 .who-we-are-mission__media {
   position: relative;
-  min-height: 420px;
-  aspect-ratio: 1 / 1;
+  min-height: 440px;
+  aspect-ratio: 1 / 1.04;
+  isolation: isolate;
 }
 
 .who-we-are-mission__media .cover-image {
   object-fit: cover;
   object-position: center center;
-  transform: scale(1.03);
+  transform: scale(1.04);
   transform-origin: center center;
   will-change: transform;
   animation: mission-graphic-drift 18s ease-in-out infinite alternate;
+}
+
+.who-we-are-mission__media::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(16, 43, 49, 0.04), rgba(16, 43, 49, 0.38));
+  mix-blend-mode: multiply;
 }
 
 .who-we-are-mission__graphic:hover .cover-image {
@@ -1359,30 +1373,59 @@ select {
 .who-we-are-showcase__media {
   position: relative;
   min-height: 100%;
-  background: linear-gradient(180deg, rgba(24, 33, 43, 0.04), rgba(24, 33, 43, 0.1));
+  isolation: isolate;
+  background: #17353c;
 }
 
 .who-we-are-showcase__media--feature {
-  background: #0f1114;
+  min-height: 25rem;
+  background: #102b31;
 }
 
-.who-we-are-showcase__feature img {
-  object-fit: contain;
-  padding: 1.6rem;
+.who-we-are-showcase__media::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(16, 43, 49, 0.02), rgba(16, 43, 49, 0.28));
 }
 
 .who-we-are-showcase__tile img {
   object-fit: cover;
 }
 
+.who-we-are-showcase__media--duo {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  padding: 0.4rem;
+}
+
+.who-we-are-showcase__media-frame {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 0.4rem);
+}
+
+.who-we-are-showcase__media-frame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 45%, rgba(16, 43, 49, 0.22));
+}
+
 .who-we-are-showcase figcaption {
   display: grid;
   gap: 0.3rem;
-  padding: 1rem 1.05rem 1.1rem;
+  padding: 1.05rem 1.1rem 1.2rem;
 }
 
 .who-we-are-showcase figcaption strong {
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
   line-height: 1.35;
 }
 
@@ -3163,6 +3206,7 @@ select {
 .scripture-modal__dialog {
   position: relative;
   width: min(100%, 48rem);
+  height: min(90vh, 52rem);
   max-height: min(90vh, 52rem);
   overflow: auto;
   padding: clamp(1.5rem, 5vw, 3.5rem);
@@ -3243,6 +3287,20 @@ select {
   line-height: 1.5;
 }
 
+.scripture-modal__typing {
+  border-right: 2px solid transparent;
+}
+
+.scripture-modal__typing.is-started {
+  border-right-color: rgba(199, 144, 68, 0.8);
+  animation: scripture-type-cursor 620ms steps(2, end) infinite;
+}
+
+.scripture-modal__typing.is-complete {
+  border-right-color: transparent;
+  animation: none;
+}
+
 .scripture-modal__passages cite {
   display: block;
   margin-top: 0.7rem;
@@ -3262,6 +3320,10 @@ select {
 @keyframes scripture-modal-rise {
   from { opacity: 0; transform: translateY(1rem) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes scripture-type-cursor {
+  50% { border-right-color: transparent; }
 }
 
 .giving-foundation__scriptures::before {
@@ -3972,8 +4034,8 @@ select {
   opacity: 0;
   transform: translate3d(0, 34px, 0);
   transition:
-    opacity 1400ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1050ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1050ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -3993,25 +4055,25 @@ select {
 }
 
 .motion-ready .giving-foundation__item:nth-child(1) {
-  transition-delay: 120ms;
+  transition-delay: 80ms;
 }
 
 .motion-ready .giving-foundation__item:nth-child(2) {
-  transition-delay: 360ms;
+  transition-delay: 240ms;
 }
 
 .motion-ready .giving-foundation__item:nth-child(3) {
-  transition-delay: 600ms;
+  transition-delay: 400ms;
 }
 
 .motion-ready .giving-foundation__item:nth-child(4) {
-  transition-delay: 840ms;
+  transition-delay: 560ms;
 }
 
 .motion-ready .giving-foundation__list::before {
   transform: scaleY(0);
   transform-origin: top;
-  transition: transform 1600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 1250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .motion-ready .giving-foundation__list.is-visible::before {
@@ -4019,7 +4081,7 @@ select {
 }
 
 .motion-ready .giving-foundation__scriptures {
-  transition: box-shadow 1400ms ease, transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: box-shadow 1050ms ease, transform 1050ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .motion-ready .giving-foundation__item:not(.is-visible) .giving-foundation__scriptures {
@@ -4451,6 +4513,100 @@ html.motion-ready .our-staff-page .staff-card {
   background: #fff;
 }
 
+.contact-welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.contact-welcome__feature,
+.contact-welcome__support {
+  position: relative;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #10222b;
+}
+
+.contact-welcome__feature {
+  min-height: 31rem;
+}
+
+.contact-welcome__stack {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1rem;
+}
+
+.contact-welcome__support {
+  min-height: 15rem;
+}
+
+.contact-welcome__image {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+.contact-welcome__feature:hover .contact-welcome__image,
+.contact-welcome__support:hover .contact-welcome__image {
+  transform: scale(1.035);
+  filter: saturate(1.05);
+}
+
+.contact-welcome__caption {
+  position: absolute;
+  inset: auto 1.25rem 1.25rem;
+  display: grid;
+  gap: 0.25rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(8, 45, 72, 0.12), rgba(8, 45, 72, 0.82));
+  color: #fff;
+}
+
+.contact-welcome__caption .eyebrow {
+  margin: 0;
+  color: rgba(255, 228, 119, 0.92);
+}
+
+.contact-welcome__caption strong {
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.2;
+}
+
+.contact-welcome__note {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: 1.35rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 36%),
+    linear-gradient(145deg, #d9f1ed 0%, #a8ddd5 54%, #f7df88 100%);
+  border-color: rgba(29, 109, 118, 0.2);
+  box-shadow: 0 16px 34px rgba(29, 109, 118, 0.12);
+}
+
+.contact-welcome__note h3,
+.contact-welcome__note p {
+  margin: 0;
+}
+
+.contact-welcome__note .eyebrow {
+  color: #1d6d76;
+}
+
+.contact-welcome__note > p:not(.eyebrow) {
+  color: rgba(16, 34, 43, 0.78);
+  line-height: 1.65;
+}
+
+.contact-welcome__note .surface-card__link {
+  color: #164f59;
+}
+
 .contact-map {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -4599,36 +4755,158 @@ html.motion-ready .our-staff-page .staff-card {
 
 .preschool-facts {
   margin-top: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.preschool-facts .resource-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(145deg, #fff2b8 0%, #f9e6a1 54%, #cce9e5 100%);
+  border-color: rgba(42, 146, 155, 0.18);
+  box-shadow: 0 16px 34px rgba(42, 146, 155, 0.1);
+}
+
+.preschool-facts .resource-card .eyebrow {
+  color: #1d6d76;
+}
+
+.preschool-facts .resource-card p:last-child {
+  color: rgba(16, 34, 43, 0.78);
+}
+
+.preschool-contact-grid {
+  margin-top: 1rem;
+}
+
+.preschool-contact-card {
+  grid-template-rows: 13rem minmax(0, 1fr);
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(145deg, #fffdf9 0%, #f5eee3 100%);
+  box-shadow: 0 16px 34px rgba(40, 30, 18, 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.preschool-contact-card:hover,
+.preschool-contact-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 42px rgba(40, 30, 18, 0.13);
+}
+
+.preschool-contact-card__photo {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(10, 183, 194, 0.24), rgba(255, 228, 119, 0.5));
+}
+
+.preschool-contact-card__image {
+  object-fit: cover;
+  object-position: center 28%;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.preschool-contact-card:hover .preschool-contact-card__image,
+.preschool-contact-card:focus-within .preschool-contact-card__image {
+  transform: scale(1.035);
+}
+
+.preschool-contact-card__body {
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  padding: 1.2rem;
+}
+
+.preschool-contact-card__body h3,
+.preschool-contact-card__body p {
+  margin: 0;
+}
+
+.preschool-contact-card__body > p:not(.eyebrow) {
+  color: rgba(24, 33, 43, 0.72);
+  line-height: 1.6;
+}
+
+.preschool-contact-card__body .resource-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  justify-self: start;
+}
+
+.preschool-office-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 36%),
+    linear-gradient(145deg, #d9f1ed 0%, #a8ddd5 54%, #f7df88 100%);
+  border-color: rgba(29, 109, 118, 0.2);
+  box-shadow: 0 16px 34px rgba(29, 109, 118, 0.12);
+}
+
+.preschool-office-card .eyebrow {
+  color: #1d6d76;
+}
+
+.preschool-office-card p:not(.eyebrow) {
+  color: rgba(16, 34, 43, 0.78);
+}
+
+.preschool-office-card .resource-card__action {
+  color: #164f59;
 }
 
 .preschool-gallery {
+  margin-top: 0.25rem;
+}
+
+.preschool-gallery__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 1rem;
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(9rem, 13rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
 }
 
 .preschool-gallery__item {
   position: relative;
-  min-height: 220px;
+  min-width: 0;
+  min-height: 0;
   margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #10222b;
+  box-shadow: 0 14px 30px rgba(40, 30, 18, 0.1);
 }
 
 .preschool-gallery__item--lead {
-  aspect-ratio: 1 / 1.08;
-  min-height: 480px;
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
-.preschool-gallery__stack {
-  display: grid;
-  gap: 1rem;
+.preschool-gallery__item--wide {
+  grid-column: span 2;
 }
 
-.preschool-gallery__stack .preschool-gallery__item {
-  aspect-ratio: 4 / 3;
+.preschool-gallery__item--tall {
+  grid-row: span 2;
+}
+
+.preschool-gallery__image {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+.preschool-gallery__item:hover .preschool-gallery__image,
+.preschool-gallery__item:focus-within .preschool-gallery__image {
+  transform: scale(1.035);
+  filter: saturate(1.05);
 }
 
 .preschool-class-card {
   min-height: 0;
+}
+
+.preschool-class-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .preschool-class-card__price {
@@ -4649,31 +4927,253 @@ html.motion-ready .our-staff-page .staff-card {
   padding-top: 0.4rem;
 }
 
-.kids-logo-card {
+.kids-feature-card {
+  display: flex;
+  min-height: 100%;
   padding: 1rem;
 }
 
-.kids-logo-card__media {
+.kids-feature-card__media {
   position: relative;
-  min-height: 100%;
-  aspect-ratio: 16 / 10;
+  display: grid;
+  flex: 1;
+  place-items: center;
+  min-height: 0;
+  aspect-ratio: auto;
   overflow: hidden;
   border-radius: 22px;
   background: linear-gradient(135deg, rgba(10, 183, 194, 0.12), rgba(255, 255, 255, 0.94));
   border: 1px solid rgba(24, 33, 43, 0.06);
 }
 
-.kids-logo-card__image {
-  object-fit: contain;
-  padding: 1.2rem;
+.kids-feature-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .kids-highlights {
   margin-top: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.kids-highlights .resource-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #d9f7f1 0%, #bde9e5 54%, #ffe58a 100%);
+  border-color: rgba(10, 183, 194, 0.2);
+  box-shadow: 0 16px 34px rgba(10, 183, 194, 0.1);
+}
+
+.kids-highlights .resource-card:nth-child(2) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #fff0ad 0%, #f9df72 54%, #9fddd9 100%);
+}
+
+.kids-highlights .resource-card:nth-child(3) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #d2f1ec 0%, #a7dedc 54%, #ffe58a 100%);
+}
+
+.kids-highlights .resource-card:nth-child(4) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #ffefac 0%, #f8d86a 54%, #8fd5d4 100%);
+}
+
+.kids-highlights .resource-card .eyebrow {
+  color: #147a83;
+}
+
+.kids-highlights .resource-card p:last-child {
+  color: rgba(16, 34, 43, 0.78);
+}
+
+.kids-vbs {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid rgba(24, 33, 43, 0.12);
+}
+
+.kids-vbs__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  column-gap: 2rem;
+  align-items: end;
+  padding-bottom: 0.5rem;
+}
+
+.kids-vbs__intro .eyebrow,
+.kids-vbs__intro h2 {
+  grid-column: 1;
+}
+
+.kids-vbs__intro .eyebrow {
+  margin: 0;
+}
+
+.kids-vbs__intro h2 {
+  max-width: 14ch;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.kids-vbs__intro > p:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  max-width: 38ch;
+  margin: 0;
+  color: rgba(24, 33, 43, 0.72);
+  line-height: 1.8;
+}
+
+.kids-vbs__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.kids-vbs__card {
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 253, 249, 0.88);
+  box-shadow: 0 16px 34px rgba(40, 30, 18, 0.08);
+}
+
+.kids-vbs__media {
+  aspect-ratio: 16 / 10;
+  background: #10222b;
+}
+
+.kids-vbs__media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kids-vbs__body {
+  padding: 1.2rem 1.35rem 1.35rem;
+}
+
+.kids-vbs__body .eyebrow {
+  margin: 0;
+}
+
+.kids-vbs__body h3 {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.kids-vbs-gallery {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid rgba(24, 33, 43, 0.12);
+}
+
+.kids-vbs-gallery__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  column-gap: 2rem;
+  align-items: end;
+  padding-bottom: 0.5rem;
+}
+
+.kids-vbs-gallery__intro .eyebrow,
+.kids-vbs-gallery__intro h2 {
+  grid-column: 1;
+}
+
+.kids-vbs-gallery__intro .eyebrow {
+  margin: 0;
+}
+
+.kids-vbs-gallery__intro h2 {
+  max-width: 14ch;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display), serif;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.kids-vbs-gallery__intro > p:last-child {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  max-width: 38ch;
+  margin: 0;
+  color: rgba(24, 33, 43, 0.72);
+  line-height: 1.8;
+}
+
+.kids-vbs-gallery__grid {
+  display: grid;
+  grid-auto-rows: minmax(9rem, 14rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.kids-vbs-gallery__item {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #10222b;
+}
+
+.kids-vbs-gallery__item--lead {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.kids-vbs-gallery__image {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 500ms ease;
+}
+
+.kids-vbs-gallery__item:hover .kids-vbs-gallery__image,
+.kids-vbs-gallery__item:focus-within .kids-vbs-gallery__image {
+  transform: scale(1.035);
+  filter: saturate(1.05);
 }
 
 .kids-schedule-card {
   min-height: 0;
+}
+
+.kids-schedule-card > .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(10, 183, 194, 0.2);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d9f7f1 0%, #ffe58a 100%);
+  color: #0d7079;
+  box-shadow: 0 8px 18px rgba(10, 183, 194, 0.12);
+}
+
+.kids-schedule-card:nth-child(2) > .eyebrow {
+  background: linear-gradient(135deg, #fff0ad 0%, #a7dedc 100%);
+}
+
+.kids-schedule-card:nth-child(3) > .eyebrow {
+  background: linear-gradient(135deg, #d2f1ec 0%, #f8d86a 100%);
 }
 
 .kids-schedule-card__list {
@@ -4687,9 +5187,117 @@ html.motion-ready .our-staff-page .staff-card {
   line-height: 1.65;
 }
 
+.kids-schedule-card__list strong {
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
 .kids-blast__copy {
   display: grid;
   gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.blast-schedule-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.blast-schedule-card {
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at top right, rgba(255, 229, 138, 0.32), transparent 34%),
+    linear-gradient(135deg, #0d5f67 0%, #087f88 62%, #2b9b9e 100%);
+  border-color: rgba(10, 183, 194, 0.22);
+  box-shadow: 0 18px 38px rgba(10, 95, 103, 0.16);
+}
+
+.blast-schedule-card .surface-card__body {
+  padding: clamp(1.25rem, 3vw, 2.4rem);
+}
+
+.kids-blast__copy p {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+.kids-blast__copy p:last-child {
+  grid-column: 1 / -1;
+  background: rgba(255, 229, 138, 0.16);
+  border-color: rgba(255, 229, 138, 0.28);
+}
+
+.blast-room-grid {
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.blast-room-card {
+  align-self: stretch;
+  min-height: 0;
+  padding: 1.1rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #d9f7f1 0%, #bde9e5 54%, #ffe58a 100%);
+  border-color: rgba(10, 183, 194, 0.2);
+  box-shadow: 0 16px 34px rgba(10, 183, 194, 0.1);
+}
+
+.blast-room-card:nth-child(2) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #fff0ad 0%, #f9df72 54%, #9fddd9 100%);
+}
+
+.blast-room-card:nth-child(3) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #d2f1ec 0%, #a7dedc 54%, #ffe58a 100%);
+}
+
+.blast-room-card .eyebrow {
+  color: #147a83;
+}
+
+.blast-room-card p:last-child {
+  color: rgba(16, 34, 43, 0.78);
+}
+
+.motion-ready .blast-room-card {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1080px) {
+  .kids-blast__copy {
+    grid-template-columns: 1fr;
+  }
+
+  .kids-blast__copy p:last-child {
+    grid-column: auto;
+  }
+}
+
+.content-grid.who-we-are-values {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1080px) {
+  .content-grid.who-we-are-values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .content-grid.who-we-are-values {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blast-overview__copy {
@@ -4707,9 +5315,12 @@ html.motion-ready .our-staff-page .staff-card {
 .blast-feature-card {
   padding: 1rem;
   background:
-    radial-gradient(circle at top right, rgba(199, 144, 68, 0.18), transparent 32%),
-    linear-gradient(135deg, rgba(18, 24, 30, 0.98), rgba(31, 42, 51, 0.94));
+    radial-gradient(circle at top right, rgba(255, 202, 42, 0.32), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(19, 174, 176, 0.28), transparent 38%),
+    linear-gradient(135deg, #082d48 0%, #0b5268 54%, #147f87 100%);
   color: #fff;
+  border-color: rgba(19, 174, 176, 0.28);
+  box-shadow: 0 20px 42px rgba(8, 45, 72, 0.2);
 }
 
 .blast-feature-card__inner {
@@ -4719,8 +5330,8 @@ html.motion-ready .our-staff-page .staff-card {
   display: grid;
   gap: 1rem;
   align-content: start;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(4, 35, 57, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .blast-feature-card__list {
@@ -4733,8 +5344,23 @@ html.motion-ready .our-staff-page .staff-card {
   gap: 0.25rem;
   padding: 0.85rem 0.9rem;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(19, 174, 176, 0.34), rgba(9, 61, 83, 0.7));
+  border: 1px solid rgba(19, 174, 176, 0.4);
+}
+
+.blast-feature-card__item:nth-child(2) {
+  background: linear-gradient(135deg, rgba(255, 112, 32, 0.78), rgba(133, 55, 39, 0.7));
+  border-color: rgba(255, 173, 67, 0.52);
+}
+
+.blast-feature-card__item:nth-child(3) {
+  background: linear-gradient(135deg, rgba(255, 204, 48, 0.92), rgba(207, 143, 28, 0.74));
+  border-color: rgba(255, 235, 145, 0.64);
+}
+
+.blast-feature-card__item:nth-child(4) {
+  background: linear-gradient(135deg, rgba(35, 133, 220, 0.78), rgba(21, 62, 126, 0.78));
+  border-color: rgba(135, 203, 255, 0.54);
 }
 
 .blast-feature-card__item h3 {
@@ -4749,7 +5375,47 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 .blast-feature-card__item .eyebrow {
-  color: rgba(255, 214, 162, 0.98);
+  color: #fff1b0;
+}
+
+.blast-rhythm-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+
+.blast-rhythm-card {
+  min-height: 0;
+  border-color: rgba(8, 82, 104, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.44), transparent 34%),
+    linear-gradient(145deg, #d9f7f1 0%, #a7dedc 54%, #ffe58a 100%);
+  box-shadow: 0 16px 34px rgba(8, 82, 104, 0.1);
+}
+
+.blast-rhythm-card:nth-child(2) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(145deg, #ffe0bd 0%, #ff9a54 54%, #e65f35 100%);
+}
+
+.blast-rhythm-card:nth-child(3) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(145deg, #fff0ad 0%, #f8d86a 54%, #b3d95d 100%);
+}
+
+.blast-rhythm-card:nth-child(4) {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.42), transparent 34%),
+    linear-gradient(145deg, #cfe9ff 0%, #63b8e8 54%, #2869b3 100%);
+}
+
+.blast-rhythm-card .eyebrow {
+  color: #0b6570;
+}
+
+.blast-rhythm-card p:last-child {
+  color: rgba(16, 34, 43, 0.78);
 }
 
 .blast-age-card,
@@ -4801,9 +5467,9 @@ html.motion-ready .our-staff-page .staff-card {
 .momentum-feature-card {
   padding: 1rem;
   background:
-    radial-gradient(circle at top right, rgba(255, 152, 0, 0.18), transparent 32%),
-    linear-gradient(135deg, rgba(19, 29, 40, 0.98), rgba(26, 47, 61, 0.92));
-  color: #fff;
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.34), transparent 34%),
+    linear-gradient(145deg, #ffe36f 0%, #f7d34e 54%, #2b929b 100%);
+  color: #10222b;
 }
 
 .momentum-feature-card__inner {
@@ -4813,8 +5479,12 @@ html.motion-ready .our-staff-page .staff-card {
   display: grid;
   gap: 1rem;
   align-content: start;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(16, 34, 43, 0.16);
+}
+
+.momentum-feature-card .eyebrow {
+  color: #1d6d76;
 }
 
 .momentum-feature-card__rail {
@@ -4826,8 +5496,8 @@ html.motion-ready .our-staff-page .staff-card {
 .momentum-feature-card__rail span {
   padding: 0.4rem 0.7rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(16, 34, 43, 0.18);
+  background: rgba(255, 255, 255, 0.36);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -4835,12 +5505,29 @@ html.motion-ready .our-staff-page .staff-card {
 
 .momentum-feature-card p:last-child {
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(16, 34, 43, 0.82);
   line-height: 1.75;
 }
 
 .momentum-values {
   margin-top: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.momentum-values .resource-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.34), transparent 34%),
+    linear-gradient(145deg, #ffe36f 0%, #f9d85b 54%, #73bfc0 100%);
+  border-color: rgba(29, 109, 118, 0.18);
+  box-shadow: 0 16px 34px rgba(29, 109, 118, 0.1);
+}
+
+.momentum-values .resource-card .eyebrow {
+  color: #1d6d76;
+}
+
+.momentum-values .resource-card p:last-child {
+  color: rgba(16, 34, 43, 0.78);
 }
 
 .momentum-contact-card {
@@ -4849,6 +5536,11 @@ html.motion-ready .our-staff-page .staff-card {
 
 .momentum-link-card {
   min-height: 0;
+}
+
+.momentum-link-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .momentum-gallery {
@@ -5483,6 +6175,9 @@ html.motion-ready .our-staff-page .staff-card {
     .study-guide-series-grid,
     .spiritual-gifts-grid,
     .spiritual-gifts-story,
+    .kids-vbs__intro,
+    .kids-vbs__grid,
+    .kids-vbs-gallery__intro,
     .contact-map,
     .momentum-gallery,
     .preschool-gallery,
@@ -5493,6 +6188,23 @@ html.motion-ready .our-staff-page .staff-card {
 
   .forms-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kids-vbs-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .preschool-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-welcome {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-welcome__stack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 1fr;
   }
 
   .momentum-gallery__item--wide {
@@ -5537,6 +6249,18 @@ html.motion-ready .our-staff-page .staff-card {
     grid-template-columns: 1fr;
   }
 
+  .kids-vbs-gallery__grid {
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .kids-vbs-gallery__item,
+  .kids-vbs-gallery__item--lead {
+    aspect-ratio: 4 / 3;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .bulletin-item__preview iframe {
     height: 28rem;
   }
@@ -5566,7 +6290,8 @@ html.motion-ready .our-staff-page .staff-card {
   }
 
   .who-we-are-mission__media {
-    min-height: 240px;
+    min-height: 300px;
+    aspect-ratio: 16 / 10;
   }
 
   .who-we-are-mission__graphic {
@@ -5807,8 +6532,25 @@ html.motion-ready .our-staff-page .staff-card {
     justify-content: center;
   }
 
-  .preschool-gallery__stack {
+  .preschool-gallery__grid {
+    grid-auto-rows: minmax(8rem, 12rem);
     grid-template-columns: 1fr;
+  }
+
+  .preschool-gallery__item--lead,
+  .preschool-gallery__item--wide,
+  .preschool-gallery__item--tall {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .contact-welcome__feature {
+    min-height: 22rem;
+  }
+
+  .contact-welcome__stack {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
 
   .hero__card-row {
@@ -5825,7 +6567,11 @@ html.motion-ready .our-staff-page .staff-card {
   }
 
   .who-we-are-showcase__feature {
-    grid-template-rows: 260px auto;
+    grid-template-rows: 300px auto;
+  }
+
+  .who-we-are-showcase__media--feature {
+    min-height: 0;
   }
 
   .value-card__inner,

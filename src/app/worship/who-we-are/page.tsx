@@ -5,10 +5,65 @@ import { ValueFlipCard } from "@/components/value-flip-card";
 import { DoctrineSearch } from "@/components/doctrine-search";
 import { withBasePath } from "@/lib/site-path";
 
-import kidsReading from "../../../../Who we are - ABOUT/4d08689b-f470-40e1-87e6-796b5977e046.jpg";
-import familyFromSide from "../../../../Who we are - ABOUT/96f1f8f7-05f7-497e-9979-d244d6a342b3.jpg";
-import worshipRaisedHand from "../../../../Who we are - ABOUT/929c30f1-6dab-45a3-aef8-021bb46432f3.jpg";
-import girlsStudying from "../../../../Who we are - ABOUT/d38f9698-c5e5-424a-ba1b-b554f9cf9009.jpg";
+const aboutPhotos = {
+  mission: {
+    src: withBasePath("/images/who-we-are/mission-fellowship.jpg"),
+    alt: "People sharing conversation and fellowship at Emmanuel Church",
+    label: "Fellowship",
+    objectPosition: "center 52%",
+  },
+  gatheredWorship: {
+    src: withBasePath("/images/who-we-are/gathered-worship.jpg"),
+    alt: "The Emmanuel Church congregation gathered for worship",
+    label: "Gathered worship",
+    objectPosition: "center 48%",
+  },
+  children: {
+    src: withBasePath("/images/who-we-are/children.jpg"),
+    alt: "Children serving together during a Sunday morning activity",
+    label: "Children",
+    objectPosition: "center 48%",
+  },
+  community: {
+    src: withBasePath("/images/who-we-are/community.jpg"),
+    alt: "Church members connecting together in a hallway",
+    label: "Community",
+    objectPosition: "center 50%",
+  },
+  worship: {
+    src: withBasePath("/images/who-we-are/worship.jpg"),
+    alt: "A worship leader serving from the front of the church",
+    label: "Worship",
+    objectPosition: "center 48%",
+  },
+  discipleship: {
+    src: withBasePath("/images/who-we-are/discipleship.jpg"),
+    alt: "A small group gathered for conversation and discipleship",
+    label: "Discipleship",
+    objectPosition: "center 46%",
+  },
+  bibleStudy: {
+    src: withBasePath("/images/who-we-are/bible-study.jpg"),
+    alt: "Adults studying the Bible together around a table",
+    label: "Bible study",
+    objectPosition: "center 48%",
+  },
+} as const;
+
+const showcaseTiles = [
+  {
+    ...aboutPhotos.children,
+    title: "Discipleship starts with a place to belong.",
+  },
+  {
+    ...aboutPhotos.community,
+    title: "Faith grows through ordinary connection.",
+  },
+  {
+    ...aboutPhotos.worship,
+    title: "We gather to respond to God.",
+  },
+] as const;
 
 async function getDoctrineStatementHtml() {
   try {
@@ -78,11 +133,12 @@ export default async function WhoWeArePage() {
           <figure className="who-we-are-mission__graphic surface-card">
             <div className="who-we-are-mission__media">
               <Image
-                src={withBasePath("/who-we-are/mission-graphic.jpg")}
-                alt="Love, grace, worship, and truth graphic for Emmanuel Church"
+                src={aboutPhotos.mission.src}
+                alt={aboutPhotos.mission.alt}
                 fill
                 sizes="(max-width: 1080px) 100vw, 34vw"
                 className="cover-image"
+                style={{ objectPosition: aboutPhotos.mission.objectPosition }}
               />
             </div>
           </figure>
@@ -92,89 +148,66 @@ export default async function WhoWeArePage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Identity"
-          title="Truth, Worship, and Family in One Picture"
-          description="These images hold the page together visually: doctrine in the logo, discipleship in the classroom, and worship in the gathered church."
+          title="A Church That Gathers, Grows, and Serves."
+          description="A Sunday morning at Emmanuel is made of worship, welcome, learning, and the everyday work of making room for one another."
         />
         <div className="who-we-are-showcase">
           <figure className="who-we-are-showcase__feature surface-card">
             <div className="who-we-are-showcase__media who-we-are-showcase__media--feature">
               <Image
-                src={withBasePath("/who-we-are/truth.png")}
-                alt="Truth logo for Emmanuel Church"
+                src={aboutPhotos.gatheredWorship.src}
+                alt={aboutPhotos.gatheredWorship.alt}
                 fill
                 sizes="(max-width: 1080px) 100vw, 42vw"
                 className="cover-image"
                 priority
+                style={{ objectPosition: aboutPhotos.gatheredWorship.objectPosition }}
               />
             </div>
             <figcaption>
-              <span className="eyebrow eyebrow--small">Truth</span>
-              <strong>Scripture gives the whole church its center.</strong>
-              <p>What Emmanuel teaches on paper should show up in worship, study, and family life.</p>
+              <span className="eyebrow eyebrow--small">Gathered worship</span>
+              <strong>We make room for worship that gathers the whole church.</strong>
+              <p>From the first welcome to the final song, Emmanuel is shaped by people showing up for one another.</p>
             </figcaption>
           </figure>
 
           <div className="who-we-are-showcase__grid">
-            <figure className="who-we-are-showcase__tile surface-card">
-              <div className="who-we-are-showcase__media">
-                <Image
-                  src={kidsReading}
-                  alt="A child reading in a classroom chair"
-                  fill
-                  sizes="(max-width: 1080px) 50vw, 22vw"
-                  className="cover-image"
-                />
-              </div>
-              <figcaption>
-                <span className="eyebrow eyebrow--small">Children</span>
-                <strong>Discipleship starts young.</strong>
-              </figcaption>
-            </figure>
+            {showcaseTiles.map((tile) => (
+              <figure className="who-we-are-showcase__tile surface-card" key={tile.label}>
+                <div className="who-we-are-showcase__media">
+                  <Image
+                    src={tile.src}
+                    alt={tile.alt}
+                    fill
+                    sizes="(max-width: 1080px) 50vw, 22vw"
+                    className="cover-image"
+                    style={{ objectPosition: tile.objectPosition }}
+                  />
+                </div>
+                <figcaption>
+                  <span className="eyebrow eyebrow--small">{tile.label}</span>
+                  <strong>{tile.title}</strong>
+                </figcaption>
+              </figure>
+            ))}
 
-            <figure className="who-we-are-showcase__tile surface-card">
-              <div className="who-we-are-showcase__media">
-                <Image
-                  src={familyFromSide}
-                  alt="Families gathered together in the church"
-                  fill
-                  sizes="(max-width: 1080px) 50vw, 22vw"
-                  className="cover-image"
-                />
+            <figure className="who-we-are-showcase__tile who-we-are-showcase__tile--duo surface-card">
+              <div className="who-we-are-showcase__media who-we-are-showcase__media--duo">
+                {[aboutPhotos.discipleship, aboutPhotos.bibleStudy].map((photo) => (
+                  <div className="who-we-are-showcase__media-frame" key={photo.label}>
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 22vw"
+                      className="cover-image"
+                      style={{ objectPosition: photo.objectPosition }}
+                    />
+                  </div>
+                ))}
               </div>
               <figcaption>
-                <span className="eyebrow eyebrow--small">Family</span>
-                <strong>Faith is carried together.</strong>
-              </figcaption>
-            </figure>
-
-            <figure className="who-we-are-showcase__tile surface-card">
-              <div className="who-we-are-showcase__media">
-                <Image
-                  src={worshipRaisedHand}
-                  alt="A worshiper raising a hand during service"
-                  fill
-                  sizes="(max-width: 1080px) 50vw, 22vw"
-                  className="cover-image"
-                />
-              </div>
-              <figcaption>
-                <span className="eyebrow eyebrow--small">Worship</span>
-                <strong>We gather to respond to God.</strong>
-              </figcaption>
-            </figure>
-
-            <figure className="who-we-are-showcase__tile surface-card">
-              <div className="who-we-are-showcase__media">
-                <Image
-                  src={girlsStudying}
-                  alt="Girls working through a Bible lesson at a table"
-                  fill
-                  sizes="(max-width: 1080px) 50vw, 22vw"
-                  className="cover-image"
-                />
-              </div>
-              <figcaption>
-                <span className="eyebrow eyebrow--small">Study</span>
+                <span className="eyebrow eyebrow--small">Discipleship</span>
                 <strong>Learning and worship stay connected.</strong>
               </figcaption>
             </figure>
@@ -184,7 +217,7 @@ export default async function WhoWeArePage() {
 
       <SectionShell>
         <SectionHeading eyebrow="Core values" title="The Pillars Behind the Ministry." />
-        <div className="content-grid">
+        <div className="content-grid who-we-are-values">
           <ValueFlipCard
             title="Love"
             summary="Love shapes the posture of the church and the way we serve one another."

@@ -5,14 +5,97 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
-import preschoolCrafts from "../../../../Emmanuel Preschool/04eeb886-3cfe-4ddc-9898-06c1d298d88d.png";
-import preschoolClassroom from "../../../../Emmanuel Preschool/93cd6249-c99d-4f38-979c-a8eb4951ac15.jpg";
 import preschoolLogo from "../../../../Emmanuel Preschool/c3b52863-0605-4eab-bad9-07d9bf181c66.png";
-import preschoolCalendar from "../../../../Emmanuel Preschool/f2dc041b-e023-42fa-a285-41b3575f7b31.png";
 
 const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
 
+const preschoolGalleryPhotos = [
+  {
+    src: "/images/emmanuel-preschool/gallery/art-class-wide.jpg",
+    alt: "Preschool children and teachers creating together around a bright classroom table.",
+    layout: "lead",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/nursery-play.jpg",
+    alt: "A teacher plays with young children in the preschool nursery.",
+    layout: "tall",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/snack-table.jpg",
+    alt: "Children enjoying a snack together at a preschool table.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/classroom-table.jpg",
+    alt: "Children gathered around a classroom table during a preschool activity.",
+    layout: "wide",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/one-on-one-activity.jpg",
+    alt: "A teacher works closely with a child during a classroom activity.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/mentor-reading.jpg",
+    alt: "A teacher and child share a quiet learning moment together.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/kids-writing-wall.jpg",
+    alt: "Children add drawings and words to a colorful classroom wall.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/snack-portrait.jpg",
+    alt: "Two preschool children enjoy snack time together.",
+    layout: "tall",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/kids-art-wall.jpg",
+    alt: "Children work together on a creative classroom display.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/nursery-room.jpg",
+    alt: "A teacher and young children play together in the nursery room.",
+    layout: "wide",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/teacher-planning.jpg",
+    alt: "Teachers prepare a preschool classroom activity together.",
+    layout: "standard",
+  },
+  {
+    src: "/images/emmanuel-preschool/gallery/art-class-close.jpg",
+    alt: "Preschool children and teachers gather around a hands-on art activity.",
+    layout: "standard",
+  },
+];
+
 const preschoolEmail = "preschool@ecabilene.org";
+
+const preschoolTeam = [
+  {
+    eyebrow: "Director",
+    name: "Rachel Bishop",
+    role: "Preschool director and Kids pastor.",
+    image: "/staff/Rachel-Bishop-Kid-s-Pastor-Preschool-Director.png",
+    alt: "Rachel Bishop, Emmanuel Preschool director",
+    href: `tel:${site.phone.replace(/[^0-9+]/g, "")}`,
+    label: site.phone,
+    kind: "phone",
+  },
+  {
+    eyebrow: "Teacher",
+    name: "Marie Malo",
+    role: "Preschool teacher and classroom support.",
+    image: "/staff/Marie-Malo-Preschool-Teacher.jpeg",
+    alt: "Marie Malo, Emmanuel Preschool teacher",
+    href: `mailto:${preschoolEmail}`,
+    label: preschoolEmail,
+    kind: "email",
+  },
+];
 
 const classOptions = [
   {
@@ -220,35 +303,21 @@ export default function EmmanuelPreschoolPage() {
         />
 
         <div className="preschool-gallery">
-          <figure className="surface-card preschool-gallery__item preschool-gallery__item--lead">
-            <Image
-              src={preschoolCrafts}
-              alt="Children gathered around a classroom activity table"
-              fill
-              sizes="(max-width: 1080px) 100vw, 60vw"
-              className="preschool-gallery__image"
-            />
-          </figure>
-
-          <div className="preschool-gallery__stack">
-            <figure className="surface-card preschool-gallery__item">
-              <Image
-                src={preschoolCalendar}
-                alt="Children learning in front of a classroom calendar and wall display"
-                fill
-                sizes="(max-width: 1080px) 100vw, 32vw"
-                className="preschool-gallery__image"
-              />
-            </figure>
-            <figure className="surface-card preschool-gallery__item">
-              <Image
-                src={preschoolClassroom}
-                alt="Children and a teacher posing together with classroom crafts"
-                fill
-                sizes="(max-width: 1080px) 100vw, 32vw"
-                className="preschool-gallery__image"
-              />
-            </figure>
+          <div className="preschool-gallery__grid">
+            {preschoolGalleryPhotos.map((photo) => (
+              <figure
+                className={`surface-card preschool-gallery__item preschool-gallery__item--${photo.layout}`}
+                key={photo.src}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                  className="preschool-gallery__image"
+                />
+              </figure>
+            ))}
           </div>
         </div>
       </SectionShell>
@@ -278,7 +347,7 @@ export default function EmmanuelPreschoolPage() {
           description="These options reflect the current preschool page, including the nonrefundable enrollment fee and monthly tuition."
         />
 
-        <div className="resource-grid">
+        <div className="resource-grid preschool-class-options">
           {classOptions.map((option) => (
             <article key={option.eyebrow} className="resource-card preschool-class-card">
               <p className="eyebrow eyebrow--small">{option.eyebrow}</p>
@@ -321,26 +390,30 @@ export default function EmmanuelPreschoolPage() {
           description="Rachel Bishop directs the preschool, and Marie Malo serves as the preschool teacher."
         />
 
-        <div className="resource-grid">
-          <article className="resource-card">
-            <p className="eyebrow eyebrow--small">Director</p>
-            <h3>Rachel Bishop</h3>
-            <p>Preschool director and Kids pastor.</p>
-            <a className="resource-card__action" href={`tel:${site.phone.replace(/[^0-9+]/g, "")}`}>
-              <PhoneIcon className="icon icon--xs" />
-              <span>{site.phone}</span>
-            </a>
-          </article>
-          <article className="resource-card">
-            <p className="eyebrow eyebrow--small">Teacher</p>
-            <h3>Marie Malo</h3>
-            <p>Preschool teacher and classroom support.</p>
-            <a className="resource-card__action" href={`mailto:${preschoolEmail}`}>
-              <MailIcon className="icon icon--xs" />
-              <span>{preschoolEmail}</span>
-            </a>
-          </article>
-          <article className="resource-card">
+        <div className="resource-grid preschool-contact-grid">
+          {preschoolTeam.map((person) => (
+            <article className="resource-card preschool-contact-card" key={person.name}>
+              <div className="preschool-contact-card__photo">
+                <Image
+                  src={withBasePath(person.image)}
+                  alt={person.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                  className="preschool-contact-card__image"
+                />
+              </div>
+              <div className="preschool-contact-card__body">
+                <p className="eyebrow eyebrow--small">{person.eyebrow}</p>
+                <h3>{person.name}</h3>
+                <p>{person.role}</p>
+                <a className="resource-card__action" href={person.href}>
+                  {person.kind === "phone" ? <PhoneIcon className="icon icon--xs" /> : <MailIcon className="icon icon--xs" />}
+                  <span>{person.label}</span>
+                </a>
+              </div>
+            </article>
+          ))}
+          <article className="resource-card preschool-office-card">
             <p className="eyebrow eyebrow--small">Office</p>
             <h3>Emmanuel Church</h3>
             <p>{site.address}</p>

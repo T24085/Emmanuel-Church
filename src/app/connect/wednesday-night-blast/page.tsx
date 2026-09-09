@@ -203,9 +203,9 @@ export default function WednesdayNightBlastPage() {
           description="These are the essentials families need when they arrive on Wednesday night."
         />
 
-        <div className="resource-grid">
+        <div className="resource-grid blast-rhythm-grid">
           {blastRhythm.map((item) => (
-            <article key={item.title} className="resource-card">
+            <article key={item.title} className="resource-card blast-rhythm-card">
               <p className="eyebrow eyebrow--small">{item.eyebrow}</p>
               <h3>{item.title}</h3>
               <p>{item.body}</p>

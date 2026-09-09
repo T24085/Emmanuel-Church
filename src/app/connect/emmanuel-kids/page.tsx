@@ -38,6 +38,12 @@ const sundaySchedule = [
   },
 ];
 
+function formatRoomAssignments(text: string) {
+  return text.split(/(Rooms? \d+(?: and \d+)?)/g).map((part, index) =>
+    /^Rooms? \d/.test(part) ? <strong key={`${part}-${index}`}>{part}</strong> : part,
+  );
+}
+
 const blastSchedule = [
   "Wednesday Night B.L.A.S.T. runs September through November and January through April.",
   "Classes meet from 6:30-7:30 pm for nursery, pre-K, and elementary kids.",
@@ -80,6 +86,61 @@ const firstTimeSteps = [
   {
     title: "Ask Questions Anytime",
     body: "Rachel Bishop can help with Sunday rhythms, Wednesday nights, or any questions about your child’s age group.",
+  },
+];
+
+const vbsPhotos = [
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-261.jpg",
+    alt: "Emmanuel Kids children and volunteers gathered together during Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-251.jpg",
+    alt: "A child smiling during a Vacation Bible School activity.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-252.jpg",
+    alt: "Children listening together during Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-253.jpg",
+    alt: "A child participating in a Vacation Bible School activity.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-259.jpg",
+    alt: "Children raising their hands during Vacation Bible School worship.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-262.jpg",
+    alt: "Children engaged together during a Vacation Bible School gathering.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-263.jpg",
+    alt: "Children worshiping together during Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-265.jpg",
+    alt: "A wide view of children and leaders gathered for Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-267.jpg",
+    alt: "Children sitting together during a Vacation Bible School moment.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-157.jpg",
+    alt: "A child praying during a Vacation Bible School gathering.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-159.jpg",
+    alt: "A child giving a high five during Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-160.jpg",
+    alt: "A volunteer welcoming children during Vacation Bible School.",
+  },
+  {
+    src: "/images/emmanuel-kids/vbs-2026/vbs-155.jpg",
+    alt: "A VBS leader speaking on the decorated Vacation Bible School stage.",
   },
 ];
 
@@ -151,19 +212,85 @@ export default function EmmanuelKidsPage() {
             </figure>
           </article>
 
-          <article className="surface-card kids-logo-card">
-            <div className="kids-logo-card__media">
+          <article className="surface-card kids-feature-card">
+            <div className="kids-feature-card__media">
               <Image
-                src={kidsLogo}
-                alt="Emmanuel Kids logo"
+                src="/images/emmanuel-kids/vbs-2026/vbs-265.jpg"
+                alt="Emmanuel Kids children and leaders gathered during Vacation Bible School"
                 fill
                 priority
                 sizes="(max-width: 1080px) 100vw, 48vw"
-                className="kids-logo-card__image"
+                className="kids-feature-card__image"
               />
             </div>
           </article>
         </div>
+
+        <section className="kids-vbs" aria-labelledby="kids-vbs-title">
+          <div className="kids-vbs__intro">
+            <p className="eyebrow eyebrow--small">VBS 2026</p>
+            <h2 id="kids-vbs-title">A Joyful Week of Learning, Worship, and Wonder.</h2>
+            <p>
+              Take a look at a few of the moments that made Vacation Bible School special for Emmanuel Kids and
+              their families.
+            </p>
+          </div>
+
+          <div className="kids-vbs__grid">
+            <article className="kids-vbs__card">
+              <div className="kids-vbs__media">
+                <video autoPlay controls loop muted playsInline preload="auto" aria-label="Emmanuel Kids Vacation Bible School 2026 video one">
+                  <source src="/videos/emmanuel-kids/vbs-2026-1.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
+              </div>
+              <div className="kids-vbs__body">
+                <p className="eyebrow eyebrow--small">VBS moments</p>
+                <h3>Growing Together in Joy.</h3>
+              </div>
+            </article>
+
+            <article className="kids-vbs__card">
+              <div className="kids-vbs__media">
+                <video autoPlay controls loop muted playsInline preload="auto" aria-label="Emmanuel Kids Vacation Bible School 2026 video two">
+                  <source src="/videos/emmanuel-kids/vbs-2026-2.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
+              </div>
+              <div className="kids-vbs__body">
+                <p className="eyebrow eyebrow--small">VBS moments</p>
+                <h3>Faith That Feels Alive.</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="kids-vbs-gallery" aria-labelledby="kids-vbs-gallery-title">
+          <div className="kids-vbs-gallery__intro">
+            <p className="eyebrow eyebrow--small">Photo journal</p>
+            <h2 id="kids-vbs-gallery-title">Small Moments. A Big Week.</h2>
+            <p>
+              A few more glimpses of the joy, curiosity, and community that filled Emmanuel Kids during VBS.
+            </p>
+          </div>
+
+          <div className="kids-vbs-gallery__grid">
+            {vbsPhotos.map((photo, index) => (
+              <figure
+                className={`kids-vbs-gallery__item${index === 0 ? " kids-vbs-gallery__item--lead" : ""}`}
+                key={photo.src}
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 25vw"
+                  className="kids-vbs-gallery__image"
+                />
+              </figure>
+            ))}
+          </div>
+        </section>
 
         <div className="resource-grid kids-highlights">
           {highlights.map((item) => (
@@ -219,12 +346,12 @@ export default function EmmanuelKidsPage() {
           {sundaySchedule.map((block) => (
             <article key={block.title} className="resource-card kids-schedule-card">
               <p className="eyebrow eyebrow--small">{block.title}</p>
-              <h3>Room Assignments by Age Group</h3>
-              <div className="kids-schedule-card__list">
-                {block.rooms.map((room) => (
-                  <p key={room}>{room}</p>
-                ))}
-              </div>
+                <h3>Room Assignments by Age Group</h3>
+                <div className="kids-schedule-card__list">
+                  {block.rooms.map((room) => (
+                    <p key={room}>{formatRoomAssignments(room)}</p>
+                  ))}
+                </div>
             </article>
           ))}
         </div>
@@ -237,8 +364,8 @@ export default function EmmanuelKidsPage() {
           description="The ministry runs on a seasonal schedule and brings children together for teaching, music, games, and small groups."
         />
 
-        <div className="split-grid">
-          <article className="surface-card">
+        <div className="blast-schedule-layout">
+          <article className="surface-card blast-schedule-card">
             <div className="surface-card__body content-copy kids-blast__copy">
               {blastSchedule.map((line) => (
                 <p key={line}>{line}</p>
@@ -246,18 +373,18 @@ export default function EmmanuelKidsPage() {
             </div>
           </article>
 
-          <div className="resource-grid">
-            <article className="resource-card">
+          <div className="resource-grid blast-room-grid">
+            <article className="resource-card blast-room-card">
               <p className="eyebrow eyebrow--small">Nursery</p>
               <h3>Room 102</h3>
               <p>Ages 6 weeks to 2 years.</p>
             </article>
-            <article className="resource-card">
+            <article className="resource-card blast-room-card">
               <p className="eyebrow eyebrow--small">Pre-K</p>
               <h3>Rooms 101 and 103</h3>
               <p>Ages 3-5 years.</p>
             </article>
-            <article className="resource-card">
+            <article className="resource-card blast-room-card">
               <p className="eyebrow eyebrow--small">Elementary</p>
               <h3>Worship Center, Then Kids Hall</h3>
               <p>Kids begin together, then split into K-2nd and 3rd-5th with small-group time at the end.</p>

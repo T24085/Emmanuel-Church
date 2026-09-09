@@ -279,7 +279,7 @@ export default function MomentumYouthPage() {
           description="These are the main public touchpoints from the Momentum Youth page."
         />
 
-        <div className="resource-grid">
+        <div className="resource-grid momentum-link-grid">
           {momentumCards.map((card) => (
             <article key={card.title} className="resource-card momentum-link-card">
               <p className="eyebrow eyebrow--small">{card.eyebrow}</p>

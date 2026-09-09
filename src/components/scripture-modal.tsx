@@ -9,11 +9,68 @@ type ScriptureModalProps = {
   scriptures: GivingScripture[];
 };
 
+function TypingScripture({ text, delay = 0 }: { text: string; delay?: number }) {
+  const [characterCount, setCharacterCount] = useState(0);
+  const [isStarted, setIsStarted] = useState(delay === 0);
+  const [isReducedMotion, setIsReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setIsReducedMotion(reduceMotion);
+
+    if (reduceMotion) {
+      setCharacterCount(text.length);
+      return;
+    }
+
+    let typeTimeout = 0;
+    const startTimeout = window.setTimeout(() => {
+      setIsStarted(true);
+      let nextCount = 0;
+
+      const revealNextCharacter = () => {
+        nextCount += 1;
+        setCharacterCount(nextCount);
+
+        if (nextCount < text.length) {
+          typeTimeout = window.setTimeout(revealNextCharacter, 5);
+        }
+      };
+
+      revealNextCharacter();
+    }, delay);
+
+    return () => {
+      window.clearTimeout(startTimeout);
+      window.clearTimeout(typeTimeout);
+    };
+  }, [delay, text]);
+
+  const isComplete = isReducedMotion || characterCount >= text.length;
+
+  return (
+    <>
+      <span className="sr-only">{text}</span>
+      <span
+        className={`scripture-modal__typing${isStarted ? " is-started" : ""}${isComplete ? " is-complete" : ""}`}
+        aria-hidden="true"
+      >
+        {text.slice(0, characterCount)}
+      </span>
+    </>
+  );
+}
+
 export function ScriptureModal({ title, scriptures }: ScriptureModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
+  const typingDelays = scriptures.map((_, index) =>
+    scriptures
+      .slice(0, index)
+      .reduce((total, scripture) => total + scripture.text.length * 5 + 280, 0),
+  );
 
   useEffect(() => {
     if (!isOpen) return;
@@ -97,9 +154,11 @@ export function ScriptureModal({ title, scriptures }: ScriptureModalProps) {
                 </div>
                 <h2 id={titleId}>{title}</h2>
                 <div className="scripture-modal__passages">
-                  {scriptures.map((scripture) => (
+                  {scriptures.map((scripture, index) => (
                     <blockquote key={scripture.reference}>
-                      <p>“{scripture.text}”</p>
+                      <p>
+                        “<TypingScripture text={scripture.text} delay={typingDelays[index]} />”
+                      </p>
                       <cite>{scripture.reference}</cite>
                     </blockquote>
                   ))}

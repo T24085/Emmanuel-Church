@@ -47,6 +47,51 @@ export default function ContactPage() {
 
       <SectionShell>
         <SectionHeading
+          eyebrow="Welcome"
+          title="A Warm Welcome Starts at the Door."
+          description="Whether you are visiting for the first time or finding your way back, there is a place for you at Emmanuel Church."
+        />
+
+        <div className="contact-welcome">
+          <figure className="surface-card contact-welcome__feature">
+            <Image
+              src={withBasePath("/images/contact/welcome-entry.jpg")}
+              alt="People welcoming one another at the entrance of Emmanuel Church"
+              fill
+              sizes="(max-width: 1080px) 100vw, 62vw"
+              className="contact-welcome__image"
+            />
+            <figcaption className="contact-welcome__caption">
+              <p className="eyebrow eyebrow--small">Come as you are</p>
+              <strong>There is room for you here.</strong>
+            </figcaption>
+          </figure>
+
+          <div className="contact-welcome__stack">
+            <figure className="surface-card contact-welcome__support">
+              <Image
+                src={withBasePath("/images/contact/welcome-center.jpg")}
+                alt="A smiling volunteer standing at the Emmanuel Church Welcome Center"
+                fill
+                sizes="(max-width: 1080px) 50vw, 38vw"
+                className="contact-welcome__image"
+              />
+            </figure>
+            <div className="surface-card contact-welcome__note">
+              <p className="eyebrow eyebrow--small">New here?</p>
+              <h3>Start with a hello.</h3>
+              <p>Our welcome center is a simple place to ask questions, meet someone, and get oriented.</p>
+              <a className="surface-card__link" href={site.mapHref} target="_blank" rel="noreferrer">
+                <span>Plan your first visit</span>
+                <ArrowRightIcon className="icon icon--xs" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <SectionHeading
           eyebrow="Visit"
           title="1300 N. Vine Street, Abilene, KS 67410"
           description="This is the public address listed throughout the site."
