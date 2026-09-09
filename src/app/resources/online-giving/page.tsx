@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons";
 import { SectionShell } from "@/components/section";
+import { ScriptureModal } from "@/components/scripture-modal";
 import { givingPrinciples } from "@/data/giving";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
@@ -112,15 +113,7 @@ export default function OnlineGivingPage() {
                     <h3>{principle.title}</h3>
                     <p>{principle.summary}</p>
                   </div>
-                  <div className="giving-foundation__scriptures" aria-label={`${principle.title} scripture`}>
-                    <p className="eyebrow eyebrow--small">Scripture · KJV</p>
-                    {principle.scriptures.map((scripture) => (
-                      <blockquote key={scripture.reference}>
-                        <p>“{scripture.text}”</p>
-                        <cite>{scripture.reference}</cite>
-                      </blockquote>
-                    ))}
-                  </div>
+                  <ScriptureModal title={principle.title} scriptures={principle.scriptures} />
                 </li>
               ))}
             </ol>

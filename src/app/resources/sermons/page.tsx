@@ -10,6 +10,7 @@ import {
   loadMediaArchivePages,
   mediaArchiveRevalidateSeconds,
   type MediaArchivePage,
+  type MediaArchiveItem,
 } from "@/lib/media-archive";
 import { withBasePath } from "@/lib/site-path";
 import { sermonArchive, site } from "@/data/site";
@@ -51,6 +52,21 @@ function getLargeVimeoThumbnail(thumbnail: string | null | undefined) {
   }
 
   return thumbnail.replace(/-d_[^?]+(?=\?|$)/, "-d_original");
+}
+
+function selectSermonHeroVideo(mediaPages: MediaArchivePage[]) {
+  const videosWithThumbnails = mediaPages
+    .flatMap((page) => page.items)
+    .filter(
+      (item: MediaArchiveItem) =>
+        item.kind === "video" && typeof item.thumbnail === "string" && item.thumbnail.trim().length > 0,
+    );
+
+  const designedThumbnail = videosWithThumbnails.find(
+    (item) => !/^\d{4}-\d{2}-\d{2}(?:\s|$)/.test(item.title.trim()),
+  );
+
+  return designedThumbnail || videosWithThumbnails[0];
 }
 
 async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
@@ -134,9 +150,8 @@ export default async function SermonsPage() {
   const teachingSeries = await loadTeachingSeries();
   const audioSermons = teachingSeries.filter((sermon) => sermon.kind !== "video" || !sermon.embedSrc);
   const mediaPages = (await loadMediaArchivePages()) as MediaArchivePage[];
-  const sermonHeroThumbnail = getLargeVimeoThumbnail(
-    mediaPages.flatMap((page) => page.items).find((item) => item.kind === "video" && item.thumbnail)?.thumbnail
-  );
+  const sermonHeroVideo = selectSermonHeroVideo(mediaPages);
+  const sermonHeroThumbnail = getLargeVimeoThumbnail(sermonHeroVideo?.thumbnail);
 
   return (
     <>
@@ -151,7 +166,11 @@ export default async function SermonsPage() {
             <NextSermonCountdown compact className="page-hero__countdown--overlay" />
             <Image
               src={sermonHeroThumbnail || withBasePath("/images/sermon-on-the-mount-banner.png")}
-              alt={sermonHeroThumbnail ? "Thumbnail from the latest Emmanuel Church sermon video" : "The Sermon on the Mount illustration"}
+              alt={
+                sermonHeroThumbnail
+                  ? `Thumbnail from ${sermonHeroVideo?.title || "the latest Emmanuel Church sermon video"}`
+                  : "The Sermon on the Mount illustration"
+              }
               fill
               priority
               sizes="(max-width: 1080px) 100vw, 100vw"

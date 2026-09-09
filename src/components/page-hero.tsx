@@ -30,7 +30,10 @@ export function PageHero({
   title,
   description,
   mediaLayout = "split",
-  fullBleed = false,
+  // Full-media heroes are intended to read as banner photography. Keep the
+  // opt-out available for any future contained hero, but make the shared
+  // presentation consistent across the current site.
+  fullBleed = true,
   layoutClassName,
   action,
   actionDetail,
