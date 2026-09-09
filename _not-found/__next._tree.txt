@@ -1,4 +1,4 @@
 :HL["/Emmanuel-Church/_next/static/chunks/0brj8y~_zz0ma.css","style"]
 :HL["/Emmanuel-Church/_next/static/chunks/0nk8e6511t0hu.css","style"]
 :HL["/Emmanuel-Church/_next/static/chunks/079-q6xqc89_r.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"m0uF9JLir3yZxvIBfDnk0"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"jUd7kouUVXiGtL9D7xPjv"}

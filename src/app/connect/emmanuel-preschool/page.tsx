@@ -11,62 +11,62 @@ const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-prescho
 
 const preschoolGalleryPhotos = [
   {
-    src: "/images/emmanuel-preschool/gallery/art-class-wide.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/art-class-wide.jpg"),
     alt: "Preschool children and teachers creating together around a bright classroom table.",
     layout: "lead",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/nursery-play.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/nursery-play.jpg"),
     alt: "A teacher plays with young children in the preschool nursery.",
     layout: "tall",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/snack-table.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/snack-table.jpg"),
     alt: "Children enjoying a snack together at a preschool table.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/classroom-table.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/classroom-table.jpg"),
     alt: "Children gathered around a classroom table during a preschool activity.",
     layout: "wide",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/one-on-one-activity.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/one-on-one-activity.jpg"),
     alt: "A teacher works closely with a child during a classroom activity.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/mentor-reading.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/mentor-reading.jpg"),
     alt: "A teacher and child share a quiet learning moment together.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/kids-writing-wall.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/kids-writing-wall.jpg"),
     alt: "Children add drawings and words to a colorful classroom wall.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/snack-portrait.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/snack-portrait.jpg"),
     alt: "Two preschool children enjoy snack time together.",
     layout: "tall",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/kids-art-wall.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/kids-art-wall.jpg"),
     alt: "Children work together on a creative classroom display.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/nursery-room.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/nursery-room.jpg"),
     alt: "A teacher and young children play together in the nursery room.",
     layout: "wide",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/teacher-planning.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/teacher-planning.jpg"),
     alt: "Teachers prepare a preschool classroom activity together.",
     layout: "standard",
   },
   {
-    src: "/images/emmanuel-preschool/gallery/art-class-close.jpg",
+    src: withBasePath("/images/emmanuel-preschool/gallery/art-class-close.jpg"),
     alt: "Preschool children and teachers gather around a hands-on art activity.",
     layout: "standard",
   },

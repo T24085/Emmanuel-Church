@@ -4,6 +4,7 @@ import { ArrowRightIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
+import { withBasePath } from "@/lib/site-path";
 import kidsLogo from "../../../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
 
 const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;
@@ -91,55 +92,55 @@ const firstTimeSteps = [
 
 const vbsPhotos = [
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-261.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-261.jpg"),
     alt: "Emmanuel Kids children and volunteers gathered together during Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-251.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-251.jpg"),
     alt: "A child smiling during a Vacation Bible School activity.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-252.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-252.jpg"),
     alt: "Children listening together during Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-253.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-253.jpg"),
     alt: "A child participating in a Vacation Bible School activity.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-259.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-259.jpg"),
     alt: "Children raising their hands during Vacation Bible School worship.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-262.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-262.jpg"),
     alt: "Children engaged together during a Vacation Bible School gathering.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-263.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-263.jpg"),
     alt: "Children worshiping together during Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-265.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-265.jpg"),
     alt: "A wide view of children and leaders gathered for Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-267.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-267.jpg"),
     alt: "Children sitting together during a Vacation Bible School moment.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-157.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-157.jpg"),
     alt: "A child praying during a Vacation Bible School gathering.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-159.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-159.jpg"),
     alt: "A child giving a high five during Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-160.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-160.jpg"),
     alt: "A volunteer welcoming children during Vacation Bible School.",
   },
   {
-    src: "/images/emmanuel-kids/vbs-2026/vbs-155.jpg",
+    src: withBasePath("/images/emmanuel-kids/vbs-2026/vbs-155.jpg"),
     alt: "A VBS leader speaking on the decorated Vacation Bible School stage.",
   },
 ];
@@ -215,7 +216,7 @@ export default function EmmanuelKidsPage() {
           <article className="surface-card kids-feature-card">
             <div className="kids-feature-card__media">
               <Image
-                src="/images/emmanuel-kids/vbs-2026/vbs-265.jpg"
+                src={withBasePath("/images/emmanuel-kids/vbs-2026/vbs-265.jpg")}
                 alt="Emmanuel Kids children and leaders gathered during Vacation Bible School"
                 fill
                 priority
@@ -240,7 +241,7 @@ export default function EmmanuelKidsPage() {
             <article className="kids-vbs__card">
               <div className="kids-vbs__media">
                 <video autoPlay controls loop muted playsInline preload="auto" aria-label="Emmanuel Kids Vacation Bible School 2026 video one">
-                  <source src="/videos/emmanuel-kids/vbs-2026-1.mp4" type="video/mp4" />
+                  <source src={withBasePath("/videos/emmanuel-kids/vbs-2026-1.mp4")} type="video/mp4" />
                   Your browser does not support embedded video.
                 </video>
               </div>
@@ -253,7 +254,7 @@ export default function EmmanuelKidsPage() {
             <article className="kids-vbs__card">
               <div className="kids-vbs__media">
                 <video autoPlay controls loop muted playsInline preload="auto" aria-label="Emmanuel Kids Vacation Bible School 2026 video two">
-                  <source src="/videos/emmanuel-kids/vbs-2026-2.mp4" type="video/mp4" />
+                  <source src={withBasePath("/videos/emmanuel-kids/vbs-2026-2.mp4")} type="video/mp4" />
                   Your browser does not support embedded video.
                 </video>
               </div>
