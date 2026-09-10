@@ -245,7 +245,7 @@ export default function WorshipArtsMinistryPage() {
           description="These are the values that keep the ministry centered, disciplined, and useful to the gathered church."
         />
 
-        <div className="resource-grid">
+        <div className="resource-grid worship-arts-four-grid">
           {worshipValues.map((item) => {
             const Icon = item.icon;
             return (
@@ -313,7 +313,7 @@ export default function WorshipArtsMinistryPage() {
           description="The path is straightforward: reach out, talk through your gifts, train well, and serve consistently."
         />
 
-        <div className="resource-grid">
+        <div className="resource-grid worship-arts-four-grid">
           {worshipSteps.map((item) => (
             <article key={item.title} className="resource-card">
               <p className="eyebrow eyebrow--small">{item.eyebrow}</p>

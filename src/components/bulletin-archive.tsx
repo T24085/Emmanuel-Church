@@ -83,7 +83,7 @@ export function BulletinArchive({ bulletins }: BulletinArchiveProps) {
                 </summary>
                 <div className="bulletin-month__body">
                   {month.bulletins.map((bulletin) => (
-                    <details className="bulletin-item-preview" key={bulletin.href}>
+                    <details className="bulletin-item-preview" key={bulletin.href} open={index === 0}>
                       <summary className="bulletin-item">
                         <span className="bulletin-item__date">{bulletin.dateLabel}</span>
                         <span className="bulletin-item__title">Sunday bulletin</span>

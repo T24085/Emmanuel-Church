@@ -1,4 +1,5 @@
 $ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
 Set-StrictMode -Version Latest
 
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -50,10 +51,42 @@ function Test-EmmanuelResponse {
     )
 
     try {
-        $response = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/" -Method Head -TimeoutSec 5 -UseBasicParsing
+        $response = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/" -Method Get -TimeoutSec 15 -UseBasicParsing
         return $response.StatusCode -eq 200
     } catch {
         return $false
+    }
+}
+
+function Stop-EmmanuelProcessTree {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$ProcessId
+    )
+
+    $rootProcessId = $ProcessId
+    $currentProcess = Get-CimInstance Win32_Process -Filter "ProcessId=$ProcessId" -ErrorAction SilentlyContinue
+
+    for ($i = 0; $i -lt 8 -and $currentProcess; $i++) {
+        $parentProcess = Get-CimInstance Win32_Process -Filter "ProcessId=$($currentProcess.ParentProcessId)" -ErrorAction SilentlyContinue
+        if (-not $parentProcess) {
+            break
+        }
+
+        if ($parentProcess.CommandLine -and $parentProcess.CommandLine -like '*next dev*') {
+            $rootProcessId = [int]$parentProcess.ProcessId
+            if ($parentProcess.Name -ieq 'cmd.exe') {
+                break
+            }
+        }
+
+        $currentProcess = $parentProcess
+    }
+
+    if ($rootProcessId -ne $ProcessId) {
+        & taskkill.exe /PID $rootProcessId /T /F | Out-Null
+    } else {
+        Stop-Process -Id $ProcessId -Force -ErrorAction SilentlyContinue
     }
 }
 
@@ -92,26 +125,20 @@ function Wait-ForEmmanuelResponse {
 
 Ensure-EmmanuelDependencies
 
-if (Get-EmmanuelDevProcessId -Port 3000) {
+$existingProcessId = Get-EmmanuelDevProcessId -Port 3000
+
+if ($existingProcessId) {
     if (Test-EmmanuelResponse -Port 3000) {
         Start-Process "http://127.0.0.1:3000/"
         return
     }
 
-    Stop-Process -Id (Get-EmmanuelDevProcessId -Port 3000) -Force -ErrorAction SilentlyContinue
+    Stop-EmmanuelProcessTree -ProcessId $existingProcessId
+    Start-Sleep -Milliseconds 500
     if (Test-Path .next) {
         Get-ChildItem .next -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
         Remove-Item .next -Force -ErrorAction SilentlyContinue
     }
-
-    Start-Process -FilePath 'npm.cmd' -ArgumentList @('run', 'dev', '--', '--port', '3000', '--hostname', '127.0.0.1') -WorkingDirectory $scriptRoot -WindowStyle Hidden
-    if (Wait-ForEmmanuelResponse -Port 3000) {
-        Start-Process "http://127.0.0.1:3000/"
-        return
-    }
-
-    Write-Host "Restarted the dev server on port 3000, but it is still starting."
-    return
 }
 
 if (Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyContinue) {

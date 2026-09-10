@@ -1,9 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon, MailIcon, LocationIcon, PhoneIcon } from "@/components/icons";
+import {
+  ArrowRightIcon,
+  CalendarIcon,
+  FacebookIcon,
+  GlobeIcon,
+  HeartIcon,
+  MailIcon,
+  LocationIcon,
+  PhoneIcon,
+} from "@/components/icons";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { contactEmails, externalLinks, site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+
+const externalLinkIcons = {
+  Facebook: FacebookIcon,
+  "Online Church Platform": GlobeIcon,
+  "Online Giving": HeartIcon,
+  "Public Calendar": CalendarIcon,
+} as const;
 
 export default function ContactPage() {
   return (
@@ -148,22 +164,29 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div style={{ marginTop: "1rem" }} className="link-list">
-          {externalLinks.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className="link-list__item"
-            >
-              <div>
-                <h3 style={{ margin: 0 }}>{item.label}</h3>
-                <p>{item.note}</p>
-              </div>
-              <ArrowRightIcon className="icon icon--sm" />
-            </a>
-          ))}
+        <div className="contact-links">
+          {externalLinks.map((item) => {
+            const Icon = externalLinkIcons[item.label as keyof typeof externalLinkIcons] || GlobeIcon;
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-link"
+              >
+                <span className="contact-link__icon">
+                  <Icon className="icon icon--sm" />
+                </span>
+                <span className="contact-link__copy">
+                  <strong>{item.label}</strong>
+                  <span>{item.note}</span>
+                </span>
+                <ArrowRightIcon className="icon icon--xs" />
+              </a>
+            );
+          })}
         </div>
       </SectionShell>
     </>

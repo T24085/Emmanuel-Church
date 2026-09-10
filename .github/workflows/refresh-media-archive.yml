@@ -2,7 +2,7 @@ name: Refresh Media Archive
 
 on:
   schedule:
-    - cron: "0 13 * * 0"
+    - cron: "0 18 * * 1"
       timezone: America/Chicago
   workflow_dispatch:
 

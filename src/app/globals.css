@@ -557,15 +557,15 @@ select {
 }
 
 .button--gold:hover,
-.button--gold:focus-visible {
-  background: linear-gradient(180deg, #f2cb84, #d9a95c);
-}
-
-.site-header__actions .button--gold:hover,
-.site-header__actions .button--gold:focus-visible {
+.button--gold:focus-visible,
+.button--light:hover,
+.button--light:focus-visible,
+.button--sermon:hover,
+.button--sermon:focus-visible {
   color: #f8ffff;
   background: linear-gradient(180deg, var(--logo-teal), var(--logo-teal-dark));
   box-shadow: 0 12px 28px rgba(19, 174, 176, 0.34);
+  border-color: transparent;
 }
 
 .button--light {
@@ -584,10 +584,7 @@ select {
 
 .button--sermon:hover,
 .button--sermon:focus-visible {
-  border-color: rgba(242, 203, 132, 0.95);
-  box-shadow:
-    0 0 0 2px rgba(242, 203, 132, 0.2),
-    0 0 30px rgba(219, 171, 94, 0.44);
+  animation: none;
 }
 
 @keyframes sermon-button-glow {
@@ -1815,6 +1812,22 @@ select {
   gap: 1rem;
 }
 
+.resource-grid.worship-arts-four-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1080px) {
+  .resource-grid.worship-arts-four-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .resource-grid.worship-arts-four-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .worship-arts-gallery {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3023,8 +3036,8 @@ select {
 .giving-hero__actions .button:hover,
 .giving-hero__actions .button:focus-visible {
   box-shadow:
-    0 12px 24px rgba(199, 144, 68, 0.24),
-    0 0 24px rgba(219, 171, 94, 0.28);
+    0 14px 28px rgba(8, 119, 125, 0.3),
+    0 0 22px rgba(19, 174, 176, 0.3);
 }
 
 .giving-foundation {
@@ -5647,6 +5660,79 @@ html.motion-ready .our-staff-page .staff-card {
   margin: 0;
   color: rgba(24, 33, 43, 0.7);
   line-height: 1.6;
+}
+
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.contact-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 6.25rem;
+  padding: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(24, 33, 43, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(40, 30, 18, 0.04);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(19, 174, 176, 0.34);
+  box-shadow: 0 16px 32px rgba(40, 30, 18, 0.08);
+}
+
+.contact-link__icon {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  color: var(--teal);
+  background: rgba(19, 174, 176, 0.1);
+  border: 1px solid rgba(19, 174, 176, 0.2);
+  border-radius: 0.8rem;
+}
+
+.contact-link__copy {
+  display: grid;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.contact-link__copy strong {
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.contact-link__copy span {
+  color: rgba(24, 33, 43, 0.66);
+  font-size: 0.77rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 1080px) {
+  .contact-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-links {
+    grid-template-columns: 1fr;
+  }
 }
 
 .media-archive-browser {
