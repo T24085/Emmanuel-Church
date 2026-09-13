@@ -99,6 +99,11 @@ async function getDoctrineStatementHtml() {
   }
 }
 
+export const metadata = {
+  title: "Who We Are",
+  description: "Learn about Emmanuel Church in Abilene, our mission, core values, and beliefs.",
+};
+
 export default async function WhoWeArePage() {
   const doctrineHtml = await getDoctrineStatementHtml();
 

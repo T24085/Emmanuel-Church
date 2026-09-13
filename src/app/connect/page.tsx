@@ -22,6 +22,11 @@ const ministryCardImages = {
   "/connect/worship-arts-ministry": { src: worshipArtsCardImage, fit: "contain" },
 } as const;
 
+export const metadata = {
+  title: "Ministries",
+  description: "Find your place at Emmanuel Church through ministries for children, students, adults, and families.",
+};
+
 export default function ConnectPage() {
   return (
     <>

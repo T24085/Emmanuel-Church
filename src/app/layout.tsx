@@ -7,6 +7,7 @@ import { MotionShell } from "@/components/motion-shell";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 import "./site-overrides.css";
+import "./production-polish.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Emmanuel Church",
   },
   description:
-    "A bright editorial website for Emmanuel Church in Abilene, Kansas, centered on worship, ministries, staff, events, sermons, and giving.",
+    "Join Emmanuel Church in Abilene, Kansas. Plan a Sunday visit, find a ministry, watch a message, and grow in faith with our church family.",
 };
 
 export default function RootLayout({
@@ -39,10 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <LandingLoader />
         <div className="page-backdrop" />
         <SiteHeader />
-        <main>
+        <main id="main-content" tabIndex={-1}>
           <MotionShell>{children}</MotionShell>
         </main>
         <SiteFooter />

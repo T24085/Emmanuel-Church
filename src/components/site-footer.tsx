@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contactEmails, externalLinks, resourceLinks, site } from "@/data/site";
+import { externalLinks, resourceLinks, site } from "@/data/site";
 import { ArrowRightIcon, MailIcon, PhoneIcon, LocationIcon } from "./icons";
 
 export function SiteFooter() {
@@ -39,19 +39,21 @@ export function SiteFooter() {
                 <PhoneIcon className="icon icon--xs" />
                 <span>{site.phone}</span>
               </a>
-              <a className="site-footer__link" href={`mailto:${contactEmails[0]}`}>
+              <a className="site-footer__link" href={`mailto:${site.officeEmail}`}>
                 <MailIcon className="icon icon--xs" />
-                <span>Primary staff email</span>
+                <span>Email the church office</span>
               </a>
+              <Link className="site-footer__link" href="/our-staff">Meet our staff</Link>
+              <Link className="site-footer__link" href="/contact">Sunday times &amp; visiting</Link>
               <a className="site-footer__link" href={site.mapHref} target="_blank" rel="noreferrer">
                 <LocationIcon className="icon icon--xs" />
-                <span>Locate us</span>
+                <span>Get directions</span>
               </a>
             </div>
           </div>
 
           <div>
-            <h3>External</h3>
+            <h3>Stay Connected</h3>
             <div className="site-footer__links">
               {externalLinks.map((item) => (
                 <a
@@ -68,17 +70,6 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div>
-            <h3>Emails</h3>
-            <div className="site-footer__links">
-              {contactEmails.map((email) => (
-                <a key={email} className="site-footer__link" href={`mailto:${email}`}>
-                  <MailIcon className="icon icon--xs" />
-                  <span>{email}</span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </footer>

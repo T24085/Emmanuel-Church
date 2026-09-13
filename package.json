@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "audit:export": "node scripts/audit-export.mjs",
+    "verify": "npm run build && npm run audit:export",
     "scrape:media-archive": "node scripts/scrape-media-archive.mjs",
     "sync:export": "node scripts/sync-export.mjs",
     "refresh:archive": "npm run scrape:media-archive && npm run build && npm run sync:export",

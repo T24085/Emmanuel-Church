@@ -87,6 +87,7 @@ async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
 
       try {
         const pageResponse = await fetch(sermon.href, {
+          signal: AbortSignal.timeout(15000),
           next: { revalidate: mediaArchiveRevalidateSeconds },
         });
         const html = await pageResponse.text();
@@ -102,7 +103,7 @@ async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
 
         const response = await fetch(
           `http://mediaplayer.cloversites.com/players/${playerId}?draft=0&media_id=${mediaId}`,
-          { next: { revalidate: mediaArchiveRevalidateSeconds } }
+          { signal: AbortSignal.timeout(15000), next: { revalidate: mediaArchiveRevalidateSeconds } }
         );
         const data = (await response.json()) as {
           media?: Array<{
@@ -146,6 +147,11 @@ async function loadTeachingSeries(): Promise<SermonPlayerItem[]> {
   );
 }
 
+export const metadata = {
+  title: "Sermons",
+  description: "Watch recent messages from Emmanuel Church, revisit past teaching, and find weekly sermon study guides.",
+};
+
 export default async function SermonsPage() {
   const teachingSeries = await loadTeachingSeries();
   const audioSermons = teachingSeries.filter((sermon) => sermon.kind !== "video" || !sermon.embedSrc);
@@ -158,12 +164,13 @@ export default async function SermonsPage() {
       <PageHero
         eyebrow="Resources"
         title="Sermons"
-        description="Watch Emmanuel Church's current video archive inline, with the older teaching series kept below."
+        description="Watch a recent message, revisit a teaching series, and keep growing in God's Word."
+        action={{ label: "Join us live", href: site.onlineChurch, external: true }}
+        actionDetail={<NextSermonCountdown compact />}
         mediaLayout="full"
         fullBleed
         media={
           <div className="page-hero__media-frame">
-            <NextSermonCountdown compact className="page-hero__countdown--overlay" />
             <Image
               src={sermonHeroThumbnail || withBasePath("/images/sermon-on-the-mount-banner.png")}
               alt={
@@ -184,8 +191,8 @@ export default async function SermonsPage() {
         <SectionShell>
           <SectionHeading
             eyebrow="Media Archive"
-            title="The Current Video Archive from Emmanuel Church LIVE."
-            description="These are the live archive videos, presented here with the original pagination intact."
+            title="Recent Messages."
+            description="Choose a message below to watch. Looking for an earlier service? Browse the archive by page."
           />
 
           <MediaArchiveBrowser pages={mediaPages} />
@@ -194,8 +201,8 @@ export default async function SermonsPage() {
         <SectionShell className="section-shell--tight">
           <SectionHeading
             eyebrow="Teaching Series"
-            title={`${audioSermons.length} older teaching-series messages remain available.`}
-            description="These recordings came from the legacy sermon library and stay available separately from the video archive."
+            title="Explore Past Teaching."
+            description="Return to an earlier series with recordings from our sermon library."
           />
 
           <details className="audio-archive surface-card">
@@ -229,8 +236,8 @@ export default async function SermonsPage() {
         <SectionShell className="section-shell--tight">
           <SectionHeading
             eyebrow="Teaching tools"
-            title="Additional Resources Around the Sermon Archive."
-            description="These are the public destinations Emmanuel uses alongside the sermon library."
+            title="Take the Message Into Your Week."
+            description="Join a service online, follow along in Scripture, or study with a weekly guide."
           />
 
           <div className="resource-grid">
@@ -260,7 +267,7 @@ export default async function SermonsPage() {
             <article className="resource-card">
               <p className="eyebrow eyebrow--small">Study</p>
               <h3>Weekly Sermon Study Guides</h3>
-              <p>Use this route for future message notes, study questions, or downloadable guides.</p>
+              <p>Reflect on the message with discussion questions and downloadable study guides.</p>
               <Link className="resource-card__action" href="/resources/weekly-sermon-study-guides">
                 <ArrowRightIcon className="icon icon--xs" />
                 <span>Open study guides</span>

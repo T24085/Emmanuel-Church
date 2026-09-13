@@ -1,6 +1,6 @@
 :HL["/Emmanuel-Church/_next/static/chunks/0brj8y~_zz0ma.css","style"]
-:HL["/Emmanuel-Church/_next/static/chunks/0nk8e6511t0hu.css","style"]
-:HL["/Emmanuel-Church/_next/static/chunks/079-q6xqc89_r.css","style"]
+:HL["/Emmanuel-Church/_next/static/chunks/13bd1eqpotplf.css","style"]
+:HL["/Emmanuel-Church/_next/static/chunks/0jpna.~f~1-uk.css","style"]
 :HL["/Emmanuel-Church/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Emmanuel-Church/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"resources","param":null,"prefetchHints":0,"slots":{"children":{"name":"online-forms","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"jUd7kouUVXiGtL9D7xPjv"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"resources","param":null,"prefetchHints":0,"slots":{"children":{"name":"online-forms","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"T-ymebrwGTnTXW73t9Mbp"}

@@ -37,7 +37,7 @@ function getZonedParts(date: Date, timeZone: string) {
     hour: "numeric",
     minute: "numeric",
     second: "numeric",
-    hour12: false,
+    hourCycle: "h23",
   }).formatToParts(date);
 
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
@@ -141,7 +141,7 @@ function formatCountdown(now: Date, target: Date, includeSeconds = false) {
 function getCountdownProgress(now: Date, target: Date) {
   const current = now.getTime();
   const due = target.getTime();
-  const total = Math.max(1, due - current);
+  const total = 7 * 24 * 60 * 60 * 1000;
   const remaining = Math.max(0, due - current);
 
   return Math.min(100, Math.max(0, ((total - remaining) / total) * 100));
@@ -175,7 +175,7 @@ export function NextSermonCountdown({ compact = false, className }: NextSermonCo
   return (
     <div
       className={`page-hero__countdown${compact ? " page-hero__countdown--compact" : ""}${className ? ` ${className}` : ""}`}
-      aria-live="polite"
+      aria-label="Next online service: Sundays at 11 AM Central"
     >
       <span className="page-hero__countdown-label">Next live sermon</span>
       {compact ? (

@@ -1,0 +1,119 @@
+/* Final visitor-facing refinements; keep the approved photo and mobile layouts. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  padding: 0.8rem 1.2rem;
+  background: #fff;
+  color: #18212b;
+  border: 2px solid #08777d;
+  border-radius: 0.5rem;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+:where(a, button, summary, audio, iframe):focus-visible {
+  outline: 3px solid #08777d;
+  outline-offset: 4px;
+}
+main:focus { outline: none; }
+[id] { scroll-margin-top: 7rem; }
+.section-heading__copy h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.08; }
+.resource-grid.resource-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.resource-grid--four .resource-card { display: flex; flex-direction: column; }
+.resource-grid--four .resource-card__action { margin-top: auto; padding-top: 1rem; }
+.page-hero__inner--edge-to-edge > .page-hero__actions--full {
+  width: min(90%, 1240px);
+  margin: 1.25rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.page-hero__content h1, .section-heading h2 { text-wrap: balance; }
+.visit-times {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid rgba(24, 33, 43, 0.2);
+}
+.visit-times__item { padding: 1.8rem 1.5rem; }
+.visit-times__item + .visit-times__item { border-left: 1px solid rgba(24, 33, 43, 0.16); }
+.visit-times__item h3 { margin: 0.65rem 0; font-size: clamp(1.5rem, 2.5vw, 2.2rem); color: #08777d; }
+.visit-times__item > p:last-child, .visit-family-note { line-height: 1.7; color: var(--text-muted); }
+.visit-family-note a { text-decoration: underline; text-underline-offset: 0.2em; color: #08777d; }
+.hero__poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-media-toggle {
+  position: absolute;
+  z-index: 4;
+  top: 7rem;
+  right: 1.5rem;
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(24, 33, 43, 0.8);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.hero-media-toggle:hover { background: #08777d; }
+.sermon-player__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: #153f48;
+  cursor: pointer;
+}
+.sermon-player__poster > img { width: 100%; height: 100%; object-fit: contain; }
+.sermon-player__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 1.3rem;
+  border-radius: 999px;
+  background: rgba(24, 33, 43, 0.92);
+  color: #fff;
+  font: 700 1rem var(--font-body), sans-serif;
+  white-space: nowrap;
+}
+.sermon-player__poster:is(:hover, :focus-visible) .sermon-player__play { background: #08777d; }
+.media-archive-browser__pages { flex-wrap: wrap; }
+.site-footer__link { min-height: 36px; overflow-wrap: anywhere; }
+.site-footer__link:is(:hover, :focus-visible),
+.section-heading__action:is(:hover, :focus-visible),
+.resource-card__action:is(:hover, :focus-visible) { color: #08777d; }
+/* Gold remains the default; dark lettering and deep teal interactions are readable. */
+.button.button--gold, .giving-hero__actions .button.button--gold, .giving-fab { color: #18212b; }
+.button:is(:hover, :focus-visible),
+.giving-hero__actions .button:is(:hover, :focus-visible),
+.giving-fab:is(:hover, :focus-visible) {
+  color: #fff;
+  background: #08777d;
+  border-color: #08777d;
+}
+@media (min-width: 1081px) {
+  .site-header .brand { padding: 0.3rem 0.6rem; border-radius: 0.85rem; background: rgba(255, 253, 249, 0.94); }
+}
+@media (max-width: 1080px) {
+  .resource-grid.resource-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .resource-grid.resource-grid--four, .visit-times { grid-template-columns: 1fr; }
+  .visit-times__item { padding: 1.3rem 0; }
+  .visit-times__item + .visit-times__item { border-left: 0; border-top: 1px solid rgba(24, 33, 43, 0.16); }
+  .hero-media-toggle { top: 6.2rem; right: 1rem; }
+  .site-footer__columns { gap: 1.7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__sermon-frame { display: none; }
+  html { scroll-behavior: auto; }
+}

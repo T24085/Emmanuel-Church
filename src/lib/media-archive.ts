@@ -68,6 +68,7 @@ function dateKeyFromDatetime(datetime: string) {
 
 async function fetchText(url: string) {
   const response = await fetch(url, {
+    signal: AbortSignal.timeout(15000),
     next: { revalidate: ARCHIVE_REVALIDATE_SECONDS },
   });
 
@@ -114,8 +115,11 @@ async function loadVimeoArchivePages() {
   const pages: Array<MediaArchivePage & { dateKey?: number }> = [];
   let currentUrl: string | null = VIMEO_ARCHIVE_URL;
   let pageNumber = 1;
+  const visited = new Set<string>();
 
   while (currentUrl) {
+    if (visited.has(currentUrl) || pageNumber > 100) throw new Error("Unexpected archive pagination loop");
+    visited.add(currentUrl);
     const html = await fetchText(currentUrl);
     const { items, nextHref } = parseVimeoPage(html);
 

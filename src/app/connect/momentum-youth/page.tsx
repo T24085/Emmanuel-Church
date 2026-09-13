@@ -25,25 +25,25 @@ const momentumValues = [
   {
     eyebrow: "Community",
     title: "Meaningful Relationships are Part of the Ministry.",
-    body: "The page frames Momentum as a place where students belong, grow, and are known by leaders.",
+    body: "Find a place to belong, build friendships, and grow alongside leaders who care about you.",
   },
   {
     eyebrow: "Discipleship",
     title: "The Goal is Invitation Into Real Growth.",
-    body: "Momentum is presented as a ministry that points students toward commitment, not just attendance.",
+    body: "Take the next step in following Jesus and putting your faith into practice.",
   },
   {
     eyebrow: "Mission",
     title: "Students are Invited to Make a Difference.",
-    body: "The live page calls for volunteers and training around the vision and values of Momentum.",
+    body: "Learn how to serve others and share the love of Christ. Ask our team about getting involved.",
   },
 ];
 
 const momentumCards = [
   {
     eyebrow: "More information",
-    title: "Momentum Youth is a Core Part of Connect.",
-    body: "The public site places Momentum Youth directly in the main navigation, not in a hidden submenu.",
+    title: "New to Momentum?",
+    body: "We would love to meet your family. Contact us with questions about joining the youth ministry.",
     action: {
       label: "Contact the office",
       href: "/contact",
@@ -52,7 +52,7 @@ const momentumCards = [
   {
     eyebrow: "Extreme Kansas Camp",
     title: "Middle School Students Attend Camp at Milford Lake.",
-    body: "The live page points students to Extreme Kansas Camp as a key part of the Momentum rhythm.",
+    body: "Explore Extreme Kansas Camp and ask our team about the next opportunity to attend.",
     action: {
       label: "Open Extreme Encounters",
       href: "https://www.extremeencounters.org/",
@@ -71,7 +71,7 @@ const momentumCards = [
   {
     eyebrow: "Volunteer team",
     title: "Training is Available for People Who Want to Serve.",
-    body: "The live page asks interested people to contact the office about upcoming training to learn the vision and values of Momentum.",
+    body: "Contact the office about volunteer training and how you can support students in their faith.",
     action: {
       label: "Ask about training",
       href: "/contact",
@@ -101,6 +101,11 @@ const momentumGallery = [
     className: "momentum-gallery__item--wide",
   },
 ];
+
+export const metadata = {
+  title: "Momentum Youth",
+  description: "A place for middle and high school students to grow in faith and community at Emmanuel Church in Abilene.",
+};
 
 export default function MomentumYouthPage() {
   return (
@@ -147,12 +152,12 @@ export default function MomentumYouthPage() {
           <article className="surface-card ministry-overview-card">
             <div className="surface-card__body content-copy momentum-overview__copy">
               <p>
-                Momentum Youth serves middle and high school students and is positioned as a core part of church
-                life rather than a side offering.
+                Momentum Youth gives middle and high school students a place to build friendships,
+                ask questions, and grow as part of our church family.
               </p>
               <p>
-                The live page also includes a direct invitation for people who want to make a difference:
-                contact the office about an upcoming training to learn the vision and values of Momentum.
+                Want to make a difference in a student's life? Contact the office about volunteer
+                training and the vision and values that guide Momentum.
               </p>
               <p>
                 The ministry is designed to help students grow in Scripture, in community, and in purpose.
@@ -214,7 +219,7 @@ export default function MomentumYouthPage() {
         <SectionHeading
           eyebrow="Camp & community"
           title="Scenes from Extreme Encounters."
-          description="Momentum Youth points students toward camp as one of the ministry's anchor experiences, and these photos add some of that energy to the page."
+          description="Friendships, time in Scripture, and shared adventures at camp."
         />
 
         <div className="momentum-gallery">
@@ -238,7 +243,7 @@ export default function MomentumYouthPage() {
         <SectionHeading
           eyebrow="Leadership"
           title="For More Information, Contact Pastor Shawn Ammons."
-          description="The live page lists Shawn's cell number and email, and points interested volunteers toward upcoming training."
+          description="Ask about joining Momentum, upcoming gatherings, or serving with the volunteer team."
         />
 
         <div className="resource-grid">
@@ -254,7 +259,7 @@ export default function MomentumYouthPage() {
           <article className="resource-card momentum-contact-card">
             <p className="eyebrow eyebrow--small">Email</p>
             <h3>shawn.ammons@sonlife.com</h3>
-            <p>Direct email from the live Momentum Youth page.</p>
+            <p>Questions about youth ministry? Reach out to Pastor Shawn.</p>
             <a className="resource-card__action" href={`mailto:${shawnEmail}`}>
               <MailIcon className="icon icon--xs" />
               <span>Email Shawn</span>
@@ -275,8 +280,8 @@ export default function MomentumYouthPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="More information"
-          title="The Live Site Points Students and Volunteers to a Few Key Destinations."
-          description="These are the main public touchpoints from the Momentum Youth page."
+          title="Your Next Step with Momentum."
+          description="Get in touch, explore camp, or find an upcoming church event."
         />
 
         <div className="resource-grid momentum-link-grid">
@@ -285,7 +290,7 @@ export default function MomentumYouthPage() {
               <p className="eyebrow eyebrow--small">{card.eyebrow}</p>
               <h3>{card.title}</h3>
               <p>{card.body}</p>
-              <a
+              <Link
                 className="resource-card__action"
                 href={card.action.href}
                 target={card.action.external ? "_blank" : undefined}
@@ -293,7 +298,7 @@ export default function MomentumYouthPage() {
               >
                 <ArrowRightIcon className="icon icon--xs" />
                 <span>{card.action.label}</span>
-              </a>
+              </Link>
             </article>
           ))}
         </div>

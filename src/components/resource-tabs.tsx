@@ -25,6 +25,7 @@ export function ResourceTabs({ active }: { active: ResourceSection }) {
   return (
     <nav className="resource-tabs-shell" aria-label="Resource sections">
       <div className="site-shell">
+        <h1 className="sr-only">{resourceSections.find((section) => section.key === active)?.label}</h1>
         <div className="resource-tabs">
           {resourceSections.map((section) => (
             <Link

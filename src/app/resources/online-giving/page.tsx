@@ -39,6 +39,11 @@ const givingFaq = [
   },
 ];
 
+export const metadata = {
+  title: "Online Giving",
+  description: "Support the ministry of Emmanuel Church through online giving. Learn about generosity and find help with your gift.",
+};
+
 export default function OnlineGivingPage() {
   return (
     <>
@@ -47,9 +52,9 @@ export default function OnlineGivingPage() {
         href={site.givingHref}
         target="_blank"
         rel="noreferrer"
-        aria-label="Start Your Journey Today"
+        aria-label="Give online (opens in a new tab)"
       >
-        <span>Start Your Journey Today</span>
+        <span>Give Online</span>
         <ArrowRightIcon className="icon icon--xs" />
       </a>
 
@@ -70,13 +75,9 @@ export default function OnlineGivingPage() {
               <p className="eyebrow">Giving</p>
               <h1 id="giving-hero-title">Generosity is Part of Discipleship.</h1>
               <p>
-                God is the giver of every good gift, so we trust Him with everything He has
-                entrusted to us. We respond by giving through the local church as an act of
-                worship. Giving is more than a transaction - it is a matter of the heart and
-                an essential part of our discipleship journey. As we seek first His Kingdom
-                through generous living, God transforms us and uses our faithfulness to make
-                an eternal difference. What begins as obedience becomes joy, creating Kingdom
-                impact that reaches far beyond ourselves.
+                God is the giver of every good gift. We respond with gratitude, giving through
+                the local church as an act of worship and trust. Your generosity supports the
+                ministry of Emmanuel and helps us share the love of Christ.
               </p>
               <div className="hero__actions giving-hero__actions">
                 <a className="button button--gold" href={site.givingHref} target="_blank" rel="noreferrer">

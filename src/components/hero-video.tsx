@@ -3,6 +3,7 @@
 import Player from "@vimeo/player";
 import { useEffect, useRef, useState } from "react";
 import { withBasePath } from "@/lib/site-path";
+import { largeMediaThumbnail } from "@/lib/media-thumbnail";
 
 const heroVideos = [withBasePath("/videos/hero-1-1.mp4?v=3"), withBasePath("/videos/hero-2-2.mp4?v=3")];
 const crossfadeMs = 850;
@@ -15,6 +16,7 @@ function notifyHeroReady() {
 type LatestSermonPreview = {
   title: string;
   embedSrc: string;
+  thumbnail?: string | null;
 };
 
 function buildAutoplaySrc(embedSrc: string) {
@@ -70,6 +72,23 @@ export function HeroVideo({ latestSermon }: { latestSermon?: LatestSermonPreview
 
 function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview }) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const playerRef = useRef<Player | null>(null);
+  const [allowMotion, setAllowMotion] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => {
+      setPlaying(false);
+      setPaused(false);
+      setAllowMotion(!preference.matches);
+    };
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -78,6 +97,16 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
     }
 
     const player = new Player(iframe);
+    playerRef.current = player;
+    const timeout = window.setTimeout(() => setFailed(true), 12000);
+    const onPlaying = () => {
+      window.clearTimeout(timeout);
+      setPlaying(true);
+      notifyHeroReady();
+    };
+    const onError = () => setFailed(true);
+    player.on("playing", onPlaying);
+    player.on("error", onError);
     const positionKey = getPositionKey(latestSermon.embedSrc);
     const restorePosition = async () => {
       const storedPosition = readStoredPosition(positionKey);
@@ -111,7 +140,6 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
     }, 2000);
 
     void player.ready().then(() => {
-      notifyHeroReady();
       return restorePosition();
     }).catch(() => {
       // Autoplay or player initialization can be blocked without affecting the page.
@@ -120,6 +148,10 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      window.clearTimeout(timeout);
+      player.off("playing", onPlaying);
+      player.off("error", onError);
+      playerRef.current = null;
       window.clearInterval(saveInterval);
       window.removeEventListener("pagehide", savePosition);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -128,26 +160,57 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
         // The iframe may already be gone after a route transition.
       });
     };
-  }, [latestSermon.embedSrc]);
+  }, [latestSermon.embedSrc, allowMotion, failed]);
 
   return (
+    <>
     <div className="hero__media hero__media--sermon">
+      <img
+        className="hero__poster"
+        src={largeMediaThumbnail(latestSermon.thumbnail) || withBasePath("/images/building-banner.jpg")}
+        alt=""
+        onLoad={notifyHeroReady}
+        onError={(event) => {
+          const fallback = withBasePath("/images/building-banner.jpg");
+          if (!event.currentTarget.src.endsWith(fallback)) event.currentTarget.src = fallback;
+        }}
+      />
+      {allowMotion && !failed ? (
       <iframe
         ref={iframeRef}
         className="hero__sermon-frame"
+        style={{ opacity: playing ? 1 : 0 }}
         src={buildAutoplaySrc(latestSermon.embedSrc)}
         title={`Latest sermon: ${latestSermon.title}`}
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
         loading="eager"
         aria-hidden="true"
-        onLoad={notifyHeroReady}
+        tabIndex={-1}
       />
+      ) : null}
     </div>
+    {allowMotion && playing && !failed ? (
+      <button
+        className="hero-media-toggle"
+        type="button"
+        aria-pressed={paused}
+        onClick={async () => {
+          try {
+            if (paused) await playerRef.current?.play();
+            else await playerRef.current?.pause();
+            setPaused(!paused);
+          } catch { setFailed(true); }
+        }}
+      >{paused ? "Resume background video" : "Pause background video"}</button>
+    ) : null}
+    </>
   );
 }
 
 function RotatingHeroVideo() {
+  const [allowMotion, setAllowMotion] = useState(false);
+  const [paused, setPaused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -158,6 +221,18 @@ function RotatingHeroVideo() {
   const previousSrc = previousIndex !== null ? heroVideos[previousIndex] ?? null : null;
 
   useEffect(() => {
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => {
+      setAllowMotion(!preference.matches);
+      setPaused(false);
+      if (preference.matches) activeRef.current?.pause();
+    };
+    update();
+    preference.addEventListener("change", update);
+    return () => preference.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
     const video = activeRef.current;
     if (!video) {
       return;
@@ -165,6 +240,7 @@ function RotatingHeroVideo() {
 
     const positionKey = getPositionKey(activeSrc);
     const startPlayback = () => {
+      if (!allowMotion) return;
       const storedPosition = readStoredPosition(positionKey);
       if (storedPosition !== null && Number.isFinite(video.duration) && storedPosition < video.duration) {
         video.currentTime = storedPosition;
@@ -197,7 +273,7 @@ function RotatingHeroVideo() {
       window.removeEventListener("pagehide", savePosition);
       savePosition();
     };
-  }, [activeSrc]);
+  }, [activeSrc, allowMotion]);
 
   useEffect(() => {
     if (!isTransitioning) {
@@ -219,6 +295,7 @@ function RotatingHeroVideo() {
   }, [isTransitioning]);
 
   return (
+    <>
     <div className={`hero__media${isTransitioning ? " hero__media--transitioning" : ""}`}>
       {previousSrc ? (
         <video className="hero__video hero__video--previous" muted playsInline preload="auto" aria-hidden="true">
@@ -229,7 +306,8 @@ function RotatingHeroVideo() {
         key={activeSrc}
         ref={activeRef}
         className="hero__video hero__video--current"
-        autoPlay
+        autoPlay={allowMotion}
+        poster={withBasePath("/images/building-banner.jpg")}
         muted
         playsInline
         preload="auto"
@@ -247,5 +325,15 @@ function RotatingHeroVideo() {
         <source src={activeSrc} type="video/mp4" />
       </video>
     </div>
+    {allowMotion ? (
+      <button className="hero-media-toggle" type="button" aria-pressed={paused} onClick={async () => {
+        const video = activeRef.current;
+        if (!video) return;
+        if (paused) {
+          try { await video.play(); setPaused(false); } catch { /* Poster remains available. */ }
+        } else { video.pause(); setPaused(true); }
+      }}>{paused ? "Resume background video" : "Pause background video"}</button>
+    ) : null}
+    </>
   );
 }

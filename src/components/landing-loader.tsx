@@ -23,16 +23,18 @@ function heroIsReady() {
 
 export function LandingLoader() {
   const pathname = usePathname();
-  const [state, setState] = useState<LoaderState>(pathname === "/" ? "loading" : "hidden");
+  // The exported page must remain usable before (or without) JavaScript.
+  const [state, setState] = useState<LoaderState>("hidden");
 
   useEffect(() => {
-    if (pathname !== "/") {
+    if (pathname !== "/" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setState("hidden");
       return;
     }
 
     const startedAt = performance.now();
     let exitTimer: number | null = null;
+    let minimumTimer: number | null = null;
     let maxWaitTimer: number | null = null;
     let didReveal = false;
 
@@ -46,7 +48,7 @@ export function LandingLoader() {
       didReveal = true;
       const remainingMinimumTime = Math.max(0, minimumDisplayMs - (performance.now() - startedAt));
 
-      window.setTimeout(() => {
+      minimumTimer = window.setTimeout(() => {
         setState("exiting");
         exitTimer = window.setTimeout(() => setState("hidden"), exitDurationMs);
       }, remainingMinimumTime);
@@ -65,6 +67,7 @@ export function LandingLoader() {
 
     return () => {
       window.clearTimeout(readinessCheck);
+      if (minimumTimer !== null) window.clearTimeout(minimumTimer);
       if (maxWaitTimer !== null) {
         window.clearTimeout(maxWaitTimer);
       }

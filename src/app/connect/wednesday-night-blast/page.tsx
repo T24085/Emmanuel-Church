@@ -114,6 +114,11 @@ const nextSteps = [
   },
 ];
 
+export const metadata = {
+  title: "Wednesday Night B.L.A.S.T.",
+  description: "Find Wednesday night information, age groups, and family resources for B.L.A.S.T. at Emmanuel Church.",
+};
+
 export default function WednesdayNightBlastPage() {
   return (
     <>

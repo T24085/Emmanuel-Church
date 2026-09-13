@@ -79,6 +79,11 @@ const homepageValues = [
 
 export const revalidate = 21600;
 
+export const metadata = {
+  title: "Welcome to Emmanuel Church",
+  description: "Join Emmanuel Church in Abilene, Kansas. Find Sunday service times, meet our church family, and take your next step in faith.",
+};
+
 export default async function HomePage() {
   const mediaPages = await loadMediaArchivePages();
   const latestSermon = mediaPages
@@ -91,7 +96,7 @@ export default async function HomePage() {
         <HeroVideo
           latestSermon={
             latestSermon
-              ? { title: latestSermon.title, embedSrc: latestSermon.embedSrc || "" }
+              ? { title: latestSermon.title, embedSrc: latestSermon.embedSrc || "", thumbnail: latestSermon.thumbnail }
               : null
           }
         />
@@ -249,8 +254,8 @@ export default async function HomePage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Featured Staff"
-          title="A Clear Face for Every Ministry."
-          description="Portraits and contact details are organized so the people leading each ministry are easy to find."
+          title="Meet the People Here to Serve You."
+          description="Our pastors and ministry leaders would love to help you get connected at Emmanuel."
           action={{ label: "Meet the full staff", href: "/our-staff" }}
         />
         <StaffGrid limit={6} />
@@ -287,7 +292,7 @@ export default async function HomePage() {
                   <h3>{item.label}</h3>
                   <p>{item.description}</p>
                   <span className="resource-card__action">
-                    <span>Open page</span>
+                    <span>Explore ministry</span>
                     <ArrowRightIcon className="icon icon--xs" />
                   </span>
                 </div>

@@ -164,6 +164,11 @@ const policyCards = [
   },
 ];
 
+export const metadata = {
+  title: "Emmanuel Preschool",
+  description: "Christ-centered early learning for ages 3–5 in Abilene. Explore classes and contact Emmanuel Preschool about enrollment.",
+};
+
 export default function EmmanuelPreschoolPage() {
   return (
     <>
@@ -179,7 +184,7 @@ export default function EmmanuelPreschoolPage() {
 
       <PageHero
         eyebrow="Connect"
-        title="Christ-Centered Preschool with a Firm Academic Foundation."
+        title="A Joyful Start. A Foundation in Faith."
         description="Emmanuel Preschool serves children ages 3-5 with early learning, spiritual formation, and the daily rhythms that prepare them for kindergarten."
         mediaLayout="full"
         heroImage={{
@@ -227,7 +232,7 @@ export default function EmmanuelPreschoolPage() {
                 skills needed to help them be successful in kindergarten.
               </p>
               <p>
-                Enrollment is open for the current school year. The preschool office can help with forms,
+                Ask the preschool office about class availability. Our team can help with forms,
                 questions, and next steps.
               </p>
 
@@ -299,7 +304,7 @@ export default function EmmanuelPreschoolPage() {
         <SectionHeading
           eyebrow="Gallery"
           title="A Glimpse Into the Preschool Classroom."
-          description="The shared photos capture the activity, color, and attention to detail that define the preschool environment."
+          description="A look at the learning, play, and creativity that fill our classrooms."
         />
 
         <div className="preschool-gallery">
@@ -343,8 +348,8 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Classes"
-          title="Three Morning Class Options are Currently Listed."
-          description="These options reflect the current preschool page, including the nonrefundable enrollment fee and monthly tuition."
+          title="Find a Class for Your Child."
+          description="Explore our morning classes below. Please confirm class availability, tuition, and enrollment fees with the preschool office."
         />
 
         <div className="resource-grid preschool-class-options">
@@ -368,8 +373,8 @@ export default function EmmanuelPreschoolPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Admissions"
-          title="Policies are Simple, Direct, and Already in Use."
-          description="These are the current enrollment policies and contact points listed for Emmanuel Preschool."
+          title="Before You Enroll."
+          description="Review the enrollment requirements, then contact our team with any questions."
         />
 
         <div className="resource-grid">

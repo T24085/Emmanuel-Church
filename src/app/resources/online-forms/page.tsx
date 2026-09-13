@@ -5,6 +5,11 @@ import { SectionHeading, SectionShell } from "@/components/section";
 import { onlineForms } from "@/data/online-forms";
 import { withBasePath } from "@/lib/site-path";
 
+export const metadata = {
+  title: "Online Forms",
+  description: "Find forms for church events, care, scholarships, and other requests at Emmanuel Church.",
+};
+
 export default function OnlineFormsPage() {
   return (
     <>
@@ -14,7 +19,7 @@ export default function OnlineFormsPage() {
         <SectionHeading
           eyebrow="Get connected"
           title="One Place for Church Requests."
-          description="Choose the form that fits your need. Forms open in Fellowship One Go, Emmanuel's church administration platform."
+          description="Choose the form that fits your need. Each form opens in a new tab on Fellowship One Go, where you can complete and submit your request."
         />
         <div className="forms-grid">
           {onlineForms.map((form) => (

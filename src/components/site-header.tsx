@@ -9,6 +9,12 @@ import { withBasePath } from "@/lib/site-path";
 import { ArrowRightIcon, CloseIcon, MenuIcon } from "./icons";
 
 function isActive(pathname: string, href: string) {
+  pathname = pathname.replace(/\/$/, "") || "/";
+  if (href === "/resources") {
+    return pathname === href || ["bulletin", "weekly-sermon-study-guides", "online-forms", "spiritual-gifts-serve-booklet"].some(
+      (section) => pathname === `/resources/${section}`,
+    );
+  }
   if (href === "/") {
     return pathname === href;
   }
@@ -25,6 +31,17 @@ export function SiteHeader() {
       mobileMenuRef.current.open = false;
     }
   }, [pathname]);
+
+  useEffect(() => {
+    const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && mobileMenuRef.current?.open) {
+        mobileMenuRef.current.open = false;
+        mobileMenuRef.current.querySelector("summary")?.focus();
+      }
+    };
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, []);
 
   const closeMobileMenu = () => {
     if (mobileMenuRef.current) {
@@ -63,16 +80,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="site-header__actions">
-          <button className="icon-button" type="button" aria-label="Search">
-            <span className="icon-button__ring" />
-          </button>
           <Link href="/contact" className="button button--gold">
             Plan Your Visit
           </Link>
         </div>
 
         <details ref={mobileMenuRef} className="mobile-menu">
-          <summary className="mobile-menu__summary" aria-label="Open menu">
+          <summary className="mobile-menu__summary" aria-label="Navigation menu">
             <MenuIcon className="icon icon--sm" />
             <CloseIcon className="icon icon--sm mobile-menu__close" />
           </summary>

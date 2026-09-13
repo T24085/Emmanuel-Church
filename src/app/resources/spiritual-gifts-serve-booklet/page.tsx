@@ -5,6 +5,11 @@ import { SectionHeading, SectionShell } from "@/components/section";
 import { spiritualGiftResources, spiritualGiftTeaching } from "@/data/spiritual-gifts";
 import { withBasePath } from "@/lib/site-path";
 
+export const metadata = {
+  title: "Spiritual Gifts & Serving",
+  description: "Discover your spiritual gifts and explore ways to serve at Emmanuel Church with our inventory and Serve Booklet.",
+};
+
 export default function SpiritualGiftsServeBookletPage() {
   return (
     <>
@@ -14,7 +19,7 @@ export default function SpiritualGiftsServeBookletPage() {
         <SectionHeading
           eyebrow="Spiritual gifts"
           title="From Discovery to Action."
-          description="Begin with the inventory, then use the Serve Booklet to connect your gifts with the ministries and people God is building at Emmanuel."
+          description="Begin with the spiritual gifts inventory, then explore the Serve Booklet to find ways to use your gifts at Emmanuel."
         />
 
         <div className="spiritual-gifts-grid">

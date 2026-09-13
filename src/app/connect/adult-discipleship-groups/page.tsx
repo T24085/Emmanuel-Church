@@ -85,12 +85,17 @@ const processSteps = [
   "Joyce will follow up to see how it's going.",
 ];
 
+export const metadata = {
+  title: "Adult Discipleship",
+  description: "Grow in faith and community through Life Groups, Triads, Couples Connect, and Sunday classes at Emmanuel Church.",
+};
+
 export default function AdultDiscipleshipGroupsPage() {
   return (
     <>
       <PageHero
         eyebrow="Connect"
-        title="Discipleship at Emmanuel Church: A Great Place to Get Connected"
+        title="Grow in Faith. Grow Together."
         description="Part of the Emmanuel Church Vision Statement is to Disciple Believers. In order to do this, we have three main avenues of connection so discipleship can be fostered in the life of a believer."
         mediaLayout="full"
         heroImage={{
@@ -107,7 +112,7 @@ export default function AdultDiscipleshipGroupsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Overview"
-          title="All Who Attend Emmanuel are Encouraged to Join One or More of These Avenues."
+          title="There Is a Place for You to Grow."
           description="These discipleship paths help people continue to experience God's Sanctifying Grace in a proactive way."
         />
 
@@ -243,7 +248,7 @@ export default function AdultDiscipleshipGroupsPage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell id="process">
         <SectionHeading
           eyebrow="Process"
           title="How do I Get Connected to One or More of These Groups?"

@@ -145,12 +145,17 @@ const vbsPhotos = [
   },
 ];
 
+export const metadata = {
+  title: "Emmanuel Kids",
+  description: "Explore Sunday groups, first-visit information, and midweek opportunities for children at Emmanuel Church.",
+};
+
 export default function EmmanuelKidsPage() {
   return (
     <>
       <PageHero
         eyebrow="Connect"
-        title="Where Kids Experience the Love, Grace, Worship, and Truth of Jesus Christ."
+        title="A Place for Kids to Know Jesus."
         description="Emmanuel Kids is the church's children's ministry for nursery through elementary age, built to keep families connected and children rooted in the gospel."
         mediaLayout="full"
         heroImage={{
@@ -307,7 +312,7 @@ export default function EmmanuelKidsPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="New here?"
-          title="The Visitor Form Helps the Check-In Process Move Quickly."
+          title="Make Your First Sunday Easier."
           description="If you are visiting for the first time, the church asks families to fill out a short form before arrival."
         />
 
@@ -340,7 +345,7 @@ export default function EmmanuelKidsPage() {
         <SectionHeading
           eyebrow="Sunday Morning"
           title="Kids Ministry During Each Part of the Sunday Rhythm."
-          description="These are the current service and discipleship-hour groupings from the public Emmanuel Kids page."
+          description="Find the right group for your child during worship and the discipleship hour."
         />
 
         <div className="resource-grid">

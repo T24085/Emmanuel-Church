@@ -19,6 +19,7 @@ export const site = {
   mission:
     "To see people transformed and families strengthened through the love, grace, worship, and truth of Jesus Christ.",
   phone: "(785) 263-3342",
+  officeEmail: "swaldrop@ecabilene.org",
   address: "1300 N. Vine Street, Abilene, KS 67410",
   mapHref:
     "https://www.google.com/maps/place/Emmanuel+Church/@38.9200234,-97.232936,15z/data=!4m5!3m4!1s0x87bcf07e5686bfb7:0x285057d82a83c28f!8m2!3d38.9287299!4d-97.2237321",
@@ -41,7 +42,7 @@ export const primaryNav: LinkItem[] = [
   { label: "Ministries", href: "/connect" },
   { label: "Sermons", href: "/resources/sermons" },
   { label: "Events", href: "/resources/church-calendar" },
-  { label: "Resources", href: "/resources/weekly-sermon-study-guides" },
+  { label: "Resources", href: "/resources" },
   { label: "Giving", href: "/resources/online-giving" },
   { label: "Contact", href: "/contact" },
 ];

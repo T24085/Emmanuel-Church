@@ -3854,8 +3854,8 @@ select {
 .motion-ready .quote-strip,
 .motion-ready .inline-banner,
 .motion-ready .link-list__item {
-  opacity: 0;
-  transform: translate3d(0, 22px, 0);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 720ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -4044,8 +4044,8 @@ select {
 .motion-ready .giving-foundation__heading,
 .motion-ready .giving-foundation__item,
 .motion-ready .giving-foundation__transition {
-  opacity: 0;
-  transform: translate3d(0, 34px, 0);
+  opacity: 1;
+  transform: none;
   transition:
     opacity 1050ms cubic-bezier(0.22, 1, 0.36, 1),
     transform 1050ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -4053,11 +4053,11 @@ select {
 }
 
 .motion-ready .giving-foundation__item:nth-child(odd) {
-  transform: translate3d(-52px, 0, 0);
+  transform: none;
 }
 
 .motion-ready .giving-foundation__item:nth-child(even) {
-  transform: translate3d(52px, 0, 0);
+  transform: none;
 }
 
 .motion-ready .giving-foundation__heading.is-visible,
@@ -4084,7 +4084,7 @@ select {
 }
 
 .motion-ready .giving-foundation__list::before {
-  transform: scaleY(0);
+  transform: scaleY(1);
   transform-origin: top;
   transition: transform 1250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -6042,7 +6042,7 @@ html.motion-ready .our-staff-page .staff-card {
 
 .site-footer__columns {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.8rem;
 }
 

@@ -4,6 +4,11 @@ import { SectionHeading, SectionShell } from "@/components/section";
 import { ArrowRightIcon } from "@/components/icons";
 import { site } from "@/data/site";
 
+export const metadata = {
+  title: "Watch Live",
+  description: "Join Emmanuel Church online for worship, or explore recordings of past messages.",
+};
+
 export default function LiveStreamPage() {
   return (
     <>
@@ -17,8 +22,8 @@ export default function LiveStreamPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Watch"
-          title="The Live Platform and the Sermon Archive."
-          description="This page keeps the live destination front and center while leaving room for future embedding or a custom video pipeline."
+          title="Worship Wherever You Are."
+          description="Join a service online, catch up on a message you missed, or follow along in the Bible."
         />
 
         <div className="resource-grid">

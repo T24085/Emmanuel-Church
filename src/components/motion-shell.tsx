@@ -82,23 +82,27 @@ export function MotionShell({ children }: { children: ReactNode }) {
       givingList.style.setProperty("--giving-quote-shift", `${quoteShift}px`);
     };
 
-    if (reducedMotion) {
-      root.style.removeProperty("--hero-parallax");
-      return;
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
+            // Content stays visible by default; animation is an enhancement,
+            // never a prerequisite for reading the page.
+            if (!reducedMotion && !entry.target.classList.contains("is-visible") &&
+                !entry.target.classList.contains("value-card--flip")) {
+              entry.target.animate(
+                [{ opacity: 0.65, translate: "0 16px" }, { opacity: 1, translate: "0 0" }],
+                { duration: 520, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
+              );
+            }
             entry.target.classList.add("is-visible");
             observer.unobserve(entry.target);
           }
         }
       },
       {
-        threshold: 0.18,
-        rootMargin: "0px 0px -6% 0px",
+        threshold: 0.01,
+        rootMargin: "0px",
       }
     );
 
@@ -114,8 +118,12 @@ export function MotionShell({ children }: { children: ReactNode }) {
 
     observeTargets();
 
+    let mutationRaf = 0;
     const mutationObserver = new MutationObserver(() => {
-      window.requestAnimationFrame(observeTargets);
+      if (!mutationRaf) mutationRaf = window.requestAnimationFrame(() => {
+        mutationRaf = 0;
+        observeTargets();
+      });
     });
 
     mutationObserver.observe(document.body, {
@@ -126,6 +134,10 @@ export function MotionShell({ children }: { children: ReactNode }) {
     let rafId = 0;
     const updateHeroParallax = () => {
       rafId = 0;
+      if (reducedMotion) {
+        root.style.removeProperty("--hero-parallax");
+        return;
+      }
       if (!hero) {
         root.style.removeProperty("--hero-parallax");
         updateGivingJourney();
@@ -159,6 +171,7 @@ export function MotionShell({ children }: { children: ReactNode }) {
 
     return () => {
       mutationObserver.disconnect();
+      window.cancelAnimationFrame(mutationRaf);
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);

@@ -13,7 +13,7 @@ const resources = [
   },
   {
     eyebrow: "Study",
-    title: "Weekly Sermon Study Guides",
+    title: "Sermon Study Guides",
     description: "Continue the message through notes, questions, and downloadable study material.",
     href: "/resources/weekly-sermon-study-guides",
     label: "Open study guides",
@@ -34,22 +34,27 @@ const resources = [
   },
 ];
 
+export const metadata = {
+  title: "Church Resources",
+  description: "Find Sunday bulletins, sermon study guides, online forms, and ways to serve at Emmanuel Church.",
+};
+
 export default function ResourcesPage() {
   return (
     <>
       <PageHero
         eyebrow="Resources"
-        title="Helpful Next Steps for Church Life."
+        title="Resources for Your Week."
         description="Find the documents, guides, and forms that help you stay connected to Emmanuel Church throughout the week."
       />
 
       <SectionShell>
         <SectionHeading
           eyebrow="Church resources"
-          title="Stay Informed. Keep Growing. Get Connected."
+          title="What Are You Looking For?"
           description="Choose a resource below to find the latest church materials or submit a request online."
         />
-        <div className="resource-grid">
+        <div className="resource-grid resource-grid--four">
           {resources.map((resource) => (
             <article className="resource-card" key={resource.href}>
               <p className="eyebrow eyebrow--small">{resource.eyebrow}</p>

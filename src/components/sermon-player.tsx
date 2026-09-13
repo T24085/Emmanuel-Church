@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "./icons";
+import { largeMediaThumbnail } from "@/lib/media-thumbnail";
 
 export type SermonPlayerItem = {
   label: string;
@@ -23,6 +24,7 @@ type SermonPlayerProps = {
 
 export function SermonPlayer({ sermons }: SermonPlayerProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playRequested, setPlayRequested] = useState(false);
   const active = sermons[activeIndex] ?? sermons[0];
 
   const hasAudio = Boolean(active?.audioUrl);
@@ -30,12 +32,20 @@ export function SermonPlayer({ sermons }: SermonPlayerProps) {
   const getSermonKey = (sermon: SermonPlayerItem, index: number) =>
     `${sermon.mediaId || "media"}-${sermon.href || "href"}-${index}`;
 
+  if (!active) return <p>No messages are available here yet. Please check back soon.</p>;
+
   return (
     <div className="sermon-player">
       <div className="sermon-player__stage surface-card">
         <div className="sermon-player__media">
-          {activeEmbedSrc ? (
+          {activeEmbedSrc && !playRequested ? (
+            <button type="button" className="sermon-player__poster" onClick={() => setPlayRequested(true)} aria-label={`Play ${active.label}`}>
+              {active.thumbnail ? <img src={largeMediaThumbnail(active.thumbnail) || undefined} alt="" onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} /> : null}
+              <span className="sermon-player__play"><span aria-hidden="true">▶</span> Play message</span>
+            </button>
+          ) : activeEmbedSrc ? (
             <iframe
+              key={activeEmbedSrc}
               src={activeEmbedSrc}
               title={active?.label || "Sermon video"}
               allow="autoplay; fullscreen; picture-in-picture"
@@ -61,7 +71,7 @@ export function SermonPlayer({ sermons }: SermonPlayerProps) {
 
         <div className="sermon-player__meta">
           <div>
-            <p className="eyebrow eyebrow--small">Now playing</p>
+            <p className="eyebrow eyebrow--small">Selected message</p>
             <h3>{active?.label}</h3>
             <p>{active?.series || "Emmanuel Church sermon archive"}</p>
           </div>
@@ -72,7 +82,7 @@ export function SermonPlayer({ sermons }: SermonPlayerProps) {
           </div>
           <div className="sermon-player__actions">
             <Link className="text-link text-link--secondary" href={active?.href || "#"} target="_blank" rel="noreferrer">
-              <span>Open original page</span>
+              <span>Watch on the original site</span>
               <ArrowRightIcon className="icon icon--xs" />
             </Link>
           </div>
@@ -87,7 +97,7 @@ export function SermonPlayer({ sermons }: SermonPlayerProps) {
               key={getSermonKey(sermon, index)}
               type="button"
               className={`sermon-player__item ${selected ? "sermon-player__item--active" : ""}`.trim()}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => { setActiveIndex(index); setPlayRequested(false); }}
               aria-pressed={selected}
             >
               <div className="sermon-player__thumb">

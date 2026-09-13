@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRightIcon } from "./icons";
 
 type SectionHeadingProps = {
+  as?: "h1" | "h2";
   eyebrow?: string;
   title: string;
   description?: string;
@@ -14,6 +15,7 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
+  as: Heading = "h2",
   eyebrow,
   title,
   description,
@@ -35,7 +37,7 @@ export function SectionHeading({
     <div className="section-heading">
       <div className="section-heading__copy">
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h2>{title}</h2>
+        <Heading>{title}</Heading>
         {description ? <p className="section-heading__description">{description}</p> : null}
       </div>
       {actionNode}

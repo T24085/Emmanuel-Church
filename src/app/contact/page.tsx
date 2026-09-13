@@ -11,7 +11,7 @@ import {
   PhoneIcon,
 } from "@/components/icons";
 import { SectionHeading, SectionShell } from "@/components/section";
-import { contactEmails, externalLinks, site } from "@/data/site";
+import { externalLinks, serviceRhythm, site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
 
 const externalLinkIcons = {
@@ -20,6 +20,11 @@ const externalLinkIcons = {
   "Online Giving": HeartIcon,
   "Public Calendar": CalendarIcon,
 } as const;
+
+export const metadata = {
+  title: "Plan Your Visit & Contact",
+  description: "Plan a Sunday visit to Emmanuel Church in Abilene. Find service times, directions, and church office contact information.",
+};
 
 export default function ContactPage() {
   return (
@@ -42,8 +47,8 @@ export default function ContactPage() {
               <p className="eyebrow">Contact</p>
               <h1>Start Here If You're New.</h1>
               <p>
-                Use this page for the address, phone number, map, emails, and the public links the
-                church currently shares.
+                Join us on Sunday in Abilene. Find a service time, get directions, or ask our
+                church office a question before you visit.
               </p>
               <div className="page-hero__actions page-hero__actions--contact">
                 <a
@@ -52,7 +57,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span>Locate us</span>
+                  <span>Get directions</span>
                   <ArrowRightIcon className="icon icon--sm" />
                 </a>
               </div>
@@ -62,6 +67,27 @@ export default function ContactPage() {
       </section>
 
       <SectionShell>
+        <SectionHeading
+          eyebrow="Sunday mornings"
+          title="Plan Your Sunday."
+          description="Two worship services, with time to learn and connect between them. All times are local to Abilene, Kansas."
+        />
+        <div className="visit-times">
+          {serviceRhythm.slice(0, 3).map((service) => (
+            <article className="visit-times__item" key={service.label}>
+              <p className="eyebrow eyebrow--small">{service.label}</p>
+              <h3>{service.value}</h3>
+              <p>{service.detail}</p>
+            </article>
+          ))}
+        </div>
+        <p className="visit-family-note">
+          Visiting with children? <Link href="/connect/emmanuel-kids">Explore Emmanuel Kids</Link>,
+          or stop by the Welcome Center when you arrive.
+        </p>
+      </SectionShell>
+
+      <SectionShell className="section-shell--tight">
         <SectionHeading
           eyebrow="Welcome"
           title="A Warm Welcome Starts at the Door."
@@ -109,8 +135,8 @@ export default function ContactPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Visit"
-          title="1300 N. Vine Street, Abilene, KS 67410"
-          description="This is the public address listed throughout the site."
+          title="Find Us in Abilene."
+          description={site.address}
         />
 
         <div className="resource-grid">
@@ -134,9 +160,9 @@ export default function ContactPage() {
           </article>
           <article className="resource-card">
             <p className="eyebrow eyebrow--small">Email</p>
-            <h3>Staff Inboxes</h3>
-            <p>Direct contact addresses from the public staff and preschool pages.</p>
-            <Link className="resource-card__action" href={`mailto:${contactEmails[0]}`}>
+            <h3>Church Office</h3>
+            <p>Ask a question about your visit or get connected with a ministry leader.</p>
+            <Link className="resource-card__action" href={`mailto:${site.officeEmail}`}>
               <MailIcon className="icon icon--xs" />
               <span>Email the office</span>
             </Link>

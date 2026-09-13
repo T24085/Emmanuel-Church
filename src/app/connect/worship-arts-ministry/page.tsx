@@ -127,12 +127,17 @@ const worshipSteps = [
   },
 ];
 
+export const metadata = {
+  title: "Worship Arts Ministry",
+  description: "Help Emmanuel Church worship through music, production, and choir. Learn how to get involved with the team.",
+};
+
 export default function WorshipArtsMinistryPage() {
   return (
     <>
       <PageHero
         eyebrow="Connect"
-        title="Worship That is Visually, Vocally, and Spiritually Disciplined."
+        title="Help Our Church Worship Together."
         description="Worship Arts Ministry helps Emmanuel gather with reverence through music, production, and choir moments that keep the room centered on Jesus."
         mediaLayout="full"
         heroImage={{
@@ -241,7 +246,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Core commitments"
-          title="Four Priorities Shape the Way the Team Leads Worship."
+          title="What Guides Our Team."
           description="These are the values that keep the ministry centered, disciplined, and useful to the gathered church."
         />
 
@@ -291,7 +296,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="Serving lanes"
-          title="The Live Page Keeps the Ministry Structure Simple."
+          title="Music, Production, and Choir."
           description="There are three main ways to get involved: praise teams, tech teams, and seasonal choirs."
         />
 
@@ -309,7 +314,7 @@ export default function WorshipArtsMinistryPage() {
       <SectionShell>
         <SectionHeading
           eyebrow="How to join"
-          title="Take the Next Step If You Want to Sing, Play, or Serve Behind the Scenes."
+          title="Find Your Place on the Team."
           description="The path is straightforward: reach out, talk through your gifts, train well, and serve consistently."
         />
 
@@ -328,7 +333,7 @@ export default function WorshipArtsMinistryPage() {
         <SectionHeading
           eyebrow="Leadership"
           title="Who to Contact If You Want to Get Involved."
-          description="The ministry stays close to the church office so people can find the right person quickly."
+          description="Interested in singing, playing, or serving behind the scenes? Get in touch and we will help you take the next step."
         />
 
         <div className="resource-grid">
