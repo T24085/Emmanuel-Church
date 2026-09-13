@@ -72,17 +72,14 @@ export function HeroVideo({ latestSermon }: { latestSermon?: LatestSermonPreview
 
 function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview }) {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const playerRef = useRef<Player | null>(null);
   const [allowMotion, setAllowMotion] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
       setPlaying(false);
-      setPaused(false);
       setAllowMotion(!preference.matches);
     };
     update();
@@ -97,7 +94,6 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
     }
 
     const player = new Player(iframe);
-    playerRef.current = player;
     const timeout = window.setTimeout(() => setFailed(true), 12000);
     const onPlaying = () => {
       window.clearTimeout(timeout);
@@ -151,7 +147,6 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
       window.clearTimeout(timeout);
       player.off("playing", onPlaying);
       player.off("error", onError);
-      playerRef.current = null;
       window.clearInterval(saveInterval);
       window.removeEventListener("pagehide", savePosition);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
@@ -190,27 +185,12 @@ function VimeoHeroVideo({ latestSermon }: { latestSermon: LatestSermonPreview })
       />
       ) : null}
     </div>
-    {allowMotion && playing && !failed ? (
-      <button
-        className="hero-media-toggle"
-        type="button"
-        aria-pressed={paused}
-        onClick={async () => {
-          try {
-            if (paused) await playerRef.current?.play();
-            else await playerRef.current?.pause();
-            setPaused(!paused);
-          } catch { setFailed(true); }
-        }}
-      >{paused ? "Resume background video" : "Pause background video"}</button>
-    ) : null}
     </>
   );
 }
 
 function RotatingHeroVideo() {
   const [allowMotion, setAllowMotion] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -224,7 +204,6 @@ function RotatingHeroVideo() {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
       setAllowMotion(!preference.matches);
-      setPaused(false);
       if (preference.matches) activeRef.current?.pause();
     };
     update();
@@ -325,15 +304,6 @@ function RotatingHeroVideo() {
         <source src={activeSrc} type="video/mp4" />
       </video>
     </div>
-    {allowMotion ? (
-      <button className="hero-media-toggle" type="button" aria-pressed={paused} onClick={async () => {
-        const video = activeRef.current;
-        if (!video) return;
-        if (paused) {
-          try { await video.play(); setPaused(false); } catch { /* Poster remains available. */ }
-        } else { video.pause(); setPaused(true); }
-      }}>{paused ? "Resume background video" : "Pause background video"}</button>
-    ) : null}
     </>
   );
 }
