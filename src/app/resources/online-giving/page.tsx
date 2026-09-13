@@ -52,9 +52,9 @@ export default function OnlineGivingPage() {
         href={site.givingHref}
         target="_blank"
         rel="noreferrer"
-        aria-label="Give online (opens in a new tab)"
+        aria-label="Start Your Journey Now (opens in a new tab)"
       >
-        <span>Give Online</span>
+        <span>Start Your Journey Now</span>
         <ArrowRightIcon className="icon icon--xs" />
       </a>
 
