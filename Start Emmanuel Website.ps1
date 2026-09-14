@@ -36,12 +36,27 @@ function Get-EmmanuelDevProcessId {
         return $null
     }
 
-    $commandLine = $process.CommandLine
-    if ($commandLine -and $commandLine -like "*$scriptRoot*" -and $commandLine -like '*next*start-server*') {
-        return $listener.OwningProcess
+    for ($i = 0; $i -lt 8 -and $process; $i++) {
+        $commandLine = $process.CommandLine
+        if ($commandLine -and $commandLine -like "*$scriptRoot*" -and $commandLine -like '*next*dev*') {
+            return $listener.OwningProcess
+        }
+
+        $process = Get-CimInstance Win32_Process -Filter "ProcessId=$($process.ParentProcessId)" -ErrorAction SilentlyContinue
     }
 
     return $null
+}
+
+function Open-EmmanuelUrl {
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$Port
+    )
+
+    $url = "http://127.0.0.1:$Port/"
+    Write-Host "Emmanuel Church is ready at $url"
+    Start-Process -FilePath 'explorer.exe' -ArgumentList $url
 }
 
 function Test-EmmanuelResponse {
@@ -129,7 +144,7 @@ $existingProcessId = Get-EmmanuelDevProcessId -Port 3000
 
 if ($existingProcessId) {
     if (Test-EmmanuelResponse -Port 3000) {
-        Start-Process "http://127.0.0.1:3000/"
+        Open-EmmanuelUrl -Port 3000
         return
     }
 
@@ -147,10 +162,11 @@ if (Get-NetTCPConnection -LocalPort 3000 -State Listen -ErrorAction SilentlyCont
     $port = 3000
 }
 
-Start-Process -FilePath 'npm.cmd' -ArgumentList @('run', 'dev', '--', '--port', $port, '--hostname', '127.0.0.1') -WorkingDirectory $scriptRoot -WindowStyle Hidden
+$npmCommand = (Get-Command npm.cmd -ErrorAction Stop).Source
+Start-Process -FilePath $npmCommand -ArgumentList @('run', 'dev', '--', '--port', $port, '--hostname', '127.0.0.1') -WorkingDirectory $scriptRoot -WindowStyle Hidden
 
 if (Wait-ForEmmanuelResponse -Port $port) {
-    Start-Process "http://127.0.0.1:$port/"
+    Open-EmmanuelUrl -Port $port
     return
 }
 
