@@ -8,14 +8,6 @@
   object-position: var(--hero-video-focus);
 }
 
-.section-shell--feature-rail {
-  padding-top: 1.5rem;
-}
-
-.section-shell--feature-rail .hero__card-row {
-  margin-top: 0;
-}
-
 .resource-card--linked {
   cursor: pointer;
   text-decoration: none;

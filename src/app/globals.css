@@ -229,6 +229,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
   scrollbar-color: var(--logo-teal) transparent;
 }
 
@@ -1171,6 +1172,278 @@ select {
   line-height: 1.45;
   max-width: 16rem;
   text-align: right;
+}
+
+/* Homepage welcome: let the church exterior carry the full-width visual moment. */
+.section-shell--welcome {
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 0;
+}
+
+.section-shell--welcome > .site-shell {
+  width: 100%;
+}
+
+.section-shell--welcome .section-heading {
+  padding-right: clamp(1rem, 2vw, 2rem);
+  padding-left: clamp(1rem, 2vw, 2rem);
+}
+
+.homepage-welcome__bleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.section-shell--welcome .welcome-logo-divider {
+  width: 100vw;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.homepage-welcome__hero {
+  min-height: clamp(42rem, 63vw, 54rem);
+  border-radius: 0;
+  box-shadow: none;
+  isolation: isolate;
+}
+
+.homepage-welcome__image {
+  object-position: center 58%;
+}
+
+.homepage-welcome__hero .split-panel__overlay {
+  background:
+    linear-gradient(180deg, rgba(15, 25, 34, 0.18) 0%, rgba(15, 25, 34, 0.2) 35%, rgba(15, 25, 34, 0.88) 100%),
+    linear-gradient(90deg, rgba(15, 25, 34, 0.62) 0%, rgba(15, 25, 34, 0.08) 55%, rgba(15, 25, 34, 0.18) 100%);
+}
+
+.homepage-welcome__copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: start;
+  max-width: min(38vw, 34rem);
+  padding: clamp(3rem, 5vw, 5rem) 1.5rem 0 clamp(1rem, 2vw, 2rem);
+}
+
+.homepage-welcome__copy h2 {
+  margin: 0;
+  max-width: 15ch;
+  font-family: var(--font-display), serif;
+  font-size: clamp(2.7rem, 5vw, 5.1rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.homepage-welcome__copy .homepage-welcome__intro {
+  max-width: 26rem;
+  margin: 1.25rem 0 0;
+  color: rgba(255, 252, 247, 0.88);
+  font-size: clamp(0.98rem, 1.2vw, 1.15rem);
+  line-height: 1.55;
+}
+
+.homepage-welcome__about {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-top: 1.1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(255, 252, 247, 0.42);
+  color: rgba(255, 252, 247, 0.96);
+  font-size: 0.92rem;
+}
+
+.homepage-welcome__sundays {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.homepage-welcome__sundays > .eyebrow {
+  margin: 0;
+}
+
+.homepage-welcome__service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.15rem;
+  margin-top: 1rem;
+}
+
+.homepage-welcome__service-list > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  color: rgba(255, 252, 247, 0.86);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.homepage-welcome__service-list strong {
+  color: var(--logo-teal);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.homepage-welcome__schedule {
+  position: absolute;
+  right: clamp(1rem, 5vw, 5rem);
+  bottom: clamp(1rem, 4vw, 4rem);
+  left: auto;
+  z-index: 2;
+  display: grid;
+  gap: 0.9rem;
+  width: min(38rem, calc(100% - 2rem));
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 28px;
+  background: rgba(248, 243, 236, 0.93);
+  box-shadow: 0 1.25rem 3rem rgba(10, 18, 25, 0.2);
+  color: var(--text-dark);
+  backdrop-filter: blur(16px);
+}
+
+.homepage-welcome__schedule > .eyebrow {
+  margin: 0;
+  color: rgba(24, 33, 43, 0.66);
+}
+
+.homepage-welcome__stat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.homepage-welcome__stat-card {
+  min-height: 0;
+  align-items: center;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.homepage-welcome__stat-card .stat-card__detail {
+  max-width: none;
+  text-align: left;
+  font-size: 0.82rem;
+}
+
+.homepage-welcome__actions {
+  margin-top: 0.1rem !important;
+}
+
+@media (max-width: 1280px) and (min-width: 1081px) {
+  .homepage-welcome__copy {
+    max-width: min(36vw, 28rem);
+    padding-top: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  .homepage-welcome__copy h2 {
+    max-width: 14ch;
+    font-size: clamp(2.35rem, 4.2vw, 4.2rem);
+  }
+
+  .homepage-welcome__copy .homepage-welcome__intro {
+    max-width: 25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+}
+
+@media (max-width: 1080px) {
+  .homepage-welcome__hero {
+    min-height: clamp(46rem, 92vw, 58rem);
+  }
+
+  .homepage-welcome__copy {
+    max-width: 38rem;
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+
+  .homepage-welcome__schedule {
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+
+  .homepage-welcome__stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .homepage-welcome__stat-card {
+    min-height: 8.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-shell--welcome {
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .section-shell--welcome > .site-shell {
+    width: 100%;
+  }
+
+  .section-shell--welcome .section-heading {
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+  }
+
+  .homepage-welcome__hero {
+    min-height: 60rem;
+  }
+
+  .homepage-welcome__copy {
+    padding: 3rem 1rem 0;
+  }
+
+  .homepage-welcome__copy h2 {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+  }
+
+  .homepage-welcome__copy .homepage-welcome__intro {
+    font-size: 1rem;
+  }
+
+  .homepage-welcome__sundays {
+    margin-top: 3.5rem;
+  }
+
+  .homepage-welcome__schedule {
+    right: 0.65rem;
+    bottom: 0.65rem;
+    left: 0.65rem;
+    padding: 0.8rem;
+    border-radius: 22px;
+  }
+
+  .homepage-welcome__stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage-welcome__stat-card {
+    min-height: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .homepage-welcome__actions {
+    flex-direction: column;
+  }
+
+  .homepage-welcome__actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
 }
 
 .inline-panel {
@@ -3791,12 +4064,33 @@ select {
 }
 
 .inline-banner {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
   margin-top: 1rem;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   overflow: hidden;
-  background: rgba(255, 253, 249, 0.98);
-  color: var(--text-dark);
+  min-height: clamp(24rem, 34vw, 31rem);
+  isolation: isolate;
+  background: #132832;
+  color: #fff;
   box-shadow: var(--shadow);
+}
+
+.inline-banner::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 25, 31, 0.9) 0%,
+    rgba(10, 25, 31, 0.72) 36%,
+    rgba(10, 25, 31, 0.28) 68%,
+    rgba(10, 25, 31, 0.1) 100%
+  );
 }
 
 .inline-banner > .button {
@@ -3804,37 +4098,52 @@ select {
 }
 
 .inline-banner__inner {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 0;
-  align-items: stretch;
+  position: relative;
+  display: block;
+  min-height: inherit;
 }
 
 .inline-banner__copy {
-  padding: 1.8rem 2rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(52%, 42rem);
+  min-height: inherit;
+  padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 6vw, 6rem);
+  color: rgba(255, 253, 249, 0.96);
+}
+
+.inline-banner__copy .eyebrow {
+  color: var(--gold);
 }
 
 .inline-banner__copy h3 {
   margin: 0.35rem 0 0;
+  max-width: 12ch;
   font-size: clamp(2.1rem, 4vw, 3.3rem);
   font-family: var(--font-display), serif;
   line-height: 0.98;
 }
 
 .inline-banner__copy p {
+  max-width: 38rem;
   margin: 1rem 0 0;
   line-height: 1.75;
-  color: rgba(24, 33, 43, 0.72);
+  color: rgba(255, 253, 249, 0.78);
 }
 
 .inline-banner__media {
-  position: relative;
-  min-height: 300px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  min-height: 0;
 }
 
 .inline-banner__image {
-  object-fit: contain;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center 48%;
 }
 
 .page-hero {
@@ -4869,39 +5178,30 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 .preschool-gallery {
+  width: 100vw;
   margin-top: 0.25rem;
+  margin-left: calc(50% - 50vw);
 }
 
 .preschool-gallery__grid {
   display: grid;
-  grid-auto-flow: dense;
-  grid-auto-rows: minmax(9rem, 13rem);
+  grid-auto-flow: row;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: 0;
 }
 
 .preschool-gallery__item {
   position: relative;
+  aspect-ratio: 1;
   min-width: 0;
   min-height: 0;
   margin: 0;
+  padding: 0;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border: 0;
+  border-radius: 0;
   background: #10222b;
-  box-shadow: 0 14px 30px rgba(40, 30, 18, 0.1);
-}
-
-.preschool-gallery__item--lead {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.preschool-gallery__item--wide {
-  grid-column: span 2;
-}
-
-.preschool-gallery__item--tall {
-  grid-row: span 2;
+  box-shadow: none;
 }
 
 .preschool-gallery__image {
@@ -6521,10 +6821,6 @@ html.motion-ready .our-staff-page .staff-card {
     padding: 1.5rem;
   }
 
-  .preschool-gallery__item--lead {
-    min-height: 360px;
-  }
-
   .quote-strip__row {
     grid-template-columns: 1fr;
   }
@@ -6619,15 +6915,7 @@ html.motion-ready .our-staff-page .staff-card {
   }
 
   .preschool-gallery__grid {
-    grid-auto-rows: minmax(8rem, 12rem);
-    grid-template-columns: 1fr;
-  }
-
-  .preschool-gallery__item--lead,
-  .preschool-gallery__item--wide,
-  .preschool-gallery__item--tall {
-    grid-column: auto;
-    grid-row: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .contact-welcome__feature {
@@ -6822,5 +7110,37 @@ html.motion-ready .our-staff-page .staff-card {
     justify-content: center;
     padding: 0.78rem 1rem;
     font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .inline-banner__copy {
+    width: min(64%, 42rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .inline-banner {
+    min-height: clamp(30rem, 115vw, 38rem);
+  }
+
+  .inline-banner::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 25, 31, 0.16) 0%,
+      rgba(10, 25, 31, 0.46) 42%,
+      rgba(10, 25, 31, 0.9) 100%
+    );
+  }
+
+  .inline-banner__copy {
+    justify-content: flex-end;
+    width: 100%;
+    min-height: inherit;
+    padding: clamp(2.5rem, 10vw, 4rem) 1rem 3rem;
+  }
+
+  .inline-banner__copy h3 {
+    max-width: 14ch;
   }
 }
