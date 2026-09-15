@@ -225,6 +225,28 @@ export default async function HomePage() {
             </div>
           </aside>
         </div>
+        <div className="welcome-logo-marquee" aria-hidden="true">
+          <div className="welcome-logo-marquee__track">
+            <div className="welcome-logo-marquee__set">
+              {[0, 1, 2, 3].map((index) => (
+                <img
+                  key={`welcome-logo-a-${index}`}
+                  src={withBasePath("/images/emmanuel-church-logo.png")}
+                  alt=""
+                />
+              ))}
+            </div>
+            <div className="welcome-logo-marquee__set">
+              {[0, 1, 2, 3].map((index) => (
+                <img
+                  key={`welcome-logo-b-${index}`}
+                  src={withBasePath("/images/emmanuel-church-logo.png")}
+                  alt=""
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </SectionShell>
 
       <SectionShell>

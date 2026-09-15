@@ -126,7 +126,12 @@ export default async function WhoWeArePage() {
         <div className="who-we-are-mission__panel surface-card">
           <div className="who-we-are-mission__copy">
             <p className="eyebrow eyebrow--small">Mission</p>
-            <h2>Love, Grace, Worship, Truth.</h2>
+            <h2 className="mission-word-reveal" aria-label="Love, Grace, Worship, Truth.">
+              <span className="mission-word-reveal__word">Love,</span>{" "}
+              <span className="mission-word-reveal__word">Grace,</span>{" "}
+              <span className="mission-word-reveal__word">Worship,</span>{" "}
+              <span className="mission-word-reveal__word">Truth.</span>
+            </h2>
             <p className="who-we-are-mission__lede">
               These themes run through the church's doctrinal teaching and ministry language.
             </p>

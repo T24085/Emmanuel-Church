@@ -473,6 +473,45 @@ main:focus { outline: none; }
     animation-duration: 6s;
   }
 }
+.welcome-logo-marquee {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  padding: 1.05rem 0;
+  border-top: 1px solid rgba(24, 33, 43, 0.1);
+  border-bottom: 1px solid rgba(24, 33, 43, 0.1);
+  background: rgba(255, 253, 249, 0.38);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.welcome-logo-marquee__track {
+  display: flex;
+  width: max-content;
+  transform: translateX(-50%);
+  animation: welcome-logo-marquee-scroll 36s linear infinite;
+}
+.welcome-logo-marquee__set {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(3rem, 5vw, 6rem);
+  padding-inline: clamp(1.5rem, 3vw, 3.5rem);
+}
+.welcome-logo-marquee img {
+  display: block;
+  width: clamp(10rem, 14vw, 15rem);
+  height: auto;
+  opacity: 1;
+  filter: none;
+}
+@keyframes welcome-logo-marquee-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.motion-reduce .welcome-logo-marquee__track {
+  animation: none;
+  transform: translateX(0);
+}
 /* Gold remains the default; dark lettering and deep teal interactions are readable. */
 .button.button--gold, .giving-hero__actions .button.button--gold, .giving-fab { color: #18212b; }
 .button:is(:hover, :focus-visible),
@@ -490,6 +529,9 @@ main:focus { outline: none; }
   .visit-times__item { padding: 1.3rem 0; }
   .visit-times__item + .visit-times__item { border-left: 0; border-top: 1px solid rgba(24, 33, 43, 0.16); }
   .site-footer__columns { gap: 1.7rem; }
+  .welcome-logo-marquee { margin-top: 1.75rem; padding-block: 0.85rem; }
+  .welcome-logo-marquee__set { gap: 2.5rem; padding-inline: 1rem; }
+  .welcome-logo-marquee img { width: 10rem; opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__sermon-frame { display: none; }

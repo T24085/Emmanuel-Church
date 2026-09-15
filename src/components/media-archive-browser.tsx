@@ -55,10 +55,6 @@ export function MediaArchiveBrowser({ pages }: MediaArchiveBrowserProps) {
 
         <div className="media-archive-browser__pages" aria-label="Media archive pages">
           {pageNumbers.map((pageNumber, index) => {
-            if (index !== 0 && index !== pages.length - 1 && Math.abs(index - pageIndex) > 1) {
-              return index === pageIndex - 2 || index === pageIndex + 2
-                ? <span key={pageNumber} aria-hidden="true">…</span> : null;
-            }
             const active = index === pageIndex;
             return (
               <button

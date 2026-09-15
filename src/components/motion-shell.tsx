@@ -21,6 +21,7 @@ const revealSelectors = [
   ".giving-foundation__list",
   ".giving-foundation__item",
   ".giving-foundation__transition",
+  ".mission-word-reveal",
 ].join(", ");
 
 export function MotionShell({ children }: { children: ReactNode }) {
