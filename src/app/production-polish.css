@@ -11,7 +11,8 @@
   border-radius: 0.5rem;
   transform: translateY(-200%);
 }
-.skip-link:focus { transform: none; }
+.skip-link:focus { transform: translateY(-200%); }
+.skip-link:focus-visible { transform: none; }
 :where(a, button, summary, audio, iframe):focus-visible {
   outline: 3px solid #08777d;
   outline-offset: 4px;
@@ -475,8 +476,11 @@ main:focus { outline: none; }
 }
 .welcome-logo-marquee {
   position: relative;
+  display: block;
+  width: 100%;
   overflow: hidden;
   margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-inline: 0;
   padding: 1.05rem 0;
   border-top: 1px solid rgba(24, 33, 43, 0.1);
   border-bottom: 1px solid rgba(24, 33, 43, 0.1);
@@ -529,9 +533,9 @@ main:focus { outline: none; }
   .visit-times__item { padding: 1.3rem 0; }
   .visit-times__item + .visit-times__item { border-left: 0; border-top: 1px solid rgba(24, 33, 43, 0.16); }
   .site-footer__columns { gap: 1.7rem; }
-  .welcome-logo-marquee { margin-top: 1.75rem; padding-block: 0.85rem; }
+  .welcome-logo-marquee { margin-top: 1.75rem; padding-block: 0.85rem; min-height: 4.8rem; }
   .welcome-logo-marquee__set { gap: 2.5rem; padding-inline: 1rem; }
-  .welcome-logo-marquee img { width: 10rem; opacity: 1; }
+  .welcome-logo-marquee img { width: 9rem; opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__sermon-frame { display: none; }
