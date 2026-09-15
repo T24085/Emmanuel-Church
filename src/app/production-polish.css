@@ -84,9 +84,6 @@ main:focus { outline: none; }
   background: #08777d;
   border-color: #08777d;
 }
-@media (min-width: 1081px) {
-  .site-header .brand { padding: 0.3rem 0.6rem; border-radius: 0.85rem; background: rgba(255, 253, 249, 0.94); }
-}
 @media (max-width: 1080px) {
   .resource-grid.resource-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
