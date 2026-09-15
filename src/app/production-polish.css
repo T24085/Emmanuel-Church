@@ -71,6 +71,12 @@ main:focus { outline: none; }
 }
 .sermon-player__poster:is(:hover, :focus-visible) .sermon-player__play { background: #08777d; }
 .media-archive-browser__pages { flex-wrap: wrap; }
+.media-archive-browser__pages {
+  justify-content: center;
+  justify-self: center;
+  width: fit-content;
+  max-width: 100%;
+}
 .site-footer__link { min-height: 36px; overflow-wrap: anywhere; }
 .site-footer__link:is(:hover, :focus-visible),
 .section-heading__action:is(:hover, :focus-visible),
