@@ -10,6 +10,7 @@ import { loadMediaArchivePages } from "@/lib/media-archive";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { StaffGrid } from "@/components/staff-grid";
 import { ValueFlipCard } from "@/components/value-flip-card";
+import { FlipBoardTime } from "@/components/flip-board-time";
 import { withBasePath } from "@/lib/site-path";
 import {
   featureCards,
@@ -105,7 +106,14 @@ export default async function HomePage() {
           <div className="hero__copy">
             <div className="hero__headline">
               <p className="eyebrow">Knowing Christ. Making Him known.</p>
-              <h1>Emmanuel Church</h1>
+              <h1>
+                <span className="hero__title-line hero__title-line--accent">
+                  <span className="hero__title-word">Emmanuel</span>
+                </span>
+                <span className="hero__title-line hero__title-line--accent">
+                  <span className="hero__title-word">Church</span>
+                </span>
+              </h1>
               <p className="hero__lede">
                 We exist to glorify God by making disciples of Jesus Christ through the power of the gospel.
               </p>
@@ -166,7 +174,12 @@ export default async function HomePage() {
             <div className="split-panel__overlay" />
             <div className="split-panel__content">
               <p className="eyebrow">Sunday rhythms</p>
-              <h3>Traditional at 8:45. Contemporary at 11:00.</h3>
+              <h3>
+                <span className="rhythm-heading__service">Traditional</span> at{" "}
+                <span className="rhythm-heading__time rhythm-heading__time--first">8:45.</span>{" "}
+                <span className="rhythm-heading__service">Contemporary</span> at{" "}
+                <span className="rhythm-heading__time rhythm-heading__time--second">11:00.</span>
+              </h3>
               <p>
                 Discipleship Hour runs from 10:00am to 10:45am for all ages, with nursery care,
                 children's ministry, and a family-friendly welcome center on the south side of the
@@ -179,11 +192,17 @@ export default async function HomePage() {
             <div className="split-panel__content" style={{ paddingBottom: "1.4rem" }}>
               <p className="eyebrow">Weekly rhythm</p>
               <div className="stat-grid">
-                {serviceRhythm.map((item) => (
+                {serviceRhythm.map((item, index) => (
                   <div key={item.label} className="stat-card">
                     <div>
                       <div className="stat-card__label">{item.label}</div>
-                      <div className="stat-card__value">{item.value}</div>
+                      <div className="stat-card__value">
+                        {item.label === "Family Care" ? (
+                          item.value
+                        ) : (
+                          <FlipBoardTime value={item.value} delay={index * 1350} />
+                        )}
+                      </div>
                     </div>
                     <div className="stat-card__detail">{item.detail}</div>
                   </div>
@@ -232,7 +251,11 @@ export default async function HomePage() {
           <div className="inline-banner__inner">
             <div className="inline-banner__copy">
               <p className="eyebrow">Know. Grow. Send.</p>
-              <h3>The Gospel Forms People and Families.</h3>
+              <h3>
+                The <span className="inline-banner__gold-word">Gospel</span> Forms{" "}
+                <span className="inline-banner__gold-word">People</span> and{" "}
+                <span className="inline-banner__gold-word">Families.</span>
+              </h3>
               <p>
                 Emmanuel's mission is transformation through the gospel, and every ministry should
                 serve that aim with clarity and care.
