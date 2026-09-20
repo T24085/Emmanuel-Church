@@ -291,12 +291,12 @@ main:focus { outline: none; }
   50% { background-position: 100% 50%; }
 }
 .inline-banner__gold-word {
-  color: var(--text-dark);
+  color: var(--gold);
 }
 @keyframes inline-banner-gold-cycle {
-  0%, 12% { color: var(--text-dark); }
+  0%, 12% { color: rgba(255, 253, 249, 0.96); }
   25%, 50% { color: var(--gold); }
-  63%, 100% { color: var(--text-dark); }
+  63%, 100% { color: rgba(255, 253, 249, 0.96); }
 }
 .motion-ready .inline-banner.is-visible .inline-banner__gold-word {
   animation: inline-banner-gold-cycle 6.6s ease-in-out infinite;
@@ -474,45 +474,54 @@ main:focus { outline: none; }
     animation-duration: 6s;
   }
 }
-.welcome-logo-marquee {
+.welcome-logo-divider {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 92px;
+  min-height: 92px;
   overflow: hidden;
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-top: 0;
   margin-inline: 0;
-  padding: 1.05rem 0;
-  border-top: 1px solid rgba(24, 33, 43, 0.1);
-  border-bottom: 1px solid rgba(24, 33, 43, 0.1);
-  background: rgba(255, 253, 249, 0.38);
-  -webkit-mask-image: none;
-  mask-image: none;
+  padding: 0;
+  border-top: 1px solid rgba(8, 119, 125, 0.14);
+  border-bottom: 1px solid rgba(199, 144, 68, 0.14);
+  background: #f7f1e8;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
-.welcome-logo-marquee__track {
+.welcome-logo-divider__track {
   display: flex;
   width: max-content;
   transform: translateX(-50%);
-  animation: welcome-logo-marquee-scroll 36s linear infinite;
+  animation: welcome-logo-divider-drift 40s linear infinite;
 }
-.welcome-logo-marquee__set {
+.welcome-logo-divider__set {
   display: flex;
   flex: none;
   align-items: center;
-  gap: clamp(3rem, 5vw, 6rem);
-  padding-inline: clamp(1.5rem, 3vw, 3.5rem);
+  justify-content: space-around;
+  width: calc(100vw + 8vw);
+  padding-inline: clamp(1rem, 2vw, 2rem);
 }
-.welcome-logo-marquee img {
+.welcome-logo-divider__logo {
   display: block;
-  width: clamp(10rem, 14vw, 15rem);
+  flex: 0 0 clamp(8.5rem, 7.8vw, 9.375rem);
+  width: clamp(8.5rem, 7.8vw, 9.375rem);
   height: auto;
-  opacity: 1;
-  filter: none;
+  opacity: 0.78;
 }
-@keyframes welcome-logo-marquee-scroll {
+.welcome-logo-divider__logo--featured {
+  opacity: 1;
+  transform: scale(1.08);
+}
+@keyframes welcome-logo-divider-drift {
   from { transform: translateX(-50%); }
   to { transform: translateX(0); }
 }
-.motion-reduce .welcome-logo-marquee__track {
+.motion-reduce .welcome-logo-divider__track {
   animation: none;
   transform: translateX(0);
 }
@@ -533,13 +542,142 @@ main:focus { outline: none; }
   .visit-times__item { padding: 1.3rem 0; }
   .visit-times__item + .visit-times__item { border-left: 0; border-top: 1px solid rgba(24, 33, 43, 0.16); }
   .site-footer__columns { gap: 1.7rem; }
-  .welcome-logo-marquee { margin-top: 1.75rem; padding-block: 0.85rem; min-height: 4.8rem; }
-  .welcome-logo-marquee__set { gap: 2.5rem; padding-inline: 1rem; }
-  .welcome-logo-marquee img { width: 9rem; opacity: 1; }
+  .welcome-logo-divider { height: 80px; min-height: 80px; }
+  .welcome-logo-divider__set { width: calc(100vw + 12vw); padding-inline: 0.5rem; }
+  .welcome-logo-divider__logo { flex-basis: 7.5rem; width: 7.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__sermon-frame { display: none; }
   html { scroll-behavior: auto; }
+  .welcome-logo-divider__track { animation: none; transform: translateX(0); }
+}
+
+/* Cinematic welcome headline: the existing split-panel observer supplies the one-time trigger. */
+.homepage-welcome__headline {
+  position: relative;
+  isolation: isolate;
+  text-wrap: balance;
+}
+.homepage-welcome__headline-line {
+  display: block;
+}
+.homepage-welcome__headline-accent {
+  color: var(--logo-teal);
+}
+.homepage-welcome__headline::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "We're Glad\A You're Here.";
+  white-space: pre;
+  pointer-events: none;
+  color: transparent;
+  background: linear-gradient(
+    104deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(255, 252, 247, 0.92) 49%,
+    rgba(244, 211, 154, 0.68) 53%,
+    rgba(19, 174, 176, 0.42) 56%,
+    transparent 64%
+  );
+  background-position: 120% 0;
+  background-size: 260% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0;
+}
+.motion-ready .homepage-welcome__eyebrow::after {
+  display: block;
+  width: 0;
+  height: 1px;
+  margin-top: 0.7rem;
+  content: "";
+  background: var(--gold);
+}
+.motion-ready .homepage-welcome__headline-line {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(18px);
+}
+.motion-ready .homepage-welcome__headline.is-visible .homepage-welcome__headline-line,
+.motion-ready .split-panel.is-visible .homepage-welcome__headline-line {
+  animation-duration: 900ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.motion-ready .split-panel.is-visible .homepage-welcome__headline-line--first {
+  animation-name: homepage-welcome-headline-reveal;
+  animation-delay: 250ms;
+}
+.motion-ready .split-panel.is-visible .homepage-welcome__headline-line--second {
+  animation-name: homepage-welcome-headline-reveal;
+  animation-delay: 450ms;
+}
+.motion-ready .split-panel.is-visible .homepage-welcome__headline::after {
+  animation: homepage-welcome-headline-sweep 1400ms ease-in-out 850ms 1 both;
+}
+.motion-ready .split-panel.is-visible .homepage-welcome__eyebrow::after {
+  animation: homepage-welcome-eyebrow-line 450ms cubic-bezier(0.22, 1, 0.36, 1) 1750ms 1 both;
+}
+.motion-reduce .homepage-welcome__headline-line {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  animation: none !important;
+}
+.motion-reduce .homepage-welcome__headline::after {
+  display: none;
+  animation: none !important;
+}
+.motion-reduce .homepage-welcome__eyebrow::after {
+  width: 55px;
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .homepage-welcome__headline-line {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    animation: none !important;
+  }
+  .homepage-welcome__headline::after {
+    display: none;
+    animation: none !important;
+  }
+  .homepage-welcome__eyebrow::after {
+    width: 55px;
+    animation: none !important;
+  }
+}
+@keyframes homepage-welcome-headline-reveal {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+@keyframes homepage-welcome-headline-sweep {
+  0% {
+    opacity: 0;
+    background-position: 120% 0;
+  }
+  18% { opacity: 0.92; }
+  72% { opacity: 0.72; }
+  100% {
+    opacity: 0;
+    background-position: -20% 0;
+  }
+}
+@keyframes homepage-welcome-eyebrow-line {
+  from { width: 0; }
+  to { width: 55px; }
 }
 
 /* Treat the welcome section as a full-bleed image moment while keeping its existing content rhythm. */

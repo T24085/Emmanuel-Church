@@ -298,7 +298,10 @@ export default function EmmanuelPreschoolPage() {
         <div className="preschool-gallery">
           <div className="preschool-gallery__grid">
             {preschoolGalleryPhotos.map((photo) => (
-              <figure className="preschool-gallery__item" key={photo.src}>
+              <figure
+                className="surface-card preschool-gallery__item"
+                key={photo.src}
+              >
                 <Image
                   src={photo.src}
                   alt={photo.alt}
