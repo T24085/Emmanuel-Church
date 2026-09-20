@@ -543,7 +543,12 @@ main:focus { outline: none; }
   .visit-times__item + .visit-times__item { border-left: 0; border-top: 1px solid rgba(24, 33, 43, 0.16); }
   .site-footer__columns { gap: 1.7rem; }
   .welcome-logo-divider { height: 80px; min-height: 80px; }
-  .welcome-logo-divider__set { width: calc(100vw + 12vw); padding-inline: 0.5rem; }
+  .welcome-logo-divider__set {
+    width: max-content;
+    justify-content: flex-start;
+    column-gap: 1.2rem;
+    padding-inline: 0.75rem;
+  }
   .welcome-logo-divider__logo { flex-basis: 7.5rem; width: 7.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
