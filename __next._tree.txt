@@ -1,5 +1,5 @@
 :HL["/Emmanuel-Church/_next/static/chunks/0brj8y~_zz0ma.css","style"]
-:HL["/Emmanuel-Church/_next/static/chunks/145byg~2wk_3-.css","style"]
+:HL["/Emmanuel-Church/_next/static/chunks/00b0bg1shajch.css","style"]
 :HL["/Emmanuel-Church/_next/static/chunks/08g793tc2wsn4.css","style"]
 :HL["/Emmanuel-Church/_next/static/media/01e4147cff8141ee-s.p.10ked.7w885.g.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Emmanuel-Church/_next/static/media/a343f882a40d2cc9-s.p.0kho-wj7-y-w1.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -7,4 +7,4 @@
 :HL["/Emmanuel-Church/images/home-symbol-communion.png","image"]
 :HL["/Emmanuel-Church/images/home-symbol-giving.png","image"]
 :HL["/Emmanuel-Church/images/home-symbol-events.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"4ArBjUhs4UOXt0rd0QykJ"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"Ph8JKr9Z6wbWkwTQ1covd"}
