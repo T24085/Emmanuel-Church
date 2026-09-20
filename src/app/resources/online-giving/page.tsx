@@ -78,7 +78,7 @@ export default function OnlineGivingPage() {
                 <Link className="button button--light" href="#giving-faq">
                   <span>Need help?</span>
                 </Link>
-                <GivingJourneyModal className="button button--journey" />
+                <GivingJourneyModal className="button button--gold" />
               </div>
             </div>
           </div>

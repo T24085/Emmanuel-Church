@@ -3536,20 +3536,6 @@ select {
   margin-top: 1rem;
 }
 
-.button--journey {
-  border-color: #4b3d8f;
-  background: #4b3d8f;
-  color: #fff8e8;
-}
-
-.button--journey:hover,
-.button--journey:focus-visible {
-  border-color: #f49a2a;
-  background: #f49a2a;
-  color: #342b69;
-  box-shadow: 0 14px 28px rgba(244, 154, 42, 0.25);
-}
-
 .giving-foundation__list {
   position: relative;
   display: grid;
