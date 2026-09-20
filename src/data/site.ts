@@ -42,7 +42,7 @@ export const primaryNav: LinkItem[] = [
   { label: "Ministries", href: "/connect" },
   { label: "Sermons", href: "/resources/sermons" },
   { label: "Events", href: "/resources/church-calendar" },
-  { label: "Resources", href: "/resources" },
+  { label: "Resources", href: "/resources/bulletin" },
   { label: "Giving", href: "/resources/online-giving" },
   { label: "Contact", href: "/contact" },
 ];

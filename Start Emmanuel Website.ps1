@@ -56,7 +56,7 @@ function Open-EmmanuelUrl {
 
     $url = "http://127.0.0.1:$Port/"
     Write-Host "Emmanuel Church is ready at $url"
-    Start-Process -FilePath 'explorer.exe' -ArgumentList $url
+    Start-Process -FilePath $url
 }
 
 function Test-EmmanuelResponse {

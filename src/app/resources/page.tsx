@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
+import { ResourceHighlights } from "@/components/resource-highlights";
+import { ResourceTabs } from "@/components/resource-tabs";
 import { SectionHeading, SectionShell } from "@/components/section";
 
 const resources = [
@@ -42,11 +44,14 @@ export const metadata = {
 export default function ResourcesPage() {
   return (
     <>
+      <ResourceTabs />
       <PageHero
         eyebrow="Resources"
         title="Resources for Your Week."
         description="Find the documents, guides, and forms that help you stay connected to Emmanuel Church throughout the week."
       />
+
+      <ResourceHighlights />
 
       <SectionShell>
         <SectionHeading

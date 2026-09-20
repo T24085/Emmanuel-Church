@@ -155,95 +155,101 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
-        <SectionHeading
-          eyebrow="Welcome to Emmanuel Church"
-          title="We're Glad You're Here."
-          description="Emmanuel Church is a place where you can know Christ, grow in your faith, and find a family. If you're new to church or looking for a home, we'd love to meet you."
-          action={{ label: "More About Us", href: "/worship/who-we-are" }}
-        />
-        <div className="split-grid">
-          <article className="split-panel split-panel--image">
-            <Image
-              src={withBasePath("/images/building-banner.jpg")}
-              alt="Emmanuel Church exterior"
-              fill
-              sizes="(max-width: 1080px) 100vw, 60vw"
-              className="split-panel__image cover-image"
-            />
-            <div className="split-panel__overlay" />
-            <div className="split-panel__content">
-              <p className="eyebrow">Sunday rhythms</p>
-              <h3>
-                <span className="rhythm-heading__service">Traditional</span> at{" "}
-                <span className="rhythm-heading__time rhythm-heading__time--first">8:45.</span>{" "}
-                <span className="rhythm-heading__service">Contemporary</span> at{" "}
-                <span className="rhythm-heading__time rhythm-heading__time--second">11:00.</span>
-              </h3>
-              <p>
-                Discipleship Hour runs from 10:00am to 10:45am for all ages, with nursery care,
-                children's ministry, and a family-friendly welcome center on the south side of the
-                building.
-              </p>
-            </div>
-          </article>
+      <SectionShell className="welcome-section">
+        <div className="welcome-section__backdrop" aria-hidden="true">
+          <Image
+            src={withBasePath("/images/building-banner.jpg")}
+            alt=""
+            fill
+            sizes="100vw"
+            className="welcome-section__background"
+          />
+          <div className="welcome-section__backdrop-overlay" />
+        </div>
+        <div className="welcome-section__inner">
+          <SectionHeading
+            eyebrow="Welcome to Emmanuel Church"
+            title="We're Glad You're Here."
+            description="Emmanuel Church is a place where you can know Christ, grow in your faith, and find a family. If you're new to church or looking for a home, we'd love to meet you."
+            action={{ label: "More About Us", href: "/worship/who-we-are" }}
+          />
+          <div className="split-grid welcome-section__grid">
+            <article className="split-panel split-panel--image welcome-section__rhythm-panel">
+              <div className="split-panel__content">
+                <p className="eyebrow">Sunday rhythms</p>
+                <h3>
+                  <span className="rhythm-heading__service">Traditional</span> at{" "}
+                  <span className="rhythm-heading__time rhythm-heading__time--first">8:45.</span>{" "}
+                  <span className="rhythm-heading__service">Contemporary</span> at{" "}
+                  <span className="rhythm-heading__time rhythm-heading__time--second">11:00.</span>
+                </h3>
+                <p>
+                  Discipleship Hour runs from 10:00am to 10:45am for all ages, with nursery care,
+                  children's ministry, and a family-friendly welcome center on the south side of the
+                  building.
+                </p>
+              </div>
+            </article>
 
-          <aside className="split-panel">
-            <div className="split-panel__content" style={{ paddingBottom: "1.4rem" }}>
-              <p className="eyebrow">Weekly rhythm</p>
-              <div className="stat-grid">
-                {serviceRhythm.map((item, index) => (
-                  <div key={item.label} className="stat-card">
-                    <div>
-                      <div className="stat-card__label">{item.label}</div>
-                      <div className="stat-card__value">
-                        {item.label === "Family Care" ? (
-                          item.value
-                        ) : (
-                          <FlipBoardTime value={item.value} delay={index * 1350} />
-                        )}
+            <aside className="split-panel welcome-section__weekly-panel">
+              <div className="split-panel__content" style={{ paddingBottom: "1.4rem" }}>
+                <p className="eyebrow">Weekly rhythm</p>
+                <div className="stat-grid">
+                  {serviceRhythm.map((item, index) => (
+                    <div key={item.label} className="stat-card">
+                      <div>
+                        <div className="stat-card__label">{item.label}</div>
+                        <div className="stat-card__value">
+                          {item.label === "Family Care" ? (
+                            item.value
+                          ) : (
+                            <FlipBoardTime value={item.value} delay={index * 1350} />
+                          )}
+                        </div>
                       </div>
+                      <div className="stat-card__detail">{item.detail}</div>
                     </div>
-                    <div className="stat-card__detail">{item.detail}</div>
-                  </div>
+                  ))}
+                </div>
+                <div className="hero__actions" style={{ marginTop: "1.35rem" }}>
+                  <Link href="/resources/church-calendar" className="button button--gold">
+                    View Calendar
+                  </Link>
+                  <Link
+                    href={site.mapHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="button button--light"
+                  >
+                    <CalendarIcon className="icon icon--sm" />
+                    <span>Locate Us</span>
+                  </Link>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div className="welcome-section__marquee-edge">
+          <div className="welcome-logo-marquee" aria-hidden="true">
+            <div className="welcome-logo-marquee__track">
+              <div className="welcome-logo-marquee__set">
+                {[0, 1, 2, 3].map((index) => (
+                  <img
+                    key={`welcome-logo-a-${index}`}
+                    src={withBasePath("/images/emmanuel-church-logo.png")}
+                    alt=""
+                  />
                 ))}
               </div>
-              <div className="hero__actions" style={{ marginTop: "1.35rem" }}>
-                <Link href="/resources/church-calendar" className="button button--gold">
-                  View Calendar
-                </Link>
-                <Link
-                  href={site.mapHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="button button--light"
-                >
-                  <CalendarIcon className="icon icon--sm" />
-                  <span>Locate Us</span>
-                </Link>
+              <div className="welcome-logo-marquee__set">
+                {[0, 1, 2, 3].map((index) => (
+                  <img
+                    key={`welcome-logo-b-${index}`}
+                    src={withBasePath("/images/emmanuel-church-logo.png")}
+                    alt=""
+                  />
+                ))}
               </div>
-            </div>
-          </aside>
-        </div>
-        <div className="welcome-logo-marquee" aria-hidden="true">
-          <div className="welcome-logo-marquee__track">
-            <div className="welcome-logo-marquee__set">
-              {[0, 1, 2, 3].map((index) => (
-                <img
-                  key={`welcome-logo-a-${index}`}
-                  src={withBasePath("/images/emmanuel-church-logo.png")}
-                  alt=""
-                />
-              ))}
-            </div>
-            <div className="welcome-logo-marquee__set">
-              {[0, 1, 2, 3].map((index) => (
-                <img
-                  key={`welcome-logo-b-${index}`}
-                  src={withBasePath("/images/emmanuel-church-logo.png")}
-                  alt=""
-                />
-              ))}
             </div>
           </div>
         </div>

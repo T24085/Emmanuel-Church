@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons";
+import { GivingJourneyModal } from "@/components/giving-journey-modal";
 import { SectionShell } from "@/components/section";
 import { ScriptureModal } from "@/components/scripture-modal";
 import { givingPrinciples } from "@/data/giving";
@@ -47,16 +48,7 @@ export const metadata = {
 export default function OnlineGivingPage() {
   return (
     <>
-      <a
-        className="giving-fab"
-        href={site.givingHref}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Start Your Journey Now (opens in a new tab)"
-      >
-        <span>Start Your Journey Now</span>
-        <ArrowRightIcon className="icon icon--xs" />
-      </a>
+      <GivingJourneyModal className="giving-fab" />
 
       <SectionShell className="section-shell--giving">
         <section className="giving-hero" aria-labelledby="giving-hero-title">
@@ -83,24 +75,28 @@ export default function OnlineGivingPage() {
                 <a className="button button--gold" href={site.givingHref} target="_blank" rel="noreferrer">
                   Give Now
                 </a>
-                <Link className="button button--light" href="/contact">
+                <Link className="button button--light" href="#giving-faq">
                   <span>Need help?</span>
                 </Link>
+                <GivingJourneyModal className="button button--journey" />
               </div>
             </div>
           </div>
         </section>
         <div className="site-shell giving-foundation-shell">
           <section className="giving-foundation" aria-labelledby="giving-foundation-title">
-            <div className="giving-foundation__heading">
-              <p className="eyebrow">Why we give</p>
-              <h2 id="giving-foundation-title">Generosity is Worship in Motion.</h2>
-              <p>
-                We do not give because God needs something from us. We give because God is
-                accomplishing something through us and within us. As we faithfully steward all He
-                has entrusted to us, our worship deepens, our hearts are transformed, and His
-                Kingdom advances.
-              </p>
+            <div className="giving-foundation__heading-row">
+              <div className="giving-foundation__heading">
+                <p className="eyebrow">Why we give</p>
+                <h2 id="giving-foundation-title">Generosity is Worship in Motion.</h2>
+                <p>
+                  We do not give because God needs something from us. We give because God is
+                  accomplishing something through us and within us. As we faithfully steward all He
+                  has entrusted to us, our worship deepens, our hearts are transformed, and His
+                  Kingdom advances.
+                </p>
+              </div>
+              <GivingJourneyModal className="giving-journey-trigger giving-journey-trigger--foundation" />
             </div>
 
             <ol className="giving-foundation__list">
@@ -123,7 +119,7 @@ export default function OnlineGivingPage() {
             </p>
           </section>
         </div>
-        <section className="giving-faq site-shell" aria-labelledby="giving-faq-title">
+        <section id="giving-faq" className="giving-faq site-shell" aria-labelledby="giving-faq-title">
           <div className="giving-faq__heading">
             <p className="eyebrow">Questions?</p>
             <h2 id="giving-faq-title">A few helpful answers.</h2>
@@ -131,6 +127,9 @@ export default function OnlineGivingPage() {
               Find quick answers about online giving, recurring gifts, processing fees, and getting
               support.
             </p>
+            <Link className="giving-faq__contact-link" href="/contact">
+              Still need help? Contact the church <ArrowRightIcon className="icon icon--xs" />
+            </Link>
           </div>
           <div className="giving-faq__list">
             {givingFaq.map((item, index) => (

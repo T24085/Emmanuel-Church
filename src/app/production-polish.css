@@ -541,3 +541,111 @@ main:focus { outline: none; }
   .hero__sermon-frame { display: none; }
   html { scroll-behavior: auto; }
 }
+
+/* Treat the welcome section as a full-bleed image moment while keeping its existing content rhythm. */
+.welcome-section {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: #fff;
+  isolation: isolate;
+}
+.welcome-section > .site-shell {
+  position: relative;
+  width: 100%;
+  max-width: none;
+}
+.welcome-section__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.welcome-section__background {
+  object-fit: cover;
+  object-position: center 48%;
+}
+.welcome-section__backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 27, 35, 0.58) 0%, rgba(15, 27, 35, 0.42) 42%, rgba(15, 27, 35, 0.82) 100%),
+    linear-gradient(90deg, rgba(15, 27, 35, 0.4) 0%, rgba(15, 27, 35, 0.08) 62%, rgba(15, 27, 35, 0.28) 100%);
+}
+.welcome-section__inner {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-top: clamp(4.5rem, 7vw, 7rem);
+}
+.welcome-section .section-heading__description {
+  color: rgba(255, 253, 249, 0.82);
+}
+.welcome-section .section-heading__action {
+  color: rgba(255, 253, 249, 0.96);
+  border-bottom-color: rgba(255, 253, 249, 0.42);
+}
+.welcome-section__grid {
+  position: relative;
+  z-index: 1;
+}
+.welcome-section__rhythm-panel {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.welcome-section__weekly-panel {
+  background: rgba(255, 253, 249, 0.9);
+  box-shadow: 0 24px 60px rgba(10, 19, 24, 0.18);
+  backdrop-filter: blur(8px);
+  transform: translateY(-1rem);
+}
+.motion-ready .welcome-section__weekly-panel.is-visible {
+  transform: translateY(-1rem);
+}
+.welcome-section__marquee-edge {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.welcome-section__marquee-edge .welcome-logo-marquee {
+  margin-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  background: rgba(255, 253, 249, 0.92);
+}
+@media (max-width: 768px) {
+  .welcome-section__inner {
+    width: min(1180px, calc(100% - 1.2rem));
+    padding-top: 4rem;
+  }
+  .welcome-section .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .welcome-section .split-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+  .welcome-section__rhythm-panel {
+    min-height: 25rem;
+  }
+  .welcome-section__weekly-panel {
+    min-height: 0;
+    transform: translateY(-0.6rem);
+  }
+  .motion-ready .welcome-section__weekly-panel.is-visible {
+    transform: translateY(-0.6rem);
+  }
+  .welcome-section__rhythm-panel .split-panel__content {
+    padding: 1.5rem;
+  }
+  .welcome-section__weekly-panel .split-panel__content {
+    min-height: auto;
+    padding: 1.35rem;
+  }
+}

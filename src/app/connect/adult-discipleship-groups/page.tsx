@@ -11,8 +11,8 @@ const avenueCards = [
     eyebrow: "Relationships, discipleship, leadership",
     description:
       "Life Groups are 6-12 people who are doing the Christian life together in three areas: Relationships, Discipleship, and Leadership. The goal is to build relationships, encourage one another, serve, and grow in obedience and maturity through Bible study and prayer. Simply put, they live LIFE together.",
-    image: "/images/adult-discipleship/life-groups.jpg",
-    imageAlt: "Life Groups discipleship image",
+    image: "/images/adult-discipleship/life-groups-new.png",
+    imageAlt: "Life Groups gathered for Bible study and community",
     points: ["Gathering", "Regularly", "Offering", "Understanding and Prayer"],
   },
   {
@@ -20,8 +20,8 @@ const avenueCards = [
     eyebrow: "Accountability and growth",
     description:
       "Triads are three people (all men or all women) who meet together weekly, monthly, or as scheduled to hold each other accountable for spiritual growth and transformation. The goal is to develop transparent trust in each other around the truth of God's Word.",
-    image: "/images/adult-discipleship/triads.jpg",
-    imageAlt: "Triads discipleship image",
+    image: "/images/adult-discipleship/triads-new.png",
+    imageAlt: "Triads meeting together for prayer and spiritual growth",
     points: ["Transparent trust", "Spiritual growth", "Shared accountability"],
   },
   {
@@ -29,8 +29,8 @@ const avenueCards = [
     eyebrow: "Marriage journey",
     description:
       "Couples Connect is a discipleship connection between a young or newly-married couple and an older, more experienced married couple, for the purpose of encouragement and spiritual growth in the marriage journey.",
-    image: "/images/adult-discipleship/couples-connect.png",
-    imageAlt: "Couples Connect discipleship image",
+    image: "/images/adult-discipleship/couples-connect-new.png",
+    imageAlt: "A married couple connecting with others in Christian community",
     points: ["Young or newly-married couples", "Older, experienced couples", "Encouragement and growth"],
   },
 ];
@@ -135,8 +135,8 @@ export default function AdultDiscipleshipGroupsPage() {
 
           <figure className="adult-discipleship-intro__media">
             <Image
-              src={withBasePath("/images/adult-discipleship/intro-hero.jpg")}
-              alt="Adult discipleship groups at Emmanuel Church"
+              src={withBasePath("/images/adult-discipleship/discipleship-new.png")}
+              alt="Adults gathered around Scripture for discipleship"
               fill
               sizes="(max-width: 900px) 100vw, 38vw"
               className="cover-image"

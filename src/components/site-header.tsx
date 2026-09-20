@@ -10,10 +10,8 @@ import { ArrowRightIcon, CloseIcon, MenuIcon } from "./icons";
 
 function isActive(pathname: string, href: string) {
   pathname = pathname.replace(/\/$/, "") || "/";
-  if (href === "/resources") {
-    return pathname === href || ["bulletin", "weekly-sermon-study-guides", "online-forms", "spiritual-gifts-serve-booklet"].some(
-      (section) => pathname === `/resources/${section}`,
-    );
+  if (href === "/resources" || href === "/resources/bulletin") {
+    return pathname === "/resources" || pathname.startsWith("/resources/");
   }
   if (href === "/") {
     return pathname === href;
