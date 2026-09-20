@@ -282,7 +282,7 @@ export default async function HomePage() {
             />
           ))}
         </div>
-        <div className="inline-banner">
+        <div className="inline-banner inline-banner--mission">
           <div className="inline-banner__inner">
             <div className="inline-banner__copy">
               <p className="eyebrow">Know. Grow. Send.</p>

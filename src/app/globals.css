@@ -533,6 +533,8 @@ select {
 }
 
 .button {
+  appearance: none;
+  border: 1px solid transparent;
   border-radius: 999px;
   padding: 0.95rem 1.4rem;
   font-size: 0.95rem;
@@ -1292,7 +1294,8 @@ select {
 .homepage-welcome__schedule {
   position: absolute;
   right: clamp(1rem, 5vw, 5rem);
-  bottom: clamp(1rem, 4vw, 4rem);
+  top: clamp(7rem, 8.5vw, 8rem);
+  bottom: auto;
   left: auto;
   z-index: 2;
   display: grid;
@@ -1366,6 +1369,7 @@ select {
 
   .homepage-welcome__schedule {
     right: 1rem;
+    top: auto;
     bottom: 1rem;
     left: 1rem;
     width: auto;
@@ -1419,6 +1423,7 @@ select {
 
   .homepage-welcome__schedule {
     right: 0.65rem;
+    top: auto;
     bottom: 0.65rem;
     left: 0.65rem;
     padding: 0.8rem;
@@ -4239,10 +4244,11 @@ select {
 }
 
 .giving-journey-track__arrow {
-  fill: rgba(75, 61, 143, 0.92);
+  fill: none;
   stroke: #f49a2a;
+  stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 4;
+  stroke-width: 7;
   opacity: 0.96;
   animation: giving-journey-arrow-pulse 3.8s ease-in-out infinite;
 }
@@ -4260,7 +4266,7 @@ select {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(0.7rem, 1.3vw, 1.3rem);
   margin: 0;
-  padding: 14rem 0 1.5rem;
+  padding: 13rem 0 1.5rem;
   list-style: none;
 }
 
@@ -4785,6 +4791,10 @@ select {
   background: #132832;
   color: #fff;
   box-shadow: var(--shadow);
+}
+
+.inline-banner--mission {
+  min-height: clamp(36rem, 56.25vw, 54rem);
 }
 
 .inline-banner::after {
@@ -6558,6 +6568,38 @@ html.motion-ready .our-staff-page .staff-card {
   min-height: 0;
 }
 
+.momentum-contact-card--pastor {
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.momentum-contact-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #10222b;
+}
+
+.momentum-contact-card__image {
+  object-fit: cover;
+  object-position: center 42%;
+  transition: transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 480ms ease;
+}
+
+.momentum-contact-card__content {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.2rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .momentum-contact-card--pastor:hover .momentum-contact-card__image {
+    filter: saturate(1.05);
+    transform: scale(1.035);
+  }
+}
+
 .momentum-link-card {
   min-height: 0;
 }
@@ -6568,41 +6610,45 @@ html.motion-ready .our-staff-page .staff-card {
 }
 
 .momentum-gallery {
-  margin-top: 1rem;
+  width: 100vw;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-left: calc(50% - 50vw);
   display: grid;
-  grid-template-columns: 1.45fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  overflow: hidden;
 }
 
 .momentum-gallery__item {
+  position: relative;
+  aspect-ratio: 1;
+  min-width: 0;
   min-height: 0;
-  padding: 1rem;
-}
-
-.momentum-gallery__item--wide {
-  grid-column: span 2;
-}
-
-.momentum-gallery__item--portrait .momentum-gallery__media {
-  aspect-ratio: 4 / 5;
-}
-
-.momentum-gallery__item--landscape .momentum-gallery__media {
-  aspect-ratio: 16 / 10;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #10222b;
+  box-shadow: none;
 }
 
 .momentum-gallery__media {
-  position: relative;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  border-radius: 22px;
-  background:
-    radial-gradient(circle at top right, rgba(210, 154, 65, 0.16), transparent 30%),
-    rgba(16, 22, 29, 0.08);
 }
 
 .momentum-gallery__image {
   object-fit: cover;
+  transition: transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 480ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .momentum-gallery__item:hover .momentum-gallery__image {
+    filter: saturate(1.06);
+    transform: scale(1.045);
+  }
 }
 
 .momentum-fab {
@@ -7422,7 +7468,6 @@ html.motion-ready .our-staff-page .staff-card {
     .kids-vbs__grid,
     .kids-vbs-gallery__intro,
     .contact-map,
-    .momentum-gallery,
     .preschool-gallery,
     .content-grid,
     .sermon-player {
@@ -7441,6 +7486,10 @@ html.motion-ready .our-staff-page .staff-card {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .momentum-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .contact-welcome {
     grid-template-columns: 1fr;
   }
@@ -7448,10 +7497,6 @@ html.motion-ready .our-staff-page .staff-card {
   .contact-welcome__stack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: 1fr;
-  }
-
-  .momentum-gallery__item--wide {
-    grid-column: span 1;
   }
 
   .card-grid__item,
@@ -7773,6 +7818,10 @@ html.motion-ready .our-staff-page .staff-card {
 
   .preschool-gallery__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .momentum-gallery {
+    grid-template-columns: 1fr;
   }
 
   .contact-welcome__feature {

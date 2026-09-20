@@ -130,11 +130,11 @@ export function GivingJourneyModal({ className }: GivingJourneyModalProps) {
                       <path d="M900 54 C900 154 900 280 900 390" />
                     </g>
                     <g className="giving-journey-track__arrows">
-                      <path className="giving-journey-track__arrow" d="M-16-12 14 0-16 12-7 0Z" transform="translate(100 392) rotate(90) scale(.62)" />
-                      <path className="giving-journey-track__arrow" d="M-16-12 14 0-16 12-7 0Z" transform="translate(300 392) rotate(90) scale(.78)" />
-                      <path className="giving-journey-track__arrow" d="M-16-12 14 0-16 12-7 0Z" transform="translate(500 392) rotate(90) scale(.96)" />
-                      <path className="giving-journey-track__arrow" d="M-16-12 14 0-16 12-7 0Z" transform="translate(700 392) rotate(90) scale(1.14)" />
-                      <path className="giving-journey-track__arrow" d="M-16-12 14 0-16 12-7 0Z" transform="translate(900 392) rotate(90) scale(1.34)" />
+                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(100 392) scale(.62)" />
+                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(300 392) scale(.78)" />
+                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(500 392) scale(.96)" />
+                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(700 392) scale(1.14)" />
+                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(900 392) scale(1.34)" />
                     </g>
                   </svg>
                   <ol className="giving-journey-track__stages">

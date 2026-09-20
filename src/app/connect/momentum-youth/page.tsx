@@ -83,22 +83,18 @@ const momentumGallery = [
   {
     src: extremeEncountersGroup,
     alt: "Extreme Encounters camp group photo",
-    className: "momentum-gallery__item--wide",
   },
   {
     src: extremeEncountersReading,
     alt: "Students reading together under a tree at camp",
-    className: "momentum-gallery__item--portrait",
   },
   {
     src: extremeEncountersCabin,
     alt: "Cabin building at Extreme Encounters",
-    className: "momentum-gallery__item--landscape",
   },
   {
     src: extremeEncountersSunset,
     alt: "Students gathered at sunset during camp",
-    className: "momentum-gallery__item--wide",
   },
 ];
 
@@ -224,13 +220,13 @@ export default function MomentumYouthPage() {
 
         <div className="momentum-gallery">
           {momentumGallery.map((image) => (
-            <article key={image.alt} className={`surface-card momentum-gallery__item ${image.className}`}>
+            <article key={image.alt} className="surface-card momentum-gallery__item">
               <div className="momentum-gallery__media">
                 <Image
                   src={withBasePath(image.src)}
                   alt={image.alt}
                   fill
-                  sizes="(max-width: 1080px) 100vw, 50vw"
+                  sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 25vw"
                   className="momentum-gallery__image"
                 />
               </div>
@@ -247,14 +243,25 @@ export default function MomentumYouthPage() {
         />
 
         <div className="resource-grid">
-          <article className="resource-card momentum-contact-card">
-            <p className="eyebrow eyebrow--small">Pastor</p>
-            <h3>Shawn Ammons</h3>
-            <p>Youth pastor for Momentum Youth.</p>
-            <a className="resource-card__action" href={shawnCellHref}>
-              <PhoneIcon className="icon icon--xs" />
-              <span>Cell {shawnCell}</span>
-            </a>
+          <article className="resource-card momentum-contact-card momentum-contact-card--pastor">
+            <div className="momentum-contact-card__media">
+              <Image
+                src={withBasePath("/staff/Shawn-Ammons-Youth-Pastor.png")}
+                alt="Pastor Shawn Ammons"
+                fill
+                sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 33vw"
+                className="momentum-contact-card__image"
+              />
+            </div>
+            <div className="momentum-contact-card__content">
+              <p className="eyebrow eyebrow--small">Pastor</p>
+              <h3>Shawn Ammons</h3>
+              <p>Youth pastor for Momentum Youth.</p>
+              <a className="resource-card__action" href={shawnCellHref}>
+                <PhoneIcon className="icon icon--xs" />
+                <span>Cell {shawnCell}</span>
+              </a>
+            </div>
           </article>
           <article className="resource-card momentum-contact-card">
             <p className="eyebrow eyebrow--small">Email</p>
