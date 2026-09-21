@@ -122,19 +122,12 @@ export function GivingJourneyModal({ className }: GivingJourneyModalProps) {
                       className="giving-journey-track__path-flow"
                       d="M30 155 C90 42 150 46 220 135 S325 240 390 110 S510 24 590 122 S710 240 790 86 S905 24 970 95"
                     />
-                    <g className="giving-journey-track__drop-lines">
-                      <path d="M100 82 C100 160 100 258 100 390" />
-                      <path d="M300 190 C300 244 300 308 300 390" />
-                      <path d="M500 67 C500 164 500 278 500 390" />
-                      <path d="M700 182 C700 248 700 314 700 390" />
-                      <path d="M900 54 C900 154 900 280 900 390" />
-                    </g>
                     <g className="giving-journey-track__arrows">
-                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(100 392) scale(.62)" />
-                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(300 392) scale(.78)" />
-                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(500 392) scale(.96)" />
-                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(700 392) scale(1.14)" />
-                      <path className="giving-journey-track__arrow" d="M-18-13 0 15 18-13" transform="translate(900 392) scale(1.34)" />
+                      <path className="giving-journey-track__path-arrow" d="M-22-18 0 0-22 18" transform="translate(166 91) rotate(24) scale(0.82)" />
+                      <path className="giving-journey-track__path-arrow" d="M-22-18 0 0-22 18" transform="translate(288 205) rotate(36) scale(0.94)" />
+                      <path className="giving-journey-track__path-arrow" d="M-22-18 0 0-22 18" transform="translate(542 77) rotate(34) scale(1.06)" />
+                      <path className="giving-journey-track__path-arrow" d="M-22-18 0 0-22 18" transform="translate(688 205) rotate(36) scale(1.18)" />
+                      <path className="giving-journey-track__path-arrow" d="M-22-18 0 0-22 18" transform="translate(918 51) rotate(28) scale(1.3)" />
                     </g>
                   </svg>
                   <ol className="giving-journey-track__stages">

@@ -4213,7 +4213,7 @@ select {
   right: 0;
   left: 0;
   width: 100%;
-  height: 22rem;
+  height: 19rem;
   overflow: visible;
   pointer-events: none;
 }
@@ -4235,29 +4235,20 @@ select {
   animation: giving-journey-path-flow 15s linear infinite;
 }
 
-.giving-journey-track__drop-lines {
-  fill: none;
-  stroke: rgba(244, 154, 42, 0.78);
-  stroke-linecap: round;
-  stroke-dasharray: 8 14;
-  stroke-width: 7;
-}
-
-.giving-journey-track__arrow {
+.giving-journey-track__path-arrow {
   fill: none;
   stroke: #f49a2a;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 7;
+  stroke-width: 8;
   opacity: 0.96;
   animation: giving-journey-arrow-pulse 3.8s ease-in-out infinite;
 }
 
-.giving-journey-track__arrow:nth-child(2) { animation-delay: 260ms; }
-.giving-journey-track__arrow:nth-child(3) { animation-delay: 520ms; }
-.giving-journey-track__arrow:nth-child(4) { animation-delay: 780ms; }
-.giving-journey-track__arrow:nth-child(5) { animation-delay: 1040ms; }
-.giving-journey-track__arrow:nth-child(6) { animation-delay: 1300ms; }
+.giving-journey-track__path-arrow:nth-child(2) { animation-delay: 260ms; }
+.giving-journey-track__path-arrow:nth-child(3) { animation-delay: 520ms; }
+.giving-journey-track__path-arrow:nth-child(4) { animation-delay: 780ms; }
+.giving-journey-track__path-arrow:nth-child(5) { animation-delay: 1040ms; }
 
 .giving-journey-track__stages {
   position: relative;
@@ -4266,12 +4257,13 @@ select {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(0.7rem, 1.3vw, 1.3rem);
   margin: 0;
-  padding: 13rem 0 1.5rem;
+  padding: 11.5rem 0 1.5rem;
   list-style: none;
 }
 
 .giving-journey-stage {
   min-width: 0;
+  padding-top: calc(var(--stage-index) * 0.45rem);
   animation: giving-journey-stage-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: calc(var(--stage-index) * 110ms + 180ms);
 }
@@ -4282,14 +4274,6 @@ select {
   min-height: 7rem;
   padding: 0 0.35rem 1rem;
   text-align: center;
-}
-
-.giving-journey-stage:nth-child(odd) .giving-journey-stage__label {
-  transform: translateY(0.6rem);
-}
-
-.giving-journey-stage:nth-child(even) .giving-journey-stage__label {
-  transform: translateY(-0.2rem);
 }
 
 .giving-journey-stage__number {
@@ -7357,7 +7341,7 @@ html.motion-ready .our-staff-page .staff-card {
   .giving-journey-modal__dialog::after,
   .giving-journey-modal__orbit span,
   .giving-journey-track__path-flow,
-  .giving-journey-track__arrow,
+  .giving-journey-track__path-arrow,
   .giving-journey-stage,
   .giving-journey-stage h4 {
     animation: none;
