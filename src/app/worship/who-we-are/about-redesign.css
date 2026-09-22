@@ -1,0 +1,711 @@
+.about-container {
+  width: min(100% - clamp(2.5rem, 8vw, 9rem), 1440px);
+  margin-inline: auto;
+}
+
+.about-hero {
+  position: relative;
+  isolation: isolate;
+  background: #f8f2e8;
+}
+
+.about-hero__photo {
+  position: relative;
+  height: clamp(32rem, 58vw, 48rem);
+  background: #27383b;
+}
+
+.about-hero__photo::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(16, 35, 40, 0.22), transparent 62%);
+}
+
+.about-hero__photo img,
+.about-mission__photo img,
+.about-life__feature-photo img,
+.about-life__pair-photo img {
+  object-fit: cover;
+}
+
+.about-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: min(42rem, calc(100% - 3rem));
+  margin: -16rem 0 0 max(clamp(1.5rem, 5vw, 7rem), calc((100vw - 1440px) / 2));
+  padding: clamp(2.25rem, 4.3vw, 4.25rem);
+  border-left: 4px solid var(--gold);
+  background: #fffaf2;
+}
+
+.about-hero__copy .eyebrow,
+.about-mission__copy .eyebrow,
+.about-values__heading .eyebrow,
+.about-doctrine__intro .eyebrow {
+  color: var(--gold-dark);
+}
+
+.about-hero h1,
+.about-mission h2,
+.about-life h2,
+.about-values h2,
+.about-doctrine h2 {
+  margin: 0.6rem 0 1.2rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.about-hero h1 {
+  max-width: 11ch;
+  font-size: clamp(3.35rem, 5.7vw, 6.1rem);
+}
+
+.about-hero__intro {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.about-hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.8rem;
+  margin-top: 2rem;
+}
+
+.about-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-block: 0.4rem;
+  border-bottom: 1px solid rgba(8, 119, 125, 0.45);
+  color: #12656a;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.about-text-link:is(:hover, :focus-visible) {
+  color: #083f45;
+  border-color: currentColor;
+}
+
+.about-mission {
+  padding-block: clamp(5rem, 9vw, 10rem);
+  background: #f8f2e8;
+}
+
+.about-mission__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 9rem);
+}
+
+.about-mission__copy {
+  max-width: 39rem;
+}
+
+.about-mission h2 {
+  font-size: clamp(3.7rem, 6vw, 7rem);
+}
+
+.about-mission h2 em {
+  color: #126c70;
+  font-weight: 500;
+}
+
+.about-mission__copy > p:last-child {
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.8;
+}
+
+.about-mission__figure,
+.about-life figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.about-mission__photo {
+  position: relative;
+  min-height: clamp(27rem, 38vw, 38rem);
+  background: #d8cbb5;
+}
+
+.about-mission figcaption {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-life {
+  padding-block: clamp(5rem, 8vw, 9rem);
+  background: #17313a;
+  color: #fff9ef;
+}
+
+.about-life__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: end;
+  gap: 1rem 4rem;
+  margin-bottom: clamp(2.5rem, 5vw, 5rem);
+}
+
+.about-life__heading .eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+  color: #e0b474;
+}
+
+.about-life h2 {
+  max-width: 14ch;
+  margin: 0;
+  color: #fff9ef;
+  font-size: clamp(3.5rem, 5.4vw, 6rem);
+}
+
+.about-life__heading > p:last-child {
+  max-width: 32rem;
+  margin: 0 0 0.5rem;
+  color: rgba(255, 249, 239, 0.78);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.about-life__feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.72fr);
+  background: #f3eadd;
+  color: var(--text);
+}
+
+.about-life__feature-photo {
+  position: relative;
+  min-height: clamp(26rem, 41vw, 39rem);
+  background: #63594b;
+}
+
+.about-life__feature figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 4vw, 4rem);
+}
+
+.about-life__feature .eyebrow {
+  color: var(--gold-dark);
+}
+
+.about-life__feature strong,
+.about-life__pair strong {
+  display: block;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.35rem, 3.2vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.about-life__feature figcaption p {
+  max-width: 23rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.about-life__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin-top: clamp(3rem, 6vw, 6rem);
+}
+
+.about-life__pair-photo {
+  position: relative;
+  aspect-ratio: 1.4;
+  background: #6d6b60;
+}
+
+.about-life__pair figcaption {
+  padding-block: 1.3rem;
+}
+
+.about-life__pair .eyebrow {
+  color: #e0b474;
+}
+
+.about-life__pair strong {
+  max-width: 15ch;
+  font-size: clamp(2.1rem, 3vw, 3.25rem);
+}
+
+.about-values {
+  padding-block: clamp(5rem, 9vw, 10rem);
+  background: #fffaf3;
+}
+
+.about-values__heading {
+  max-width: 48rem;
+  margin-bottom: 3rem;
+}
+
+.about-values h2,
+.about-doctrine h2 {
+  font-size: clamp(3.3rem, 5vw, 5.8rem);
+}
+
+.about-values__heading > p:last-child,
+.about-doctrine__intro > p:last-child {
+  max-width: 39rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.3vw, 1.17rem);
+  line-height: 1.7;
+}
+
+.about-values__overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(24, 33, 43, 0.17);
+  border-bottom: 1px solid rgba(24, 33, 43, 0.17);
+}
+
+.about-values__card {
+  min-width: 0;
+  padding: 1.3rem;
+}
+
+.about-values__card + .about-values__card {
+  border-left: 1px solid rgba(24, 33, 43, 0.12);
+}
+
+.about-values__art {
+  position: relative;
+  aspect-ratio: 1.2;
+  background: #f3eee3;
+}
+
+.about-values__art img {
+  object-fit: contain;
+}
+
+.about-values__card-copy {
+  padding: 1.3rem 0 0.8rem;
+}
+
+.about-values__number {
+  color: #926531;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.about-values__card h3 {
+  margin: 0.35rem 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.35rem, 3vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.about-values__card p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.about-values__reading {
+  width: min(100%, 58rem);
+  margin: clamp(4rem, 7vw, 7rem) auto 0;
+}
+
+.about-values__reading > .eyebrow {
+  color: var(--gold-dark);
+}
+
+.about-values__detail {
+  border-top: 1px solid rgba(24, 33, 43, 0.18);
+}
+
+.about-values__detail:last-child {
+  border-bottom: 1px solid rgba(24, 33, 43, 0.18);
+}
+
+.about-values__detail summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.about-values__detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-values__detail summary span:first-child {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-weight: 600;
+}
+
+.about-values__read-label {
+  color: #12656a;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.about-values__detail[open] .about-values__read-label {
+  color: var(--gold-dark);
+}
+
+.about-values__detail-copy {
+  max-width: 72ch;
+  padding: 0 0 2rem;
+}
+
+.about-values__detail-copy h3 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+  font-weight: 600;
+}
+
+.about-values__detail-copy p {
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+.about-values__references {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.about-doctrine {
+  padding-block: clamp(5rem, 8vw, 9rem);
+  background: #ece5da;
+}
+
+.about-doctrine__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.about-doctrine__intro h2 {
+  max-width: 12ch;
+}
+
+.about-doctrine__panel {
+  min-width: 0;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.about-doctrine__panel > summary {
+  padding: 1.5rem 1.8rem;
+  background: #fffaf3;
+}
+
+.about-doctrine__panel .doctrines-panel__content {
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.about-doctrine__panel .doctrines-panel__content article {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.about-doctrine__panel .doctrines-panel__copy h2 {
+  max-width: 28ch;
+  margin: 2.5rem 0 0.65rem;
+  color: #17464b;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.about-doctrine__panel .doctrines-panel__copy p,
+.about-doctrine__panel .doctrines-panel__copy li {
+  max-width: 70ch;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.about-doctrine__panel .doctrines-panel__copy ul,
+.about-doctrine__panel .doctrines-panel__copy ol {
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+  .about-mission__grid {
+    gap: 3rem;
+  }
+
+  .about-life__heading {
+    grid-template-columns: 1fr;
+  }
+
+  .about-life__heading .eyebrow {
+    grid-column: auto;
+  }
+
+  .about-values__overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-values__card:nth-child(3) {
+    border-left: 0;
+  }
+
+  .about-values__card:nth-child(n + 3) {
+    border-top: 1px solid rgba(24, 33, 43, 0.12);
+  }
+
+  .about-doctrine__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-doctrine__intro h2 {
+    max-width: 18ch;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-hero__photo {
+    height: clamp(19rem, 70vw, 30rem);
+  }
+
+  .about-hero__copy {
+    width: 100%;
+    margin: 0;
+    border-left: 0;
+    border-top: 3px solid var(--gold);
+  }
+
+  .about-hero h1 {
+    font-size: clamp(3.1rem, 12vw, 5rem);
+  }
+
+  .about-mission__grid,
+  .about-life__feature {
+    grid-template-columns: 1fr;
+  }
+
+  .about-mission__photo {
+    min-height: 26rem;
+  }
+
+  .about-life__feature-photo {
+    min-height: 25rem;
+  }
+
+  .about-life__feature figcaption {
+    padding-block: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-container {
+    width: min(100% - 2rem, 1440px);
+  }
+
+  .about-mission h2 {
+    font-size: clamp(3.2rem, 13vw, 5rem);
+  }
+
+  .about-life__pair,
+  .about-values__overview {
+    grid-template-columns: 1fr;
+  }
+
+  .about-values__card {
+    padding: 1.1rem 0;
+  }
+
+  .about-values__card + .about-values__card {
+    border-left: 0;
+    border-top: 1px solid rgba(24, 33, 43, 0.12);
+  }
+
+  .about-values__art {
+    aspect-ratio: 1.5;
+  }
+
+  .about-values__detail summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .about-doctrine__panel > summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* The page remains fully legible without JavaScript. These one-time reveals
+   only run after MotionShell observes each editorial beat. */
+.about-motion {
+  --about-travel: 18px;
+}
+
+@keyframes about-rise {
+  from { opacity: 0.62; translate: 0 var(--about-travel); }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes about-soft-rise {
+  from { opacity: 0.65; translate: 0 var(--about-travel); }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes about-photo-settle {
+  from { opacity: 0.65; scale: 1.045; }
+  to { opacity: 1; scale: 1; }
+}
+
+@keyframes about-photo-unveil {
+  from { opacity: 0.55; clip-path: inset(0 24% 0 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.motion-ready .about-hero.is-visible .about-hero__photo img {
+  animation: about-photo-settle 1450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-hero.is-visible .about-hero__copy {
+  animation: about-soft-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-hero h1 span {
+  display: block;
+}
+
+.motion-ready .about-hero.is-visible .about-hero__copy .eyebrow,
+.motion-ready .about-hero.is-visible .about-hero__copy h1 span,
+.motion-ready .about-hero.is-visible .about-hero__intro,
+.motion-ready .about-hero.is-visible .about-hero__links {
+  animation: about-rise 750ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-hero.is-visible .about-hero__copy .eyebrow { animation-delay: 40ms; }
+.motion-ready .about-hero.is-visible .about-hero__copy h1 span:nth-child(1) { animation-delay: 100ms; }
+.motion-ready .about-hero.is-visible .about-hero__copy h1 span:nth-child(2) { animation-delay: 170ms; }
+.motion-ready .about-hero.is-visible .about-hero__copy h1 span:nth-child(3) { animation-delay: 240ms; }
+.motion-ready .about-hero.is-visible .about-hero__intro { animation-delay: 320ms; }
+.motion-ready .about-hero.is-visible .about-hero__links { animation-delay: 400ms; }
+
+.motion-ready .about-mission__copy.is-visible .eyebrow,
+.motion-ready .about-mission__copy.is-visible h2,
+.motion-ready .about-mission__copy.is-visible > p:last-child,
+.motion-ready .about-life__heading.is-visible .eyebrow,
+.motion-ready .about-life__heading.is-visible h2,
+.motion-ready .about-life__heading.is-visible > p:last-child,
+.motion-ready .about-values__heading.is-visible .eyebrow,
+.motion-ready .about-values__heading.is-visible h2,
+.motion-ready .about-values__heading.is-visible > p:last-child {
+  animation: about-rise 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-mission__copy.is-visible h2,
+.motion-ready .about-life__heading.is-visible h2,
+.motion-ready .about-values__heading.is-visible h2 { animation-delay: 110ms; }
+
+.motion-ready .about-mission__copy.is-visible > p:last-child,
+.motion-ready .about-life__heading.is-visible > p:last-child,
+.motion-ready .about-values__heading.is-visible > p:last-child { animation-delay: 230ms; }
+
+.motion-ready .about-mission__figure.is-visible .about-mission__photo {
+  animation: about-photo-unveil 1050ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-mission__figure.is-visible figcaption {
+  animation: about-soft-rise 650ms 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-life__feature.is-visible .about-life__feature-photo img {
+  animation: about-photo-settle 1350ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-life__feature.is-visible figcaption > * {
+  animation: about-rise 780ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-life__feature.is-visible figcaption > :nth-child(2) { animation-delay: 120ms; }
+.motion-ready .about-life__feature.is-visible figcaption > :nth-child(3) { animation-delay: 240ms; }
+
+.motion-ready .about-life__pair > figure.is-visible,
+.motion-ready .about-values__card.is-visible,
+.motion-ready .about-values__reading.is-visible,
+.motion-ready .about-doctrine__intro.is-visible,
+.motion-ready .about-doctrine__panel.is-visible {
+  animation: about-soft-rise 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .about-life__pair > figure:nth-child(2).is-visible { animation-delay: 140ms; }
+.motion-ready .about-values__card:nth-child(2).is-visible { animation-delay: 90ms; }
+.motion-ready .about-values__card:nth-child(3).is-visible { animation-delay: 180ms; }
+.motion-ready .about-values__card:nth-child(4).is-visible { animation-delay: 270ms; }
+
+.motion-ready .about-values__detail[open] .about-values__detail-copy {
+  animation: about-soft-rise 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-values__read-label {
+  transition: color 250ms ease, translate 250ms ease;
+}
+
+.about-values__detail summary:is(:hover, :focus-visible) .about-values__read-label {
+  translate: 3px 0;
+}
+
+@media (max-width: 760px) {
+  .about-motion { --about-travel: 12px; }
+
+  .motion-ready .about-hero.is-visible .about-hero__photo img {
+    animation-duration: 850ms;
+  }
+
+  .motion-ready .about-mission__figure.is-visible .about-mission__photo {
+    animation-name: about-soft-rise;
+    animation-duration: 650ms;
+  }
+
+  .motion-ready .about-values__card.is-visible {
+    animation-delay: 0ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero *,
+  .about-mission *,
+  .about-life *,
+  .about-values *,
+  .about-doctrine * {
+    animation: none !important;
+    transition: none !important;
+    translate: none !important;
+    scale: none !important;
+    clip-path: none !important;
+    filter: none !important;
+  }
+}

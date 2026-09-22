@@ -38,7 +38,9 @@ export function DoctrineSearch({ html }: DoctrineSearchProps) {
       }
     });
     setMatchCount(matches);
-  }, [html, query]);
+  // React may reconcile the injected HTML after the result-count update.
+  // Reapply visibility on that render so the visible passages match the count.
+  }, [html, query, matchCount]);
 
   return (
     <>

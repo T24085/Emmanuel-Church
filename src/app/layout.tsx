@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 import "./site-overrides.css";
 import "./production-polish.css";
+import "./contact-redesign.css";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],

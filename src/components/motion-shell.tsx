@@ -23,6 +23,8 @@ const revealSelectors = [
   ".giving-foundation__item",
   ".giving-foundation__transition",
   ".mission-word-reveal",
+  ".about-motion",
+  ".contact-motion",
 ].join(", ");
 
 export function MotionShell({ children }: { children: ReactNode }) {
@@ -92,7 +94,9 @@ export function MotionShell({ children }: { children: ReactNode }) {
             // never a prerequisite for reading the page.
             if (!reducedMotion && !entry.target.classList.contains("is-visible") &&
                 !entry.target.classList.contains("site-footer__reveal") &&
-                !entry.target.classList.contains("value-card--flip")) {
+                !entry.target.classList.contains("value-card--flip") &&
+                !entry.target.classList.contains("about-motion") &&
+                !entry.target.classList.contains("contact-motion")) {
               entry.target.animate(
                 [{ opacity: 0.65, translate: "0 16px" }, { opacity: 1, translate: "0 0" }],
                 { duration: 520, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },

@@ -24,7 +24,7 @@ export const site = {
   mapHref:
     "https://www.google.com/maps/place/Emmanuel+Church/@38.9200234,-97.232936,15z/data=!4m5!3m4!1s0x87bcf07e5686bfb7:0x285057d82a83c28f!8m2!3d38.9287299!4d-97.2237321",
   mapEmbedHref:
-    "https://www.google.com/maps?q=Emmanuel%20Church%2C%201300%20N.%20Vine%20Street%2C%20Abilene%2C%20KS%2067410&output=embed",
+    "https://www.google.com/maps?output=embed&q=Emmanuel%20Church%2C%201300%20N.%20Vine%20Street%2C%20Abilene%2C%20KS%2067410",
   facebook: "https://www.facebook.com/ecabilene/",
   onlineChurch: "https://emmanuelchurchabilene.online.church/",
   givingHref: "https://www.fellowshiponegiving.com/App/Giving/ecabilene",

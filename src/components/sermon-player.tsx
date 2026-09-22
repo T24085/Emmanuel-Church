@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import { ArrowRightIcon } from "./icons";
 import { largeMediaThumbnail } from "@/lib/media-thumbnail";
 
@@ -18,103 +17,66 @@ export type SermonPlayerItem = {
   kind?: "video" | "audio";
 };
 
-type SermonPlayerProps = {
-  sermons: SermonPlayerItem[];
-};
-
-export function SermonPlayer({ sermons }: SermonPlayerProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function SermonPlayer({ sermon }: { sermon: SermonPlayerItem }) {
   const [playRequested, setPlayRequested] = useState(false);
-  const active = sermons[activeIndex] ?? sermons[0];
-
-  const hasAudio = Boolean(active?.audioUrl);
-  const activeEmbedSrc = useMemo(() => active?.embedSrc || "", [active]);
-  const getSermonKey = (sermon: SermonPlayerItem, index: number) =>
-    `${sermon.mediaId || "media"}-${sermon.href || "href"}-${index}`;
-
-  if (!active) return <p>No messages are available here yet. Please check back soon.</p>;
+  const hasAudio = Boolean(sermon.audioUrl);
 
   return (
-    <div className="sermon-player">
-      <div className="sermon-player__stage surface-card">
-        <div className="sermon-player__media">
-          {activeEmbedSrc && !playRequested ? (
-            <button type="button" className="sermon-player__poster" onClick={() => setPlayRequested(true)} aria-label={`Play ${active.label}`}>
-              {active.thumbnail ? <img src={largeMediaThumbnail(active.thumbnail) || undefined} alt="" onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} /> : null}
-              <span className="sermon-player__play"><span aria-hidden="true">▶</span> Play message</span>
-            </button>
-          ) : activeEmbedSrc ? (
-            <iframe
-              key={activeEmbedSrc}
-              src={activeEmbedSrc}
-              title={active?.label || "Sermon video"}
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            />
-          ) : hasAudio ? (
-            <div className="sermon-player__audio-wrap">
-              <audio controls src={active?.audioUrl || undefined} />
-              <p className="sermon-player__audio-note">Audio recording for this message.</p>
-            </div>
-          ) : (
-            <div className="sermon-player__fallback">
-              <p className="eyebrow eyebrow--small">Video unavailable</p>
-              <h3>{active?.label}</h3>
-              <p>The original sermon page is still available below.</p>
-              <a className="button button--gold button--small" href={active?.href} target="_blank" rel="noreferrer">
-                <span>Open sermon page</span>
-                <ArrowRightIcon className="icon icon--xs" />
-              </a>
-            </div>
-          )}
-        </div>
+    <div className="sermon-player__stage" data-playing={playRequested}>
+      <div className="sermon-player__media">
+        {sermon.embedSrc && !playRequested ? (
+          <button
+            type="button"
+            className="sermon-player__poster"
+            onClick={() => setPlayRequested(true)}
+            aria-label={`Play ${sermon.label}`}
+          >
+            {sermon.thumbnail ? (
+              <img
+                src={largeMediaThumbnail(sermon.thumbnail) || undefined}
+                alt=""
+                onError={(event) => { event.currentTarget.style.visibility = "hidden"; }}
+              />
+            ) : null}
+            <span className="sermon-player__play"><span aria-hidden="true">▶</span> Play message</span>
+          </button>
+        ) : sermon.embedSrc ? (
+          <iframe
+            src={sermon.embedSrc}
+            title={sermon.label}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        ) : hasAudio ? (
+          <div className="sermon-player__audio-wrap">
+            <audio controls src={sermon.audioUrl || undefined} />
+            <p className="sermon-player__audio-note">Audio recording for this message.</p>
+          </div>
+        ) : (
+          <div className="sermon-player__fallback">
+            <p className="eyebrow eyebrow--small">Video unavailable</p>
+            <h3>{sermon.label}</h3>
+            <p>The original sermon page is still available below.</p>
+            <a className="button button--gold button--small" href={sermon.href} target="_blank" rel="noopener noreferrer">
+              <span>Open sermon page</span>
+              <ArrowRightIcon className="icon icon--xs" />
+            </a>
+          </div>
+        )}
+      </div>
 
+      {sermon.embedSrc ? (
         <div className="sermon-player__meta">
           <div>
-            <p className="eyebrow eyebrow--small">Selected message</p>
-            <h3>{active?.label}</h3>
-            <p>{active?.series || "Emmanuel Church sermon archive"}</p>
+            <h2 aria-live="polite">{sermon.label}</h2>
+            {sermon.date ? <p>{sermon.date}</p> : null}
           </div>
-          <div className="sermon-player__detail">
-            {active?.kind ? <span>{active.kind === "video" ? "Video sermon" : "Audio sermon"}</span> : null}
-            {active?.date ? <span>{active.date}</span> : null}
-            {active?.speaker ? <span>{active.speaker}</span> : null}
-          </div>
-          <div className="sermon-player__actions">
-            <Link className="text-link text-link--secondary" href={active?.href || "#"} target="_blank" rel="noreferrer">
-              <span>Watch on the original site</span>
-              <ArrowRightIcon className="icon icon--xs" />
-            </Link>
-          </div>
+          <a href={sermon.href} target="_blank" rel="noopener noreferrer">
+            <span>Original video</span>
+            <ArrowRightIcon className="icon icon--xs" />
+          </a>
         </div>
-      </div>
-
-      <div className="sermon-player__playlist">
-        {sermons.map((sermon, index) => {
-          const selected = index === activeIndex;
-          return (
-            <button
-              key={getSermonKey(sermon, index)}
-              type="button"
-              className={`sermon-player__item ${selected ? "sermon-player__item--active" : ""}`.trim()}
-              onClick={() => { setActiveIndex(index); setPlayRequested(false); }}
-              aria-pressed={selected}
-            >
-              <div className="sermon-player__thumb">
-                {sermon.thumbnail ? <img src={sermon.thumbnail} alt="" /> : null}
-              </div>
-              <div className="sermon-player__copy">
-                <span className="sermon-player__tag">
-                  {sermon.kind === "video" ? "Video" : "Audio"}
-                </span>
-                <strong>{sermon.label}</strong>
-                <span>{sermon.date || sermon.series || "Emmanuel Church"}</span>
-              </div>
-              <ArrowRightIcon className="icon icon--sm" />
-            </button>
-          );
-        })}
-      </div>
+      ) : null}
     </div>
   );
 }
