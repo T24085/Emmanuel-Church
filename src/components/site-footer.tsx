@@ -6,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-shell site-footer__inner">
-        <div className="site-footer__brand">
+        <div className="site-footer__brand site-footer__reveal site-footer__reveal--left">
           <p className="eyebrow">Emmanuel Church</p>
           <h2>Rooted in the Gospel. Present in Abilene.</h2>
           <p>
@@ -17,7 +17,7 @@ export function SiteFooter() {
         </div>
 
         <div className="site-footer__columns">
-          <div>
+          <div className="site-footer__reveal site-footer__reveal--left">
             <h3>Explore</h3>
             <div className="site-footer__links">
               {resourceLinks
@@ -32,7 +32,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div>
+          <div className="site-footer__reveal site-footer__reveal--left">
             <h3>Contact</h3>
             <div className="site-footer__links">
               <a className="site-footer__link" href={`tel:${site.phone.replace(/[^0-9+]/g, "")}`}>
@@ -52,7 +52,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div>
+          <div className="site-footer__reveal site-footer__reveal--left">
             <h3>Stay Connected</h3>
             <div className="site-footer__links">
               {externalLinks.map((item) => (

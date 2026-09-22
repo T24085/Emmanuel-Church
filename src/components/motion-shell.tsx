@@ -17,6 +17,7 @@ const revealSelectors = [
   ".quote-strip",
   ".inline-banner",
   ".link-list__item",
+  ".site-footer__reveal",
   ".giving-foundation__heading",
   ".giving-foundation__list",
   ".giving-foundation__item",
@@ -90,6 +91,7 @@ export function MotionShell({ children }: { children: ReactNode }) {
             // Content stays visible by default; animation is an enhancement,
             // never a prerequisite for reading the page.
             if (!reducedMotion && !entry.target.classList.contains("is-visible") &&
+                !entry.target.classList.contains("site-footer__reveal") &&
                 !entry.target.classList.contains("value-card--flip")) {
               entry.target.animate(
                 [{ opacity: 0.65, translate: "0 16px" }, { opacity: 1, translate: "0 0" }],
