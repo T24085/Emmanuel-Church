@@ -1,4 +1,4 @@
-body:has(.sermons-page) .site-header {
+html:not(.site-scrolled) body:has(.sermons-page) .site-header {
   background: rgba(248, 243, 236, 0.96);
   backdrop-filter: blur(18px);
   border-bottom-color: rgba(24, 33, 43, 0.08);
