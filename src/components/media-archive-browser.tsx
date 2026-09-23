@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type { MediaArchivePage } from "@/lib/media-archive";
+import { archiveMediaThumbnail } from "@/lib/media-thumbnail";
 import { SermonPlayer, type SermonPlayerItem } from "./sermon-player";
 import { ArrowRightIcon } from "./icons";
 
@@ -47,7 +48,7 @@ function VideoCard({
         </span>
         {sermon.thumbnail ? (
           <img
-            src={sermon.thumbnail}
+            src={archiveMediaThumbnail(sermon.thumbnail) || undefined}
             alt=""
             loading="lazy"
             onError={(event) => { event.currentTarget.style.display = "none"; }}

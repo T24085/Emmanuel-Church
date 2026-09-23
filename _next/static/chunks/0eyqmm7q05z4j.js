@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,65629,e=>{"use strict";e.s(["largeMediaThumbnail",0,function(e){return e?.includes("i.vimeocdn.com/video/")?e.replace(/-d_[^?]+(?=\?|$)/,"-d_original"):e||null}])}]);

@@ -190,6 +190,18 @@ body:has(.sermons-page) .site-header {
   background: #142b35;
 }
 
+.sermons-page .sermon-player__stage[data-playing="true"] .sermon-player__media {
+  background:
+    radial-gradient(
+      ellipse 58% 135% at 50% 50%,
+      #142b35 0%,
+      #0e2028 46%,
+      #071116 70%,
+      #020506 90%,
+      #000 100%
+    );
+}
+
 .sermons-page .sermon-player__media iframe {
   position: absolute;
   inset: 0;
