@@ -445,16 +445,16 @@ main:focus { outline: none; }
     transform: scale(1.14);
   }
 }
-.motion-ready .value-card-deck > .value-card--flip.is-visible:nth-child(1) .value-card__face--front .value-card__content h3 {
+.motion-ready .value-card-deck.is-visible > .value-card--flip:nth-child(1) .value-card__face--front .value-card__content h3 {
   animation: core-value-heading-grow 10s ease-in-out infinite;
 }
-.motion-ready .value-card-deck > .value-card--flip.is-visible:nth-child(2) .value-card__face--front .value-card__content h3 {
+.motion-ready .value-card-deck.is-visible > .value-card--flip:nth-child(2) .value-card__face--front .value-card__content h3 {
   animation: core-value-heading-grow 10s ease-in-out 1.25s infinite;
 }
-.motion-ready .value-card-deck > .value-card--flip.is-visible:nth-child(3) .value-card__face--front .value-card__content h3 {
+.motion-ready .value-card-deck.is-visible > .value-card--flip:nth-child(3) .value-card__face--front .value-card__content h3 {
   animation: core-value-heading-grow 10s ease-in-out 2.5s infinite;
 }
-.motion-ready .value-card-deck > .value-card--flip.is-visible:nth-child(4) .value-card__face--front .value-card__content h3 {
+.motion-ready .value-card-deck.is-visible > .value-card--flip:nth-child(4) .value-card__face--front .value-card__content h3 {
   animation: core-value-heading-grow 10s ease-in-out 3.75s infinite;
 }
 .motion-reduce .value-card-deck .value-card__face--front .value-card__content h3 {
@@ -753,7 +753,12 @@ main:focus { outline: none; }
 
 .section-shell--values {
   overflow: clip;
-  padding: clamp(4.5rem, 7vw, 7rem) 0 0;
+  padding: clamp(3rem, 4.5vw, 4.5rem) 0 0;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(19, 174, 176, 0.2), transparent 30rem),
+    radial-gradient(circle at 10% 100%, rgba(219, 171, 94, 0.12), transparent 24rem),
+    linear-gradient(145deg, #073f46 0%, #062f36 58%, #071f26 100%);
+  color: #fff;
 }
 
 .section-shell--values > .site-shell {
@@ -766,6 +771,18 @@ main:focus { outline: none; }
   margin-right: auto;
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
   margin-left: auto;
+}
+
+.section-shell--values .section-heading .eyebrow {
+  color: var(--gold);
+}
+
+.section-shell--values .section-heading h2 {
+  color: #fff;
+}
+
+.section-shell--values .section-heading__description {
+  color: rgba(255, 255, 255, 0.74);
 }
 
 .section-shell--values .content-grid.value-card-deck {
@@ -922,14 +939,13 @@ main:focus { outline: none; }
   outline-offset: -4px;
 }
 
-.motion-ready .section-shell--values .value-card--flip:not(.is-visible):not(.value-card--flip--active),
+.motion-ready .section-shell--values .value-card-deck:not(.is-visible),
 .motion-ready .section-shell--staff-feature .staff-card--mosaic:not(.is-visible) {
   opacity: 0;
   transform: translateX(-3rem);
 }
 
-.motion-ready .section-shell--values .value-card--flip.is-visible,
-.motion-ready .section-shell--values .value-card--flip--active,
+.motion-ready .section-shell--values .value-card-deck.is-visible,
 .motion-ready .section-shell--staff-feature .staff-card--mosaic.is-visible {
   opacity: 1;
   transform: translateX(0);
@@ -1592,7 +1608,7 @@ main:focus { outline: none; }
 }
 
 .section-shell--ministries-editorial .ministry-card:nth-child(3) .ministry-card__image {
-  object-position: center;
+  object-position: 70% 34%;
 }
 
 .ministry-card__number {

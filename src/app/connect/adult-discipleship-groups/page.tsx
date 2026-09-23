@@ -4,6 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { ArrowRightIcon } from "@/components/icons";
 import { withBasePath } from "@/lib/site-path";
+import "../ministry-detail-redesign.css";
 
 const avenueCards = [
   {
@@ -92,7 +93,7 @@ export const metadata = {
 
 export default function AdultDiscipleshipGroupsPage() {
   return (
-    <>
+    <div className="ministry-detail-page ministry-detail-page--adults">
       <PageHero
         eyebrow="Connect"
         title="Grow in Faith. Grow Together."
@@ -284,6 +285,6 @@ export default function AdultDiscipleshipGroupsPage() {
           </Link>
         </div>
       </SectionShell>
-    </>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ResourceTabs } from "@/components/resource-tabs";
-import { SectionShell } from "@/components/section";
 import { StudyGuideArchive } from "@/components/study-guide-archive";
 import { studyGuides } from "@/data/study-guides";
+import "../resource-archives.css";
 
 export const metadata = {
   title: "Weekly Sermon Study Guides",
@@ -16,9 +16,9 @@ export default function WeeklySermonStudyGuidesPage() {
 
       <StudyGuideArchive guides={studyGuides} />
 
-      <SectionShell className="section-shell--tight">
-        <div className="inline-banner">
-          <div className="inline-banner__copy">
+      <section className="resource-library-close">
+        <div className="site-shell resource-library-close__inner">
+          <div>
             <p className="eyebrow">Keep exploring</p>
             <h2>Pair the Guide with the Message.</h2>
             <p>Listen to the original sermon, then use the guide to carry the conversation into the week.</p>
@@ -27,7 +27,7 @@ export default function WeeklySermonStudyGuidesPage() {
             View sermons
           </Link>
         </div>
-      </SectionShell>
+      </section>
     </>
   );
 }

@@ -1178,7 +1178,7 @@ select {
 
 /* Homepage welcome: let the church exterior carry the full-width visual moment. */
 .section-shell--welcome {
-  padding-bottom: 4rem;
+  padding-bottom: 0;
   position: relative;
   z-index: 1;
   padding-top: 0;

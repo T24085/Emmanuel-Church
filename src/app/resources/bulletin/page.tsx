@@ -1,8 +1,8 @@
 import { BulletinArchive } from "@/components/bulletin-archive";
 import { ResourceTabs } from "@/components/resource-tabs";
-import { SectionHeading, SectionShell } from "@/components/section";
 import { bulletins } from "@/data/bulletins";
 import { site } from "@/data/site";
+import "../resource-archives.css";
 
 export const metadata = {
   title: "Sunday Bulletins",
@@ -16,9 +16,9 @@ export default function BulletinPage() {
 
       <BulletinArchive bulletins={bulletins} />
 
-      <SectionShell className="section-shell--tight">
-        <div className="inline-banner">
-          <div className="inline-banner__copy">
+      <section className="resource-library-close">
+        <div className="site-shell resource-library-close__inner">
+          <div>
             <p className="eyebrow">Keep exploring</p>
             <h2>Looking for an Earlier Bulletin?</h2>
             <p>Browse the church's shared Google Drive folder for more Sunday bulletins.</p>
@@ -27,7 +27,7 @@ export default function BulletinPage() {
             Open Google Drive
           </a>
         </div>
-      </SectionShell>
+      </section>
     </>
   );
 }

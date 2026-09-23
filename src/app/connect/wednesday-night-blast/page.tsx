@@ -5,6 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+import "../ministry-detail-redesign.css";
 
 const blastCardImage = withBasePath("/images/ministry-cards/blast-card.png");
 
@@ -121,7 +122,7 @@ export const metadata = {
 
 export default function WednesdayNightBlastPage() {
   return (
-    <>
+    <div className="ministry-detail-page ministry-detail-page--blast">
       <PageHero
         eyebrow="Connect"
         title='Wednesday Night "B.L.A.S.T."'
@@ -286,6 +287,6 @@ export default function WednesdayNightBlastPage() {
           </div>
         </div>
       </SectionShell>
-    </>
+    </div>
   );
 }

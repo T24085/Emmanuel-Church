@@ -9,6 +9,7 @@ import extremeEncountersCabin from "../../../../Momentum Youth/extreme-encounter
 import extremeEncountersGroup from "../../../../Momentum Youth/extreme-encounters-group.jpeg";
 import extremeEncountersReading from "../../../../Momentum Youth/extreme-encounters-reading.jpeg";
 import extremeEncountersSunset from "../../../../Momentum Youth/extreme-encounters-sunset.png";
+import "../ministry-detail-redesign.css";
 
 const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
 
@@ -105,7 +106,7 @@ export const metadata = {
 
 export default function MomentumYouthPage() {
   return (
-    <>
+    <div className="ministry-detail-page ministry-detail-page--youth">
       <PageHero
         eyebrow="Connect"
         title="A Student Ministry with Room for Faith to Move."
@@ -321,6 +322,6 @@ export default function MomentumYouthPage() {
         <span>Extreme Encounters</span>
         <ArrowRightIcon className="icon icon--xs" />
       </a>
-    </>
+    </div>
   );
 }

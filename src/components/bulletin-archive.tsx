@@ -9,6 +9,15 @@ function getPreviewHref(href: string) {
   return href.replace(/\/view(?:\?.*)?$/, "/preview");
 }
 
+function getDateParts(date: string) {
+  const [year, month, day] = date.split("-");
+  const monthLabel = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" }).format(
+    new Date(`${year}-${month}-01T00:00:00Z`),
+  );
+
+  return { year, month: monthLabel, day: String(Number(day)) };
+}
+
 export function BulletinArchive({ bulletins }: BulletinArchiveProps) {
   const latest = bulletins[0];
   const months = bulletinMonthOrder.map((name) => ({
@@ -17,100 +26,101 @@ export function BulletinArchive({ bulletins }: BulletinArchiveProps) {
   }));
 
   return (
-    <>
-      <section className="bulletin-feature-shell">
-        <div className="site-shell bulletin-feature">
-          <div className="bulletin-feature__lead">
-            <p className="eyebrow">Latest bulletin</p>
-            <div className="bulletin-feature__number" aria-hidden="true">
-              01
-            </div>
-            <div>
-              <p className="bulletin-feature__date">{latest.dateLabel}</p>
-              <h2>Gather for Worship.</h2>
-              <p>
-                Open the most recent Sunday bulletin for announcements, service details, and the rhythm of life at Emmanuel Church.
-              </p>
-            </div>
-            <a className="button button--gold" href={latest.href} target="_blank" rel="noreferrer">
-              Read latest bulletin
+    <div className="resource-library resource-library--bulletins">
+      <section className="resource-library__feature-shell" aria-labelledby="bulletin-feature-title">
+        <div className="site-shell resource-library__feature">
+          <div className="resource-library__feature-copy">
+            <p className="resource-library__kicker">Latest Sunday bulletin</p>
+            <p className="resource-library__date"><time dateTime={latest.date}>{latest.dateLabel}</time></p>
+            <h2 id="bulletin-feature-title">Everything You Need for Sunday, in One Place.</h2>
+            <p className="resource-library__summary">
+              Follow the order of worship, read church announcements, and keep the week ahead close at hand.
+            </p>
+            <a className="resource-library__primary-action" href={latest.href} target="_blank" rel="noreferrer">
+              Open this bulletin
               <ArrowRightIcon className="icon icon--xs" />
             </a>
+
+            <dl className="resource-library__stats" aria-label="Bulletin archive summary">
+              <div><dt>Bulletins</dt><dd>{bulletins.length}</dd></div>
+              <div><dt>Months</dt><dd>{months.filter((month) => month.bulletins.length > 0).length}</dd></div>
+              <div><dt>Archive</dt><dd>2026</dd></div>
+            </dl>
           </div>
 
-          <div className="bulletin-feature__aside">
-            <p className="eyebrow">The archive at a glance</p>
-            <div className="bulletin-feature__stats">
-              <div>
-                <strong>{bulletins.length}</strong>
-                <span>bulletins</span>
-              </div>
-              <div>
-                <strong>{months.filter((month) => month.bulletins.length > 0).length}</strong>
-                <span>months</span>
-              </div>
-              <div>
-                <strong>2026</strong>
-                <span>current archive</span>
-              </div>
+          <div className="resource-library__preview">
+            <div className="resource-library__preview-label">
+              <span>Sunday edition</span>
+              <strong>{latest.dateLabel}</strong>
             </div>
-            <p className="bulletin-feature__aside-note">
-              Each bulletin opens as a PDF from the shared Emmanuel Church archive.
-            </p>
+            <iframe
+              title={`${latest.dateLabel} Sunday bulletin preview`}
+              src={getPreviewHref(latest.href)}
+              loading="eager"
+            />
+            <a href={latest.href} target="_blank" rel="noreferrer">
+              View full size <ArrowRightIcon className="icon icon--xs" />
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="section-shell bulletin-archive-shell">
+      <section className="resource-library__archive" aria-labelledby="bulletin-archive-title">
         <div className="site-shell">
-          <div className="bulletin-archive__intro">
+          <div className="resource-library__intro">
             <div>
-              <p className="eyebrow">Find a Sunday</p>
-              <h2>A Simple Way Back to the Life of the Church.</h2>
+              <p className="resource-library__kicker">The Sunday archive</p>
+              <h2 id="bulletin-archive-title">Find the Week You’re Looking For.</h2>
             </div>
             <p>
-              Browse by month to find announcements, prayers, service details, and the small pieces that help a Sunday feel like home.
+              Browse by month, then open any bulletin directly. Each document is kept in Emmanuel Church’s shared archive.
             </p>
           </div>
 
-          <div className="bulletin-month-grid">
+          <div className="resource-library__groups">
             {months.map((month, index) => (
-              <details className="bulletin-month" key={month.name} open={index === 0}>
+              <details className="resource-library__group" key={month.name} open={index === 0}>
                 <summary>
-                  <span className="bulletin-month__index">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="bulletin-month__name">{month.name}</span>
-                  <span className="bulletin-month__count">{month.bulletins.length} Sundays</span>
+                  <span className="resource-library__group-index">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="resource-library__group-name">{month.name}</span>
+                  <span className="resource-library__group-count">
+                    {month.bulletins.length} {month.bulletins.length === 1 ? "Sunday" : "Sundays"}
+                  </span>
+                  <span className="resource-library__group-toggle" aria-hidden="true" />
                 </summary>
-                <div className="bulletin-month__body">
-                  {month.bulletins.map((bulletin) => (
-                    <details className="bulletin-item-preview" key={bulletin.href} open={index === 0}>
-                      <summary className="bulletin-item">
-                        <span className="bulletin-item__date">{bulletin.dateLabel}</span>
-                        <span className="bulletin-item__title">Sunday bulletin</span>
-                        <span className="bulletin-item__action">
-                          Preview
-                          <ArrowRightIcon className="icon icon--sm" />
+                <div className="resource-library__documents">
+                  {month.bulletins.map((bulletin) => {
+                    const date = getDateParts(bulletin.date);
+
+                    return (
+                      <a
+                        className="resource-document resource-document--bulletin"
+                        key={bulletin.href}
+                        href={bulletin.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <time dateTime={bulletin.date} className="resource-document__date-block">
+                          <span>{date.month}</span>
+                          <strong>{date.day}</strong>
+                          <span>{date.year}</span>
+                        </time>
+                        <span className="resource-document__copy">
+                          <span className="resource-document__type">Sunday bulletin</span>
+                          <strong>{bulletin.dateLabel}</strong>
                         </span>
-                      </summary>
-                      <div className="bulletin-item__preview">
-                        <iframe
-                          title={`${bulletin.dateLabel} Sunday bulletin preview`}
-                          src={getPreviewHref(bulletin.href)}
-                          loading="lazy"
-                        />
-                        <a href={bulletin.href} target="_blank" rel="noreferrer">
-                          Open full bulletin
-                          <ArrowRightIcon className="icon icon--xs" />
-                        </a>
-                      </div>
-                    </details>
-                  ))}
+                        <span className="resource-document__action">
+                          Open PDF <ArrowRightIcon className="icon icon--xs" />
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
               </details>
             ))}
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

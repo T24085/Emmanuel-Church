@@ -20,15 +20,18 @@ import {
 } from "@/data/site";
 const homepageMinistryImages = {
   "/connect/emmanuel-preschool": {
-    src: withBasePath("/images/heroes/preschool-creative-learning.jpg"),
+    src: withBasePath("/images/homepage/ministry-preschool-arrival.jpg"),
+    alt: "Two young children walking into an Emmanuel Church ministry gathering together",
     fit: "cover",
   },
   "/connect/emmanuel-kids": {
-    src: withBasePath("/images/heroes/emmanuel-kids-welcome.jpg"),
+    src: withBasePath("/images/homepage/ministry-kids-participating.jpg"),
+    alt: "Children participating together during Emmanuel Church Vacation Bible School",
     fit: "cover",
   },
   "/connect/momentum-youth": {
-    src: withBasePath("/images/heroes/momentum-youth-gathering.jpg"),
+    src: withBasePath("/images/homepage/ministry-youth-discussion.jpg"),
+    alt: "Students gathered for a Sunday morning discussion at Emmanuel Church",
     fit: "cover",
   },
 } as const;
@@ -347,7 +350,7 @@ export default async function HomePage() {
                 <div className={`ministry-card__media ministry-card__media--${image.fit}`}>
                   <Image
                     src={image.src}
-                    alt={`${item.label} ministry gathering`}
+                    alt={image.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw"
                     className="ministry-card__image"
@@ -376,7 +379,7 @@ export default async function HomePage() {
           <div className="quote-strip__row">
             <div className="quote-strip__verse">
               <p className="eyebrow eyebrow--small">Sermon rhythm</p>
-              <strong>Let the word of Christ dwell in you richly.</strong>
+              <strong>Let the Word of Christ Dwell in You Richly.</strong>
               <p>Colossians 3:16</p>
             </div>
             <Link href="/resources/sermons" className="button button--light quote-strip__action">

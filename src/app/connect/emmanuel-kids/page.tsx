@@ -6,6 +6,7 @@ import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
 import kidsLogo from "../../../../Emmanuel Preschool/Emmanuel Kids/58ce1398-acdc-4270-912f-46a1ab136586.png";
+import "../ministry-detail-redesign.css";
 
 const rachelPhoneHref = `tel:${site.phone.replace(/[^0-9+]/g, "")}`;
 const rachelEmail = "rbishop@ecabilene.org";
@@ -152,7 +153,7 @@ export const metadata = {
 
 export default function EmmanuelKidsPage() {
   return (
-    <>
+    <div className="ministry-detail-page ministry-detail-page--kids">
       <PageHero
         eyebrow="Connect"
         title="A Place for Kids to Know Jesus."
@@ -439,6 +440,6 @@ export default function EmmanuelKidsPage() {
         <span>Visitor Form</span>
         <ArrowRightIcon className="icon icon--xs" />
       </a>
-    </>
+    </div>
   );
 }

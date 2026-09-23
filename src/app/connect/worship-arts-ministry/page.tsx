@@ -13,6 +13,7 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading, SectionShell } from "@/components/section";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
+import "../ministry-detail-redesign.css";
 const worshipArtsCardImage = withBasePath("/images/ministry-cards/worship-arts-card.png");
 
 const marcName = "Pastor Marc Riegel";
@@ -134,7 +135,7 @@ export const metadata = {
 
 export default function WorshipArtsMinistryPage() {
   return (
-    <>
+    <div className="ministry-detail-page ministry-detail-page--worship">
       <PageHero
         eyebrow="Connect"
         title="Help Our Church Worship Together."
@@ -372,6 +373,6 @@ export default function WorshipArtsMinistryPage() {
           </article>
         </div>
       </SectionShell>
-    </>
+    </div>
   );
 }

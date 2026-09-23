@@ -11,6 +11,7 @@ const revealSelectors = [
   ".hero__card-row",
   ".feature-card",
   ".value-card",
+  ".value-card-deck",
   ".resource-card",
   ".staff-card",
   ".split-panel",
@@ -25,6 +26,7 @@ const revealSelectors = [
   ".mission-word-reveal",
   ".about-motion",
   ".contact-motion",
+  ".preschool-reveal",
 ].join(", ");
 
 export function MotionShell({ children }: { children: ReactNode }) {
@@ -95,6 +97,7 @@ export function MotionShell({ children }: { children: ReactNode }) {
             if (!reducedMotion && !entry.target.classList.contains("is-visible") &&
                 !entry.target.classList.contains("site-footer__reveal") &&
                 !entry.target.classList.contains("value-card--flip") &&
+                !entry.target.classList.contains("value-card-deck") &&
                 !entry.target.classList.contains("about-motion") &&
                 !entry.target.classList.contains("contact-motion")) {
               entry.target.animate(
@@ -116,6 +119,12 @@ export function MotionShell({ children }: { children: ReactNode }) {
     const observed = new WeakSet<Element>();
     const observeTargets = () => {
       document.querySelectorAll(revealSelectors).forEach((element) => {
+        // The homepage mission cards re-render when they flip, so their
+        // entrance state belongs on the stable deck rather than each button.
+        if (element.matches(".section-shell--values .value-card--flip")) {
+          return;
+        }
+
         if (!observed.has(element)) {
           observed.add(element);
           observer.observe(element);

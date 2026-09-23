@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[39756,["/Emmanuel-Church/_next/static/chunks/0ow7gnlvd22.d.js","/Emmanuel-Church/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
-3:I[37457,["/Emmanuel-Church/_next/static/chunks/0ow7gnlvd22.d.js","/Emmanuel-Church/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+2:I[39756,["/Emmanuel-Church/_next/static/chunks/064sba2x--tz_.js","/Emmanuel-Church/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
+3:I[37457,["/Emmanuel-Church/_next/static/chunks/064sba2x--tz_.js","/Emmanuel-Church/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"i2iw7sq_iUd1KE7aoXIT9"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"aCdKHNvYHT8O6CsxJm9Um"}
