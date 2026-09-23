@@ -4,19 +4,32 @@ import { staff } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
 import { MailIcon, ArrowRightIcon } from "./icons";
 
-export function StaffGrid({ limit }: { limit?: number }) {
+type StaffGridProps = {
+  limit?: number;
+  variant?: "default" | "homepage-mosaic";
+};
+
+export function StaffGrid({ limit, variant = "default" }: StaffGridProps) {
   const items = typeof limit === "number" ? staff.slice(0, limit) : staff;
+  const isHomepageMosaic = variant === "homepage-mosaic";
 
   return (
-    <div className="staff-grid">
-      {items.map((person) => (
-        <article key={person.name} className="staff-card">
+    <div className={`staff-grid${isHomepageMosaic ? " staff-grid--mosaic" : ""}`}>
+      {items.map((person, index) => (
+        <article
+          key={person.name}
+          className={`staff-card${isHomepageMosaic ? ` staff-card--mosaic staff-card--mosaic-${index + 1}` : ""}`}
+        >
           <div className="staff-card__media">
             <Image
               src={withBasePath(person.image)}
               alt={person.name}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 300px"
+              sizes={
+                isHomepageMosaic
+                  ? "(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 50vw"
+                  : "(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 300px"
+              }
               className="cover-image"
             />
           </div>

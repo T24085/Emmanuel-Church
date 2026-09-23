@@ -18,14 +18,19 @@ import {
   serviceRhythm,
   site,
 } from "@/data/site";
-const preschoolCardImage = withBasePath("/images/ministry-cards/emmanuel-preschool-card.png");
-const kidsCardImage = withBasePath("/images/ministry-cards/emmanuel-kids-card.png");
-const momentumYouthCardImage = withBasePath("/images/ministry-cards/momentum-youth-card.png");
-
 const homepageMinistryImages = {
-  "/connect/emmanuel-preschool": { src: preschoolCardImage, fit: "contain" },
-  "/connect/emmanuel-kids": { src: kidsCardImage, fit: "contain" },
-  "/connect/momentum-youth": { src: momentumYouthCardImage, fit: "contain" },
+  "/connect/emmanuel-preschool": {
+    src: withBasePath("/images/heroes/preschool-creative-learning.jpg"),
+    fit: "cover",
+  },
+  "/connect/emmanuel-kids": {
+    src: withBasePath("/images/heroes/emmanuel-kids-welcome.jpg"),
+    fit: "cover",
+  },
+  "/connect/momentum-youth": {
+    src: withBasePath("/images/heroes/momentum-youth-gathering.jpg"),
+    fit: "cover",
+  },
 } as const;
 
 const homepageFeatureSymbols = [
@@ -159,6 +164,9 @@ export default async function HomePage() {
         <div className="hero__card-row" aria-label="Core priorities">
           {featureCards.map((card, index) => (
             <article key={card.title} className="feature-card">
+              <span className="feature-card__index" aria-hidden="true">
+                0{index + 1}
+              </span>
               <div
                 className="feature-card__icon feature-card__icon--symbol"
                 aria-hidden="true"
@@ -179,7 +187,6 @@ export default async function HomePage() {
 
       <SectionShell className="section-shell--welcome">
         <div className="homepage-welcome__bleed">
-          <WelcomeLogoDivider />
           <article className="split-panel split-panel--image homepage-welcome__hero">
             <Image
               src={withBasePath("/images/building-banner.jpg")}
@@ -259,10 +266,11 @@ export default async function HomePage() {
               </div>
             </aside>
           </article>
+          <WelcomeLogoDivider />
         </div>
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell className="section-shell--values">
         <SectionHeading
           eyebrow="Our Mission"
           title="Four Words That Shape the Whole Church."
@@ -309,17 +317,17 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell className="section-shell--staff-feature">
         <SectionHeading
           eyebrow="Featured Staff"
           title="Meet the People Here to Serve You."
           description="Our pastors and ministry leaders would love to help you get connected at Emmanuel."
           action={{ label: "Meet the full staff", href: "/our-staff" }}
         />
-        <StaffGrid limit={6} />
+        <StaffGrid limit={6} variant="homepage-mosaic" />
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell className="section-shell--ministries-editorial">
         <SectionHeading
           eyebrow="Ministries"
           title="Ministries That Form a Real Church Family."
@@ -327,7 +335,7 @@ export default async function HomePage() {
           action={{ label: "Explore ministries", href: "/connect" }}
         />
         <div className="resource-grid homepage-ministry-grid">
-          {ministryLinks.slice(0, 3).map((item) => {
+          {ministryLinks.slice(0, 3).map((item, index) => {
             const image = homepageMinistryImages[item.href as keyof typeof homepageMinistryImages];
 
             return (
@@ -339,13 +347,16 @@ export default async function HomePage() {
                 <div className={`ministry-card__media ministry-card__media--${image.fit}`}>
                   <Image
                     src={image.src}
-                    alt={`${item.label} ministry artwork`}
+                    alt={`${item.label} ministry gathering`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1080px) 50vw, 33vw"
                     className="ministry-card__image"
                   />
                 </div>
                 <div className="ministry-card__content">
+                  <span className="ministry-card__number" aria-hidden="true">
+                    0{index + 1}
+                  </span>
                   <p className="eyebrow eyebrow--small">Connect</p>
                   <h3>{item.label}</h3>
                   <p>{item.description}</p>
@@ -360,7 +371,7 @@ export default async function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="section-shell--tight">
+      <SectionShell className="section-shell--tight section-shell--homepage-close">
         <div className="quote-strip">
           <div className="quote-strip__row">
             <div className="quote-strip__verse">
