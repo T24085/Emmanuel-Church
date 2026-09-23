@@ -1387,11 +1387,6 @@ select {
 }
 
 @media (max-width: 768px) {
-  .section-shell--welcome {
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
-  }
-
   .section-shell--welcome > .site-shell {
     width: 100%;
   }
@@ -7670,6 +7665,10 @@ html.motion-ready .our-staff-page .staff-card {
 
   .section-shell {
     padding: 4rem 0;
+  }
+
+  .section-shell.section-shell--welcome {
+    padding: 0;
   }
 
   .section-heading {
