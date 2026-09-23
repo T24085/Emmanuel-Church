@@ -204,6 +204,31 @@
   box-shadow: none;
 }
 
+/* Preserve branded dark panels whose copy is intentionally light. */
+
+.ministry-detail-page .blast-schedule-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 229, 138, 0.32), transparent 34%),
+    linear-gradient(135deg, #0d5f67 0%, #087f88 62%, #2b9b9e 100%);
+  color: #fff;
+}
+
+.ministry-detail-page .blast-feature-card {
+  background:
+    radial-gradient(circle at top right, rgba(255, 202, 42, 0.32), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(19, 174, 176, 0.28), transparent 38%),
+    linear-gradient(135deg, #082d48 0%, #0b5268 54%, #147f87 100%);
+  color: #fff;
+}
+
+.ministry-detail-page .blast-inline-note {
+  color: var(--ministry-ink);
+}
+
+.ministry-detail-page .blast-inline-note .icon {
+  color: var(--ministry-deep);
+}
+
 .ministry-detail-page :is(
   .ministry-overview-card__media,
   .kids-feature-card,
