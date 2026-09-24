@@ -67,6 +67,10 @@ export function SiteFooter() {
                   <ArrowRightIcon className="icon icon--xs" />
                 </a>
               ))}
+              <Link className="site-footer__link" href="/admin">
+                <span>Staff Login</span>
+                <ArrowRightIcon className="icon icon--xs" />
+              </Link>
             </div>
           </div>
 

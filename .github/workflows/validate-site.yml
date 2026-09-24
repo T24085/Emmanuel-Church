@@ -10,6 +10,8 @@ on:
       - "package*.json"
       - "next.config.*"
       - "tsconfig.json"
+      - "firebase.json"
+      - "firestore.*"
       - ".github/workflows/validate-site.yml"
   pull_request:
   workflow_dispatch:
@@ -28,4 +30,20 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run verify
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm run test:staff-rules
+      - run: npm run test:documents
+      - name: Synchronize public PDFs for export verification
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        run: npm run sync:documents
+        env:
+          DRIVE_ARCHIVE_API_KEY: ${{ secrets.DRIVE_ARCHIVE_API_KEY }}
+      - name: Verify complete static export
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        run: npm run verify
+      - name: Type check untrusted fork without secrets
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: npx tsc --noEmit

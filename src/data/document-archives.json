@@ -1,0 +1,999 @@
+{
+  "version": 1,
+  "bulletins": [
+    {
+      "id": "1p3OznKsmKZWewZF7lhODN0rmR7ZriS57",
+      "date": "2026-08-09",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1p3OznKsmKZWewZF7lhODN0rmR7ZriS57/view",
+      "sourceName": "BULLETIN_8-09.pdf",
+      "sourceSignature": "2026-08-19T15:52:33.227Z:4154032",
+      "pdfPath": "/documents/1p3OznKsmKZWewZF7lhODN0rmR7ZriS57-f70cc53ad71e174d484d.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1XPlAbD2WgUIAflya3ibm-PYmiQO3XXux",
+      "date": "2026-08-02",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1XPlAbD2WgUIAflya3ibm-PYmiQO3XXux/view",
+      "sourceName": "BULLETIN_08-02.pdf",
+      "sourceSignature": "2026-08-19T15:52:37.885Z:2478203",
+      "pdfPath": "/documents/1XPlAbD2WgUIAflya3ibm-PYmiQO3XXux-3cb09c5e2b0df8c6fbd4.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1HrwhlE75fJeIj24skwQj9EMEif_xJNam",
+      "date": "2026-07-26",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1HrwhlE75fJeIj24skwQj9EMEif_xJNam/view",
+      "sourceName": "BULLETIN_7-26.pdf",
+      "sourceSignature": "2026-08-19T15:52:40.419Z:3369288",
+      "pdfPath": "/documents/1HrwhlE75fJeIj24skwQj9EMEif_xJNam-16eaf07f079a120b1cef.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1TxoVvHNGZ-WNWaFeEnz_n0GKNyj8U5fi",
+      "date": "2026-07-19",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1TxoVvHNGZ-WNWaFeEnz_n0GKNyj8U5fi/view",
+      "sourceName": "BULLETIN_7-19.pdf",
+      "sourceSignature": "2026-08-19T15:52:43.378Z:3383128",
+      "pdfPath": "/documents/1TxoVvHNGZ-WNWaFeEnz_n0GKNyj8U5fi-dbec7fef6aeed238d785.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "11FrC2yrQke0FKaAsXvLfSvvuQOq9_bFj",
+      "date": "2026-07-12",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/11FrC2yrQke0FKaAsXvLfSvvuQOq9_bFj/view",
+      "sourceName": "BULLETIN_7-12.pdf",
+      "sourceSignature": "2026-08-19T15:52:46.606Z:3369127",
+      "pdfPath": "/documents/11FrC2yrQke0FKaAsXvLfSvvuQOq9_bFj-64eb99400ac0a6f698af.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "18pRu-QsC5g1HNEHmuSLoXVZ2EguFLPH6",
+      "date": "2026-07-05",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/18pRu-QsC5g1HNEHmuSLoXVZ2EguFLPH6/view",
+      "sourceName": "BULLETIN_7-05.pdf",
+      "sourceSignature": "2026-08-19T15:52:50.414Z:11924627",
+      "pdfPath": "/documents/18pRu-QsC5g1HNEHmuSLoXVZ2EguFLPH6-e05b5b3fe66ce83334f5.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1cYoe19Gzc0bZLM1JYIM3_ivk_9jfmg9Z",
+      "date": "2026-06-28",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1cYoe19Gzc0bZLM1JYIM3_ivk_9jfmg9Z/view",
+      "sourceName": "BULLETIN_6-28.pdf",
+      "sourceSignature": "2026-08-19T15:52:53.170Z:5425167",
+      "pdfPath": "/documents/1cYoe19Gzc0bZLM1JYIM3_ivk_9jfmg9Z-29cf2a2b7226755cf21b.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1jfBruhdnm9V0WScagFzAUUw3rksF-IFZ",
+      "date": "2026-06-21",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1jfBruhdnm9V0WScagFzAUUw3rksF-IFZ/view",
+      "sourceName": "BULLETIN_6-21.pdf",
+      "sourceSignature": "2026-08-19T15:52:55.787Z:5399009",
+      "pdfPath": "/documents/1jfBruhdnm9V0WScagFzAUUw3rksF-IFZ-c34cec417c94184f6a73.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1tZwucVlkVjjju9LeEL6vPyMxggpvN5YQ",
+      "date": "2026-06-14",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1tZwucVlkVjjju9LeEL6vPyMxggpvN5YQ/view",
+      "sourceName": "BULLETIN_6-14.pdf",
+      "sourceSignature": "2026-08-19T15:53:03.330Z:19329552",
+      "pdfPath": "/documents/1tZwucVlkVjjju9LeEL6vPyMxggpvN5YQ-89f4b3c04e6899d3a8e5.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "11a0PXQ__oH_YdFnpQYua73WmVq8uDelD",
+      "date": "2026-06-07",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/11a0PXQ__oH_YdFnpQYua73WmVq8uDelD/view",
+      "sourceName": "BULLETIN_6-7.pdf",
+      "sourceSignature": "2026-08-19T15:53:06.045Z:5393535",
+      "pdfPath": "/documents/11a0PXQ__oH_YdFnpQYua73WmVq8uDelD-f93ee3cc3f51792ba1f4.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "18i8JTktrb7shbTiulqI32gozq6NVnwgw",
+      "date": "2026-05-31",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/18i8JTktrb7shbTiulqI32gozq6NVnwgw/view",
+      "sourceName": "BULLETIN_5-31.pdf",
+      "sourceSignature": "2026-08-19T15:53:10.050Z:9619628",
+      "pdfPath": "/documents/18i8JTktrb7shbTiulqI32gozq6NVnwgw-7e90d802009fbc2973f6.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1lraXNVDpA6LfHI9725T5sYgDdBDm6o5E",
+      "date": "2026-05-24",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1lraXNVDpA6LfHI9725T5sYgDdBDm6o5E/view",
+      "sourceName": "BULLETIN_5-24.pdf",
+      "sourceSignature": "2026-08-19T15:53:12.487Z:2368595",
+      "pdfPath": "/documents/1lraXNVDpA6LfHI9725T5sYgDdBDm6o5E-fc7274bf7b41faa37d2e.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1jjmKtx8j3Bt4Xv8g4VSwlkBuylgQYu9k",
+      "date": "2026-05-17",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1jjmKtx8j3Bt4Xv8g4VSwlkBuylgQYu9k/view",
+      "sourceName": "BULLETIN_5-17.pdf",
+      "sourceSignature": "2026-08-19T15:53:15.570Z:2371170",
+      "pdfPath": "/documents/1jjmKtx8j3Bt4Xv8g4VSwlkBuylgQYu9k-1eee69e73e4693786af0.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "10lg73xhRIS90VQ546L0MAybmBAaHKODr",
+      "date": "2026-05-10",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/10lg73xhRIS90VQ546L0MAybmBAaHKODr/view",
+      "sourceName": "BULLETIN_5-10.pdf",
+      "sourceSignature": "2026-08-19T15:53:19.315Z:2358835",
+      "pdfPath": "/documents/10lg73xhRIS90VQ546L0MAybmBAaHKODr-7a7f64e9235c0ddb890f.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1HQJiN1uTeIHub2tH7wT1jID61aA1-vcE",
+      "date": "2026-05-03",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1HQJiN1uTeIHub2tH7wT1jID61aA1-vcE/view",
+      "sourceName": "BULLETIN_5-3.pdf",
+      "sourceSignature": "2026-08-19T15:53:21.650Z:2348210",
+      "pdfPath": "/documents/1HQJiN1uTeIHub2tH7wT1jID61aA1-vcE-0d49f987c84fce7f1f0d.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1rDprjQdumoVxy1gLDm4LoJU_LsHuJYyl",
+      "date": "2026-04-19",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1rDprjQdumoVxy1gLDm4LoJU_LsHuJYyl/view",
+      "sourceName": "BULLETIN_4-19.pdf",
+      "sourceSignature": "2026-08-19T15:53:26.385Z:3040549",
+      "pdfPath": "/documents/1rDprjQdumoVxy1gLDm4LoJU_LsHuJYyl-5ed54ad38f975f3e6087.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1Y__H_FalDxNuh9B4NGO-E9hjxqZK9tjw",
+      "date": "2026-04-12",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1Y__H_FalDxNuh9B4NGO-E9hjxqZK9tjw/view",
+      "sourceName": "BULLETIN_4-12.pdf",
+      "sourceSignature": "2026-08-19T15:53:31.259Z:19374438",
+      "pdfPath": "/documents/1Y__H_FalDxNuh9B4NGO-E9hjxqZK9tjw-90335345c1d231f1d6a1.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "14rSd8ytHvZPwDcWfcr6mz5c7V0CA4EcS",
+      "date": "2026-04-05",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/14rSd8ytHvZPwDcWfcr6mz5c7V0CA4EcS/view",
+      "sourceName": "Bulletin_4-05.pdf",
+      "sourceSignature": "2026-08-19T15:53:34.391Z:6636260",
+      "pdfPath": "/documents/14rSd8ytHvZPwDcWfcr6mz5c7V0CA4EcS-ce94f56988046633b959.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    },
+    {
+      "id": "1bI_93PlXdKDCds5C0c1bGdPrQJWIhmVy",
+      "date": "2026-03-01",
+      "title": "Sunday Bulletin",
+      "sourceUrl": "https://drive.google.com/file/d/1bI_93PlXdKDCds5C0c1bGdPrQJWIhmVy/view",
+      "sourceName": "BULLETIN_3-01.pdf",
+      "sourceSignature": "2026-08-19T15:53:37.759Z:7774249",
+      "pdfPath": "/documents/1bI_93PlXdKDCds5C0c1bGdPrQJWIhmVy-36e8bf23b02d7567ca60.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 792,
+          "height": 611.999999
+        },
+        {
+          "width": 792,
+          "height": 611.999999
+        }
+      ]
+    }
+  ],
+  "guides": [
+    {
+      "id": "1X25T1caj3vf-IIPhvQZzhCEJ3p54DPv9",
+      "date": "2026-08-16",
+      "title": "Youth Sunday",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1X25T1caj3vf-IIPhvQZzhCEJ3p54DPv9/view",
+      "sourceName": "8.16.26_SDG_-_Youth_Sunday.pdf",
+      "sourceSignature": "2026-08-19T15:55:14.311Z:62609",
+      "pdfPath": "/documents/1X25T1caj3vf-IIPhvQZzhCEJ3p54DPv9-648946b2b01f2d2fe83e.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1JH5vhQnvgjB18u_LaKLh_UkDj2cZl-8o",
+      "date": "2026-08-09",
+      "title": "Baptism Sunday · 04",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1JH5vhQnvgjB18u_LaKLh_UkDj2cZl-8o/view",
+      "sourceName": "8.9.26_SDG_-_Baptism_Sunday_4.pdf",
+      "sourceSignature": "2026-08-19T15:55:16.400Z:448718",
+      "pdfPath": "/documents/1JH5vhQnvgjB18u_LaKLh_UkDj2cZl-8o-6d9d5cbfdd6ee6c8c2fe.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1zAY7UqI0zTF2JZFm8l-m1zC_IClGIGPm",
+      "date": "2026-08-02",
+      "title": "You've Got a Friend in Me · Toy Box",
+      "series": "You've Got a Friend in Me",
+      "sourceUrl": "https://drive.google.com/file/d/1zAY7UqI0zTF2JZFm8l-m1zC_IClGIGPm/view",
+      "sourceName": "8.2.26_SDG_-_YGaFiM.4_ToyBox.pdf",
+      "sourceSignature": "2026-08-19T15:55:18.907Z:701374",
+      "pdfPath": "/documents/1zAY7UqI0zTF2JZFm8l-m1zC_IClGIGPm-42971e175d329fe48371.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1_xoGMYZhn1KpKgWxMuUoGeo7lpArrGVn",
+      "date": "2026-07-26",
+      "title": "You've Got a Friend in Me · Jessie",
+      "series": "You've Got a Friend in Me",
+      "sourceUrl": "https://drive.google.com/file/d/1_xoGMYZhn1KpKgWxMuUoGeo7lpArrGVn/view",
+      "sourceName": "7.26.26_SDG_-_YGaFiM.3_Jessie.pdf",
+      "sourceSignature": "2026-08-19T15:55:21.163Z:668187",
+      "pdfPath": "/documents/1_xoGMYZhn1KpKgWxMuUoGeo7lpArrGVn-e4bafeb7a635ef290135.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1fMSgXN2qwKdu5T_ekJx8anFKhW8y9DfO",
+      "date": "2026-07-19",
+      "title": "You've Got a Friend in Me · Buzz",
+      "series": "You've Got a Friend in Me",
+      "sourceUrl": "https://drive.google.com/file/d/1fMSgXN2qwKdu5T_ekJx8anFKhW8y9DfO/view",
+      "sourceName": "7.19.26_SDG_-_YGaFiM.2_Buzz.pdf",
+      "sourceSignature": "2026-08-19T15:55:24.715Z:679581",
+      "pdfPath": "/documents/1fMSgXN2qwKdu5T_ekJx8anFKhW8y9DfO-987e7193d5666ecbc3ca.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1hhM4i-JAkIAz-RgeOWgLIAQzHJZiey1s",
+      "date": "2026-07-12",
+      "title": "You've Got a Friend in Me · Woody",
+      "series": "You've Got a Friend in Me",
+      "sourceUrl": "https://drive.google.com/file/d/1hhM4i-JAkIAz-RgeOWgLIAQzHJZiey1s/view",
+      "sourceName": "7.12.26_SDG_-_YGaFiM.1_Woody.pdf",
+      "sourceSignature": "2026-08-19T15:55:28.015Z:693121",
+      "pdfPath": "/documents/1hhM4i-JAkIAz-RgeOWgLIAQzHJZiey1s-6846aeb07e6164af01f2.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "12VEdR8U1OKKiD3kGkzMnzyTO5CHap-5p",
+      "date": "2026-07-05",
+      "title": "Ruth · 04",
+      "series": "Ruth",
+      "sourceUrl": "https://drive.google.com/file/d/12VEdR8U1OKKiD3kGkzMnzyTO5CHap-5p/view",
+      "sourceName": "7.5.26_SDG_-_Ruth.4.pdf",
+      "sourceSignature": "2026-08-19T15:55:30.783Z:668321",
+      "pdfPath": "/documents/12VEdR8U1OKKiD3kGkzMnzyTO5CHap-5p-a25e3ccf0f8c089c0b4c.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "160XR9dSKufPvVgNm2xgtUClMeH26QtSV",
+      "date": "2026-06-28",
+      "title": "Ruth · 03",
+      "series": "Ruth",
+      "sourceUrl": "https://drive.google.com/file/d/160XR9dSKufPvVgNm2xgtUClMeH26QtSV/view",
+      "sourceName": "6.28.26_SDG_-_Ruth.3.pdf",
+      "sourceSignature": "2026-08-19T15:55:32.861Z:664078",
+      "pdfPath": "/documents/160XR9dSKufPvVgNm2xgtUClMeH26QtSV-41757c3ce0938d41d615.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1ZCV1uJvLtS-5GN0o4x6UU3D6_61TEm6g",
+      "date": "2026-06-21",
+      "title": "Ruth · 02",
+      "series": "Ruth",
+      "sourceUrl": "https://drive.google.com/file/d/1ZCV1uJvLtS-5GN0o4x6UU3D6_61TEm6g/view",
+      "sourceName": "6.21.26_SDG_-_Ruth.2.pdf",
+      "sourceSignature": "2026-08-19T15:55:35.124Z:667520",
+      "pdfPath": "/documents/1ZCV1uJvLtS-5GN0o4x6UU3D6_61TEm6g-8deae06a6035fda9eec1.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1LaXGr7E75cpI9pzk-Dp7tUTJLyHujTWS",
+      "date": "2026-06-14",
+      "title": "Baptism Sunday · 03",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1LaXGr7E75cpI9pzk-Dp7tUTJLyHujTWS/view",
+      "sourceName": "6.14.26_SDG_-_Baptism_Sunday_3.pdf",
+      "sourceSignature": "2026-08-19T15:55:37.197Z:425926",
+      "pdfPath": "/documents/1LaXGr7E75cpI9pzk-Dp7tUTJLyHujTWS-431eb016b330e1688b3f.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1Q25pQTa4TNLZf01U-H4itEVn3ujD6_Kr",
+      "date": "2026-06-07",
+      "title": "Ruth · 01",
+      "series": "Ruth",
+      "sourceUrl": "https://drive.google.com/file/d/1Q25pQTa4TNLZf01U-H4itEVn3ujD6_Kr/view",
+      "sourceName": "6.7.26_SDG_-_Ruth.1.pdf",
+      "sourceSignature": "2026-08-19T15:55:39.154Z:663259",
+      "pdfPath": "/documents/1Q25pQTa4TNLZf01U-H4itEVn3ujD6_Kr-bebf043495a70df85065.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1b86YLRlKVNE3IypFmnH_fH7j7bullfhg",
+      "date": "2026-05-24",
+      "title": "WITH · Week 06",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1b86YLRlKVNE3IypFmnH_fH7j7bullfhg/view",
+      "sourceName": "5.24.26_SDG_-_WITH_wk.6.pdf",
+      "sourceSignature": "2026-08-19T15:55:41.158Z:796605",
+      "pdfPath": "/documents/1b86YLRlKVNE3IypFmnH_fH7j7bullfhg-ae318db3a05600cbee9d.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1B8ZXbDULojhtHzVNswGQwH76wBPajC-C",
+      "date": "2026-05-17",
+      "title": "WITH · Week 05",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1B8ZXbDULojhtHzVNswGQwH76wBPajC-C/view",
+      "sourceName": "5.17.26_SDG_-_WITH_wk.5.pdf",
+      "sourceSignature": "2026-08-19T15:55:43.254Z:749416",
+      "pdfPath": "/documents/1B8ZXbDULojhtHzVNswGQwH76wBPajC-C-9df97de70f0b68c7b56d.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1zSedKdBDEcV0t8iWVXElFqpufAWfxJLk",
+      "date": "2026-05-10",
+      "title": "WITH · Week 04",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1zSedKdBDEcV0t8iWVXElFqpufAWfxJLk/view",
+      "sourceName": "5.10.26_SDG_-_WITH_wk.4.pdf",
+      "sourceSignature": "2026-08-19T15:55:45.386Z:787634",
+      "pdfPath": "/documents/1zSedKdBDEcV0t8iWVXElFqpufAWfxJLk-a86587824cbbbbe153d5.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1do0GIYSBAYQkNkxXGUkKuM8Fv8kWy1FX",
+      "date": "2026-05-03",
+      "title": "WITH · Week 03",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1do0GIYSBAYQkNkxXGUkKuM8Fv8kWy1FX/view",
+      "sourceName": "5.3.26_SDG_-_WITH_wk.3.pdf",
+      "sourceSignature": "2026-08-19T15:55:47.400Z:796619",
+      "pdfPath": "/documents/1do0GIYSBAYQkNkxXGUkKuM8Fv8kWy1FX-e4d0c1514d47f17b03b5.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1f1Y987NxGDvTrcueOxL3dlLUgh4pqbGO",
+      "date": "2026-04-26",
+      "title": "WITH · Week 02",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1f1Y987NxGDvTrcueOxL3dlLUgh4pqbGO/view",
+      "sourceName": "4.26.26_SDG_-_WITH_wk.2.pdf",
+      "sourceSignature": "2026-08-19T15:55:49.628Z:827396",
+      "pdfPath": "/documents/1f1Y987NxGDvTrcueOxL3dlLUgh4pqbGO-64ec2357313bfd401bb9.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1GfFrOvcu1q6jiKBy28qUC1YP4P8iysGu",
+      "date": "2026-04-19",
+      "title": "WITH · Week 01",
+      "series": "WITH",
+      "sourceUrl": "https://drive.google.com/file/d/1GfFrOvcu1q6jiKBy28qUC1YP4P8iysGu/view",
+      "sourceName": "4.19.26_SDG_-_WITH_wk.1.pdf",
+      "sourceSignature": "2026-08-19T15:55:51.606Z:811427",
+      "pdfPath": "/documents/1GfFrOvcu1q6jiKBy28qUC1YP4P8iysGu-8262ac61367fec786c46.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1B8Tzlv4yrwfqLiFkPP9LW2iO16euI1e_",
+      "date": "2026-04-12",
+      "title": "Baptism Sunday · 02",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1B8Tzlv4yrwfqLiFkPP9LW2iO16euI1e_/view",
+      "sourceName": "4.12.26_SDG_-_Baptism_Sunday_2.pdf",
+      "sourceSignature": "2026-08-19T15:55:53.618Z:112418",
+      "pdfPath": "/documents/1B8Tzlv4yrwfqLiFkPP9LW2iO16euI1e_-d36df98e39f062e25a97.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1IztXLdIAPH1szRYhlOLnSuWjMlxBBOWY",
+      "date": "2026-04-05",
+      "title": "Easter Sunday",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1IztXLdIAPH1szRYhlOLnSuWjMlxBBOWY/view",
+      "sourceName": "4.5.26_SDG_-_Easter_Sunday.pdf",
+      "sourceSignature": "2026-08-19T15:55:55.756Z:460161",
+      "pdfPath": "/documents/1IztXLdIAPH1szRYhlOLnSuWjMlxBBOWY-98646937c6e3d9748c48.pdf",
+      "pageCount": 2,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        },
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "14_q21uafZndcVNHqyQuDGra_ha9QybGD",
+      "date": "2026-03-29",
+      "title": "Palm Sunday",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/14_q21uafZndcVNHqyQuDGra_ha9QybGD/view",
+      "sourceName": "3.29.26_SDG_-_Palm_Sunday.pdf",
+      "sourceSignature": "2026-08-19T15:55:57.826Z:125106",
+      "pdfPath": "/documents/14_q21uafZndcVNHqyQuDGra_ha9QybGD-e2c12d10977c0746f62e.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1rLd3g_fcffN582kLaLsDkieGJDkHNptf",
+      "date": "2026-03-22",
+      "title": "Romans · 06",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/1rLd3g_fcffN582kLaLsDkieGJDkHNptf/view",
+      "sourceName": "3.22.26_SDG_-_Romans6.pdf",
+      "sourceSignature": "2026-08-19T15:56:00.562Z:134889",
+      "pdfPath": "/documents/1rLd3g_fcffN582kLaLsDkieGJDkHNptf-9f99e5892eb93678b31a.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1JCBIdSNLMFSf1sYJMH8HGVxpBKsYMPbP",
+      "date": "2026-03-15",
+      "title": "Romans · 05",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/1JCBIdSNLMFSf1sYJMH8HGVxpBKsYMPbP/view",
+      "sourceName": "3.15.26_SDG_-_Romans5.pdf",
+      "sourceSignature": "2026-08-19T15:56:02.326Z:115615",
+      "pdfPath": "/documents/1JCBIdSNLMFSf1sYJMH8HGVxpBKsYMPbP-4c8ebe12cf41a969cd62.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "191BTeXjaSnvgjAp58CPSFYIuQUmyb0r4",
+      "date": "2026-03-08",
+      "title": "Romans · 04",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/191BTeXjaSnvgjAp58CPSFYIuQUmyb0r4/view",
+      "sourceName": "3.8.26_SDG_-_Romans4.pdf",
+      "sourceSignature": "2026-08-19T15:56:04.287Z:114592",
+      "pdfPath": "/documents/191BTeXjaSnvgjAp58CPSFYIuQUmyb0r4-bfb7ca67c35653f09549.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "17zNy75gthHdTXuBzgmCC1698ZE5Xp72G",
+      "date": "2026-03-01",
+      "title": "Romans · 03",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/17zNy75gthHdTXuBzgmCC1698ZE5Xp72G/view",
+      "sourceName": "3.1.26_SDG_-_Romans3.pdf",
+      "sourceSignature": "2026-08-19T15:56:08.691Z:96153",
+      "pdfPath": "/documents/17zNy75gthHdTXuBzgmCC1698ZE5Xp72G-e5445c8a7c72d5a78676.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1xflK9yQLAyskb0wOfV5PhedGhHqBHWOK",
+      "date": "2026-02-22",
+      "title": "Romans · 02",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/1xflK9yQLAyskb0wOfV5PhedGhHqBHWOK/view",
+      "sourceName": "2.22.26_SDG_-_Romans2.pdf",
+      "sourceSignature": "2026-08-19T15:56:10.681Z:112864",
+      "pdfPath": "/documents/1xflK9yQLAyskb0wOfV5PhedGhHqBHWOK-1e7142b0aa1de3e3f919.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1X6JnL-DRzQMWgGQ_p8KX7qc2ArqUZ_nz",
+      "date": "2026-02-15",
+      "title": "Romans · 01",
+      "series": "Romans",
+      "sourceUrl": "https://drive.google.com/file/d/1X6JnL-DRzQMWgGQ_p8KX7qc2ArqUZ_nz/view",
+      "sourceName": "2.15.26_SDG_-_Romans1.pdf",
+      "sourceSignature": "2026-08-19T15:56:12.618Z:111070",
+      "pdfPath": "/documents/1X6JnL-DRzQMWgGQ_p8KX7qc2ArqUZ_nz-f70e8a1d6303c7795ea1.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1Va7b1IqAWPDlBnOuuXLSJHMrkeX3Q1wh",
+      "date": "2026-02-08",
+      "title": "Baptism Sunday · 01",
+      "series": "Special Sundays",
+      "sourceUrl": "https://drive.google.com/file/d/1Va7b1IqAWPDlBnOuuXLSJHMrkeX3Q1wh/view",
+      "sourceName": "2.8.26_SDG_-_Baptism1.pdf",
+      "sourceSignature": "2026-08-19T15:56:14.480Z:109881",
+      "pdfPath": "/documents/1Va7b1IqAWPDlBnOuuXLSJHMrkeX3Q1wh-b9a20c823a19864da3f4.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1tKVp9h8Q36vuJDyocxAocSxAIhKxUGY0",
+      "date": "2026-02-04",
+      "title": "All In · Week 04",
+      "series": "All In",
+      "sourceUrl": "https://drive.google.com/file/d/1tKVp9h8Q36vuJDyocxAocSxAIhKxUGY0/view",
+      "sourceName": "2.4.26_SDG_-_All_In.wk.4.pdf",
+      "sourceSignature": "2026-08-19T15:56:16.743Z:115912",
+      "pdfPath": "/documents/1tKVp9h8Q36vuJDyocxAocSxAIhKxUGY0-be62e3c9c690863dd66c.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1iyN5GzFDcY10rY7gyMMER6obk1H4242Z",
+      "date": "2026-01-25",
+      "title": "All In · Week 03",
+      "series": "All In",
+      "sourceUrl": "https://drive.google.com/file/d/1iyN5GzFDcY10rY7gyMMER6obk1H4242Z/view",
+      "sourceName": "1.25.26_SDG_-_All_In.wk.3.pdf",
+      "sourceSignature": "2026-08-19T15:56:19.081Z:127388",
+      "pdfPath": "/documents/1iyN5GzFDcY10rY7gyMMER6obk1H4242Z-f6e852617f1e0035f428.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1a-HISDj6mq5J_uCA7fX4zLIHERnXBkgX",
+      "date": "2026-01-18",
+      "title": "All In · Week 02",
+      "series": "All In",
+      "sourceUrl": "https://drive.google.com/file/d/1a-HISDj6mq5J_uCA7fX4zLIHERnXBkgX/view",
+      "sourceName": "1.18.26_SDG_-_All_In.wk.2.pdf",
+      "sourceSignature": "2026-08-19T15:56:21.370Z:119390",
+      "pdfPath": "/documents/1a-HISDj6mq5J_uCA7fX4zLIHERnXBkgX-f3170b52441fbb42bce4.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1pH1AvkCCDO7_FEhIOsaAjdTvQM2Nq0v4",
+      "date": "2026-01-11",
+      "title": "All In · Week 01",
+      "series": "All In",
+      "sourceUrl": "https://drive.google.com/file/d/1pH1AvkCCDO7_FEhIOsaAjdTvQM2Nq0v4/view",
+      "sourceName": "1.11.26_SDG_-_All_In.wk.1.pdf",
+      "sourceSignature": "2026-08-19T15:56:23.545Z:60577",
+      "pdfPath": "/documents/1pH1AvkCCDO7_FEhIOsaAjdTvQM2Nq0v4-ebb99ec23a8aa7157ea5.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    },
+    {
+      "id": "1EMQA4mbrBBLvgK3UG2AD3gLz6Td23hdc",
+      "date": "2026-01-04",
+      "title": "All In",
+      "series": "All In",
+      "sourceUrl": "https://drive.google.com/file/d/1EMQA4mbrBBLvgK3UG2AD3gLz6Td23hdc/view",
+      "sourceName": "1.4.26_SDG.pdf",
+      "sourceSignature": "2026-08-19T15:56:25.368Z:209454",
+      "pdfPath": "/documents/1EMQA4mbrBBLvgK3UG2AD3gLz6Td23hdc-eed0cf1d57ab14e4305b.pdf",
+      "pageCount": 1,
+      "pages": [
+        {
+          "width": 612,
+          "height": 792
+        }
+      ]
+    }
+  ]
+}

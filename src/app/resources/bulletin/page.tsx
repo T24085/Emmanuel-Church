@@ -1,8 +1,7 @@
-import { BulletinArchive } from "@/components/bulletin-archive";
+import { DocumentArchiveReader } from "@/components/document-archive-reader";
 import { ResourceTabs } from "@/components/resource-tabs";
-import { bulletins } from "@/data/bulletins";
-import { site } from "@/data/site";
-import "../resource-archives.css";
+import archives from "@/data/document-archives.json";
+import "../document-archive.css";
 
 export const metadata = {
   title: "Sunday Bulletins",
@@ -12,22 +11,10 @@ export const metadata = {
 export default function BulletinPage() {
   return (
     <>
-      <ResourceTabs active="bulletin" />
+      <ResourceTabs active="bulletin" includeHeading={false} />
 
-      <BulletinArchive bulletins={bulletins} />
+      <DocumentArchiveReader kind="bulletins" issues={archives.bulletins} />
 
-      <section className="resource-library-close">
-        <div className="site-shell resource-library-close__inner">
-          <div>
-            <p className="eyebrow">Keep exploring</p>
-            <h2>Looking for an Earlier Bulletin?</h2>
-            <p>Browse the church's shared Google Drive folder for more Sunday bulletins.</p>
-          </div>
-          <a className="button button--gold" href={site.bulletinFolder} target="_blank" rel="noreferrer">
-            Open Google Drive
-          </a>
-        </div>
-      </section>
     </>
   );
 }

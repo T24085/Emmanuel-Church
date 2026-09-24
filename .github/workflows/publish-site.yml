@@ -1,0 +1,88 @@
+name: Sync Archives and Publish Website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      [
+        "src/**",
+        "public/**",
+        "scripts/**",
+        "package*.json",
+        "next.config.*",
+        "tsconfig.json",
+        ".github/workflows/publish-site.yml",
+      ]
+  schedule:
+    - cron: "0 18 * * 1"
+      timezone: America/Chicago
+  workflow_dispatch:
+    inputs:
+      refresh_sermons:
+        description: "Refresh sermon metadata as well"
+        type: boolean
+        default: false
+
+# Enable only after local review, named staff Drive editors, API secret and Pages setup.
+concurrency:
+  group: emmanuel-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: vars.DOCUMENT_ARCHIVES_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm run test:staff-rules
+      - uses: actions/cache/restore@v4
+        with:
+          path: public/documents
+          key: document-pdfs-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: document-pdfs-v1-${{ runner.os }}-
+      - name: Synchronize and validate both PDF archives
+        run: npm run sync:documents
+        env:
+          DRIVE_ARCHIVE_API_KEY: ${{ secrets.DRIVE_ARCHIVE_API_KEY }}
+      - name: Refresh sermons through the same publishing pipeline
+        if: github.event_name == 'schedule' || inputs.refresh_sermons == true
+        run: npm run scrape:media-archive
+      - run: npm run test:documents
+      - run: npm run verify
+      - uses: actions/cache/save@v4
+        with:
+          path: public/documents
+          key: document-pdfs-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+      - name: Explain activation state
+        if: vars.DOCUMENT_ARCHIVES_ENABLED != 'true'
+        run: echo 'Preview artifact built; live deployment is disabled until DOCUMENT_ARCHIVES_ENABLED=true.' >> "$GITHUB_STEP_SUMMARY"
+  deploy:
+    if: vars.DOCUMENT_ARCHIVES_ENABLED == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy complete validated website
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -4,9 +4,16 @@
   "description": "",
   "private": true,
   "scripts": {
+    "predev": "node scripts/prepare-pdf-assets.mjs",
+    "prebuild": "node scripts/prepare-pdf-assets.mjs && node scripts/check-document-assets.mjs",
+    "sync:documents": "node --experimental-strip-types scripts/sync-document-archives.mjs",
+    "test:documents": "node --experimental-strip-types --test scripts/test-document-archives.mjs",
     "dev": "next dev",
     "build": "next build",
     "audit:export": "node scripts/audit-export.mjs",
+    "test:staff-rules": "firebase emulators:exec --only firestore --project demo-emmanuel-staff \"node --test scripts/test-staff-rules.mjs\"",
+    "staff:emulators": "firebase emulators:start --only auth,firestore --project demo-emmanuel-staff",
+    "staff:bootstrap": "node scripts/bootstrap-staff-admin.mjs",
     "verify": "npm run build && npm run audit:export",
     "scrape:media-archive": "node scripts/scrape-media-archive.mjs",
     "sync:export": "node scripts/sync-export.mjs",
@@ -19,14 +26,20 @@
   "type": "module",
   "dependencies": {
     "@vimeo/player": "^2.30.4",
+    "firebase": "^12.19.0",
     "next": "^16.2.6",
+    "page-flip": "2.0.7",
+    "pdfjs-dist": "6.3.289",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@types/node": "^25.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "firebase-admin": "^14.5.0",
+    "firebase-tools": "^15.31.0",
     "typescript": "^6.0.3"
   }
 }

@@ -16,3 +16,11 @@ dev-*.log
 *.out.log
 .DS_Store
 Thumbs.db
+.env*
+!.env.example
+.cache/
+public/documents/
+public/pdfjs/
+.firebase
+*-debug.log
+*service-account*.json

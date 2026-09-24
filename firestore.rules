@@ -1,0 +1,104 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email is string;
+    }
+    function accessPath() {
+      return /databases/$(database)/documents/staffPortal/main/access/$(request.auth.token.email.lower());
+    }
+    function member() {
+      return signedIn() && exists(accessPath())
+        && (request.auth.token.email_verified == true
+          || ('uid' in get(accessPath()).data && get(accessPath()).data.uid == request.auth.uid))
+        && get(accessPath()).data.active == true
+        && get(accessPath()).data.role in ['staff', 'admin'];
+    }
+    function admin() { return member() && get(accessPath()).data.role == 'admin'; }
+    function text(value, maximum) { return value is string && value.size() > 0 && value.size() <= maximum; }
+    function optionalText(value, maximum) { return value is string && value.size() <= maximum; }
+    function httpsUrl(value) {
+      return text(value, 2000) && value.matches('https://[^\\s]+')
+        && !value.matches('https://[^/]*@.*');
+    }
+    function optionalUrl(value) { return value == '' || httpsUrl(value); }
+    function ownRequest(requestId) {
+      return get(/databases/$(database)/documents/staffPortal/main/requests/$(requestId)).data.createdBy == request.auth.uid;
+    }
+    function validAccess(data, email) {
+      return data.keys().hasAll(['email', 'name', 'role', 'active', 'createdAt', 'updatedAt', 'updatedBy'])
+        && data.keys().hasOnly(['email', 'name', 'role', 'active', 'createdAt', 'updatedAt', 'updatedBy', 'uid'])
+        && (!('uid' in data) || text(data.uid, 128))
+        && text(data.email, 254) && data.email == email && email == email.lower()
+        && email.matches('[^/\\s@]+@[^/\\s@]+[.][^/\\s@]+')
+        && text(data.name, 100) && data.role in ['staff', 'admin'] && data.active is bool
+        && data.updatedAt == request.time && data.updatedBy == request.auth.uid;
+    }
+    match /staffPortal/main/access/{email} {
+      // Reading one's own approval status grants no workspace access.
+      allow get: if signedIn() && (request.auth.token.email.lower() == email || admin());
+      allow list: if admin();
+      allow create: if admin() && validAccess(request.resource.data, email)
+        && request.resource.data.createdAt == request.time;
+      allow update: if admin() && request.auth.token.email.lower() != email
+        && validAccess(request.resource.data, email)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      // Deactivate access rather than deleting the record. Administrators cannot revoke themselves.
+      allow delete: if false;
+    }
+    match /staffPortal/main/resources/{resourceId} {
+      function validResource(data) {
+        return data.keys().hasAll(['title', 'description', 'url', 'category', 'archived', 'createdAt', 'updatedAt', 'updatedBy'])
+          && data.keys().hasOnly(['title', 'description', 'url', 'category', 'archived', 'createdAt', 'updatedAt', 'updatedBy'])
+          && text(data.title, 120) && optionalText(data.description, 600) && httpsUrl(data.url)
+          && data.category in ['Shared folders', 'Sunday service', 'Ministries', 'Office & planning']
+          && data.archived is bool && data.updatedAt == request.time && data.updatedBy == request.auth.uid;
+      }
+      allow read: if member();
+      allow create: if admin() && validResource(request.resource.data) && request.resource.data.createdAt == request.time;
+      allow update: if admin() && validResource(request.resource.data) && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if false;
+    }
+    match /staffPortal/main/settings/notice {
+      allow read: if member();
+      allow create, update: if admin()
+        && request.resource.data.keys().hasAll(['title', 'body', 'updatedAt', 'updatedBy'])
+        && request.resource.data.keys().hasOnly(['title', 'body', 'updatedAt', 'updatedBy'])
+        && optionalText(request.resource.data.title, 120) && optionalText(request.resource.data.body, 2000)
+        && request.resource.data.updatedAt == request.time && request.resource.data.updatedBy == request.auth.uid;
+    }
+    match /staffPortal/main/requests/{requestId} {
+      allow read: if member() && (admin() || resource.data.createdBy == request.auth.uid);
+      allow create: if member()
+        && request.resource.data.keys().hasAll(['title', 'body', 'category', 'status', 'referenceUrl', 'neededBy', 'createdBy', 'authorEmail', 'authorName', 'createdAt', 'updatedAt'])
+        && request.resource.data.keys().hasOnly(['title', 'body', 'category', 'status', 'referenceUrl', 'neededBy', 'createdBy', 'authorEmail', 'authorName', 'createdAt', 'updatedAt'])
+        && text(request.resource.data.title, 140) && text(request.resource.data.body, 5000)
+        && request.resource.data.category in ['Website update', 'Event or announcement', 'Photos or documents', 'General message']
+        && request.resource.data.status == 'New' && optionalUrl(request.resource.data.referenceUrl)
+        && (request.resource.data.neededBy == '' || request.resource.data.neededBy.matches('[0-9]{4}-[0-9]{2}-[0-9]{2}'))
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.authorEmail == request.auth.token.email.lower()
+        && request.resource.data.authorName == get(accessPath()).data.name
+        && request.resource.data.createdAt == request.time && request.resource.data.updatedAt == request.time;
+      allow update: if member() && request.resource.data.updatedAt == request.time
+        && ((admin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+          && request.resource.data.status in ['New', 'In review', 'Waiting on staff', 'Completed'])
+          || (resource.data.createdBy == request.auth.uid
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['updatedAt'])));
+      allow delete: if false;
+      match /messages/{messageId} {
+        allow read: if member() && (admin() || ownRequest(requestId));
+        allow create: if member() && (admin() || ownRequest(requestId))
+          && exists(/databases/$(database)/documents/staffPortal/main/requests/$(requestId))
+          && request.resource.data.keys().hasAll(['body', 'authorId', 'authorName', 'createdAt'])
+          && request.resource.data.keys().hasOnly(['body', 'authorId', 'authorName', 'createdAt'])
+          && text(request.resource.data.body, 5000) && request.resource.data.authorId == request.auth.uid
+          && request.resource.data.authorName == get(accessPath()).data.name
+          && request.resource.data.createdAt == request.time;
+        allow update, delete: if false;
+      }
+    }
+    // No public access. Add other applications' rules explicitly if this project is shared.
+    match /{document=**} { allow read, write: if false; }
+  }
+}

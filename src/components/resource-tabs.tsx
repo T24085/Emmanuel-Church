@@ -21,11 +21,11 @@ const resourceSections: Array<{
   },
 ];
 
-export function ResourceTabs({ active }: { active?: ResourceSection }) {
+export function ResourceTabs({ active, includeHeading = true }: { active?: ResourceSection; includeHeading?: boolean }) {
   return (
     <nav className="resource-tabs-shell" aria-label="Resource sections">
       <div className="site-shell">
-        {active ? <h1 className="sr-only">{resourceSections.find((section) => section.key === active)?.label}</h1> : null}
+        {active && includeHeading ? <h1 className="sr-only">{resourceSections.find((section) => section.key === active)?.label}</h1> : null}
         <div className="resource-tabs">
           {resourceSections.map((section) => (
             <Link

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ResourceTabs } from "@/components/resource-tabs";
-import { StudyGuideArchive } from "@/components/study-guide-archive";
-import { studyGuides } from "@/data/study-guides";
+import { DocumentArchiveReader } from "@/components/document-archive-reader";
+import archives from "@/data/document-archives.json";
 import "../resource-archives.css";
+import "../document-archive.css";
 
 export const metadata = {
   title: "Weekly Sermon Study Guides",
@@ -12,9 +13,9 @@ export const metadata = {
 export default function WeeklySermonStudyGuidesPage() {
   return (
     <>
-      <ResourceTabs active="study-guides" />
+      <ResourceTabs active="study-guides" includeHeading={false} />
 
-      <StudyGuideArchive guides={studyGuides} />
+      <DocumentArchiveReader kind="guides" issues={archives.guides} />
 
       <section className="resource-library-close">
         <div className="site-shell resource-library-close__inner">
