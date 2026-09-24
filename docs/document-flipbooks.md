@@ -38,7 +38,9 @@ PDF.js renders visible/nearby pages from same-origin, content-versioned URLs. Ca
 - Invalid dates, duplicate dates, corrupt/encrypted/unreadable PDFs, files over 75 MB, and documents over 200 pages stop the sync with a correction message. Non-PDFs and shortcuts are ignored.
 - The complete archive manifest changes only after both folder listings and every PDF validate. Confirmed removals disappear at the next successful sync. An empty/incomplete/failed listing cannot erase the working archive.
 
-## Activation checklist — not yet performed
+## Activation checklist
+
+Activated September 24, 2026: the user confirmed Viewer link access and named staff editors; a dedicated Drive-only key was created and saved as `DRIVE_ARCHIVE_API_KEY`; GitHub Pages now uses Actions with `DOCUMENT_ARCHIVES_ENABLED=true`. The first authenticated API sync validated all 19 bulletins and 32 study guides. Deployment run 36046472884 succeeded, including 25 staff-rule tests, 14 archive tests, and the 21-route export audit. No PDF binaries or private keys were committed. The steps below are retained for recovery or a future environment.
 
 1. Review both readers locally and authorize publishing.
 2. Supply the staff editor email addresses. In Drive, grant those named staff Editor access, retain the owner, and change general link access from **Editor** to **Viewer** on both folders. Check for any separate file-level edit grants. Verify a staff upload and public read. Portal approval alone does not grant Google Drive rights.
@@ -47,7 +49,7 @@ PDF.js renders visible/nearby pages from same-origin, content-versioned URLs. Ca
 5. Run **Sync Archives and Publish Website** manually while `DOCUMENT_ARCHIVES_ENABLED` is absent/false. It should produce a validated Pages artifact without deploying it. Test the first real API sync and check workflow logs.
 6. At the approved cutover, change GitHub Settings → Pages → Source to **GitHub Actions**, then set repository variable `DOCUMENT_ARCHIVES_ENABLED=true`. Run the unified workflow and verify both live routes and PDF URLs under `/Emmanuel-Church/`.
 
-No live Drive sharing, secrets, Pages settings, or repository variables were changed as part of the local implementation.
+Drive sharing was changed by the user, not by the implementation. The Drive API key, GitHub secret, Pages source, and activation variable were configured later with the user's authorization during rollout. Firebase credentials were not changed.
 
 ## Scheduled operation and rollback
 
@@ -68,4 +70,4 @@ To stop automatic publishing, set `DOCUMENT_ARCHIVES_ENABLED=false` and disable 
 - Production build and static export audit pass (21 routes).
 - Browser checked: cover rendering, landscape bulletin spread, portrait guide spread, 390px one-page layout, 768px tablet, 1115px desktop, 1440px desktop, date search, date jump, keyboard turning, URL reload, selectable PDF text, zoom dialog and Escape.
 - Reduced-motion routing is implemented via `matchMedia`; manual reading mode exercises the same non-animated renderer. OS-level reduced-motion emulation and real-device touch/safe-area behavior still merit a device check before publishing.
-- Automated Drive API credentials, named staff sharing, Actions Pages cutover, and a live deployment smoke test remain activation prerequisites.
+- Drive API sync, named staff sharing confirmation, Actions Pages cutover, and deployment completed September 24, 2026. The live bulletin reader renders its website-hosted PDFs correctly. Staff sign-in still requires the user to enter their own password; no live password was collected or changed.
