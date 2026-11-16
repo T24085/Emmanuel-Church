@@ -1,8 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import { DoctrineSearch } from "@/components/doctrine-search";
 import { site } from "@/data/site";
 import { withBasePath } from "@/lib/site-path";
 import "./about-redesign.css";
@@ -55,9 +52,7 @@ export const metadata = {
   description: "Learn about Emmanuel Church in Abilene, our mission, core values, and beliefs.",
 };
 
-export default async function WhoWeArePage() {
-  const doctrineHtml = await readFile(join(process.cwd(), "src/content/doctrine-statement.html"), "utf8");
-
+export default function WhoWeArePage() {
   return (
     <>
       <section className="about-hero about-motion" aria-labelledby="about-title">
@@ -74,7 +69,6 @@ export default async function WhoWeArePage() {
           <p className="about-hero__intro">{site.mission}</p>
           <div className="about-hero__links">
             <Link className="button button--gold" href="/our-staff/">Meet the Staff</Link>
-            <a className="about-text-link" href="#doctrine">Read Our Doctrine <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -145,20 +139,6 @@ export default async function WhoWeArePage() {
               </details>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="about-doctrine" id="doctrine" aria-labelledby="about-doctrine-title">
-        <div className="about-container about-doctrine__layout">
-          <div className="about-doctrine__intro about-motion">
-            <p className="eyebrow">Doctrinal appendix</p>
-            <h2 id="about-doctrine-title">What We Believe, in Full.</h2>
-            <p>Read the complete Doctrines of Emmanuel Church, Inc. The statement is preserved in its original wording and references.</p>
-          </div>
-          <details className="doctrines-panel about-doctrine__panel about-motion">
-            <summary><span>Open the full statement</span><span className="doctrines-panel__summary-hint">Long-form reading</span></summary>
-            <div className="doctrines-panel__content"><DoctrineSearch html={doctrineHtml} /></div>
-          </details>
         </div>
       </section>
     </>

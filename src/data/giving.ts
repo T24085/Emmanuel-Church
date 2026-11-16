@@ -32,7 +32,7 @@ export const givingJourneyStages: GivingJourneyStage[] = [
       "An Awakened Giver recognizes that generosity is part of following Jesus and takes the first step in giving. They respond to God's Word by choosing to give and beginning to trust God with what He has entrusted to them.",
     scripture: "Philippians 1:4–6",
     scriptureText:
-      "I thank my God upon every remembrance of you, always in every prayer of mine for you all making request with joy, for your fellowship in the gospel from the first day until now; being confident of this, that He who began a good work in you will carry it on to completion until the day of Christ Jesus.",
+      "In all my prayers for all of you, I always pray with joy because of your partnership in the gospel from the first day until now, being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus.",
     question:
       "God, do I trust You as my Provider? What is one step I can take to begin giving and show that I trust You with what You have entrusted to me?",
   },
@@ -58,7 +58,7 @@ export const givingJourneyStages: GivingJourneyStage[] = [
       "An Intentional Giver begins to make generosity a priority. They look honestly at their spending, saving, and giving and ask, ‘Does the way I use my resources reflect what I say I value?’ This is often where a person begins intentionally pursuing the biblical practice of tithing.",
     scripture: "2 Corinthians 8:5, 7",
     scriptureText:
-      "They exceeded our expectations: They gave themselves first of all to the Lord, and then by the will of God also to us. Since you excel in everything—in faith, in speech, in knowledge, in complete earnestness and in the love we have kindled in you—see that you also excel in this grace of giving.",
+      "And they exceeded our expectations: They gave themselves first of all to the Lord, and then by the will of God also to us. But since you excel in everything—in faith, in speech, in knowledge, in complete earnestness and in the love we have kindled in you—see that you also excel in this grace of giving.",
     question:
       "God, does the way I spend, save, and give reflect what I say I value? What needs to change so that my resources increasingly reflect that You come first?",
   },
@@ -71,7 +71,7 @@ export const givingJourneyStages: GivingJourneyStage[] = [
       "A Surrendered Giver recognizes that Jesus has given everything for us, so everything we have belongs to Him. They surrender not just a portion of their resources but their whole financial life to God. Giving begins to shape how they spend, save, and live.",
     scripture: "1 Chronicles 29:14",
     scriptureText:
-      "But who am I, and who are my people, that we should be able to give as generously as this? Everything comes from You, and we have given You only what comes from Your hand.",
+      "But who am I, and who are my people, that we should be able to give as generously as this? Everything comes from you, and we have given you only what comes from your hand.",
     question:
       "God, is there any part of my financial life that I am still holding back from You? What would it look like to trust You with everything You have entrusted to me?",
   },
@@ -100,11 +100,11 @@ export const givingPrinciples: GivingPrinciple[] = [
     scriptures: [
       {
         reference: "James 1:17",
-        text: "Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.",
+        text: "Every good and perfect gift is from above, coming down from the Father of the heavenly lights, who does not change like shifting shadows.",
       },
       {
         reference: "1 Chronicles 29:14",
-        text: "But who am I, and what is my people, that we should be able to offer so willingly after this sort? for all things come of thee, and of thine own have we given thee.",
+        text: "But who am I, and who are my people, that we should be able to give as generously as this? Everything comes from you, and we have given you only what comes from your hand.",
       },
     ],
   },
@@ -117,11 +117,11 @@ export const givingPrinciples: GivingPrinciple[] = [
     scriptures: [
       {
         reference: "Proverbs 3:9",
-        text: "Honour the LORD with thy substance, and with the firstfruits of all thine increase:",
+        text: "Honor the Lord with your wealth, with the firstfruits of all your crops;",
       },
       {
         reference: "Romans 12:1",
-        text: "I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.",
+        text: "Therefore, I urge you, brothers and sisters, in view of God’s mercy, to offer your bodies as a living sacrifice, holy and pleasing to God—this is your true and proper worship.",
       },
     ],
   },
@@ -134,11 +134,11 @@ export const givingPrinciples: GivingPrinciple[] = [
     scriptures: [
       {
         reference: "2 Corinthians 8:5",
-        text: "And this they did, not as we hoped, but first gave their own selves to the Lord, and unto us by the will of God.",
+        text: "And they exceeded our expectations: They gave themselves first of all to the Lord, and then by the will of God also to us.",
       },
       {
         reference: "2 Corinthians 8:7",
-        text: "Therefore, as ye abound in every thing, in faith, and utterance, and knowledge, and in all diligence, and in your love to us, see that ye abound in this grace also.",
+        text: "But since you excel in everything—in faith, in speech, in knowledge, in complete earnestness and in the love we have kindled in you—see that you also excel in this grace of giving.",
       },
     ],
   },
@@ -151,11 +151,11 @@ export const givingPrinciples: GivingPrinciple[] = [
     scriptures: [
       {
         reference: "Matthew 6:33",
-        text: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+        text: "But seek first his kingdom and his righteousness, and all these things will be given to you as well.",
       },
       {
         reference: "2 Corinthians 9:11",
-        text: "Being enriched in every thing to all bountifulness, which causeth through us thanksgiving to God.",
+        text: "You will be enriched in every way so that you can be generous on every occasion, and through us your generosity will result in thanksgiving to God.",
       },
     ],
   },

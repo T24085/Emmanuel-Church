@@ -16,8 +16,9 @@ export type StaffMember = {
 export const site = {
   name: "Emmanuel Church",
   tagline: "A gospel-centered church in Abilene, for Abilene.",
+  vision: "Reach the Lost, Disciple Believers, Equip all for Ministry.",
   mission:
-    "To see people transformed and families strengthened through the love, grace, worship, and truth of Jesus Christ.",
+    "Our mission is to see the transformation of people and the building of families because of the Love, Grace, Worship, and Truth of Jesus Christ.",
   phone: "(785) 263-3342",
   officeEmail: "swaldrop@ecabilene.org",
   address: "1300 N. Vine Street, Abilene, KS 67410",
@@ -72,7 +73,7 @@ export const quickLinks: LinkItem[] = [
 
 export const featureCards = [
   {
-    title: "Expository Preaching",
+    title: "Engaging Preaching",
     text: "Scripture drives the message.",
     href: "/resources/sermons",
   },

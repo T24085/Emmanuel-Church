@@ -106,11 +106,11 @@ export function ScriptureModal({ title, scriptures }: ScriptureModalProps) {
   return (
     <>
       <div className="giving-foundation__scriptures" aria-label={`${title} scripture`}>
-        <p className="eyebrow eyebrow--small">Scripture · KJV</p>
+        <p className="eyebrow eyebrow--small">Scripture · NIV®</p>
         {scriptures.map((scripture) => (
           <blockquote key={scripture.reference}>
             <p>“{scripture.text}”</p>
-            <cite>{scripture.reference}</cite>
+            <cite>{scripture.reference} · NIV®</cite>
           </blockquote>
         ))}
         <button
@@ -141,7 +141,7 @@ export function ScriptureModal({ title, scriptures }: ScriptureModalProps) {
                 aria-labelledby={titleId}
               >
                 <div className="scripture-modal__header">
-                  <p className="eyebrow eyebrow--small">Scripture · KJV</p>
+                  <p className="eyebrow eyebrow--small">Scripture · NIV®</p>
                   <button
                     ref={closeRef}
                     className="scripture-modal__close"
@@ -159,7 +159,7 @@ export function ScriptureModal({ title, scriptures }: ScriptureModalProps) {
                       <p>
                         “<TypingScripture text={scripture.text} delay={typingDelays[index]} />”
                       </p>
-                      <cite>{scripture.reference}</cite>
+                      <cite>{scripture.reference} · NIV®</cite>
                     </blockquote>
                   ))}
                 </div>

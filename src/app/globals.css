@@ -3874,6 +3874,15 @@ select {
   text-align: center;
 }
 
+.giving-foundation__copyright {
+  max-width: 52rem;
+  margin: 1.5rem auto 0;
+  color: color-mix(in srgb, var(--ink) 58%, transparent);
+  font-size: 0.72rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
 .giving-faq {
   display: grid;
   grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);

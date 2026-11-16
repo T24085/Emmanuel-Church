@@ -117,6 +117,11 @@ export default function OnlineGivingPage() {
             <p className="giving-foundation__transition">
               Generosity begins with what God has already given.
             </p>
+            <p className="giving-foundation__copyright">
+              Scripture taken from the Holy Bible, NEW INTERNATIONAL VERSION®, NIV® Copyright ©
+              1973, 1978, 1984, 2011 by Biblica, Inc.® Used by permission. All rights reserved
+              worldwide.
+            </p>
           </section>
         </div>
         <section id="giving-faq" className="giving-faq site-shell" aria-labelledby="giving-faq-title">

@@ -142,7 +142,7 @@ export function GivingJourneyModal({ className }: GivingJourneyModalProps) {
                           <p className="giving-journey-stage__quote">“{stage.quote}”</p>
                           <p>{stage.body}</p>
                           <div className="giving-journey-stage__scripture">
-                            <strong>{stage.scripture}</strong>
+                            <strong>{stage.scripture} · NIV®</strong>
                             <p>{stage.scriptureText}</p>
                           </div>
                           <p className="giving-journey-stage__question">Question to ask: {stage.question}</p>

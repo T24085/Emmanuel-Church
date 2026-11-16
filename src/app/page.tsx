@@ -36,13 +36,6 @@ const homepageMinistryImages = {
   },
 } as const;
 
-const homepageFeatureSymbols = [
-  "/images/home-symbol-scripture.png",
-  "/images/home-symbol-communion.png",
-  "/images/home-symbol-giving.png",
-  "/images/home-symbol-events.png",
-] as const;
-
 const homepageValues = [
   {
     title: "Love",
@@ -137,7 +130,7 @@ export default async function HomePage() {
         <div className="site-shell hero__inner">
           <div className="hero__copy">
             <div className="hero__headline">
-              <p className="eyebrow">Knowing Christ. Making Him known.</p>
+              <p className="eyebrow">{site.vision}</p>
               <h1>
                 <span className="hero__title-line hero__title-line--accent">
                   <span className="hero__title-word">Emmanuel</span>
@@ -147,7 +140,7 @@ export default async function HomePage() {
                 </span>
               </h1>
               <p className="hero__lede">
-                We exist to glorify God by making disciples of Jesus Christ through the power of the gospel.
+                {site.mission}
               </p>
             </div>
             <div className="hero__actions">
@@ -170,12 +163,6 @@ export default async function HomePage() {
               <span className="feature-card__index" aria-hidden="true">
                 0{index + 1}
               </span>
-              <div
-                className="feature-card__icon feature-card__icon--symbol"
-                aria-hidden="true"
-              >
-                <img src={withBasePath(homepageFeatureSymbols[index] || homepageFeatureSymbols[0])} alt="" />
-              </div>
               <div>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
